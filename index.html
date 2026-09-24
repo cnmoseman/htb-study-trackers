@@ -14,20 +14,18 @@
   h1{font-size:32px;letter-spacing:-.02em}
   .sub{color:var(--muted);margin-top:8px;max-width:660px}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
-  .card{position:relative;display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:transform .15s,border-color .15s,box-shadow .15s}
+  .card{position:relative;display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
   .card:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 8px 30px rgba(0,0,0,.35)}
-  .card img{border-radius:50%;flex:0 0 auto}
+  .open{position:absolute;inset:0;z-index:0;border-radius:14px}
+  .card img{border-radius:50%;flex:0 0 auto;position:relative;z-index:1}
+  .body{position:relative;z-index:1;pointer-events:none}
   .code{font-size:19px;font-weight:800;color:var(--acc);letter-spacing:.02em}
-  .name{font-size:14px;font-weight:600;margin-top:1px}
+  .name{font-size:14px;font-weight:600;margin-top:1px;padding-right:22px}
   .meta{font-size:12px;color:var(--faint);margin-top:4px}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
   .tags span{font-size:11px;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
-  .actions{display:flex;gap:14px;align-items:center;margin-top:13px}
-  .open{font-size:13px;font-weight:700;color:var(--acc);text-decoration:none}
-  .open::after{content:"";position:absolute;inset:0}
-  .open:hover{text-decoration:underline}
-  .dl{position:relative;z-index:1;font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:7px;padding:3px 9px}
-  .dl:hover{color:var(--txt);border-color:var(--muted)}
+  .dl{position:absolute;top:12px;right:12px;z-index:2;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--acc);opacity:.75;transition:opacity .15s,background .15s}
+  .dl:hover{opacity:1;background:var(--bg2)}
   footer{margin-top:44px;color:var(--faint);font-size:13px}
   footer a{color:var(--muted)}
 </style>
@@ -36,111 +34,95 @@
   <div class="wrap">
     <header>
       <h1>Study Trackers</h1>
-      <p class="sub">Interactive, single-file day-by-day study trackers for Hack The Box certifications. Open one in your browser, or download the single HTML file to use offline. Progress saves in your browser, per tracker.</p>
+      <p class="sub">Interactive, single-file day-by-day study trackers for Hack The Box certifications. Click a cert to open its tracker, or use the download arrow to save the single HTML file for offline use. Progress saves in your browser, per tracker.</p>
     </header>
     <div class="grid">
       <div class="card" style="--acc:#2f95ff">
+        <a class="open" href="./cjca/" aria-label="Open CJCA tracker"></a>
+        <a class="dl" href="./cjca/index.html" download="cjca-study-tracker.html" aria-label="Download CJCA tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cjca.png" alt="CJCA badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CJCA</div>
           <div class="name">Certified Junior Cybersecurity Associate</div>
           <div class="meta">Junior Cybersecurity Analyst Job-Role Path</div>
           <div class="tags"><span>20 modules</span><span>318 sections</span><span>Easy</span></div>
-          <div class="actions">
-            <a class="open" href="./cjca/">Open tracker</a>
-            <a class="dl" href="./cjca/index.html" download="cjca-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#a34ff2">
+        <a class="open" href="./cpts/" aria-label="Open CPTS tracker"></a>
+        <a class="dl" href="./cpts/index.html" download="cpts-study-tracker.html" aria-label="Download CPTS tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cpts.png" alt="CPTS badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CPTS</div>
           <div class="name">Certified Penetration Testing Specialist</div>
           <div class="meta">Penetration Tester Job-Role Path</div>
           <div class="tags"><span>28 modules</span><span>495 sections</span><span>Medium</span></div>
-          <div class="actions">
-            <a class="open" href="./cpts/">Open tracker</a>
-            <a class="dl" href="./cpts/index.html" download="cpts-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#ed635e">
+        <a class="open" href="./cwes/" aria-label="Open CWES tracker"></a>
+        <a class="dl" href="./cwes/index.html" download="cwes-study-tracker.html" aria-label="Download CWES tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cwes.png" alt="CWES badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CWES</div>
           <div class="name">Certified Web Exploitation Specialist</div>
           <div class="meta">Web Penetration Tester Job-Role Path</div>
           <div class="tags"><span>20 modules</span><span>279 sections</span><span>Medium</span></div>
-          <div class="actions">
-            <a class="open" href="./cwes/">Open tracker</a>
-            <a class="dl" href="./cwes/index.html" download="cwes-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#fcc000">
+        <a class="open" href="./cwee/" aria-label="Open CWEE tracker"></a>
+        <a class="dl" href="./cwee/index.html" download="cwee-study-tracker.html" aria-label="Download CWEE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cwee.png" alt="CWEE badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CWEE</div>
           <div class="name">Certified Web Exploitation Expert</div>
           <div class="meta">Senior Web Penetration Tester Job-Role Path</div>
           <div class="tags"><span>15 modules</span><span>245 sections</span><span>Hard</span></div>
-          <div class="actions">
-            <a class="open" href="./cwee/">Open tracker</a>
-            <a class="dl" href="./cwee/index.html" download="cwee-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#00eafc">
+        <a class="open" href="./cdsa/" aria-label="Open CDSA tracker"></a>
+        <a class="dl" href="./cdsa/index.html" download="cdsa-study-tracker.html" aria-label="Download CDSA tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cdsa.png" alt="CDSA badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CDSA</div>
           <div class="name">Certified Defensive Security Analyst</div>
           <div class="meta">SOC Analyst Job-Role Path</div>
           <div class="tags"><span>15 modules</span><span>167 sections</span><span>Medium</span></div>
-          <div class="actions">
-            <a class="open" href="./cdsa/">Open tracker</a>
-            <a class="dl" href="./cdsa/index.html" download="cdsa-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#e436b4">
+        <a class="open" href="./cape/" aria-label="Open CAPE tracker"></a>
+        <a class="dl" href="./cape/index.html" download="cape-study-tracker.html" aria-label="Download CAPE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cape.png" alt="CAPE badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CAPE</div>
           <div class="name">Certified Active Directory Pentesting Expert</div>
           <div class="meta">Active Directory Penetration Tester Job-Role Path</div>
           <div class="tags"><span>15 modules</span><span>253 sections</span><span>Hard</span></div>
-          <div class="actions">
-            <a class="open" href="./cape/">Open tracker</a>
-            <a class="dl" href="./cape/index.html" download="cape-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#f05a1e">
+        <a class="open" href="./cwpe/" aria-label="Open CWPE tracker"></a>
+        <a class="dl" href="./cwpe/index.html" download="cwpe-study-tracker.html" aria-label="Download CWPE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/cwpe.png" alt="CWPE badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">CWPE</div>
           <div class="name">Certified Wi-Fi Pentesting Expert</div>
           <div class="meta">Wi-Fi Penetration Tester Job-Role Path</div>
           <div class="tags"><span>10 modules</span><span>170 sections</span><span>Hard</span></div>
-          <div class="actions">
-            <a class="open" href="./cwpe/">Open tracker</a>
-            <a class="dl" href="./cwpe/index.html" download="cwpe-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
       <div class="card" style="--acc:#9d94ea">
+        <a class="open" href="./coae/" aria-label="Open COAE tracker"></a>
+        <a class="dl" href="./coae/index.html" download="coae-study-tracker.html" aria-label="Download COAE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
         <img src="assets/coae.png" alt="COAE badge" width="64" height="64" loading="lazy">
         <div class="body">
           <div class="code">COAE</div>
           <div class="name">Certified Offensive AI Expert</div>
           <div class="meta">AI Red Teamer Job-Role Path</div>
           <div class="tags"><span>12 modules</span><span>230 sections</span><span>Hard</span></div>
-          <div class="actions">
-            <a class="open" href="./coae/">Open tracker</a>
-            <a class="dl" href="./coae/index.html" download="coae-study-tracker.html">Download .html</a>
-          </div>
         </div>
       </div>
     </div>
