@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Trackers</title>
 <style>
-  :root{--bg:#0b1120;--bg2:#111a2b;--card:#151f33;--line:#26324a;--txt:#eef1f8;--muted:#9fb0cc;--faint:#6b7a95}
+  :root{--bg:#0b1120;--bg2:#111a2b;--card:#151f33;--line:#26324a;--txt:#eef1f8;--muted:#9fb0cc;--faint:#6b7a95;--acc:#6ea8ff}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
   a{color:inherit}
@@ -26,7 +26,15 @@
   .tags span{font-size:11px;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
   .dl{position:absolute;top:12px;right:12px;z-index:2;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--acc);opacity:.75;transition:opacity .15s,background .15s}
   .dl:hover{opacity:1;background:var(--bg2)}
-  footer{margin-top:44px;color:var(--faint);font-size:13px}
+  .about{margin-top:48px;padding:28px 28px 8px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .about h2{font-size:22px;letter-spacing:-.01em}
+  .about h3{font-size:15px;margin-top:22px;color:var(--txt)}
+  .about p{color:var(--muted);margin-top:10px;max-width:760px}
+  .about ul,.about ol{color:var(--muted);margin:10px 0 0 20px;max-width:760px}
+  .about li{margin-top:7px}
+  .about strong{color:var(--txt);font-weight:600}
+  .note{margin:22px 0 20px;padding:14px 16px;background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:8px;color:var(--muted);font-size:13px;max-width:820px}
+  footer{margin-top:36px;color:var(--faint);font-size:13px}
   footer a{color:var(--muted)}
 </style>
 </head>
@@ -126,6 +134,37 @@
         </div>
       </div>
     </div>
+    <section class="about">
+      <h2>About these trackers</h2>
+      <p>Each tracker turns a Hack The Box certification path into a day-by-day plan you can actually follow. It lists every module in study order, split into day-sized chunks that match HTB's real section headings, and keeps track of what you have finished.</p>
+
+      <h3>What you get</h3>
+      <ul>
+        <li>A progress dashboard: an overall completion ring, days done, best streak, current phase, a weekly progress chart, and an ahead or behind pace indicator based on your start date.</li>
+        <li>Five timeline options set by how many hours a week you can study (about 50, 40, 30, 20, and a relaxed pace). Pick one and the same curriculum repacks into more or fewer days. Your progress carries over when you switch.</li>
+        <li>A resource library for each cert: the official HTB cert and path pages, every module in order, video reviews, first-hand exam write-ups, reporting templates, and the core tooling.</li>
+        <li>A notes field on every day for commands that worked, credentials you found, and things to revisit.</li>
+      </ul>
+
+      <h3>How to use one</h3>
+      <ol>
+        <li>Click a cert to open its tracker, or use the download arrow to save the single HTML file for offline use.</li>
+        <li>Set your start date at the top and pick the timeline that fits your week.</li>
+        <li>Work through each day and check off tasks. A day is marked complete when all its tasks are done.</li>
+        <li>Use <strong>Export backup</strong> now and then to save a copy of your progress.</li>
+      </ol>
+
+      <h3>How they work</h3>
+      <ul>
+        <li>Each tracker is one self-contained HTML file. No install, no account, no server, and it runs offline once downloaded.</li>
+        <li>Progress is saved in your browser, separately for each tracker. It stays on that one browser and device and does not sync, so use <strong>Export</strong> and <strong>Import</strong> to move it between machines.</li>
+        <li>Module time estimates come from HTB's own per-module hours, so the pace and the weekly-hours math are realistic.</li>
+      </ul>
+
+      <div class="note">
+        <strong>Hosted vs. downloaded.</strong> Using a tracker here in the browser is the easy way to start, and most updates are safe: fixing wording, resources, hours, or timelines keeps your checkmarks in place. But this hosted version can change whenever the site is updated, and a structural change (reordering or adding days or tasks) can shift your saved progress onto the wrong items. If you want a copy that never changes under you, <strong>download the HTML file</strong> and run it locally, and <strong>export a backup</strong> regularly either way.
+      </div>
+    </section>
     <footer>Independent study aids, not affiliated with or endorsed by Hack The Box. Built on and inspired by <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield's coae-study-tracker</a>.</footer>
   </div>
 </body>
