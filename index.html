@@ -2,164 +2,86 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Trackers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTB Study Trackers</title>
+<meta name="description" content="Interactive, single-file day-by-day study trackers for Hack The Box certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0b1120;--bg2:#111a2b;--card:#151f33;--line:#26324a;--txt:#eef1f8;--muted:#9fb0cc;--faint:#6b7a95;--acc:#6ea8ff}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1040px;margin:0 auto;padding:56px 16px 0;min-height:100vh;display:flex;flex-direction:column}
-  h1{font-size:32px;letter-spacing:-.02em}
-  .readme{margin-top:14px}
-  .lead{color:var(--muted);max-width:820px}
-  .readme h2{font-size:18px;margin-top:30px;letter-spacing:-.01em}
-  .features{list-style:none;margin:14px 0 0;display:grid;gap:10px;max-width:900px}
-  .features li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--muted);font-size:14px}
-  .features strong{color:var(--txt);font-weight:700}
-  .readme ol{color:var(--muted);margin:12px 0 0 20px;max-width:820px}
-  .readme ol li{margin-top:7px}
-  .readme strong{color:var(--txt);font-weight:600}
-  .note{margin:22px 0 4px;padding:14px 16px;background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:8px;color:var(--muted);font-size:13px;max-width:900px}
-  .choose{font-size:18px;margin:40px 0 4px;letter-spacing:-.01em}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:14px}
-  .card{position:relative;display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
-  .card:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 8px 30px rgba(0,0,0,.35)}
-  .open{position:absolute;inset:0;z-index:0;border-radius:14px}
-  .card img{border-radius:50%;flex:0 0 auto;position:relative;z-index:1}
-  .cbody{position:relative;z-index:1;pointer-events:none}
-  .code{font-size:19px;font-weight:800;color:var(--acc);letter-spacing:.02em}
-  .name{font-size:14px;font-weight:600;margin-top:1px;padding-right:22px}
-  .meta{font-size:12px;color:var(--faint);margin-top:4px}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
-  .tags span{font-size:11px;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
-  .dl{position:absolute;top:12px;right:12px;z-index:2;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--acc);opacity:.75;transition:opacity .15s,background .15s}
-  .dl:hover{opacity:1;background:var(--bg2)}
-  footer{margin-top:auto;padding:40px 0 28px;text-align:center;color:var(--faint);font-size:13px}
-  footer a{color:var(--muted)}
+  :root{--bg:#141d2b;--panel:#1a2332;--line:#243044;--text:#eef1f8;--muted:#a4b1cd;--dim:#7c8aa5;--green:#9fef00;--ink:#0d1420}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--muted)}a:hover{color:var(--green)}
+  .hero{background:var(--green);color:var(--ink);padding:22px 40px 40px}
+  .hero .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em}
+  .hero h1{font:700 clamp(44px,7.5vw,76px)/.95 "Chakra Petch",sans-serif;letter-spacing:-.045em;margin:48px 0 0;max-width:900px}
+  .hero p{font:400 17px/1.5 "Chakra Petch",sans-serif;margin:28px 0 0;max-width:560px}
+  .wrap{padding:36px 40px 0;max-width:1200px;margin:0 auto}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .tile{--acc:var(--green);position:relative;overflow:hidden;padding:20px 18px 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .tile .open{position:absolute;inset:0;z-index:1;border-radius:14px}
+  .tile img{border-radius:50%;box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--line);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;background:var(--bg)}
+  .tile .code{font:700 22px "IBM Plex Mono",monospace;color:var(--acc);letter-spacing:.02em}
+  .tile .name{font:500 13px/1.35 "Chakra Petch",sans-serif;color:var(--text);margin-top:4px;min-height:36px}
+  .tile .dl{position:absolute;top:10px;right:10px;z-index:2;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);background:var(--bg);text-decoration:none}
+  .tile .dl:hover{color:var(--green)}
+  .tile .sweep{position:absolute;left:0;right:0;height:2px;top:-2px;opacity:0;background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 12px var(--green);pointer-events:none}
+  .tile:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+  .tile:hover img{transform:scale(1.06);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--acc),0 0 28px var(--acc)}
+  .tile:hover .sweep{animation:sweep .7s ease-out forwards}
+  .tile:focus-within{border-color:var(--acc)}
+  @keyframes sweep{0%{top:-2px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:100%;opacity:0}}
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px;align-items:start}
+  .info h2{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
+  .info ol{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:6px;font:400 13px/1.5 "IBM Plex Sans",sans-serif;color:var(--muted)}
+  .info li{display:flex;gap:10px}
+  .info li b{font:500 12px/1.6 "IBM Plex Mono",monospace;color:var(--text)}
+  .note{padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:400 13px/1.55 "IBM Plex Sans",sans-serif;color:var(--muted)}
+  .note strong.t{display:block;font:600 13px "IBM Plex Sans",sans-serif;color:var(--text);margin-bottom:6px}
+  .note strong.g{color:var(--green);font-weight:600}
+  footer{margin-top:44px;padding:24px 0;border-top:1px solid var(--line);font:400 12px "IBM Plex Sans",sans-serif;color:var(--dim);text-align:center}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info{grid-template-columns:1fr}}
+  @media (max-width:560px){.hero,.wrap{padding-left:20px;padding-right:20px}.hero h1{margin-top:32px}}
+  @media (prefers-reduced-motion:reduce){.tile,.tile img{transition:none}.tile:hover .sweep{animation:none}}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Study Trackers</h1>
-    <section class="readme">
-      <p class="lead">Interactive, single-file day-by-day study trackers for Hack The Box certifications. Each one turns a certification path into a plan you can actually follow: every module in study order, split into day-sized chunks that match HTB's real section headings, with your progress tracked as you go. Click a cert below to open its tracker, or use the download arrow to save the single HTML file for offline use.</p>
+  <header class="hero">
+    <div class="bar"><span>STUDY TRACKERS</span><span>8 HTB CERTIFICATIONS · SINGLE-FILE · OFFLINE</span></div>
+    <h1>Pick a cert.<br>Get a plan.</h1>
+    <p>Every module in study order, broken into a day-by-day timeline that fits your schedule. Progress saved in your browser, no installation necessary.</p>
+  </header>
 
-      <h2>Features</h2>
-      <ul class="features">
-        <li><strong>Adjustable timeline.</strong> Five options set by how many hours a week you can study (about 50, 40, 30, 20, and a relaxed pace). The same curriculum repacks into more or fewer days, and your checked-off progress carries over when you switch.</li>
-        <li><strong>Day-by-day plan.</strong> Every module in study order, broken into day-sized chunks that follow HTB's actual section headings, each day with its own tasks and a completion milestone.</li>
-        <li><strong>Progress dashboard.</strong> An overall completion ring, days done, best streak, current phase, a weekly progress chart, and an ahead or behind pace indicator based on your start date.</li>
-        <li><strong>Realistic hours.</strong> Time estimates come from HTB's own per-module hours, so the day sizes and the weekly-hours math reflect the real workload.</li>
-        <li><strong>Resource library.</strong> The official HTB cert and path pages, every module in order, video reviews, first-hand exam write-ups, reporting templates, and the core tooling for each cert.</li>
-        <li><strong>Notes and journal.</strong> A collapsible notes field on every day for commands that worked, credentials you found, and things to revisit.</li>
-        <li><strong>Local and offline.</strong> One self-contained HTML file with no install, account, or server. Progress saves in your browser, separately per tracker, and Export/Import moves it between machines.</li>
-      </ul>
+  <main class="wrap">
+    <div class="grid">
+      <div class="tile" style="--acc:#2f95ff"><span class="sweep"></span><a class="open" href="./cjca/" aria-label="Open CJCA tracker"></a><a class="dl" href="./cjca/index.html" download="cjca-study-tracker.html" aria-label="Download CJCA tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cjca.png" alt="CJCA badge" width="96" height="96" loading="lazy"><div><div class="code">CJCA</div><div class="name">Certified Junior Cybersecurity Associate</div></div></div>
+      <div class="tile" style="--acc:#a34ff2"><span class="sweep"></span><a class="open" href="./cpts/" aria-label="Open CPTS tracker"></a><a class="dl" href="./cpts/index.html" download="cpts-study-tracker.html" aria-label="Download CPTS tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cpts.png" alt="CPTS badge" width="96" height="96" loading="lazy"><div><div class="code">CPTS</div><div class="name">Certified Penetration Testing Specialist</div></div></div>
+      <div class="tile" style="--acc:#ed635e"><span class="sweep"></span><a class="open" href="./cwes/" aria-label="Open CWES tracker"></a><a class="dl" href="./cwes/index.html" download="cwes-study-tracker.html" aria-label="Download CWES tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cwes.png" alt="CWES badge" width="96" height="96" loading="lazy"><div><div class="code">CWES</div><div class="name">Certified Web Exploitation Specialist</div></div></div>
+      <div class="tile" style="--acc:#fcc000"><span class="sweep"></span><a class="open" href="./cwee/" aria-label="Open CWEE tracker"></a><a class="dl" href="./cwee/index.html" download="cwee-study-tracker.html" aria-label="Download CWEE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cwee.png" alt="CWEE badge" width="96" height="96" loading="lazy"><div><div class="code">CWEE</div><div class="name">Certified Web Exploitation Expert</div></div></div>
+      <div class="tile" style="--acc:#00eafc"><span class="sweep"></span><a class="open" href="./cdsa/" aria-label="Open CDSA tracker"></a><a class="dl" href="./cdsa/index.html" download="cdsa-study-tracker.html" aria-label="Download CDSA tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cdsa.png" alt="CDSA badge" width="96" height="96" loading="lazy"><div><div class="code">CDSA</div><div class="name">Certified Defensive Security Analyst</div></div></div>
+      <div class="tile" style="--acc:#e436b4"><span class="sweep"></span><a class="open" href="./cape/" aria-label="Open CAPE tracker"></a><a class="dl" href="./cape/index.html" download="cape-study-tracker.html" aria-label="Download CAPE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cape.png" alt="CAPE badge" width="96" height="96" loading="lazy"><div><div class="code">CAPE</div><div class="name">Certified Active Directory Pentesting Expert</div></div></div>
+      <div class="tile" style="--acc:#f05a1e"><span class="sweep"></span><a class="open" href="./cwpe/" aria-label="Open CWPE tracker"></a><a class="dl" href="./cwpe/index.html" download="cwpe-study-tracker.html" aria-label="Download CWPE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/cwpe.png" alt="CWPE badge" width="96" height="96" loading="lazy"><div><div class="code">CWPE</div><div class="name">Certified Wi-Fi Pentesting Expert</div></div></div>
+      <div class="tile" style="--acc:#9d94ea"><span class="sweep"></span><a class="open" href="./coae/" aria-label="Open COAE tracker"></a><a class="dl" href="./coae/index.html" download="coae-study-tracker.html" aria-label="Download COAE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a><img src="assets/coae.png" alt="COAE badge" width="96" height="96" loading="lazy"><div><div class="code">COAE</div><div class="name">Certified Offensive AI Expert</div></div></div>
+    </div>
 
-      <h2>How to use one</h2>
-      <ol>
-        <li>Click a cert to open its tracker, or use the download arrow to save the single HTML file for offline use.</li>
-        <li>Set your start date at the top and pick the timeline that fits your week.</li>
-        <li>Work through each day and check off tasks. A day is marked complete when all its tasks are done.</li>
-        <li>Use <strong>Export backup</strong> now and then to save a copy of your progress.</li>
-      </ol>
-
+    <section class="info">
+      <div>
+        <h2>HOW TO USE</h2>
+        <ol>
+          <li><b>1</b>Open a cert.</li>
+          <li><b>2</b>Set your start date and pick a timeline.</li>
+          <li><b>3</b>Check off tasks; a day completes when all are done.</li>
+          <li><b>4</b>Export a backup now and then.</li>
+        </ol>
+      </div>
       <div class="note">
-        <strong>Hosted vs. downloaded.</strong> Using a tracker here in the browser is the easy way to start, and most updates are safe: fixing wording, resources, hours, or timelines keeps your checkmarks in place. But this hosted version can change whenever the site is updated, and a structural change (reordering or adding days or tasks) can shift your saved progress onto the wrong items. If you want a copy that never changes under you, <strong>download the HTML file</strong> and run it locally, and <strong>export a backup</strong> regularly either way.
+        <strong class="t">Use it here, or take it with you</strong>
+        Opening a tracker on this site is the quickest way to start. If you'd rather have a copy that's yours to keep, <strong class="g">download the HTML file</strong> and open it in any browser.
       </div>
     </section>
-    <h2 class="choose">Pick a certification</h2>
-    <div class="grid">
-      <div class="card" style="--acc:#2f95ff">
-        <a class="open" href="./cjca/" aria-label="Open CJCA tracker"></a>
-        <a class="dl" href="./cjca/index.html" download="cjca-study-tracker.html" aria-label="Download CJCA tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cjca.png" alt="CJCA badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CJCA</div>
-          <div class="name">Certified Junior Cybersecurity Associate</div>
-          <div class="meta">Junior Cybersecurity Analyst Job-Role Path</div>
-          <div class="tags"><span>20 modules</span><span>318 sections</span><span>Easy</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#a34ff2">
-        <a class="open" href="./cpts/" aria-label="Open CPTS tracker"></a>
-        <a class="dl" href="./cpts/index.html" download="cpts-study-tracker.html" aria-label="Download CPTS tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cpts.png" alt="CPTS badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CPTS</div>
-          <div class="name">Certified Penetration Testing Specialist</div>
-          <div class="meta">Penetration Tester Job-Role Path</div>
-          <div class="tags"><span>28 modules</span><span>495 sections</span><span>Medium</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#ed635e">
-        <a class="open" href="./cwes/" aria-label="Open CWES tracker"></a>
-        <a class="dl" href="./cwes/index.html" download="cwes-study-tracker.html" aria-label="Download CWES tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cwes.png" alt="CWES badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CWES</div>
-          <div class="name">Certified Web Exploitation Specialist</div>
-          <div class="meta">Web Penetration Tester Job-Role Path</div>
-          <div class="tags"><span>20 modules</span><span>279 sections</span><span>Medium</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#fcc000">
-        <a class="open" href="./cwee/" aria-label="Open CWEE tracker"></a>
-        <a class="dl" href="./cwee/index.html" download="cwee-study-tracker.html" aria-label="Download CWEE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cwee.png" alt="CWEE badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CWEE</div>
-          <div class="name">Certified Web Exploitation Expert</div>
-          <div class="meta">Senior Web Penetration Tester Job-Role Path</div>
-          <div class="tags"><span>15 modules</span><span>245 sections</span><span>Hard</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#00eafc">
-        <a class="open" href="./cdsa/" aria-label="Open CDSA tracker"></a>
-        <a class="dl" href="./cdsa/index.html" download="cdsa-study-tracker.html" aria-label="Download CDSA tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cdsa.png" alt="CDSA badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CDSA</div>
-          <div class="name">Certified Defensive Security Analyst</div>
-          <div class="meta">SOC Analyst Job-Role Path</div>
-          <div class="tags"><span>15 modules</span><span>167 sections</span><span>Medium</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#e436b4">
-        <a class="open" href="./cape/" aria-label="Open CAPE tracker"></a>
-        <a class="dl" href="./cape/index.html" download="cape-study-tracker.html" aria-label="Download CAPE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cape.png" alt="CAPE badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CAPE</div>
-          <div class="name">Certified Active Directory Pentesting Expert</div>
-          <div class="meta">Active Directory Penetration Tester Job-Role Path</div>
-          <div class="tags"><span>15 modules</span><span>253 sections</span><span>Hard</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#f05a1e">
-        <a class="open" href="./cwpe/" aria-label="Open CWPE tracker"></a>
-        <a class="dl" href="./cwpe/index.html" download="cwpe-study-tracker.html" aria-label="Download CWPE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/cwpe.png" alt="CWPE badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">CWPE</div>
-          <div class="name">Certified Wi-Fi Pentesting Expert</div>
-          <div class="meta">Wi-Fi Penetration Tester Job-Role Path</div>
-          <div class="tags"><span>10 modules</span><span>170 sections</span><span>Hard</span></div>
-        </div>
-      </div>
-      <div class="card" style="--acc:#9d94ea">
-        <a class="open" href="./coae/" aria-label="Open COAE tracker"></a>
-        <a class="dl" href="./coae/index.html" download="coae-study-tracker.html" aria-label="Download COAE tracker (.html)" title="Download .html"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
-        <img src="assets/coae.png" alt="COAE badge" width="64" height="64" loading="lazy">
-        <div class="body">
-          <div class="code">COAE</div>
-          <div class="name">Certified Offensive AI Expert</div>
-          <div class="meta">AI Red Teamer Job-Role Path</div>
-          <div class="tags"><span>12 modules</span><span>230 sections</span><span>Hard</span></div>
-        </div>
-      </div>
-    </div>
-    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box. Built on and inspired by <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield's coae-study-tracker</a>.</footer>
-  </div>
+
+    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · Built on <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield/coae-study-tracker</a></footer>
+  </main>
 </body>
 </html>
