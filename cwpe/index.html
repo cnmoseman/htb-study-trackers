@@ -255,7 +255,7 @@
     </div>
     <div>
       <div class="stats">
-        <div class="stat"><div class="num" id="sDays">0</div><div class="lbl">Days Done</div><div class="meta" id="sDaysMeta">of 55</div></div>
+        <div class="stat"><div class="num" id="sDays">0</div><div class="lbl">Days Done</div><div class="meta" id="sDaysMeta">of 25</div></div>
         <div class="stat"><div class="num" id="sStreak">0</div><div class="lbl">Best Streak</div><div class="meta">days in a row</div></div>
         <div class="stat"><div class="num" id="sToday">—</div><div class="lbl">Today Is</div><div class="meta" id="sTodayMeta">not started</div></div>
         <div class="stat"><div class="num" id="sPhase">—</div><div class="lbl">Current Phase</div><div class="meta" id="sPhaseMeta"></div></div>
@@ -1289,7 +1289,7 @@ const RESOURCES = [
 
 /* ---------- State ---------- */
 const STORE_KEY = "cwpe_tracker_v1";
-let state = {startDate:"", done:{}, notes:{}, mode:55};
+let state = {startDate:"", done:{}, notes:{}, mode:25};
 
 /* Timeline modes: the same full curriculum, repackaged into 25 to 55 days. */
 const MODES = {
@@ -1319,13 +1319,13 @@ let DAYS = [];   // display days for the currently selected mode
 function load(){
   try{
     const raw = localStorage.getItem(STORE_KEY);
-    if(raw){ state = Object.assign({startDate:"",done:{},notes:{},mode:55}, JSON.parse(raw)); }
+    if(raw){ state = Object.assign({startDate:"",done:{},notes:{},mode:25}, JSON.parse(raw)); }
   }catch(e){ /* ignore */ }
   if(!state.startDate){
     const t = new Date();
     state.startDate = t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
   }
-  state.mode = MODES[state.mode] ? +state.mode : 55;
+  state.mode = MODES[state.mode] ? +state.mode : 25;
 }
 function save(){
   try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){ /* ignore */ }
@@ -1726,7 +1726,7 @@ document.getElementById("importFile").addEventListener("change",e=>{
   r.onload = ()=>{
     try{
       const obj = JSON.parse(r.result);
-      state = Object.assign({startDate:"",done:{},notes:{},mode:55}, obj);
+      state = Object.assign({startDate:"",done:{},notes:{},mode:25}, obj);
       save(); init();
       alert("Backup imported successfully.");
     }catch(err){ alert("Could not read that file. Make sure it is a tracker backup."); }
@@ -1735,7 +1735,7 @@ document.getElementById("importFile").addEventListener("change",e=>{
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{
   if(confirm("Reset all progress, notes, and start date? This cannot be undone. Consider exporting a backup first.")){
-    state = {startDate:"",done:{},notes:{},mode:55};
+    state = {startDate:"",done:{},notes:{},mode:25};
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
     init();
   }
