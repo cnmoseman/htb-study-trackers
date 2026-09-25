@@ -7,7 +7,7 @@ Interactive, single-file day-by-day study trackers for Hack The Box certificatio
 Each tracker turns a certification path into a day-by-day plan:
 
 - **Progress dashboard** with an overall completion ring, days done, best streak, current phase, a weekly progress chart, and an ahead or behind pace indicator.
-- **Five timelines** set by weekly study hours (about 50 / 40 / 30 / 20 / a relaxed pace). The same curriculum repacks into more or fewer days, and progress carries over when you switch.
+- **Five timelines** based on how many hours a week you can study. The same curriculum repacks into more or fewer days, and progress carries over when you switch.
 - **Resource library** per cert: the official HTB cert and path pages, every module in study order, video reviews, first-hand exam write-ups, reporting templates, and core tooling.
 - **Notes** on every day for commands, credentials, and things to revisit.
 
