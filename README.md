@@ -2,7 +2,7 @@
 
 ![Pick a cert. Get a plan.](assets/share-card.png)
 
-Day-by-day study plans for eight Hack The Box certifications. Pick a cert, choose how many hours a week you can put in, and check off tasks as you go.
+Day-by-day study plans for Hack The Box certifications. Pick a cert, choose how many hours a week you can put in, and check off tasks as you go.
 
 **Open the site: https://cnmoseman.github.io/htb-study-trackers/**
 
