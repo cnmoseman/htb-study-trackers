@@ -29,15 +29,15 @@
   .tile:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 12px 32px rgba(0,0,0,.45)}
   .tile:hover img{transform:scale(1.06);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--acc),0 0 28px var(--acc)}
   .tile:focus-within{border-color:var(--acc)}
-  .info{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px;align-items:start}
-  .info h2{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
-  .info ol{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:6px;font:400 13px/1.5 "IBM Plex Sans",sans-serif;color:var(--muted)}
-  .info li{display:flex;gap:10px}
-  .info li b{font:500 12px/1.6 "IBM Plex Mono",monospace;color:var(--text)}
-  .note{padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:400 13px/1.55 "IBM Plex Sans",sans-serif;color:var(--muted)}
-  .note strong.t{display:block;font:600 13px "IBM Plex Sans",sans-serif;color:var(--text);margin-bottom:6px}
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,3vw,64px);margin-top:clamp(36px,3vw,60px);align-items:start}
+  .info h2{font:600 clamp(12px,.9vw,17px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
+  .info ol{margin:.9em 0 0;padding:0;list-style:none;display:grid;gap:.45em;font:400 clamp(13px,1.05vw,20px)/1.5 "IBM Plex Sans",sans-serif;color:var(--muted)}
+  .info li{display:flex;gap:.75em}
+  .info li b{font:500 .95em/1.6 "IBM Plex Mono",monospace;color:var(--text)}
+  .note{padding:1.1em 1.25em;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:400 clamp(13px,1.05vw,20px)/1.55 "IBM Plex Sans",sans-serif;color:var(--muted)}
+  .note strong.t{display:block;font:600 1.05em "IBM Plex Sans",sans-serif;color:var(--text);margin-bottom:.45em}
   .note strong.g{color:var(--green);font-weight:600}
-  footer{margin-top:44px;padding:24px 0;border-top:1px solid var(--line);font:400 12px "IBM Plex Sans",sans-serif;color:var(--dim);text-align:center}
+  footer{margin-top:clamp(44px,3.5vw,72px);padding:24px 0;border-top:1px solid var(--line);font:400 clamp(12px,.85vw,16px) "IBM Plex Sans",sans-serif;color:var(--dim);text-align:center}
   @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info{grid-template-columns:1fr}}
   @media (max-width:560px){.hero,.wrap{padding-left:20px;padding-right:20px}.hero h1{margin-top:32px}}
   @media (prefers-reduced-motion:reduce){.tile,.tile img{transition:none}}
