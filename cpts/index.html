@@ -190,6 +190,7 @@
   .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
   .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
   .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
   .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
   .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
@@ -2886,6 +2887,10 @@ function renderResources(){
       '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
     wrap.appendChild(box);
   });
+  const sug = document.createElement("div");
+  sug.className = "res-suggest";
+  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CPTS&amp;title=%5BCPTS%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CPTS&amp;title=%5BCPTS%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
+  wrap.appendChild(sug);
 }
 
 /* ---------- Tabs ---------- */

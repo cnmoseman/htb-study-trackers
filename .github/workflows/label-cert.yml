@@ -1,0 +1,20 @@
+# Adds the cert label picked in an issue form (e.g. "cwes").
+name: Label cert
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  issues: write
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const m = (context.payload.issue.body || "").match(/### Cert\s+(\w+)/);
+            const certs = ["cjca","cpts","cwes","cwee","cdsa","cape","cwpe","coae"];
+            const c = m && m[1].toLowerCase();
+            if (certs.includes(c)) {
+              await github.rest.issues.addLabels({...context.repo, issue_number: context.payload.issue.number, labels: [c]});
+            }

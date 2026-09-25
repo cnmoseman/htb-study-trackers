@@ -1,0 +1,24 @@
+name: Report a problem
+description: A wrong module, a dead link, a typo, or something broken on the site.
+title: "[Problem] "
+labels: ["problem"]
+body:
+  - type: dropdown
+    id: cert
+    attributes:
+      label: Cert
+      options: [CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE, Landing page, All / several]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong
+      description: Which day, task, or link, and what it should be instead.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device (for display problems)
+      placeholder: Chrome on Windows, Safari on iPhone

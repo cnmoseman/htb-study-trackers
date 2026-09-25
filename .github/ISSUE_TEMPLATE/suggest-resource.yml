@@ -1,0 +1,46 @@
+name: Suggest a resource
+description: Share a write-up, video, cheat sheet, or practice box that helped you.
+title: "[Resource] "
+labels: ["resource"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for sharing. I review every suggestion before it goes into a tracker.
+  - type: dropdown
+    id: cert
+    attributes:
+      label: Cert
+      options: [CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE, All / several]
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Exam write-up or review, Video, Cheat sheet or notes, Practice box or lab, Tool, Other]
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title and author
+      placeholder: "How I passed the CWES (Jane Doe)"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it helped
+      description: One or two lines. This often becomes the note shown in the tracker.
+    validations:
+      required: true
+  - type: dropdown
+    id: access
+    attributes:
+      label: Access (practice boxes and labs only)
+      options: [Not a box or lab, Free, VIP+, Pro Labs, Not sure]
