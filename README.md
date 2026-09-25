@@ -1,38 +1,58 @@
 # Study Trackers
 
-Interactive, single-file day-by-day study trackers for Hack The Box certifications, gathered in one place with a landing page. Open the hosted site to pick a cert, or download any tracker's single HTML file to use offline.
+![Pick a cert. Get a plan.](assets/og-image.png)
 
-## What you get
+Day-by-day study plans for eight Hack The Box certifications. Pick a cert, choose how many hours a week you can put in, and check off tasks as you go.
 
-Each tracker turns a certification path into a day-by-day plan:
+**Open the site: https://cnmoseman.github.io/htb-study-trackers/**
 
-- **Progress dashboard** with an overall completion ring, days done, best streak, current phase, a weekly progress chart, and an ahead or behind pace indicator.
-- **Five timelines** based on how many hours a week you can study. The same curriculum repacks into more or fewer days, and progress carries over when you switch.
-- **Resource library** per cert: the official HTB cert and path pages, every module in study order, video reviews, first-hand exam write-ups, reporting templates, and core tooling.
-- **Notes** on every day for commands, credentials, and things to revisit.
+## The trackers
+
+| Cert | Name | Path | Timelines |
+|---|---|---|---|
+| [CJCA](https://cnmoseman.github.io/htb-study-trackers/cjca/) | Certified Junior Cybersecurity Associate | 20 modules, 5-day exam | 25 to 90 days |
+| [CPTS](https://cnmoseman.github.io/htb-study-trackers/cpts/) | Certified Penetration Testing Specialist | 28 modules, 10-day exam | 65 to 150 days |
+| [CWES](https://cnmoseman.github.io/htb-study-trackers/cwes/) | Certified Web Exploitation Specialist | 20 modules, 7-day exam | 30 to 110 days |
+| [CWEE](https://cnmoseman.github.io/htb-study-trackers/cwee/) | Certified Web Exploitation Expert | 15 modules, 10-day exam | 35 to 80 days |
+| [CDSA](https://cnmoseman.github.io/htb-study-trackers/cdsa/) | Certified Defensive Security Analyst | 15 modules, 7-day exam | 30 to 60 days |
+| [CAPE](https://cnmoseman.github.io/htb-study-trackers/cape/) | Certified Active Directory Pentesting Expert | 15 modules, 10-day exam | 45 to 75 days |
+| [CWPE](https://cnmoseman.github.io/htb-study-trackers/cwpe/) | Certified Wi-Fi Pentesting Expert | 10 modules, 7-day exam | 25 to 55 days |
+| [COAE](https://cnmoseman.github.io/htb-study-trackers/coae/) | Certified Offensive AI Expert | 12 modules, 7-day exam | 30 to 90 days |
+
+## What's in a tracker
+
+Each one takes the cert's HTB Academy job-role path and splits it into days, following the modules in order. The dashboard shows how much you've finished, your streak, which phase you're in, and whether you're ahead of or behind pace.
+
+There are five timelines per cert, based on how many hours a week you have. The same material gets packed into more or fewer days, and your checkmarks carry over if you switch. Hours come from HTB's own per-module estimates, so the pacing is realistic.
+
+Every day has a notes box for commands, credentials, and anything you want to come back to. The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
+
+![The CPTS tracker](assets/screenshot.png)
 
 ## How to use
 
-1. Open a tracker from the landing page, or download its HTML file for offline use.
-2. Set your start date and pick a timeline that fits your week.
-3. Check off tasks as you finish them. A day completes when all its tasks are done.
-4. Use **Export backup** to save a copy of your progress.
+1. Open a tracker from the site, or download its HTML file.
+2. Set your start date and pick a timeline.
+3. Check off tasks as you finish them. A day is done when all of its tasks are.
+4. Use **Export backup** every so often to save your progress.
 
-## How they work
+## Where your progress lives
 
-- Each tracker is one self-contained HTML file. No install, no account, no server, runs offline.
-- Progress is stored in your browser (localStorage), separately per tracker. It does not sync across devices, so use Export/Import to move it.
-- Module time estimates come from HTB's own per-module hours, so the pacing is realistic.
+Your progress is saved in your browser, separately for each tracker. There's no account, and nothing gets sent anywhere. It doesn't sync between devices, so use Export and Import to move it.
 
-## Hosted vs. downloaded
+Each tracker is a single HTML file with its fonts and images built in, so a downloaded copy works offline.
 
-Using a tracker in the browser here is the easy way to start, and most updates are safe: fixing wording, resources, hours, or timelines keeps your checkmarks in place. But the hosted version can change whenever the site is updated, and a structural change (reordering or adding days or tasks) can shift your saved progress onto the wrong items. For a copy that never changes under you, **download the HTML file** and run it locally, and **export a backup** regularly either way.
+## Hosted or downloaded?
 
-## Trackers
+Using a tracker on the site is the easy way to start, and most updates won't touch your progress. Fixes to wording, resources, hours, or timelines keep your checkmarks where they are. A bigger change, like adding or reordering days or tasks, can shift saved progress onto the wrong items, though. If you want a copy that never changes under you, download the HTML file and run it locally. Either way, export a backup now and then.
 
-CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE. Each lives in its own folder with an `index.html`.
+## Practice labs and paid content
 
-Built on [mattrfield's coae-study-tracker](https://github.com/mattrfield/coae-study-tracker), the original inspiration for this project. These are independent study aids and are not affiliated with or endorsed by Hack The Box.
+Some trackers point you to practice on HTB Labs. Retired machines and challenges usually need a VIP+ subscription, and Pro Labs need their own. When a tracker names a specific box, challenge, or lab, it says whether it's Free, VIP+, or Pro Labs. HTB sometimes moves retired boxes into the free rotation, so check the Labs page too.
+
+## Credits
+
+This project started from [mattrfield's coae-study-tracker](https://github.com/mattrfield/coae-study-tracker). These are independent study aids, not affiliated with or endorsed by Hack The Box.
 
 ## License
 
