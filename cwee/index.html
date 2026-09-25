@@ -258,8 +258,8 @@
         <button type="button" class="modebtn" data-mode="35">35-day</button>
         <button type="button" class="modebtn" data-mode="45">45-day</button>
         <button type="button" class="modebtn" data-mode="60">60-day</button>
-        <button type="button" class="modebtn" data-mode="75">75-day</button>
-        <button type="button" class="modebtn" data-mode="80">80-day</button>
+        <button type="button" class="modebtn" data-mode="90">90-day</button>
+        <button type="button" class="modebtn" data-mode="180">180-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -355,7 +355,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (35/45/60/75/80 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (35/45/60/90/180 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for exploit scripts that worked, vulnerable code and line numbers, and things to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -376,67 +376,81 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "Injection",
-  "Auth Mechanisms",
-  "XSS & CSRF",
-  "HTTP Misconfig",
-  "HTTP Attacks",
-  "Whitebox Intro",
-  "Deserialization",
-  "Advanced SQLi",
-  "Logic Bugs",
-  "Reporting & Mock Exam",
-  "Exam Prep & Mock",
-  "Exam Prep & Mock II"
+  "XPath injection",
+  "LDAP injection",
+  "Blind & SSJS injection",
+  "JWT attacks",
+  "CSRF & CORS setup",
+  "Internal apps & CSP bypass",
+  "Crypto attacks",
+  "Host header attacks",
+  "CRLF injection",
+  "Request smuggling",
+  "Boolean-based blind SQLi",
+  "Whitebox process",
+  "Code review to injection",
+  "Exploit development",
+  "DNS rebinding",
+  "WebSocket attacks",
+  "Python deserialization",
+  "Prototype pollution",
+  "Java debugging for SQLi",
+  "Error & second-order SQLi",
+  ".NET decompiling & gadgets",
+  ".NET deserialization RCE",
+  "Validation logic disparity",
+  "Null safety review",
+  "Null safety & assessment",
+  "Mock exam: blackbox apps"
 ];
 
 const PHASES = [
   {
     "name": "Injection & NoSQL",
     "from": 1,
-    "to": 10,
+    "to": 21,
     "color": "#fee699"
   },
   {
     "name": "Authentication Attacks",
-    "from": 11,
-    "to": 15,
+    "from": 22,
+    "to": 29,
     "color": "#fee083"
   },
   {
     "name": "Client-Side & TLS",
-    "from": 16,
-    "to": 23,
+    "from": 30,
+    "to": 48,
     "color": "#fddb6d"
   },
   {
     "name": "HTTP Attacks",
-    "from": 24,
-    "to": 32,
+    "from": 49,
+    "to": 73,
     "color": "#fdd657"
   },
   {
     "name": "Blind SQLi & Whitebox",
-    "from": 33,
-    "to": 40,
+    "from": 74,
+    "to": 99,
     "color": "#fdd042"
   },
   {
     "name": "Modern & Deserialization",
-    "from": 41,
-    "to": 51,
+    "from": 100,
+    "to": 130,
     "color": "#fdcb2c"
   },
   {
     "name": "Advanced SQLi & Logic Bugs",
-    "from": 52,
-    "to": 62,
+    "from": 131,
+    "to": 171,
     "color": "#fcc516"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 63,
-    "to": 80,
+    "from": 172,
+    "to": 180,
     "color": "#fcc000"
   }
 ];
@@ -468,64 +482,163 @@ const CURRICULUM = [
     "d": 3,
     "title": "XPath injection",
     "type": "study",
-    "hrs": 7.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Injection Attacks' (15 sections · Medium)",
-      "M1 · sections 1–7: Intro to injection attacks; XPath authentication bypass, data exfiltration, blind exploitation & prevention"
+      "M1 · sections 1–2: Intro to injection attacks; XPath authentication bypass, data exfiltration, blind exploitation & prevention"
     ]
   },
   {
     "d": 4,
-    "title": "LDAP injection",
+    "title": "XPath injection",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 8–11: Intro to LDAP injection: authentication bypass, data exfiltration, blind exploitation & prevention"
+      "M1 · sections 3–4"
     ]
   },
   {
     "d": 5,
+    "title": "XPath injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 5"
+    ]
+  },
+  {
+    "d": 6,
+    "title": "XPath injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 6"
+    ]
+  },
+  {
+    "d": 7,
+    "title": "XPath injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 7"
+    ]
+  },
+  {
+    "d": 8,
+    "title": "LDAP injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · sections 8–9: Intro to LDAP injection: authentication bypass, data exfiltration, blind exploitation & prevention"
+    ]
+  },
+  {
+    "d": 9,
+    "title": "LDAP injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 10"
+    ]
+  },
+  {
+    "d": 10,
+    "title": "LDAP injection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · section 11"
+    ]
+  },
+  {
+    "d": 11,
     "title": "PDF generation attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 12–15: PDF generation vulnerabilities: introduction, exploitation, prevention & the skills assessment",
+      "M1 · sections 12–13: PDF generation vulnerabilities: introduction, exploitation, prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 12,
+    "title": "PDF generation attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 14"
+    ]
+  },
+  {
+    "d": 13,
+    "title": "PDF generation attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 1 complete — Injection Attacks"
   },
   {
-    "d": 6,
+    "d": 14,
     "title": "NoSQL data extraction",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Introduction to NoSQL Injection' (12 sections · Medium)",
-      "M2 · sections 1–4: Intro to NoSQL and NoSQL injection; authentication bypass & in-band data extraction"
+      "M2 · sections 1–2: Intro to NoSQL and NoSQL injection; authentication bypass & in-band data extraction"
     ]
   },
   {
-    "d": 7,
+    "d": 15,
+    "title": "NoSQL data extraction",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · sections 3–4"
+    ]
+  },
+  {
+    "d": 16,
     "title": "Blind & SSJS injection",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M2 · sections 5–8: Blind data extraction, automation & server-side JavaScript injection"
+      "M2 · sections 5–6: Blind data extraction, automation & server-side JavaScript injection"
     ]
   },
   {
-    "d": 8,
+    "d": 17,
+    "title": "Blind & SSJS injection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 7–8"
+    ]
+  },
+  {
+    "d": 18,
     "title": "Tooling & assessment",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M2 · sections 9–12: Tools of the trade, prevention & skills assessments I and II",
+      "M2 · sections 9–10: Tools of the trade, prevention & skills assessments I and II"
+    ]
+  },
+  {
+    "d": 19,
+    "title": "Tooling & assessment",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 11–12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 2 complete — Introduction to NoSQL Injection"
   },
   {
-    "d": 9,
+    "d": 20,
     "title": "Injection scripting",
     "type": "lab",
     "hrs": 2,
@@ -535,7 +648,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 10,
+    "d": 21,
     "title": "Injection review",
     "type": "review",
     "hrs": 1,
@@ -545,37 +658,64 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 11,
+    "d": 22,
     "title": "JWT attacks",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Attacking Authentication Mechanisms' (20 sections · Medium)",
-      "M3 · sections 1–7: Intro to authentication mechanisms and JWTs; signature and secret attacks, algorithm confusion & prevention"
+      "M3 · sections 1–4: Intro to authentication mechanisms and JWTs; signature and secret attacks, algorithm confusion & prevention"
     ]
   },
   {
-    "d": 12,
+    "d": 23,
+    "title": "JWT attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M3 · sections 5–7"
+    ]
+  },
+  {
+    "d": 24,
     "title": "OAuth attacks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M3 · sections 8–13: OAuth: lab setup, stealing access tokens, CSRF protection, additional vulns & prevention"
+      "M3 · sections 8–10: OAuth: lab setup, stealing access tokens, CSRF protection, additional vulns & prevention"
     ]
   },
   {
-    "d": 13,
+    "d": 25,
+    "title": "OAuth attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · sections 11–13"
+    ]
+  },
+  {
+    "d": 26,
     "title": "SAML attacks",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M3 · sections 14–20: SAML: signature exclusion and wrapping attacks, additional vulns, tooling & the skills assessment",
+      "M3 · sections 14–17: SAML: signature exclusion and wrapping attacks, additional vulns, tooling & the skills assessment"
+    ]
+  },
+  {
+    "d": 27,
+    "title": "SAML attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M3 · sections 18–20",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 3 complete — Attacking Authentication Mechanisms"
   },
   {
-    "d": 14,
+    "d": 28,
     "title": "Token attack practice",
     "type": "lab",
     "hrs": 2,
@@ -585,7 +725,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 15,
+    "d": 29,
     "title": "Authentication review",
     "type": "review",
     "hrs": 1,
@@ -595,67 +735,166 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 16,
+    "d": 30,
     "title": "CSRF & CORS setup",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Advanced XSS and CSRF Exploitation' (17 sections · Medium)",
-      "M4 · sections 1–6: Lab warmup, CSRF exploitation, same-origin policy & CORS misconfigurations"
+      "M4 · sections 1–2: Lab warmup, CSRF exploitation, same-origin policy & CORS misconfigurations"
     ]
   },
   {
-    "d": 17,
+    "d": 31,
+    "title": "CSRF & CORS setup",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · sections 3–4"
+    ]
+  },
+  {
+    "d": 32,
+    "title": "CSRF & CORS setup",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 5"
+    ]
+  },
+  {
+    "d": 33,
+    "title": "CSRF & CORS setup",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 6"
+    ]
+  },
+  {
+    "d": 34,
     "title": "CSRF bypass & XSS intro",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M4 · sections 7–11: Bypassing CSRF tokens via CORS, miscellaneous CSRF, XSS exploitation & enumerating internal APIs"
+      "M4 · sections 7–8: Bypassing CSRF tokens via CORS, miscellaneous CSRF, XSS exploitation & enumerating internal APIs"
     ]
   },
   {
-    "d": 18,
+    "d": 35,
+    "title": "CSRF bypass & XSS intro",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · sections 9–10"
+    ]
+  },
+  {
+    "d": 36,
+    "title": "CSRF bypass & XSS intro",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 11"
+    ]
+  },
+  {
+    "d": 37,
     "title": "Internal apps & CSP bypass",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M4 · sections 12–17: Exploiting internal web apps, Content-Security-Policy, weak CSP and XSS filter bypasses & the skills assessment",
+      "M4 · sections 12–13: Exploiting internal web apps, Content-Security-Policy, weak CSP and XSS filter bypasses & the skills assessment"
+    ]
+  },
+  {
+    "d": 38,
+    "title": "Internal apps & CSP bypass",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · sections 14–15"
+    ]
+  },
+  {
+    "d": 39,
+    "title": "Internal apps & CSP bypass",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 16"
+    ]
+  },
+  {
+    "d": 40,
+    "title": "Internal apps & CSP bypass",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · section 17",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 4 complete — Advanced XSS and CSRF Exploitation"
   },
   {
-    "d": 19,
+    "d": 41,
     "title": "TLS foundations",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'HTTPs/TLS Attacks' (15 sections · Medium)",
-      "M5 · sections 1–5: Intro to HTTPS/TLS, public key infrastructure, TLS 1.2 and 1.3 handshakes & padding oracles"
+      "M5 · sections 1–3: Intro to HTTPS/TLS, public key infrastructure, TLS 1.2 and 1.3 handshakes & padding oracles"
     ]
   },
   {
-    "d": 20,
+    "d": 42,
+    "title": "TLS foundations",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · sections 4–5"
+    ]
+  },
+  {
+    "d": 43,
     "title": "Crypto attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 6–10: POODLE, BEAST, Bleichenbacher, DROWN, compression, CRIME, BREACH & Heartbleed"
+      "M5 · sections 6–8: POODLE, BEAST, Bleichenbacher, DROWN, compression, CRIME, BREACH & Heartbleed"
     ]
   },
   {
-    "d": 21,
+    "d": 44,
+    "title": "Crypto attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 9–10"
+    ]
+  },
+  {
+    "d": 45,
     "title": "Downgrade & config testing",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 11–15: SSL stripping, cryptographic and downgrade attacks, testing TLS config & the skills assessment",
+      "M5 · sections 11–13: SSL stripping, cryptographic and downgrade attacks, testing TLS config & the skills assessment"
+    ]
+  },
+  {
+    "d": 46,
+    "title": "Downgrade & config testing",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 14–15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 5 complete — HTTPs/TLS Attacks"
   },
   {
-    "d": 22,
+    "d": 47,
     "title": "Client-side & TLS drills",
     "type": "lab",
     "hrs": 1.5,
@@ -665,7 +904,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 23,
+    "d": 48,
     "title": "Client-side & TLS review",
     "type": "review",
     "hrs": 1,
@@ -675,76 +914,220 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 24,
+    "d": 49,
     "title": "Web cache poisoning",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Abusing HTTP Misconfigurations' (20 sections · Hard)",
-      "M6 · sections 1–6: Intro to HTTP misconfigurations; web cache poisoning: unkeyed params, attacks, advanced techniques & tools"
+      "M6 · sections 1–2: Intro to HTTP misconfigurations; web cache poisoning: unkeyed params, attacks, advanced techniques & tools"
     ]
   },
   {
-    "d": 25,
+    "d": 50,
+    "title": "Web cache poisoning",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 3–4"
+    ]
+  },
+  {
+    "d": 51,
+    "title": "Web cache poisoning",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 5"
+    ]
+  },
+  {
+    "d": 52,
+    "title": "Web cache poisoning",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 6"
+    ]
+  },
+  {
+    "d": 53,
     "title": "Host header attacks",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1.5,
     "tasks": [
-      "M6 · sections 7–12: Host header attacks: authentication bypass, password reset poisoning, cache poisoning, validation bypass & prevention"
+      "M6 · sections 7–8: Host header attacks: authentication bypass, password reset poisoning, cache poisoning, validation bypass & prevention"
     ]
   },
   {
-    "d": 26,
+    "d": 54,
+    "title": "Host header attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 9–10"
+    ]
+  },
+  {
+    "d": 55,
+    "title": "Host header attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 11"
+    ]
+  },
+  {
+    "d": 56,
+    "title": "Host header attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 12"
+    ]
+  },
+  {
+    "d": 57,
     "title": "Session puzzling",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M6 · sections 13–16: Session puzzling: weak session IDs, auth bypass via session variables & premature session population"
+      "M6 · sections 13–14: Session puzzling: weak session IDs, auth bypass via session variables & premature session population"
     ]
   },
   {
-    "d": 27,
+    "d": 58,
+    "title": "Session puzzling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 15–16"
+    ]
+  },
+  {
+    "d": 59,
     "title": "Session takeover & tests",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M6 · sections 17–20: Account takeover via session variables, prevention & the easy and hard skills assessments",
+      "M6 · sections 17–18: Account takeover via session variables, prevention & the easy and hard skills assessments"
+    ]
+  },
+  {
+    "d": 60,
+    "title": "Session takeover & tests",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 19–20",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 6 complete — Abusing HTTP Misconfigurations"
   },
   {
-    "d": 28,
+    "d": 61,
     "title": "CRLF injection",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'HTTP Attacks' (18 sections · Hard)",
-      "M7 · sections 1–6: Intro to HTTP attacks; CRLF injection, log injection, response splitting, SMTP header injection & prevention"
+      "M7 · sections 1–2: Intro to HTTP attacks; CRLF injection, log injection, response splitting, SMTP header injection & prevention"
     ]
   },
   {
-    "d": 29,
+    "d": 62,
+    "title": "CRLF injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 3–4"
+    ]
+  },
+  {
+    "d": 63,
+    "title": "CRLF injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 5"
+    ]
+  },
+  {
+    "d": 64,
+    "title": "CRLF injection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 6"
+    ]
+  },
+  {
+    "d": 65,
     "title": "Request smuggling",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 7–13: Request smuggling: CL.TE, TE.TE, TE.CL, vulnerable software, exploitation, tools & prevention"
+      "M7 · sections 7–8: Request smuggling: CL.TE, TE.TE, TE.CL, vulnerable software, exploitation, tools & prevention"
     ]
   },
   {
-    "d": 30,
+    "d": 66,
+    "title": "Request smuggling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 9–10"
+    ]
+  },
+  {
+    "d": 67,
+    "title": "Request smuggling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 11–12"
+    ]
+  },
+  {
+    "d": 68,
+    "title": "Request smuggling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 13"
+    ]
+  },
+  {
+    "d": 69,
     "title": "HTTP/2 attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 14–18: HTTP/2 downgrading, further H2 vulnerabilities, tools & prevention; the skills assessment",
+      "M7 · sections 14–15: HTTP/2 downgrading, further H2 vulnerabilities, tools & prevention; the skills assessment"
+    ]
+  },
+  {
+    "d": 70,
+    "title": "HTTP/2 attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 16–17"
+    ]
+  },
+  {
+    "d": 71,
+    "title": "HTTP/2 attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 18",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 7 complete — HTTP Attacks"
   },
   {
-    "d": 31,
+    "d": 72,
     "title": "HTTP attack drills",
     "type": "lab",
     "hrs": 2,
@@ -754,7 +1137,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 32,
+    "d": 73,
     "title": "HTTP attacks review",
     "type": "review",
     "hrs": 1,
@@ -764,67 +1147,229 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 33,
+    "d": 74,
     "title": "Boolean-based blind SQLi",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Blind SQL Injection' (16 sections · Hard)",
-      "M8 · sections 1–6: Intro to MSSQL and blind SQL injection; boolean-based SQLi, oracle design, data extraction & optimizing"
+      "M8 · sections 1–3: Intro to MSSQL and blind SQL injection; boolean-based SQLi, oracle design, data extraction & optimizing"
     ]
   },
   {
-    "d": 34,
+    "d": 75,
+    "title": "Boolean-based blind SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M8 · sections 4–6"
+    ]
+  },
+  {
+    "d": 76,
     "title": "Time-based & OOB SQLi",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M8 · sections 7–11: Time-based SQLi, oracle design, data extraction & out-of-band DNS"
+      "M8 · sections 7–9: Time-based SQLi, oracle design, data extraction & out-of-band DNS"
     ]
   },
   {
-    "d": 35,
+    "d": 77,
+    "title": "Time-based & OOB SQLi",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 10–11"
+    ]
+  },
+  {
+    "d": 78,
     "title": "Blind SQLi to RCE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M8 · sections 12–16: Remote code execution, leaking NetNTLM hashes, file read, tooling, defense & the skills assessment",
+      "M8 · sections 12–14: Remote code execution, leaking NetNTLM hashes, file read, tooling, defense & the skills assessment"
+    ]
+  },
+  {
+    "d": 79,
+    "title": "Blind SQLi to RCE",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 15–16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 8 complete — Blind SQL Injection"
   },
   {
-    "d": 36,
+    "d": 80,
     "title": "Whitebox process",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Intro to Whitebox Pentesting' (18 sections · Hard)",
-      "M9 · sections 1–6: Intro to whitebox pentesting: process, code review, local testing, proof of concept & patching"
+      "M9 · section 1: Intro to whitebox pentesting: process, code review, local testing, proof of concept & patching"
     ]
   },
   {
-    "d": 37,
+    "d": 81,
+    "title": "Whitebox process",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 2"
+    ]
+  },
+  {
+    "d": 82,
+    "title": "Whitebox process",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 3"
+    ]
+  },
+  {
+    "d": 83,
+    "title": "Whitebox process",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 4"
+    ]
+  },
+  {
+    "d": 84,
+    "title": "Whitebox process",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 5"
+    ]
+  },
+  {
+    "d": 85,
+    "title": "Whitebox process",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 6"
+    ]
+  },
+  {
+    "d": 86,
     "title": "Code review to injection",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 7–12: Code review of authentication and services, planning, eval injection, target function & code injection"
+      "M9 · section 7: Code review of authentication and services, planning, eval injection, target function & code injection"
     ]
   },
   {
-    "d": 38,
+    "d": 87,
+    "title": "Code review to injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 8"
+    ]
+  },
+  {
+    "d": 88,
+    "title": "Code review to injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 9"
+    ]
+  },
+  {
+    "d": 89,
+    "title": "Code review to injection",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 10"
+    ]
+  },
+  {
+    "d": 90,
+    "title": "Code review to injection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 11"
+    ]
+  },
+  {
+    "d": 91,
+    "title": "Code review to injection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 12"
+    ]
+  },
+  {
+    "d": 92,
     "title": "Exploit development",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 13–18: Command execution, HTTP response injection, blind exploitation, exploit dev, patching & the skills assessment",
+      "M9 · section 13: Command execution, HTTP response injection, blind exploitation, exploit dev, patching & the skills assessment"
+    ]
+  },
+  {
+    "d": 93,
+    "title": "Exploit development",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 14"
+    ]
+  },
+  {
+    "d": 94,
+    "title": "Exploit development",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 15"
+    ]
+  },
+  {
+    "d": 95,
+    "title": "Exploit development",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 16"
+    ]
+  },
+  {
+    "d": 96,
+    "title": "Exploit development",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 17"
+    ]
+  },
+  {
+    "d": 97,
+    "title": "Exploit development",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 18",
       "Finish the module. The exam is largely whitebox, so make sure you can read source, build a PoC, and write a patch"
     ],
     "milestone": "Module 9 complete — Intro to Whitebox Pentesting"
   },
   {
-    "d": 39,
+    "d": 98,
     "title": "Whitebox code review",
     "type": "lab",
     "hrs": 2,
@@ -834,7 +1379,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 40,
+    "d": 99,
     "title": "Blind SQLi & whitebox review",
     "type": "review",
     "hrs": 1,
@@ -844,97 +1389,277 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 41,
+    "d": 100,
     "title": "DNS rebinding",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Modern Web Exploitation Techniques' (18 sections · Hard)",
-      "M10 · sections 1–6: Intro to modern web exploitation; DNS rebinding: SSRF and same-origin policy bypasses, tools & prevention"
+      "M10 · sections 1–2: Intro to modern web exploitation; DNS rebinding: SSRF and same-origin policy bypasses, tools & prevention"
     ]
   },
   {
-    "d": 42,
+    "d": 101,
+    "title": "DNS rebinding",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 3–4"
+    ]
+  },
+  {
+    "d": 102,
+    "title": "DNS rebinding",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 5"
+    ]
+  },
+  {
+    "d": 103,
+    "title": "DNS rebinding",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M10 · section 6"
+    ]
+  },
+  {
+    "d": 104,
     "title": "Second-order attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 7–11: Second-order attacks: IDOR (whitebox and blackbox), LFI & command injection"
+      "M10 · sections 7–8: Second-order attacks: IDOR (whitebox and blackbox), LFI & command injection"
     ]
   },
   {
-    "d": 43,
+    "d": 105,
+    "title": "Second-order attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 9–10"
+    ]
+  },
+  {
+    "d": 106,
+    "title": "Second-order attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 11"
+    ]
+  },
+  {
+    "d": 107,
     "title": "WebSocket attacks",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 12–18: WebSockets: Burp analysis, XSS and SQLi over WebSockets, cross-site hijacking, tools & the skills assessment",
+      "M10 · sections 12–13: WebSockets: Burp analysis, XSS and SQLi over WebSockets, cross-site hijacking, tools & the skills assessment"
+    ]
+  },
+  {
+    "d": 108,
+    "title": "WebSocket attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 14–15"
+    ]
+  },
+  {
+    "d": 109,
+    "title": "WebSocket attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 16–17"
+    ]
+  },
+  {
+    "d": 110,
+    "title": "WebSocket attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 18",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 10 complete — Modern Web Exploitation Techniques"
   },
   {
-    "d": 44,
+    "d": 111,
     "title": "PHP deserialization",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Introduction to Deserialization Attacks' (15 sections · Hard)",
-      "M11 · sections 1–7: Serialization basics; PHP deserialization: object injection, RCE via magic methods and Phar, tooling"
+      "M11 · sections 1–3: Serialization basics; PHP deserialization: object injection, RCE via magic methods and Phar, tooling"
     ]
   },
   {
-    "d": 45,
+    "d": 112,
+    "title": "PHP deserialization",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 4–5"
+    ]
+  },
+  {
+    "d": 113,
+    "title": "PHP deserialization",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · sections 6–7"
+    ]
+  },
+  {
+    "d": 114,
     "title": "Python deserialization",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M11 · sections 8–11: Python deserialization: identifying a vulnerability, object injection, RCE & tooling"
+      "M11 · sections 8–9: Python deserialization: identifying a vulnerability, object injection, RCE & tooling"
     ]
   },
   {
-    "d": 46,
+    "d": 115,
+    "title": "Python deserialization",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · sections 10–11"
+    ]
+  },
+  {
+    "d": 116,
     "title": "Patching & assessment",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M11 · sections 12–15: Patching and avoiding deserialization vulns; skills assessments I and II",
+      "M11 · sections 12–13: Patching and avoiding deserialization vulns; skills assessments I and II"
+    ]
+  },
+  {
+    "d": 117,
+    "title": "Patching & assessment",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · sections 14–15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 11 complete — Introduction to Deserialization Attacks"
   },
   {
-    "d": 47,
+    "d": 118,
     "title": "Prototype pollution",
     "type": "study",
-    "hrs": 7.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Whitebox Attacks' (15 sections · Hard)",
-      "M12 · sections 1–7: Intro to whitebox attacks; prototype pollution: privilege escalation, RCE, client-side & prevention"
+      "M12 · sections 1–2: Intro to whitebox attacks; prototype pollution: privilege escalation, RCE, client-side & prevention"
     ]
   },
   {
-    "d": 48,
+    "d": 119,
+    "title": "Prototype pollution",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 3–4"
+    ]
+  },
+  {
+    "d": 120,
+    "title": "Prototype pollution",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 5"
+    ]
+  },
+  {
+    "d": 121,
+    "title": "Prototype pollution",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 6"
+    ]
+  },
+  {
+    "d": 122,
+    "title": "Prototype pollution",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 7"
+    ]
+  },
+  {
+    "d": 123,
     "title": "Race & timing attacks",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 8–11: Race conditions and timing attacks: user enumeration and data exfiltration via response timing"
+      "M12 · sections 8–9: Race conditions and timing attacks: user enumeration and data exfiltration via response timing"
     ]
   },
   {
-    "d": 49,
+    "d": 124,
+    "title": "Race & timing attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 10"
+    ]
+  },
+  {
+    "d": 125,
+    "title": "Race & timing attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 11"
+    ]
+  },
+  {
+    "d": 126,
     "title": "Type juggling",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 12–15: Type juggling: authentication bypass, advanced exploitation & the skills assessment",
+      "M12 · sections 12–13: Type juggling: authentication bypass, advanced exploitation & the skills assessment"
+    ]
+  },
+  {
+    "d": 127,
+    "title": "Type juggling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 14"
+    ]
+  },
+  {
+    "d": 128,
+    "title": "Type juggling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 12 complete — Whitebox Attacks"
   },
   {
-    "d": 50,
+    "d": 129,
     "title": "Deserialization scripting",
     "type": "lab",
     "hrs": 2,
@@ -944,7 +1669,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 51,
+    "d": 130,
     "title": "Modern & deser review",
     "type": "review",
     "hrs": 1,
@@ -954,97 +1679,367 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 52,
+    "d": 131,
     "title": "Java debugging for SQLi",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Advanced SQL Injections' (12 sections · Hard)",
-      "M13 · sections 1–6: Intro to PostgreSQL; decompiling Java archives, searching for strings, live-debugging & hunting for SQL errors"
+      "M13 · section 1: Intro to PostgreSQL; decompiling Java archives, searching for strings, live-debugging & hunting for SQL errors"
     ]
   },
   {
-    "d": 53,
+    "d": 132,
+    "title": "Java debugging for SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 2"
+    ]
+  },
+  {
+    "d": 133,
+    "title": "Java debugging for SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 3"
+    ]
+  },
+  {
+    "d": 134,
+    "title": "Java debugging for SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 4"
+    ]
+  },
+  {
+    "d": 135,
+    "title": "Java debugging for SQLi",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 5"
+    ]
+  },
+  {
+    "d": 136,
+    "title": "Java debugging for SQLi",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 6"
+    ]
+  },
+  {
+    "d": 137,
     "title": "Error & second-order SQLi",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M13 · sections 7–12: Character bypasses, error-based and second-order SQLi, file read and write, command execution & prevention",
+      "M13 · section 7: Character bypasses, error-based and second-order SQLi, file read and write, command execution & prevention"
+    ]
+  },
+  {
+    "d": 138,
+    "title": "Error & second-order SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 8"
+    ]
+  },
+  {
+    "d": 139,
+    "title": "Error & second-order SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 9"
+    ]
+  },
+  {
+    "d": 140,
+    "title": "Error & second-order SQLi",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 10"
+    ]
+  },
+  {
+    "d": 141,
+    "title": "Error & second-order SQLi",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 11"
+    ]
+  },
+  {
+    "d": 142,
+    "title": "Error & second-order SQLi",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 13 complete — Advanced SQL Injections"
   },
   {
-    "d": 54,
+    "d": 143,
     "title": ".NET decompiling & gadgets",
     "type": "study",
-    "hrs": 7.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Advanced Deserialization Attacks' (13 sections · Hard)",
-      "M14 · sections 1–6: Decompiling and debugging .NET apps, identifying vulnerable functions & the ObjectDataProvider gadget"
+      "M14 · sections 1–2: Decompiling and debugging .NET apps, identifying vulnerable functions & the ObjectDataProvider gadget"
     ]
   },
   {
-    "d": 55,
+    "d": 144,
+    "title": ".NET decompiling & gadgets",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 3"
+    ]
+  },
+  {
+    "d": 145,
+    "title": ".NET decompiling & gadgets",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 4"
+    ]
+  },
+  {
+    "d": 146,
+    "title": ".NET decompiling & gadgets",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 5"
+    ]
+  },
+  {
+    "d": 147,
+    "title": ".NET decompiling & gadgets",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 6"
+    ]
+  },
+  {
+    "d": 148,
     "title": ".NET deserialization RCE",
     "type": "study",
-    "hrs": 8.5,
+    "hrs": 1.5,
     "tasks": [
-      "M14 · sections 7–13: JSON, XML and binary gadget examples, TypeConfuseDelegate, YSoSerial.NET, prevention, patching & assessment",
+      "M14 · sections 7–8: JSON, XML and binary gadget examples, TypeConfuseDelegate, YSoSerial.NET, prevention, patching & assessment"
+    ]
+  },
+  {
+    "d": 149,
+    "title": ".NET deserialization RCE",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 9"
+    ]
+  },
+  {
+    "d": 150,
+    "title": ".NET deserialization RCE",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 10"
+    ]
+  },
+  {
+    "d": 151,
+    "title": ".NET deserialization RCE",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 11"
+    ]
+  },
+  {
+    "d": 152,
+    "title": ".NET deserialization RCE",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 12"
+    ]
+  },
+  {
+    "d": 153,
+    "title": ".NET deserialization RCE",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · section 13",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 14 complete — Advanced Deserialization Attacks"
   },
   {
-    "d": 56,
+    "d": 154,
     "title": "Logic bug methodology",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Parameter Logic Bugs' (21 sections · Hard)",
-      "M15 · sections 1–4: Intro to logic bugs, types of logic bugs, module methodology & lab setup"
+      "M15 · sections 1–2: Intro to logic bugs, types of logic bugs, module methodology & lab setup"
     ]
   },
   {
-    "d": 57,
+    "d": 155,
+    "title": "Logic bug methodology",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 3"
+    ]
+  },
+  {
+    "d": 156,
+    "title": "Logic bug methodology",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 4"
+    ]
+  },
+  {
+    "d": 157,
     "title": "Validation logic disparity",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 5–8: Validation logic disparity: code review, local testing, PoC & patching"
+      "M15 · sections 5–6: Validation logic disparity: code review, local testing, PoC & patching"
     ]
   },
   {
-    "d": 58,
+    "d": 158,
+    "title": "Validation logic disparity",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 7"
+    ]
+  },
+  {
+    "d": 159,
+    "title": "Validation logic disparity",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 8"
+    ]
+  },
+  {
+    "d": 160,
     "title": "Unexpected input",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 9–13: Unexpected input: code review, local testing for validation and manipulation, PoC & patching"
+      "M15 · sections 9–10: Unexpected input: code review, local testing for validation and manipulation, PoC & patching"
     ]
   },
   {
-    "d": 59,
+    "d": 161,
+    "title": "Unexpected input",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 11"
+    ]
+  },
+  {
+    "d": 162,
+    "title": "Unexpected input",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 12"
+    ]
+  },
+  {
+    "d": 163,
+    "title": "Unexpected input",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 13"
+    ]
+  },
+  {
+    "d": 164,
     "title": "Null safety review",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 14–17: Null safety: code review of null variables and optional parameters, and local testing of schemas"
+      "M15 · sections 14–15: Null safety: code review of null variables and optional parameters, and local testing of schemas"
     ]
   },
   {
-    "d": 60,
+    "d": 165,
+    "title": "Null safety review",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 16"
+    ]
+  },
+  {
+    "d": 166,
+    "title": "Null safety review",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 17"
+    ]
+  },
+  {
+    "d": 167,
     "title": "Null safety & assessment",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 18–21: Null safety local testing and patching, avoiding parameter logic bugs & the skills assessment",
+      "M15 · sections 18–19: Null safety local testing and patching, avoiding parameter logic bugs & the skills assessment"
+    ]
+  },
+  {
+    "d": 168,
+    "title": "Null safety & assessment",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 20"
+    ]
+  },
+  {
+    "d": 169,
+    "title": "Null safety & assessment",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 21",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 15 complete — Parameter Logic Bugs"
   },
   {
-    "d": 61,
+    "d": 170,
     "title": "Advanced SQLi & logic drills",
     "type": "lab",
     "hrs": 2,
@@ -1054,7 +2049,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 62,
+    "d": 171,
     "title": "Advanced attacks review",
     "type": "review",
     "hrs": 1,
@@ -1064,7 +2059,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 63,
+    "d": 172,
     "title": "SysReptor setup",
     "type": "lab",
     "hrs": 1.5,
@@ -1074,7 +2069,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 64,
+    "d": 173,
     "title": "Exploit script toolkit",
     "type": "lab",
     "hrs": 2,
@@ -1084,7 +2079,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 65,
+    "d": 174,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2,
@@ -1094,7 +2089,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 66,
+    "d": 175,
     "title": "Mock exam: whitebox app",
     "type": "lab",
     "hrs": 2.5,
@@ -1104,7 +2099,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 67,
+    "d": 176,
     "title": "Mock exam: blackbox apps",
     "type": "lab",
     "hrs": 2.5,
@@ -1114,7 +2109,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 68,
+    "d": 177,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -1124,7 +2119,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 69,
+    "d": 178,
     "title": "Finalize scripts & notes",
     "type": "review",
     "hrs": 1.5,
@@ -1134,7 +2129,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 70,
+    "d": 179,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
@@ -1144,97 +2139,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 71,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 72,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 73,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 74,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 75,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 76,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 77,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 78,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 79,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 80,
+    "d": 180,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 1,
@@ -1684,30 +2589,30 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "cwee_tracker_v1";
+const STORE_KEY = "cwee_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:35};
 
-/* Timeline modes: the same full curriculum, repackaged into 35 to 80 days. */
+/* Timeline modes: the same full curriculum, repackaged into 35 to 180 days. */
 const MODES = {
   "35": {
     "days": 35,
-    "hrs": "≈ 53 hrs/week"
+    "hrs": "≈ 51 hrs/week"
   },
   "45": {
     "days": 45,
-    "hrs": "≈ 41 hrs/week"
+    "hrs": "≈ 40 hrs/week"
   },
   "60": {
     "days": 60,
-    "hrs": "≈ 31 hrs/week"
+    "hrs": "≈ 30 hrs/week"
   },
-  "75": {
-    "days": 75,
-    "hrs": "≈ 25 hrs/week"
+  "90": {
+    "days": 90,
+    "hrs": "≈ 20 hrs/week"
   },
-  "80": {
-    "days": 80,
-    "hrs": "≈ 23 hrs/week"
+  "180": {
+    "days": 180,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#fee699", "#fcc000"];
@@ -1734,7 +2639,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   80-day -> 1 master/day, 75-day -> 1-2, 60-day -> 1-2, 45-day -> 1-2, 35-day -> 2-3.
+   180-day -> 1 master/day, 90-day -> 2 master/day, 60-day -> 3 master/day, 45-day -> 4 master/day, 35-day -> 5-6.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -1769,7 +2674,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(12, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(26, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -1962,7 +2867,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =

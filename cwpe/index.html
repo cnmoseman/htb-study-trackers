@@ -258,8 +258,8 @@
         <button type="button" class="modebtn" data-mode="25">25-day</button>
         <button type="button" class="modebtn" data-mode="30">30-day</button>
         <button type="button" class="modebtn" data-mode="40">40-day</button>
-        <button type="button" class="modebtn" data-mode="50">50-day</button>
-        <button type="button" class="modebtn" data-mode="55">55-day</button>
+        <button type="button" class="modebtn" data-mode="60">60-day</button>
+        <button type="button" class="modebtn" data-mode="120">120-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -354,7 +354,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (25/30/40/50/55 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (25/30/40/60/120 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for networks and clients you found, handshakes and creds captured, and attacks to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -375,57 +375,67 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "Wi-Fi Basics",
-  "WEP",
-  "WPA/WPA2",
-  "WPA3",
-  "Password Cracking",
-  "Wi-Fi Tooling",
-  "Corporate Wi-Fi",
-  "Exam Prep & Mock"
+  "802.11 & interfaces",
+  "WPS & PIN brute force",
+  "Pixie Dust & PBC",
+  "WPA personal attacks",
+  "Evil twin & EAP-TLS",
+  "Evil twin fundamentals",
+  "MiTM & portals",
+  "OWE attacks",
+  "Portal recon & spoofing",
+  "Client hijacking",
+  "Cracking fundamentals",
+  "Recon & mapping tools",
+  "Automated attack tools",
+  "MiTM & router attacks",
+  "Recon & Wi-Fi footholds",
+  "AD compromise & closeout",
+  "Corporate Wi-Fi review",
+  "Schedule your exam"
 ];
 
 const PHASES = [
   {
     "name": "Wi-Fi Fundamentals",
     "from": 1,
-    "to": 7,
+    "to": 10,
     "color": "#f9bda5"
   },
   {
     "name": "WPS & WEP Attacks",
-    "from": 8,
-    "to": 14,
+    "from": 11,
+    "to": 24,
     "color": "#f8ac8e"
   },
   {
     "name": "WPA, WPA2 & Evil Twins",
-    "from": 15,
-    "to": 22,
+    "from": 25,
+    "to": 48,
     "color": "#f69c78"
   },
   {
     "name": "WPA3 & Captive Portals",
-    "from": 23,
-    "to": 30,
+    "from": 49,
+    "to": 72,
     "color": "#f48c62"
   },
   {
     "name": "Cracking & Tooling",
-    "from": 31,
-    "to": 40,
+    "from": 73,
+    "to": 100,
     "color": "#f37b4b"
   },
   {
     "name": "Corporate Wi-Fi",
-    "from": 41,
-    "to": 45,
+    "from": 101,
+    "to": 113,
     "color": "#f26a34"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 46,
-    "to": 56,
+    "from": 114,
+    "to": 120,
     "color": "#f05a1e"
   }
 ];
@@ -457,34 +467,61 @@ const CURRICULUM = [
     "d": 3,
     "title": "802.11 & interfaces",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Wi-Fi Penetration Testing Basics' (16 sections · Medium)",
-      "M1 · sections 1–5: Overview, 802.11 frames and types, authentication methods, Wi-Fi interfaces and interface modes"
+      "M1 · sections 1–3: Overview, 802.11 frames and types, authentication methods, Wi-Fi interfaces and interface modes"
     ]
   },
   {
     "d": 4,
-    "title": "Aircrack-ng suite",
+    "title": "802.11 & interfaces",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1,
     "tasks": [
-      "M1 · sections 6–11: Intro to Aircrack-ng, airmon-ng, airodump-ng, airgraph-ng, aireplay-ng and airdecap-ng"
+      "M1 · sections 4–5"
     ]
   },
   {
     "d": 5,
+    "title": "Aircrack-ng suite",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · sections 6–8: Intro to Aircrack-ng, airmon-ng, airodump-ng, airgraph-ng, aireplay-ng and airdecap-ng"
+    ]
+  },
+  {
+    "d": 6,
+    "title": "Aircrack-ng suite",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · sections 9–11"
+    ]
+  },
+  {
+    "d": 7,
     "title": "SSIDs & MAC filtering",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 12–16: Aircrack-ng, connecting to networks, finding hidden SSIDs, bypassing MAC filtering and skills assessment",
+      "M1 · sections 12–14: Aircrack-ng, connecting to networks, finding hidden SSIDs, bypassing MAC filtering and skills assessment"
+    ]
+  },
+  {
+    "d": 8,
+    "title": "SSIDs & MAC filtering",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · sections 15–16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 1 complete — Wi-Fi Penetration Testing Basics"
   },
   {
-    "d": 6,
+    "d": 9,
     "title": "Capture & monitor mode",
     "type": "lab",
     "hrs": 1.5,
@@ -494,7 +531,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 7,
+    "d": 10,
     "title": "Fundamentals review",
     "type": "review",
     "hrs": 1,
@@ -504,58 +541,121 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 8,
+    "d": 11,
     "title": "WPS & PIN brute force",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Attacking Wi-Fi Protected Setup (WPS)' (13 sections · Medium)",
-      "M2 · sections 1–6: WPS overview, how it works, reconnaissance, online PIN brute forcing with Reaver and secured APs"
+      "M2 · sections 1–2: WPS overview, how it works, reconnaissance, online PIN brute forcing with Reaver and secured APs"
     ]
   },
   {
-    "d": 9,
+    "d": 12,
+    "title": "WPS & PIN brute force",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 3–4"
+    ]
+  },
+  {
+    "d": 13,
+    "title": "WPS & PIN brute force",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 5–6"
+    ]
+  },
+  {
+    "d": 14,
     "title": "Pixie Dust & PBC",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M2 · sections 7–13: Predefined and generated PINs, the Pixie Dust attack, push button configuration, crashing an AP with MDK4 and skills assessment",
+      "M2 · sections 7–9: Predefined and generated PINs, the Pixie Dust attack, push button configuration, crashing an AP with MDK4 and skills assessment"
+    ]
+  },
+  {
+    "d": 15,
+    "title": "Pixie Dust & PBC",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · sections 10–11"
+    ]
+  },
+  {
+    "d": 16,
+    "title": "Pixie Dust & PBC",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · sections 12–13",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 2 complete — Attacking Wi-Fi Protected Setup (WPS)"
   },
   {
-    "d": 10,
+    "d": 17,
     "title": "WEP algorithm",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Wired Equivalent Privacy (WEP) Attacks' (13 sections · Medium)",
-      "M3 · sections 1–5: WEP overview, the encryption algorithm, seed generation and RC4, the CRC32 ICV and putting the algorithms together"
+      "M3 · sections 1–3: WEP overview, the encryption algorithm, seed generation and RC4, the CRC32 ICV and putting the algorithms together"
     ]
   },
   {
-    "d": 11,
+    "d": 18,
+    "title": "WEP algorithm",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M3 · sections 4–5"
+    ]
+  },
+  {
+    "d": 19,
     "title": "IV & replay attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M3 · sections 6–9: Finding the IV with Wireshark, the ARP request replay, fragmentation and KoreK chop chop attacks"
+      "M3 · sections 6–7: Finding the IV with Wireshark, the ARP request replay, fragmentation and KoreK chop chop attacks"
     ]
   },
   {
-    "d": 12,
+    "d": 20,
+    "title": "IV & replay attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · sections 8–9"
+    ]
+  },
+  {
+    "d": 21,
     "title": "Clientless WEP cracking",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M3 · sections 10–13: The Cafe Latte attack, attacking APs without clients, additional cracking and skills assessment",
+      "M3 · sections 10–11: The Cafe Latte attack, attacking APs without clients, additional cracking and skills assessment"
+    ]
+  },
+  {
+    "d": 22,
+    "title": "Clientless WEP cracking",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · sections 12–13",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 3 complete — Wired Equivalent Privacy (WEP) Attacks"
   },
   {
-    "d": 13,
+    "d": 23,
     "title": "WPS & WEP drills",
     "type": "lab",
     "hrs": 1.5,
@@ -565,7 +665,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 14,
+    "d": 24,
     "title": "Legacy attacks review",
     "type": "review",
     "hrs": 1,
@@ -575,67 +675,211 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 15,
+    "d": 25,
     "title": "WPA personal attacks",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Attacking WPA/WPA2 Wi-Fi Networks' (15 sections · Medium)",
-      "M4 · sections 1–5: WPA overview, WPA personal, reconnaissance and bruteforce, cracking the 4-way handshake MIC and the PMKID attack"
+      "M4 · sections 1–2: WPA overview, WPA personal, reconnaissance and bruteforce, cracking the 4-way handshake MIC and the PMKID attack"
     ]
   },
   {
-    "d": 16,
+    "d": 26,
+    "title": "WPA personal attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · sections 3–4"
+    ]
+  },
+  {
+    "d": 27,
+    "title": "WPA personal attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 5"
+    ]
+  },
+  {
+    "d": 28,
     "title": "WPA enterprise & EAP",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M4 · sections 6–10: WPA enterprise overview and recon, performing bruteforce, and the EAP downgrade attack"
+      "M4 · sections 6–7: WPA enterprise overview and recon, performing bruteforce, and the EAP downgrade attack"
     ]
   },
   {
-    "d": 17,
+    "d": 29,
+    "title": "WPA enterprise & EAP",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 8"
+    ]
+  },
+  {
+    "d": 30,
+    "title": "WPA enterprise & EAP",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 9"
+    ]
+  },
+  {
+    "d": 31,
+    "title": "WPA enterprise & EAP",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · section 10"
+    ]
+  },
+  {
+    "d": 32,
     "title": "Evil twin & EAP-TLS",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M4 · sections 11–15: Enterprise evil twin, PEAP relay, attacking EAP-TLS, cracking EAP-MD5 and skills assessment",
+      "M4 · sections 11–12: Enterprise evil twin, PEAP relay, attacking EAP-TLS, cracking EAP-MD5 and skills assessment"
+    ]
+  },
+  {
+    "d": 33,
+    "title": "Evil twin & EAP-TLS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 13"
+    ]
+  },
+  {
+    "d": 34,
+    "title": "Evil twin & EAP-TLS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M4 · section 14"
+    ]
+  },
+  {
+    "d": 35,
+    "title": "Evil twin & EAP-TLS",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · section 15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 4 complete — Attacking WPA/WPA2 Wi-Fi Networks"
   },
   {
-    "d": 18,
+    "d": 36,
     "title": "Evil twin fundamentals",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Wi-Fi Evil Twin Attacks' (16 sections · Medium)",
-      "M5 · sections 1–5: Intro, evil twin on WPA2, Karma and Mana attacks, evil twin on WPA3 and enterprise evil twin"
+      "M5 · sections 1–2: Intro, evil twin on WPA2, Karma and Mana attacks, evil twin on WPA3 and enterprise evil twin"
     ]
   },
   {
-    "d": 19,
+    "d": 37,
+    "title": "Evil twin fundamentals",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · sections 3–4"
+    ]
+  },
+  {
+    "d": 38,
+    "title": "Evil twin fundamentals",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 5"
+    ]
+  },
+  {
+    "d": 39,
     "title": "Evil twin tooling",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 6–9: Using Fluxion, Airgeddon, WifiPhisher and EAPHammer"
+      "M5 · sections 6–7: Using Fluxion, Airgeddon, WifiPhisher and EAPHammer"
     ]
   },
   {
-    "d": 20,
+    "d": 40,
+    "title": "Evil twin tooling",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 8"
+    ]
+  },
+  {
+    "d": 41,
+    "title": "Evil twin tooling",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 9"
+    ]
+  },
+  {
+    "d": 42,
     "title": "MiTM & portals",
     "type": "study",
-    "hrs": 7,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 10–16: MiTM overview, DNS spoofing, bypassing MFA with evilginx2, SSL interception, evil portals with Flipper Zero and skills assessment",
+      "M5 · sections 10–11: MiTM overview, DNS spoofing, bypassing MFA with evilginx2, SSL interception, evil portals with Flipper Zero and skills assessment"
+    ]
+  },
+  {
+    "d": 43,
+    "title": "MiTM & portals",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · sections 12–13"
+    ]
+  },
+  {
+    "d": 44,
+    "title": "MiTM & portals",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 14"
+    ]
+  },
+  {
+    "d": 45,
+    "title": "MiTM & portals",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 15"
+    ]
+  },
+  {
+    "d": 46,
+    "title": "MiTM & portals",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 5 complete — Wi-Fi Evil Twin Attacks"
   },
   {
-    "d": 21,
+    "d": 47,
     "title": "WPA & evil twin drills",
     "type": "lab",
     "hrs": 2,
@@ -645,7 +889,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 22,
+    "d": 48,
     "title": "WPA & evil twin review",
     "type": "review",
     "hrs": 1,
@@ -655,67 +899,211 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 23,
+    "d": 49,
     "title": "OWE attacks",
     "type": "study",
-    "hrs": 7,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Attacking WPA3 Wi-Fi Networks' (16 sections · Medium)",
-      "M6 · sections 1–7: WPA3 overview, OWE overview and recon, recreating the handshake in Python, the OWE evil twin, collider and transition-mode attacks"
+      "M6 · sections 1–2: WPA3 overview, OWE overview and recon, recreating the handshake in Python, the OWE evil twin, collider and transition-mode attacks"
     ]
   },
   {
-    "d": 24,
+    "d": 50,
+    "title": "OWE attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 3–4"
+    ]
+  },
+  {
+    "d": 51,
+    "title": "OWE attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 5"
+    ]
+  },
+  {
+    "d": 52,
+    "title": "OWE attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 6"
+    ]
+  },
+  {
+    "d": 53,
+    "title": "OWE attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 7"
+    ]
+  },
+  {
+    "d": 54,
     "title": "SAE attacks",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
-      "M6 · sections 8–12: SAE overview and recon, the downgrade attack, online brute forcing and the SAE collider evil twin"
+      "M6 · sections 8–9: SAE overview and recon, the downgrade attack, online brute forcing and the SAE collider evil twin"
     ]
   },
   {
-    "d": 25,
+    "d": 55,
+    "title": "SAE attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 10–11"
+    ]
+  },
+  {
+    "d": 56,
+    "title": "SAE attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 12"
+    ]
+  },
+  {
+    "d": 57,
     "title": "SAE evil twin & DoS",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M6 · sections 13–16: The SAE evil twin, SAE DoS attacks, enterprise attacks and skills assessment",
+      "M6 · sections 13–14: The SAE evil twin, SAE DoS attacks, enterprise attacks and skills assessment"
+    ]
+  },
+  {
+    "d": 58,
+    "title": "SAE evil twin & DoS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 15"
+    ]
+  },
+  {
+    "d": 59,
+    "title": "SAE evil twin & DoS",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 6 complete — Attacking WPA3 Wi-Fi Networks"
   },
   {
-    "d": 26,
+    "d": 60,
     "title": "Portal recon & spoofing",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Bypassing Wi-Fi Captive Portals' (17 sections · Medium)",
-      "M7 · sections 1–6: Intro, captive portal usage and lab setup, recon, MAC address spoofing, VPN bypasses and ARP spoofing"
+      "M7 · sections 1–2: Intro, captive portal usage and lab setup, recon, MAC address spoofing, VPN bypasses and ARP spoofing"
     ]
   },
   {
-    "d": 27,
+    "d": 61,
+    "title": "Portal recon & spoofing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 3–4"
+    ]
+  },
+  {
+    "d": 62,
+    "title": "Portal recon & spoofing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 5"
+    ]
+  },
+  {
+    "d": 63,
+    "title": "Portal recon & spoofing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 6"
+    ]
+  },
+  {
+    "d": 64,
     "title": "Client hijacking",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 7–12: HTTP credential and session interception, hostile portal attacks, and client hijacking via a vulnerable service, interception and a malware portal"
+      "M7 · sections 7–8: HTTP credential and session interception, hostile portal attacks, and client hijacking via a vulnerable service, interception and a malware portal"
     ]
   },
   {
-    "d": 28,
+    "d": 65,
+    "title": "Client hijacking",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 9–10"
+    ]
+  },
+  {
+    "d": 66,
+    "title": "Client hijacking",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 11"
+    ]
+  },
+  {
+    "d": 67,
+    "title": "Client hijacking",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 12"
+    ]
+  },
+  {
+    "d": 68,
     "title": "Portal web attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 13–17: Brute forcing, portal hijacking via XSS and command injection, host header and file upload attacks, file inclusion and skills assessment",
+      "M7 · sections 13–14: Brute forcing, portal hijacking via XSS and command injection, host header and file upload attacks, file inclusion and skills assessment"
+    ]
+  },
+  {
+    "d": 69,
+    "title": "Portal web attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 15–16"
+    ]
+  },
+  {
+    "d": 70,
+    "title": "Portal web attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 17",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 7 complete — Bypassing Wi-Fi Captive Portals"
   },
   {
-    "d": 29,
+    "d": 71,
     "title": "WPA3 & portal drills",
     "type": "lab",
     "hrs": 2,
@@ -725,7 +1113,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 30,
+    "d": 72,
     "title": "WPA3 & portals review",
     "type": "review",
     "hrs": 1,
@@ -735,85 +1123,247 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 31,
+    "d": 73,
     "title": "Cracking fundamentals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Wi-Fi Password Cracking Techniques' (16 sections · Medium)",
-      "M8 · sections 1–5: Intro, the traditional WPA attack, anatomy of a password, and CPU vs GPU cracking in theory and practice"
+      "M8 · sections 1–3: Intro, the traditional WPA attack, anatomy of a password, and CPU vs GPU cracking in theory and practice"
     ]
   },
   {
-    "d": 32,
+    "d": 74,
+    "title": "Cracking fundamentals",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 4–5"
+    ]
+  },
+  {
+    "d": 75,
     "title": "Hashcat attacks",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M8 · sections 6–11: Hashcat rules, mask, combinator and hybrid attacks, and generating default credentials and wordlists"
+      "M8 · sections 6–8: Hashcat rules, mask, combinator and hybrid attacks, and generating default credentials and wordlists"
     ]
   },
   {
-    "d": 33,
+    "d": 76,
+    "title": "Hashcat attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M8 · sections 9–11"
+    ]
+  },
+  {
+    "d": 77,
     "title": "Wordlists & cloud cracking",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M8 · sections 12–16: Generating usernames, rainbow table precomputation, cloud cracking, Cisco password cracking and skills assessment",
+      "M8 · sections 12–14: Generating usernames, rainbow table precomputation, cloud cracking, Cisco password cracking and skills assessment"
+    ]
+  },
+  {
+    "d": 78,
+    "title": "Wordlists & cloud cracking",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 15–16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 8 complete — Wi-Fi Password Cracking Techniques"
   },
   {
-    "d": 34,
+    "d": 79,
     "title": "Recon & mapping tools",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Wi-Fi Penetration Testing Tools and Techniques' (30 sections · Medium)",
-      "M9 · sections 1–6: Wi-Fi security essentials, airodump-ng, GPSD, the Kismet WebUI, KismetDB tools and Sparrow-Wifi"
+      "M9 · sections 1–2: Wi-Fi security essentials, airodump-ng, GPSD, the Kismet WebUI, KismetDB tools and Sparrow-Wifi"
     ]
   },
   {
-    "d": 35,
+    "d": 80,
+    "title": "Recon & mapping tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 3–4"
+    ]
+  },
+  {
+    "d": 81,
+    "title": "Recon & mapping tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 5"
+    ]
+  },
+  {
+    "d": 82,
+    "title": "Recon & mapping tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 6"
+    ]
+  },
+  {
+    "d": 83,
     "title": "Discovery & PIN tools",
     "type": "study",
-    "hrs": 6.5,
+    "hrs": 2,
     "tasks": [
-      "M9 · sections 7–12: Wifi_db, LinSSID, WiGLE, Air-Hammer, Reaver and WifiBF"
+      "M9 · sections 7–8: Wifi_db, LinSSID, WiGLE, Air-Hammer, Reaver and WifiBF"
     ]
   },
   {
-    "d": 36,
+    "d": 84,
+    "title": "Discovery & PIN tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 9–10"
+    ]
+  },
+  {
+    "d": 85,
+    "title": "Discovery & PIN tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 11"
+    ]
+  },
+  {
+    "d": 86,
+    "title": "Discovery & PIN tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 12"
+    ]
+  },
+  {
+    "d": 87,
     "title": "Automated attack tools",
     "type": "study",
-    "hrs": 6.5,
+    "hrs": 2,
     "tasks": [
-      "M9 · sections 13–18: Wacker, Fern Wi-Fi Cracker, H4rpy, Wifite2, EAPHammer and Airgeddon"
+      "M9 · sections 13–14: Wacker, Fern Wi-Fi Cracker, H4rpy, Wifite2, EAPHammer and Airgeddon"
     ]
   },
   {
-    "d": 37,
+    "d": 88,
+    "title": "Automated attack tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 15–16"
+    ]
+  },
+  {
+    "d": 89,
+    "title": "Automated attack tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 17"
+    ]
+  },
+  {
+    "d": 90,
+    "title": "Automated attack tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 18"
+    ]
+  },
+  {
+    "d": 91,
     "title": "Evil twin & cracking tools",
     "type": "study",
-    "hrs": 6.5,
+    "hrs": 2,
     "tasks": [
-      "M9 · sections 19–24: Wirespy, Wifipumpkin3, Aircrack-ng, Cowpatty, Pyrit and Pmkidcracker"
+      "M9 · sections 19–20: Wirespy, Wifipumpkin3, Aircrack-ng, Cowpatty, Pyrit and Pmkidcracker"
     ]
   },
   {
-    "d": 38,
+    "d": 92,
+    "title": "Evil twin & cracking tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 21–22"
+    ]
+  },
+  {
+    "d": 93,
+    "title": "Evil twin & cracking tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 23"
+    ]
+  },
+  {
+    "d": 94,
+    "title": "Evil twin & cracking tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 24"
+    ]
+  },
+  {
+    "d": 95,
     "title": "MiTM & router attacks",
     "type": "study",
-    "hrs": 6.5,
+    "hrs": 2,
     "tasks": [
-      "M9 · sections 25–30: Ettercap, Bettercap, DHCP starvation, router firmware vulnerabilities, gathering passwords from exploited machines and skills assessment",
+      "M9 · sections 25–26: Ettercap, Bettercap, DHCP starvation, router firmware vulnerabilities, gathering passwords from exploited machines and skills assessment"
+    ]
+  },
+  {
+    "d": 96,
+    "title": "MiTM & router attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 27–28"
+    ]
+  },
+  {
+    "d": 97,
+    "title": "MiTM & router attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 29"
+    ]
+  },
+  {
+    "d": 98,
+    "title": "MiTM & router attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 30",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 9 complete — Wi-Fi Penetration Testing Tools and Techniques"
   },
   {
-    "d": 39,
+    "d": 99,
     "title": "Cracking & tooling drills",
     "type": "lab",
     "hrs": 2,
@@ -823,7 +1373,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 40,
+    "d": 100,
     "title": "Cracking & tools review",
     "type": "review",
     "hrs": 1,
@@ -833,37 +1383,109 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 41,
+    "d": 101,
     "title": "Recon & Wi-Fi footholds",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Attacking Corporate Wi-Fi Networks' (18 sections · Medium)",
-      "M10 · sections 1–6: Intro, the scenario and kickoff, initial recon, abusing guest Wi-Fi, and compromising WPA2 and WPA3"
+      "M10 · sections 1–2: Intro, the scenario and kickoff, initial recon, abusing guest Wi-Fi, and compromising WPA2 and WPA3"
     ]
   },
   {
-    "d": 42,
+    "d": 102,
+    "title": "Recon & Wi-Fi footholds",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 3–4"
+    ]
+  },
+  {
+    "d": 103,
+    "title": "Recon & Wi-Fi footholds",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 5–6"
+    ]
+  },
+  {
+    "d": 104,
     "title": "Enterprise Wi-Fi compromise",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 7–12: Karma and Mana, recon and enumeration, attacking WPA2 and WPA3, router exploitation and compromising enterprise Wi-Fi"
+      "M10 · sections 7–8: Karma and Mana, recon and enumeration, attacking WPA2 and WPA3, router exploitation and compromising enterprise Wi-Fi"
     ]
   },
   {
-    "d": 43,
+    "d": 105,
+    "title": "Enterprise Wi-Fi compromise",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 9–10"
+    ]
+  },
+  {
+    "d": 106,
+    "title": "Enterprise Wi-Fi compromise",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 11"
+    ]
+  },
+  {
+    "d": 107,
+    "title": "Enterprise Wi-Fi compromise",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M10 · section 12"
+    ]
+  },
+  {
+    "d": 108,
     "title": "AD compromise & closeout",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 13–18: AD enumeration and internal foothold, exploitation and privilege escalation, lateral movement, domain compromise, post-exploitation and engagement closeout",
+      "M10 · sections 13–14: AD enumeration and internal foothold, exploitation and privilege escalation, lateral movement, domain compromise, post-exploitation and engagement closeout"
+    ]
+  },
+  {
+    "d": 109,
+    "title": "AD compromise & closeout",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 15–16"
+    ]
+  },
+  {
+    "d": 110,
+    "title": "AD compromise & closeout",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 17"
+    ]
+  },
+  {
+    "d": 111,
+    "title": "AD compromise & closeout",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M10 · section 18",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 10 complete — Attacking Corporate Wi-Fi Networks"
   },
   {
-    "d": 44,
+    "d": 112,
     "title": "Corporate chain drills",
     "type": "lab",
     "hrs": 2,
@@ -873,7 +1495,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 45,
+    "d": 113,
     "title": "Corporate Wi-Fi review",
     "type": "review",
     "hrs": 1,
@@ -883,7 +1505,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 46,
+    "d": 114,
     "title": "SysReptor setup",
     "type": "lab",
     "hrs": 1.5,
@@ -893,7 +1515,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 47,
+    "d": 115,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2,
@@ -903,7 +1525,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 48,
+    "d": 116,
     "title": "Mock exam: recon & attack",
     "type": "lab",
     "hrs": 2.5,
@@ -913,7 +1535,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 49,
+    "d": 117,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -923,7 +1545,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 50,
+    "d": 118,
     "title": "Finalize cheat sheets",
     "type": "review",
     "hrs": 1.5,
@@ -933,7 +1555,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 51,
+    "d": 119,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
@@ -943,47 +1565,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 52,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 53,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 54,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 55,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 56,
+    "d": 120,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 1,
@@ -1315,30 +1897,30 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "cwpe_tracker_v1";
+const STORE_KEY = "cwpe_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:25};
 
-/* Timeline modes: the same full curriculum, repackaged into 25 to 55 days. */
+/* Timeline modes: the same full curriculum, repackaged into 25 to 120 days. */
 const MODES = {
   "25": {
     "days": 25,
-    "hrs": "≈ 50 hrs/week"
+    "hrs": "≈ 49 hrs/week"
   },
   "30": {
     "days": 30,
-    "hrs": "≈ 42 hrs/week"
+    "hrs": "≈ 41 hrs/week"
   },
   "40": {
     "days": 40,
     "hrs": "≈ 31 hrs/week"
   },
-  "50": {
-    "days": 50,
-    "hrs": "≈ 25 hrs/week"
+  "60": {
+    "days": 60,
+    "hrs": "≈ 20 hrs/week"
   },
-  "55": {
-    "days": 55,
-    "hrs": "≈ 23 hrs/week"
+  "120": {
+    "days": 120,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#f9bda5", "#f05a1e"];
@@ -1365,7 +1947,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   55-day -> 1-2, 50-day -> 1-2, 40-day -> 1-2, 30-day -> 1-2, 25-day -> 2-3.
+   120-day -> 1 master/day, 60-day -> 2 master/day, 40-day -> 3 master/day, 30-day -> 4 master/day, 25-day -> 4-5.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -1400,7 +1982,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(8, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(18, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -1593,7 +2175,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =

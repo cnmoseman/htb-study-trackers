@@ -259,7 +259,7 @@
         <button type="button" class="modebtn" data-mode="40">40-day</button>
         <button type="button" class="modebtn" data-mode="50">50-day</button>
         <button type="button" class="modebtn" data-mode="75">75-day</button>
-        <button type="button" class="modebtn" data-mode="110">110-day</button>
+        <button type="button" class="modebtn" data-mode="150">150-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -356,7 +356,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (30/40/50/75/110 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (30/40/50/75/150 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for payloads that worked, requests worth replaying, and things to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -377,71 +377,78 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "Web Requests",
-  "Web Proxies",
-  "Web Recon",
-  "Web Fuzzing",
-  "XSS",
-  "SQLMap",
-  "Command Injection",
-  "Server-side Attacks",
-  "Brute Forcing",
-  "Broken Authentication",
-  "File Inclusion",
-  "GraphQL & APIs",
-  "Common Applications",
-  "Common Applications II",
-  "Reporting & Mock Exam",
-  "Exam Prep & Mock"
+  "HTTP & HTTPS basics",
+  "Proxy setup",
+  "Repeating & encoding",
+  "Search engines & automation",
+  "API fuzzing",
+  "Stored, reflected & DOM XSS",
+  "MySQL & SQL statements",
+  "Detecting injection",
+  "Filter bypasses",
+  "Validation & filter bypass",
+  "Exploiting SSTI",
+  "HTTP auth & login forms",
+  "Auth bypasses",
+  "HTTP verb tampering",
+  "XXE file disclosure",
+  "LFI to RCE",
+  "DoS, mutations & tools",
+  "SSRF & misconfigurations",
+  "Tomcat & Jenkins",
+  "GitLab & CGI attacks",
+  "IIS, LDAP & other apps",
+  "Easy web boxes",
+  "Mock exam: recon"
 ];
 
 const PHASES = [
   {
     "name": "Web Fundamentals & Proxies",
     "from": 1,
-    "to": 16,
+    "to": 19,
     "color": "#f8c1bf"
   },
   {
     "name": "Recon & Fuzzing",
-    "from": 17,
-    "to": 29,
+    "from": 20,
+    "to": 37,
     "color": "#f6b3b1"
   },
   {
     "name": "XSS & Injection",
-    "from": 30,
-    "to": 46,
+    "from": 38,
+    "to": 61,
     "color": "#f5a6a3"
   },
   {
     "name": "Uploads & Server-side",
-    "from": 47,
-    "to": 57,
+    "from": 62,
+    "to": 75,
     "color": "#f39895"
   },
   {
     "name": "Authentication Attacks",
-    "from": 58,
-    "to": 67,
+    "from": 76,
+    "to": 92,
     "color": "#f28b87"
   },
   {
     "name": "Web Attacks, LFI & APIs",
-    "from": 68,
-    "to": 84,
+    "from": 93,
+    "to": 125,
     "color": "#f07e7a"
   },
   {
     "name": "Common Applications",
-    "from": 85,
-    "to": 96,
+    "from": 126,
+    "to": 151,
     "color": "#ef706c"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 97,
-    "to": 110,
+    "from": 152,
+    "to": 160,
     "color": "#ed635e"
   }
 ];
@@ -473,25 +480,43 @@ const CURRICULUM = [
     "d": 3,
     "title": "HTTP & HTTPS basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Web Requests' (8 sections · Fundamental)",
-      "M1 · sections 1–4: HTTP, HTTPS, requests and responses & HTTP headers"
+      "M1 · sections 1–2: HTTP, HTTPS, requests and responses & HTTP headers"
     ]
   },
   {
     "d": 4,
+    "title": "HTTP & HTTPS basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · sections 3–4"
+    ]
+  },
+  {
+    "d": 5,
     "title": "Methods, GET, POST & APIs",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M1 · sections 5–8: HTTP methods and codes, GET, POST & CRUD APIs",
+      "M1 · sections 5–6: HTTP methods and codes, GET, POST & CRUD APIs"
+    ]
+  },
+  {
+    "d": 6,
+    "title": "Methods, GET, POST & APIs",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · sections 7–8",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 1 complete — Web Requests"
   },
   {
-    "d": 5,
+    "d": 7,
     "title": "Web app layout",
     "type": "study",
     "hrs": 1,
@@ -501,7 +526,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 6,
+    "d": 8,
     "title": "HTML, CSS & JavaScript",
     "type": "study",
     "hrs": 1,
@@ -510,7 +535,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 7,
+    "d": 9,
     "title": "Front-end vulnerabilities",
     "type": "study",
     "hrs": 1,
@@ -519,7 +544,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 8,
+    "d": 10,
     "title": "Back-end components",
     "type": "study",
     "hrs": 1,
@@ -528,7 +553,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 9,
+    "d": 11,
     "title": "Common web vulnerabilities",
     "type": "study",
     "hrs": 1,
@@ -539,17 +564,26 @@ const CURRICULUM = [
     "milestone": "Module 2 complete — Introduction to Web Applications"
   },
   {
-    "d": 10,
+    "d": 12,
     "title": "Proxy setup",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Using Web Proxies' (15 sections · Easy)",
-      "M3 · sections 1–3: Intro to web proxies, setting up & proxy setup"
+      "M3 · sections 1–2: Intro to web proxies, setting up & proxy setup"
     ]
   },
   {
-    "d": 11,
+    "d": 13,
+    "title": "Proxy setup",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 3"
+    ]
+  },
+  {
+    "d": 14,
     "title": "Intercepting traffic",
     "type": "study",
     "hrs": 1.5,
@@ -558,7 +592,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 12,
+    "d": 15,
     "title": "Repeating & encoding",
     "type": "study",
     "hrs": 1.5,
@@ -567,7 +601,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 13,
+    "d": 16,
     "title": "Burp Intruder & ZAP Fuzzer",
     "type": "study",
     "hrs": 1.5,
@@ -576,7 +610,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 14,
+    "d": 17,
     "title": "ZAP Scanner & extensions",
     "type": "study",
     "hrs": 1.5,
@@ -587,7 +621,7 @@ const CURRICULUM = [
     "milestone": "Module 3 complete — Using Web Proxies"
   },
   {
-    "d": 15,
+    "d": 18,
     "title": "Burp & ZAP practice",
     "type": "lab",
     "hrs": 1.5,
@@ -597,7 +631,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 16,
+    "d": 19,
     "title": "Web basics review",
     "type": "review",
     "hrs": 1,
@@ -607,7 +641,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 17,
+    "d": 20,
     "title": "WHOIS basics",
     "type": "study",
     "hrs": 1.5,
@@ -617,7 +651,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 18,
+    "d": 21,
     "title": "DNS & subdomains",
     "type": "study",
     "hrs": 1.5,
@@ -626,7 +660,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 19,
+    "d": 22,
     "title": "Zone transfers & vhosts",
     "type": "study",
     "hrs": 1.5,
@@ -635,7 +669,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 20,
+    "d": 23,
     "title": "Fingerprinting & crawling",
     "type": "study",
     "hrs": 1.5,
@@ -644,48 +678,84 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 21,
+    "d": 24,
     "title": "Search engines & automation",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M4 · sections 15–19: Creepy crawlies, search engine discovery, web archives, automating recon & the skills assessment",
+      "M4 · sections 15–17: Creepy crawlies, search engine discovery, web archives, automating recon & the skills assessment"
+    ]
+  },
+  {
+    "d": 25,
+    "title": "Search engines & automation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · sections 18–19",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 4 complete — Information Gathering - Web Edition"
   },
   {
-    "d": 22,
+    "d": 26,
     "title": "Directory & file fuzzing",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Web Fuzzing' (12 sections · Easy)",
-      "M5 · sections 1–4: Introduction, tooling, directory and file fuzzing & recursive fuzzing"
+      "M5 · sections 1–2: Introduction, tooling, directory and file fuzzing & recursive fuzzing"
     ]
   },
   {
-    "d": 23,
+    "d": 27,
+    "title": "Directory & file fuzzing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · sections 3–4"
+    ]
+  },
+  {
+    "d": 28,
     "title": "Parameter & vhost fuzzing",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 5–8: Parameter and value fuzzing, vhost and subdomain fuzzing, filtering output & validating findings"
+      "M5 · sections 5–6: Parameter and value fuzzing, vhost and subdomain fuzzing, filtering output & validating findings"
     ]
   },
   {
-    "d": 24,
+    "d": 29,
+    "title": "Parameter & vhost fuzzing",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 7–8"
+    ]
+  },
+  {
+    "d": 30,
     "title": "API fuzzing",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 9–12: Web APIs, identifying endpoints, API fuzzing & the skills assessment",
+      "M5 · sections 9–10: Web APIs, identifying endpoints, API fuzzing & the skills assessment"
+    ]
+  },
+  {
+    "d": 31,
+    "title": "API fuzzing",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 11–12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 5 complete — Web Fuzzing"
   },
   {
-    "d": 25,
+    "d": 32,
     "title": "Recon & fuzzing drills",
     "type": "lab",
     "hrs": 1.5,
@@ -695,17 +765,26 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 26,
+    "d": 33,
     "title": "Source code & obfuscation",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'JavaScript Deobfuscation' (11 sections · Easy)",
-      "M6 · sections 1–5: Introduction, source code, code obfuscation, basic & advanced obfuscation"
+      "M6 · sections 1–3: Introduction, source code, code obfuscation, basic & advanced obfuscation"
     ]
   },
   {
-    "d": 27,
+    "d": 34,
+    "title": "Source code & obfuscation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 4–5"
+    ]
+  },
+  {
+    "d": 35,
     "title": "Deobfuscation & analysis",
     "type": "study",
     "hrs": 1,
@@ -714,7 +793,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 28,
+    "d": 36,
     "title": "Decoding",
     "type": "study",
     "hrs": 1,
@@ -725,7 +804,7 @@ const CURRICULUM = [
     "milestone": "Module 6 complete — JavaScript Deobfuscation"
   },
   {
-    "d": 29,
+    "d": 37,
     "title": "Recon & fuzzing review",
     "type": "review",
     "hrs": 1,
@@ -735,17 +814,26 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 30,
+    "d": 38,
     "title": "Stored, reflected & DOM XSS",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Cross-Site Scripting (XSS)' (10 sections · Easy)",
-      "M7 · sections 1–4: Intro to XSS; stored, reflected & DOM XSS"
+      "M7 · sections 1–2: Intro to XSS; stored, reflected & DOM XSS"
     ]
   },
   {
-    "d": 31,
+    "d": 39,
+    "title": "Stored, reflected & DOM XSS",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 3–4"
+    ]
+  },
+  {
+    "d": 40,
     "title": "XSS discovery & phishing",
     "type": "study",
     "hrs": 1.5,
@@ -754,18 +842,27 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 32,
+    "d": 41,
     "title": "Session hijacking",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M7 · sections 8–10: Session hijacking, XSS prevention & the skills assessment",
+      "M7 · sections 8–9: Session hijacking, XSS prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 42,
+    "title": "Session hijacking",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 10",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 7 complete — Cross-Site Scripting (XSS)"
   },
   {
-    "d": 33,
+    "d": 43,
     "title": "XSS payload practice",
     "type": "lab",
     "hrs": 1.5,
@@ -775,7 +872,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 34,
+    "d": 44,
     "title": "Databases & types",
     "type": "study",
     "hrs": 1,
@@ -785,16 +882,25 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 35,
+    "d": 45,
     "title": "MySQL & SQL statements",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 4–7: Intro to MySQL, SQL statements, query results & SQL operators"
+      "M8 · sections 4–5: Intro to MySQL, SQL statements, query results & SQL operators"
     ]
   },
   {
-    "d": 36,
+    "d": 46,
+    "title": "MySQL & SQL statements",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 6–7"
+    ]
+  },
+  {
+    "d": 47,
     "title": "Intro to SQL injection",
     "type": "study",
     "hrs": 1.5,
@@ -803,7 +909,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 37,
+    "d": 48,
     "title": "UNION injection",
     "type": "study",
     "hrs": 1.5,
@@ -812,18 +918,27 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 38,
+    "d": 49,
     "title": "Reading & writing files",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 14–17: Reading files, writing files, mitigating SQL injection & the skills assessment",
+      "M8 · sections 14–15: Reading files, writing files, mitigating SQL injection & the skills assessment"
+    ]
+  },
+  {
+    "d": 50,
+    "title": "Reading & writing files",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 16–17",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 8 complete — SQL Injection Fundamentals"
   },
   {
-    "d": 39,
+    "d": 51,
     "title": "SQLMap basics",
     "type": "study",
     "hrs": 1.5,
@@ -833,7 +948,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 40,
+    "d": 52,
     "title": "Tuning & enumeration",
     "type": "study",
     "hrs": 1.5,
@@ -842,7 +957,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 41,
+    "d": 53,
     "title": "WAF bypass & OS access",
     "type": "study",
     "hrs": 1,
@@ -853,7 +968,7 @@ const CURRICULUM = [
     "milestone": "Module 9 complete — SQLMap Essentials"
   },
   {
-    "d": 42,
+    "d": 54,
     "title": "Injection drills",
     "type": "lab",
     "hrs": 2,
@@ -863,37 +978,64 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 43,
+    "d": 55,
     "title": "Detecting injection",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Command Injections' (12 sections · Medium)",
-      "M10 · sections 1–4: Intro to command injections, detection, injecting commands & other injection operators"
+      "M10 · sections 1–2: Intro to command injections, detection, injecting commands & other injection operators"
     ]
   },
   {
-    "d": 44,
+    "d": 56,
+    "title": "Detecting injection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M10 · sections 3–4"
+    ]
+  },
+  {
+    "d": 57,
     "title": "Filter bypasses",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M10 · sections 5–8: Identifying filters; bypassing space filters, blacklisted characters & blacklisted commands"
+      "M10 · sections 5–6: Identifying filters; bypassing space filters, blacklisted characters & blacklisted commands"
     ]
   },
   {
-    "d": 45,
+    "d": 58,
+    "title": "Filter bypasses",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M10 · sections 7–8"
+    ]
+  },
+  {
+    "d": 59,
     "title": "Obfuscation & evasion",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M10 · sections 9–12: Advanced command obfuscation, evasion tools, prevention & the skills assessment",
+      "M10 · sections 9–10: Advanced command obfuscation, evasion tools, prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 60,
+    "title": "Obfuscation & evasion",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M10 · sections 11–12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 10 complete — Command Injections"
   },
   {
-    "d": 46,
+    "d": 61,
     "title": "Injection review",
     "type": "review",
     "hrs": 1,
@@ -903,37 +1045,64 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 47,
+    "d": 62,
     "title": "Upload exploitation",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'File Upload Attacks' (11 sections · Medium)",
-      "M11 · sections 1–3: Intro to file upload attacks, absent validation & upload exploitation"
+      "M11 · sections 1–2: Intro to file upload attacks, absent validation & upload exploitation"
     ]
   },
   {
-    "d": 48,
+    "d": 63,
+    "title": "Upload exploitation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · section 3"
+    ]
+  },
+  {
+    "d": 64,
     "title": "Validation & filter bypass",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M11 · sections 4–7: Client-side validation, blacklist, whitelist & type filters"
+      "M11 · sections 4–5: Client-side validation, blacklist, whitelist & type filters"
     ]
   },
   {
-    "d": 49,
+    "d": 65,
+    "title": "Validation & filter bypass",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 6–7"
+    ]
+  },
+  {
+    "d": 66,
     "title": "Limited & other uploads",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M11 · sections 8–11: Limited file uploads, other upload attacks, prevention & the skills assessment",
+      "M11 · sections 8–9: Limited file uploads, other upload attacks, prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 67,
+    "title": "Limited & other uploads",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 10–11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 11 complete — File Upload Attacks"
   },
   {
-    "d": 50,
+    "d": 68,
     "title": "Intro to SSRF",
     "type": "study",
     "hrs": 1,
@@ -943,7 +1112,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 51,
+    "d": 69,
     "title": "Exploiting SSRF",
     "type": "study",
     "hrs": 1,
@@ -952,7 +1121,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 52,
+    "d": 70,
     "title": "Template engines & SSTI",
     "type": "study",
     "hrs": 1.5,
@@ -961,7 +1130,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 53,
+    "d": 71,
     "title": "Exploiting SSTI",
     "type": "study",
     "hrs": 1.5,
@@ -970,7 +1139,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 54,
+    "d": 72,
     "title": "SSI injection",
     "type": "study",
     "hrs": 1.5,
@@ -979,7 +1148,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 55,
+    "d": 73,
     "title": "XSLT injection",
     "type": "study",
     "hrs": 1.5,
@@ -990,7 +1159,7 @@ const CURRICULUM = [
     "milestone": "Module 12 complete — Server-side Attacks"
   },
   {
-    "d": 56,
+    "d": 74,
     "title": "SSTI & SSRF drills",
     "type": "lab",
     "hrs": 1.5,
@@ -1000,7 +1169,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 57,
+    "d": 75,
     "title": "Upload & server-side review",
     "type": "review",
     "hrs": 1,
@@ -1010,7 +1179,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 58,
+    "d": 76,
     "title": "Brute force fundamentals",
     "type": "study",
     "hrs": 1,
@@ -1020,7 +1189,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 59,
+    "d": 77,
     "title": "Dictionary attacks & Hydra",
     "type": "study",
     "hrs": 1.5,
@@ -1029,16 +1198,25 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 60,
+    "d": 78,
     "title": "HTTP auth & login forms",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M13 · sections 7–10: Basic HTTP authentication, login forms, Medusa & web services"
+      "M13 · sections 7–8: Basic HTTP authentication, login forms, Medusa & web services"
     ]
   },
   {
-    "d": 61,
+    "d": 79,
+    "title": "HTTP auth & login forms",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · sections 9–10"
+    ]
+  },
+  {
+    "d": 80,
     "title": "Custom wordlists",
     "type": "study",
     "hrs": 1.5,
@@ -1049,46 +1227,100 @@ const CURRICULUM = [
     "milestone": "Module 13 complete — Login Brute Forcing"
   },
   {
-    "d": 62,
+    "d": 81,
     "title": "Auth & user enumeration",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Broken Authentication' (14 sections · Medium)",
-      "M14 · sections 1–3: What is authentication, attacks on authentication & enumerating users"
+      "M14 · sections 1–2: What is authentication, attacks on authentication & enumerating users"
     ]
   },
   {
-    "d": 63,
+    "d": 82,
+    "title": "Auth & user enumeration",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 3"
+    ]
+  },
+  {
+    "d": 83,
     "title": "Brute-forcing auth",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M14 · sections 4–7: Brute-forcing passwords, reset tokens & 2FA codes; weak brute-force protection"
+      "M14 · sections 4–5: Brute-forcing passwords, reset tokens & 2FA codes; weak brute-force protection"
     ]
   },
   {
-    "d": 64,
+    "d": 84,
+    "title": "Brute-forcing auth",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 6"
+    ]
+  },
+  {
+    "d": 85,
+    "title": "Brute-forcing auth",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 7"
+    ]
+  },
+  {
+    "d": 86,
     "title": "Auth bypasses",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M14 · sections 8–11: Default credentials, vulnerable password reset, bypass via direct access & parameter modification"
+      "M14 · sections 8–9: Default credentials, vulnerable password reset, bypass via direct access & parameter modification"
     ]
   },
   {
-    "d": 65,
+    "d": 87,
+    "title": "Auth bypasses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 10"
+    ]
+  },
+  {
+    "d": 88,
+    "title": "Auth bypasses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 11"
+    ]
+  },
+  {
+    "d": 89,
     "title": "Session token attacks",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
-      "M14 · sections 12–14: Attacking session tokens, further session attacks & the skills assessment",
+      "M14 · sections 12–13: Attacking session tokens, further session attacks & the skills assessment"
+    ]
+  },
+  {
+    "d": 90,
+    "title": "Session token attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 14",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 14 complete — Broken Authentication"
   },
   {
-    "d": 66,
+    "d": 91,
     "title": "Auth attack practice",
     "type": "lab",
     "hrs": 1.5,
@@ -1098,7 +1330,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 67,
+    "d": 92,
     "title": "Authentication review",
     "type": "review",
     "hrs": 1,
@@ -1108,85 +1340,175 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 68,
+    "d": 93,
     "title": "HTTP verb tampering",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Web Attacks' (18 sections · Medium)",
-      "M15 · sections 1–5: Intro to web attacks; verb tampering, bypassing basic auth and security filters, prevention"
+      "M15 · sections 1–2: Intro to web attacks; verb tampering, bypassing basic auth and security filters, prevention"
     ]
   },
   {
-    "d": 69,
+    "d": 94,
+    "title": "HTTP verb tampering",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · sections 3–4"
+    ]
+  },
+  {
+    "d": 95,
+    "title": "HTTP verb tampering",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 5"
+    ]
+  },
+  {
+    "d": 96,
     "title": "Finding IDORs",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
-      "M15 · sections 6–9: Intro to IDOR, identifying IDORs, mass IDOR enumeration & bypassing encoded references"
+      "M15 · sections 6–7: Intro to IDOR, identifying IDORs, mass IDOR enumeration & bypassing encoded references"
     ]
   },
   {
-    "d": 70,
+    "d": 97,
+    "title": "Finding IDORs",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · sections 8–9"
+    ]
+  },
+  {
+    "d": 98,
     "title": "IDOR in APIs & chaining",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 10–12: IDOR in insecure APIs, chaining IDOR vulnerabilities & IDOR prevention"
+      "M15 · sections 10–11: IDOR in insecure APIs, chaining IDOR vulnerabilities & IDOR prevention"
     ]
   },
   {
-    "d": 71,
+    "d": 99,
+    "title": "IDOR in APIs & chaining",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 12"
+    ]
+  },
+  {
+    "d": 100,
     "title": "XXE file disclosure",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 13–15: Intro to XXE, local file disclosure & advanced file disclosure"
+      "M15 · sections 13–14: Intro to XXE, local file disclosure & advanced file disclosure"
     ]
   },
   {
-    "d": 72,
+    "d": 101,
+    "title": "XXE file disclosure",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 15"
+    ]
+  },
+  {
+    "d": 102,
     "title": "Blind XXE exfiltration",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 16–18: Blind data exfiltration, XXE prevention & the skills assessment",
+      "M15 · sections 16–17: Blind data exfiltration, XXE prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 103,
+    "title": "Blind XXE exfiltration",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 18",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 15 complete — Web Attacks"
   },
   {
-    "d": 73,
+    "d": 104,
     "title": "LFI basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'File Inclusion' (11 sections · Medium)",
-      "M16 · sections 1–3: Intro to file inclusions, local file inclusion & basic bypasses"
+      "M16 · sections 1–2: Intro to file inclusions, local file inclusion & basic bypasses"
     ]
   },
   {
-    "d": 74,
+    "d": 105,
+    "title": "LFI basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M16 · section 3"
+    ]
+  },
+  {
+    "d": 106,
     "title": "PHP filters & wrappers",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M16 · sections 4–6: PHP filters, PHP wrappers & remote file inclusion"
+      "M16 · sections 4–5: PHP filters, PHP wrappers & remote file inclusion"
     ]
   },
   {
-    "d": 75,
+    "d": 107,
+    "title": "PHP filters & wrappers",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M16 · section 6"
+    ]
+  },
+  {
+    "d": 108,
     "title": "LFI to RCE",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M16 · sections 7–11: LFI and file uploads, log poisoning, automated scanning, prevention & the skills assessment",
+      "M16 · sections 7–8: LFI and file uploads, log poisoning, automated scanning, prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 109,
+    "title": "LFI to RCE",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M16 · sections 9–10"
+    ]
+  },
+  {
+    "d": 110,
+    "title": "LFI to RCE",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M16 · section 11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 16 complete — File Inclusion"
   },
   {
-    "d": 76,
+    "d": 111,
     "title": "File disclosure drills",
     "type": "lab",
     "hrs": 1.5,
@@ -1196,58 +1518,112 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 77,
+    "d": 112,
     "title": "GraphQL recon & IDOR",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Attacking GraphQL' (9 sections · Medium)",
-      "M17 · sections 1–4: Introduction to GraphQL, information disclosure, IDOR & injection attacks"
+      "M17 · sections 1–2: Introduction to GraphQL, information disclosure, IDOR & injection attacks"
     ]
   },
   {
-    "d": 78,
+    "d": 113,
+    "title": "GraphQL recon & IDOR",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M17 · sections 3–4"
+    ]
+  },
+  {
+    "d": 114,
     "title": "DoS, mutations & tools",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M17 · sections 5–9: DoS & batching attacks, mutations, tools of the trade, prevention & the skills assessment",
+      "M17 · sections 5–6: DoS & batching attacks, mutations, tools of the trade, prevention & the skills assessment"
+    ]
+  },
+  {
+    "d": 115,
+    "title": "DoS, mutations & tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M17 · sections 7–8"
+    ]
+  },
+  {
+    "d": 116,
+    "title": "DoS, mutations & tools",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M17 · section 9",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 17 complete — Attacking GraphQL"
   },
   {
-    "d": 79,
+    "d": 117,
     "title": "BOLA & broken auth",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'API Attacks' (13 sections · Medium)",
-      "M18 · sections 1–4: Introduction to API attacks, the lab, broken object level authorization & broken authentication"
+      "M18 · sections 1–2: Introduction to API attacks, the lab, broken object level authorization & broken authentication"
     ]
   },
   {
-    "d": 80,
+    "d": 118,
+    "title": "BOLA & broken auth",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M18 · sections 3–4"
+    ]
+  },
+  {
+    "d": 119,
     "title": "Property & function auth",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M18 · sections 5–8: Broken object property level auth, resource consumption, broken function level auth & sensitive business flows"
+      "M18 · sections 5–6: Broken object property level auth, resource consumption, broken function level auth & sensitive business flows"
     ]
   },
   {
-    "d": 81,
+    "d": 120,
+    "title": "Property & function auth",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M18 · sections 7–8"
+    ]
+  },
+  {
+    "d": 121,
     "title": "SSRF & misconfigurations",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M18 · sections 9–13: SSRF, security misconfiguration, improper inventory management, unsafe consumption of APIs & the skills assessment",
+      "M18 · sections 9–11: SSRF, security misconfiguration, improper inventory management, unsafe consumption of APIs & the skills assessment"
+    ]
+  },
+  {
+    "d": 122,
+    "title": "SSRF & misconfigurations",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M18 · sections 12–13",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 18 complete — API Attacks"
   },
   {
-    "d": 82,
+    "d": 123,
     "title": "GraphQL & API lab",
     "type": "lab",
     "hrs": 1.5,
@@ -1257,7 +1633,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 83,
+    "d": 124,
     "title": "Chaining practice",
     "type": "lab",
     "hrs": 2,
@@ -1267,7 +1643,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 84,
+    "d": 125,
     "title": "Web attacks & API review",
     "type": "review",
     "hrs": 1,
@@ -1277,82 +1653,208 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 85,
+    "d": 126,
     "title": "App discovery & WordPress",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Attacking Common Applications' (33 sections · Medium)",
-      "M19 · sections 1–4: Introduction, application discovery & enumeration, WordPress discovery & attacks"
+      "M19 · sections 1–2: Introduction, application discovery & enumeration, WordPress discovery & attacks"
     ]
   },
   {
-    "d": 86,
+    "d": 127,
+    "title": "App discovery & WordPress",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · sections 3–4"
+    ]
+  },
+  {
+    "d": 128,
     "title": "Joomla & Drupal",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
-      "M19 · sections 5–8: Joomla and Drupal: discovery, enumeration & attacks"
+      "M19 · sections 5–6: Joomla and Drupal: discovery, enumeration & attacks"
     ]
   },
   {
-    "d": 87,
+    "d": 129,
+    "title": "Joomla & Drupal",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · sections 7–8"
+    ]
+  },
+  {
+    "d": 130,
     "title": "Tomcat & Jenkins",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M19 · sections 9–12: Tomcat and Jenkins: discovery, enumeration & attacks"
+      "M19 · sections 9–10: Tomcat and Jenkins: discovery, enumeration & attacks"
     ]
   },
   {
-    "d": 88,
+    "d": 131,
+    "title": "Tomcat & Jenkins",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · section 11"
+    ]
+  },
+  {
+    "d": 132,
+    "title": "Tomcat & Jenkins",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · section 12"
+    ]
+  },
+  {
+    "d": 133,
     "title": "Splunk, PRTG & osTicket",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M19 · sections 13–16: Splunk discovery & attacks, PRTG Network Monitor & osTicket"
+      "M19 · sections 13–14: Splunk discovery & attacks, PRTG Network Monitor & osTicket"
     ]
   },
   {
-    "d": 89,
+    "d": 134,
+    "title": "Splunk, PRTG & osTicket",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · section 15"
+    ]
+  },
+  {
+    "d": 135,
+    "title": "Splunk, PRTG & osTicket",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · section 16"
+    ]
+  },
+  {
+    "d": 136,
     "title": "GitLab & CGI attacks",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M19 · sections 17–20: GitLab discovery & attacks, Tomcat CGI & Shellshock"
+      "M19 · sections 17–18: GitLab discovery & attacks, Tomcat CGI & Shellshock"
     ]
   },
   {
-    "d": 90,
+    "d": 137,
+    "title": "GitLab & CGI attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · section 19"
+    ]
+  },
+  {
+    "d": 138,
+    "title": "GitLab & CGI attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · section 20"
+    ]
+  },
+  {
+    "d": 139,
     "title": "Thick clients & ColdFusion",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M19 · sections 21–24: Thick client applications, web vulns in thick clients, ColdFusion discovery & attacks"
+      "M19 · sections 21–22: Thick client applications, web vulns in thick clients, ColdFusion discovery & attacks"
     ]
   },
   {
-    "d": 91,
+    "d": 140,
+    "title": "Thick clients & ColdFusion",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · section 23"
+    ]
+  },
+  {
+    "d": 141,
+    "title": "Thick clients & ColdFusion",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · section 24"
+    ]
+  },
+  {
+    "d": 142,
     "title": "IIS, LDAP & other apps",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
-      "M19 · sections 25–29: IIS tilde enumeration, LDAP, web mass assignment, apps connecting to services & other notable applications"
+      "M19 · sections 25–26: IIS tilde enumeration, LDAP, web mass assignment, apps connecting to services & other notable applications"
     ]
   },
   {
-    "d": 92,
+    "d": 143,
+    "title": "IIS, LDAP & other apps",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · sections 27–28"
+    ]
+  },
+  {
+    "d": 144,
+    "title": "IIS, LDAP & other apps",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · section 29"
+    ]
+  },
+  {
+    "d": 145,
     "title": "Hardening & assessments",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M19 · sections 30–33: Application hardening & skills assessments I–III",
+      "M19 · sections 30–31: Application hardening & skills assessments I–III"
+    ]
+  },
+  {
+    "d": 146,
+    "title": "Hardening & assessments",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M19 · section 32"
+    ]
+  },
+  {
+    "d": 147,
+    "title": "Hardening & assessments",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · section 33",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 19 complete — Attacking Common Applications"
   },
   {
-    "d": 93,
+    "d": 148,
     "title": "Easy web boxes",
     "type": "lab",
     "hrs": 2,
@@ -1362,7 +1864,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 94,
+    "d": 149,
     "title": "Medium web boxes",
     "type": "lab",
     "hrs": 2,
@@ -1372,7 +1874,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 95,
+    "d": 150,
     "title": "Akerva Fortress",
     "type": "lab",
     "hrs": 2.5,
@@ -1382,7 +1884,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 96,
+    "d": 151,
     "title": "Common apps review",
     "type": "review",
     "hrs": 1,
@@ -1392,7 +1894,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 97,
+    "d": 152,
     "title": "Writing bug reports",
     "type": "study",
     "hrs": 1,
@@ -1404,7 +1906,7 @@ const CURRICULUM = [
     "milestone": "Module 20 complete — Bug Bounty Hunting Process"
   },
   {
-    "d": 98,
+    "d": 153,
     "title": "SysReptor setup",
     "type": "lab",
     "hrs": 1.5,
@@ -1414,7 +1916,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 99,
+    "d": 154,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2,
@@ -1424,7 +1926,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 100,
+    "d": 155,
     "title": "Mock exam: recon",
     "type": "lab",
     "hrs": 2,
@@ -1434,7 +1936,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 101,
+    "d": 156,
     "title": "Mock exam: exploitation",
     "type": "lab",
     "hrs": 2.5,
@@ -1444,7 +1946,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 102,
+    "d": 157,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -1454,7 +1956,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 103,
+    "d": 158,
     "title": "Finalize cheat sheets",
     "type": "review",
     "hrs": 1.5,
@@ -1464,7 +1966,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 104,
+    "d": 159,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
@@ -1474,57 +1976,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 105,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 106,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 107,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 108,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 109,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 110,
+    "d": 160,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 1,
@@ -2111,30 +2563,30 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "cwes_tracker_v1";
+const STORE_KEY = "cwes_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:30};
 
-/* Timeline modes: the same full curriculum, repackaged into 30 to 110 days. */
+/* Timeline modes: the same full curriculum, repackaged into 30 to 150 days. */
 const MODES = {
   "30": {
     "days": 30,
-    "hrs": "≈ 52 hrs/week"
+    "hrs": "≈ 50 hrs/week"
   },
   "40": {
     "days": 40,
-    "hrs": "≈ 39 hrs/week"
+    "hrs": "≈ 38 hrs/week"
   },
   "50": {
     "days": 50,
-    "hrs": "≈ 31 hrs/week"
+    "hrs": "≈ 30 hrs/week"
   },
   "75": {
     "days": 75,
-    "hrs": "≈ 21 hrs/week"
+    "hrs": "≈ 20 hrs/week"
   },
-  "110": {
-    "days": 110,
-    "hrs": "≈ 14 hrs/week"
+  "150": {
+    "days": 150,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#f8c1bf", "#ed635e"];
@@ -2161,7 +2613,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   110-day -> 1 master/day, 75-day -> 1-2, 50-day -> 2-3, 40-day -> 2-3, 30-day -> 3-4.
+   150-day -> 1-2, 75-day -> 2-3, 50-day -> 3-4, 40-day -> 4 master/day, 30-day -> 5-6.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -2196,7 +2648,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(16, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(23, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -2389,7 +2841,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =

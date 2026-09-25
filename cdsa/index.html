@@ -258,8 +258,8 @@
         <button type="button" class="modebtn" data-mode="30">30-day</button>
         <button type="button" class="modebtn" data-mode="40">40-day</button>
         <button type="button" class="modebtn" data-mode="50">50-day</button>
-        <button type="button" class="modebtn" data-mode="55">55-day</button>
-        <button type="button" class="modebtn" data-mode="60">60-day</button>
+        <button type="button" class="modebtn" data-mode="80">80-day</button>
+        <button type="button" class="modebtn" data-mode="155">155-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -355,7 +355,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (30/40/50/55/60 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (30/40/50/80/155 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for queries that worked, event IDs, IoCs, and things to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -376,59 +376,72 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "Incident Handling",
-  "Splunk",
-  "Windows Attacks",
-  "Traffic Analysis",
-  "IDS/IPS",
-  "YARA & Sigma",
-  "Splunk Detection",
-  "Reporting",
-  "Exam Prep & Mock",
-  "Exam Prep & Mock II"
+  "Kill chain & preparation",
+  "Detection to post-incident",
+  "Event logs, Sysmon & ETW",
+  "Threat hunting in Elastic",
+  "Splunk & SPL investigation",
+  "Kerberoasting & GPP",
+  "GPOs, creds & tickets",
+  "Delegation, relays & PKI",
+  "Wireshark analysis",
+  "IP & TCP abnormalities",
+  "Suricata rules",
+  "Snort & Zeek",
+  "Internals & static analysis",
+  "Dynamic analysis & debugging",
+  "YARA rules & hunting",
+  "Sigma rules & hunting",
+  "Disk forensics & triage",
+  "Recon, spraying & roasting",
+  "Tickets, delegation & DCSync",
+  "Kerberoasting to Zerologon",
+  "Exfiltration & ransomware",
+  "Incident report elements",
+  "Weak-area review"
 ];
 
 const PHASES = [
   {
     "name": "Incident Handling & SIEM",
     "from": 1,
-    "to": 8,
+    "to": 18,
     "color": "#99f7fe"
   },
   {
     "name": "Logs, Hunting & Splunk",
-    "from": 9,
-    "to": 14,
+    "from": 19,
+    "to": 36,
     "color": "#80f4fe"
   },
   {
     "name": "Windows Attacks & Defense",
-    "from": 15,
-    "to": 19,
+    "from": 37,
+    "to": 54,
     "color": "#66f2fd"
   },
   {
     "name": "Network Traffic & IDS",
-    "from": 20,
-    "to": 31,
+    "from": 55,
+    "to": 85,
     "color": "#4cf0fd"
   },
   {
     "name": "Malware & Detection Rules",
-    "from": 32,
-    "to": 39,
+    "from": 86,
+    "to": 111,
     "color": "#33eefd"
   },
   {
     "name": "Forensics & Splunk Detection",
-    "from": 40,
-    "to": 49,
+    "from": 112,
+    "to": 145,
     "color": "#1aecfc"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 50,
-    "to": 64,
+    "from": 146,
+    "to": 156,
     "color": "#00eafc"
   }
 ];
@@ -460,46 +473,136 @@ const CURRICULUM = [
     "d": 3,
     "title": "Kill chain & preparation",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1,
     "tasks": [
       "Begin 'Incident Handling Process' (11 sections · Easy)",
-      "M1 · sections 1–5: Incident handling, the Cyber Kill Chain, the process overview & the preparation stage"
+      "M1 · sections 1–2: Incident handling, the Cyber Kill Chain, the process overview & the preparation stage"
     ]
   },
   {
     "d": 4,
+    "title": "Kill chain & preparation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · section 3"
+    ]
+  },
+  {
+    "d": 5,
+    "title": "Kill chain & preparation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · section 4"
+    ]
+  },
+  {
+    "d": 6,
+    "title": "Kill chain & preparation",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M1 · section 5"
+    ]
+  },
+  {
+    "d": 7,
     "title": "Detection to post-incident",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 6–11: Detection & analysis, containment, eradication & recovery, post-incident activity, the Insight Nexus breach & skills assessment",
+      "M1 · sections 6–7: Detection & analysis, containment, eradication & recovery, post-incident activity, the Insight Nexus breach & skills assessment"
+    ]
+  },
+  {
+    "d": 8,
+    "title": "Detection to post-incident",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · sections 8–9"
+    ]
+  },
+  {
+    "d": 9,
+    "title": "Detection to post-incident",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · section 10"
+    ]
+  },
+  {
+    "d": 10,
+    "title": "Detection to post-incident",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · section 11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 1 complete — Incident Handling Process"
   },
   {
-    "d": 5,
+    "d": 11,
     "title": "SIEM, SOC & MITRE ATT&CK",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
       "Begin 'Security Monitoring & SIEM Fundamentals' (11 sections · Easy)",
-      "M2 · sections 1–5: SIEM fundamentals, the Elastic Stack, SOC fundamentals, MITRE ATT&CK & SIEM use case development"
+      "M2 · sections 1–2: SIEM fundamentals, the Elastic Stack, SOC fundamentals, MITRE ATT&CK & SIEM use case development"
     ]
   },
   {
-    "d": 6,
+    "d": 12,
+    "title": "SIEM, SOC & MITRE ATT&CK",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 3–4"
+    ]
+  },
+  {
+    "d": 13,
+    "title": "SIEM, SOC & MITRE ATT&CK",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M2 · section 5"
+    ]
+  },
+  {
+    "d": 14,
     "title": "Kibana visualizations",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M2 · sections 6–11: Four SIEM visualization examples (failed logons, RDP logons, group changes), triaging & skills assessment",
+      "M2 · sections 6–7: Four SIEM visualization examples (failed logons, RDP logons, group changes), triaging & skills assessment"
+    ]
+  },
+  {
+    "d": 15,
+    "title": "Kibana visualizations",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 8–9"
+    ]
+  },
+  {
+    "d": 16,
+    "title": "Kibana visualizations",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M2 · sections 10–11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 2 complete — Security Monitoring & SIEM Fundamentals"
   },
   {
-    "d": 7,
+    "d": 17,
     "title": "Kibana & kill chain drills",
     "type": "lab",
     "hrs": 1.5,
@@ -509,7 +612,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 8,
+    "d": 18,
     "title": "Incident handling review",
     "type": "review",
     "hrs": 1,
@@ -519,31 +622,94 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 9,
+    "d": 19,
     "title": "Event logs, Sysmon & ETW",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1,
     "tasks": [
       "Begin 'Windows Event Logs & Finding Evil' (6 sections · Medium)",
-      "M3 · sections 1–6: Windows event logs, Sysmon, Event Tracing for Windows, Get-WinEvent & skills assessment",
+      "M3 · sections 1–2: Windows event logs, Sysmon, Event Tracing for Windows, Get-WinEvent & skills assessment"
+    ]
+  },
+  {
+    "d": 20,
+    "title": "Event logs, Sysmon & ETW",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 3"
+    ]
+  },
+  {
+    "d": 21,
+    "title": "Event logs, Sysmon & ETW",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 4"
+    ]
+  },
+  {
+    "d": 22,
+    "title": "Event logs, Sysmon & ETW",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 5"
+    ]
+  },
+  {
+    "d": 23,
+    "title": "Event logs, Sysmon & ETW",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 6",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 3 complete — Windows Event Logs & Finding Evil"
   },
   {
-    "d": 10,
+    "d": 24,
     "title": "Threat hunting in Elastic",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1,
     "tasks": [
       "Begin 'Introduction to Threat Hunting & Hunting With Elastic' (6 sections · Medium)",
-      "M4 · sections 1–6: Threat hunting fundamentals and process, glossary, threat intel, hunting for Stuxbot & skills assessment",
+      "M4 · sections 1–2: Threat hunting fundamentals and process, glossary, threat intel, hunting for Stuxbot & skills assessment"
+    ]
+  },
+  {
+    "d": 25,
+    "title": "Threat hunting in Elastic",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · sections 3–4"
+    ]
+  },
+  {
+    "d": 26,
+    "title": "Threat hunting in Elastic",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · section 5"
+    ]
+  },
+  {
+    "d": 27,
+    "title": "Threat hunting in Elastic",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · section 6",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 4 complete — Introduction to Threat Hunting & Hunting With Elastic"
   },
   {
-    "d": 11,
+    "d": 28,
     "title": "Elastic hunting drills",
     "type": "lab",
     "hrs": 1.5,
@@ -553,19 +719,64 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 12,
+    "d": 29,
     "title": "Splunk & SPL investigation",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Understanding Log Sources & Investigating with Splunk' (6 sections · Medium)",
-      "M5 · sections 1–6: Splunk & SPL, Splunk apps, intrusion detection, TTP- and analytics-based detection & skills assessment",
+      "M5 · section 1: Splunk & SPL, Splunk apps, intrusion detection, TTP- and analytics-based detection & skills assessment"
+    ]
+  },
+  {
+    "d": 30,
+    "title": "Splunk & SPL investigation",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 2"
+    ]
+  },
+  {
+    "d": 31,
+    "title": "Splunk & SPL investigation",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 3"
+    ]
+  },
+  {
+    "d": 32,
+    "title": "Splunk & SPL investigation",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 4"
+    ]
+  },
+  {
+    "d": 33,
+    "title": "Splunk & SPL investigation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 5"
+    ]
+  },
+  {
+    "d": 34,
+    "title": "Splunk & SPL investigation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 6",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 5 complete — Understanding Log Sources & Investigating with Splunk"
   },
   {
-    "d": 13,
+    "d": 35,
     "title": "Splunk SPL drills",
     "type": "lab",
     "hrs": 1.5,
@@ -575,7 +786,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 14,
+    "d": 36,
     "title": "Logs & hunting review",
     "type": "review",
     "hrs": 1,
@@ -585,37 +796,154 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 15,
+    "d": 37,
     "title": "Kerberoasting & GPP",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1,
     "tasks": [
       "Begin 'Windows Attacks & Defense' (16 sections · Medium)",
-      "M6 · sections 1–5: Terminology, the lab environment, Kerberoasting, AS-REProasting & GPP passwords"
+      "M6 · section 1: Terminology, the lab environment, Kerberoasting, AS-REProasting & GPP passwords"
     ]
   },
   {
-    "d": 16,
+    "d": 38,
+    "title": "Kerberoasting & GPP",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 2"
+    ]
+  },
+  {
+    "d": 39,
+    "title": "Kerberoasting & GPP",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 3"
+    ]
+  },
+  {
+    "d": 40,
+    "title": "Kerberoasting & GPP",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 4"
+    ]
+  },
+  {
+    "d": 41,
+    "title": "Kerberoasting & GPP",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 5"
+    ]
+  },
+  {
+    "d": 42,
     "title": "GPOs, creds & tickets",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 6–10: GPO permissions, credentials in shares and object properties, DCSync & Golden Ticket"
+      "M6 · section 6: GPO permissions, credentials in shares and object properties, DCSync & Golden Ticket"
     ]
   },
   {
-    "d": 17,
+    "d": 43,
+    "title": "GPOs, creds & tickets",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 7"
+    ]
+  },
+  {
+    "d": 44,
+    "title": "GPOs, creds & tickets",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 8"
+    ]
+  },
+  {
+    "d": 45,
+    "title": "GPOs, creds & tickets",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 9"
+    ]
+  },
+  {
+    "d": 46,
+    "title": "GPOs, creds & tickets",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 10"
+    ]
+  },
+  {
+    "d": 47,
     "title": "Delegation, relays & PKI",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 11–16: Constrained delegation, Print Spooler & NTLM relaying, coercion & unconstrained delegation, object ACLs, ESC1 & skills assessment",
+      "M6 · section 11: Constrained delegation, Print Spooler & NTLM relaying, coercion & unconstrained delegation, object ACLs, ESC1 & skills assessment"
+    ]
+  },
+  {
+    "d": 48,
+    "title": "Delegation, relays & PKI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 12"
+    ]
+  },
+  {
+    "d": 49,
+    "title": "Delegation, relays & PKI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 13"
+    ]
+  },
+  {
+    "d": 50,
+    "title": "Delegation, relays & PKI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 14"
+    ]
+  },
+  {
+    "d": 51,
+    "title": "Delegation, relays & PKI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 15"
+    ]
+  },
+  {
+    "d": 52,
+    "title": "Delegation, relays & PKI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 6 complete — Windows Attacks & Defense"
   },
   {
-    "d": 18,
+    "d": 53,
     "title": "Attack-to-detection map",
     "type": "lab",
     "hrs": 1.5,
@@ -625,7 +953,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 19,
+    "d": 54,
     "title": "Windows attacks review",
     "type": "review",
     "hrs": 1,
@@ -635,67 +963,166 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 20,
+    "d": 55,
     "title": "Networking & analysis",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
       "Begin 'Intro to Network Traffic Analysis' (15 sections · Medium)",
-      "M7 · sections 1–5: Traffic analysis, the networking primer (layers 1-7), the analysis process & analysis in practice"
+      "M7 · sections 1–2: Traffic analysis, the networking primer (layers 1-7), the analysis process & analysis in practice"
     ]
   },
   {
-    "d": 21,
+    "d": 56,
+    "title": "Networking & analysis",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 3–4"
+    ]
+  },
+  {
+    "d": 57,
+    "title": "Networking & analysis",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M7 · section 5"
+    ]
+  },
+  {
+    "d": 58,
     "title": "Tcpdump capture & filters",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M7 · sections 6–9: Tcpdump fundamentals, capture labs, packet filtering & capture and display filters"
+      "M7 · sections 6–7: Tcpdump fundamentals, capture labs, packet filtering & capture and display filters"
     ]
   },
   {
-    "d": 22,
+    "d": 59,
+    "title": "Tcpdump capture & filters",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 8–9"
+    ]
+  },
+  {
+    "d": 60,
     "title": "Wireshark analysis",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1,
     "tasks": [
-      "M7 · sections 10–15: Wireshark basics and advanced usage, dissecting traffic, the guided workflow lab & decrypting RDP",
+      "M7 · sections 10–11: Wireshark basics and advanced usage, dissecting traffic, the guided workflow lab & decrypting RDP"
+    ]
+  },
+  {
+    "d": 61,
+    "title": "Wireshark analysis",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 12–13"
+    ]
+  },
+  {
+    "d": 62,
+    "title": "Wireshark analysis",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 14"
+    ]
+  },
+  {
+    "d": 63,
+    "title": "Wireshark analysis",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M7 · section 15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 7 complete — Intro to Network Traffic Analysis"
   },
   {
-    "d": 23,
+    "d": 64,
     "title": "Link-layer & Wi-Fi attacks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Intermediate Network Traffic Analysis' (18 sections · Easy)",
-      "M8 · sections 1–5: Overview, ARP spoofing, ARP scanning & DoS, 802.11 DoS & rogue AP and evil-twin attacks"
+      "M8 · sections 1–3: Overview, ARP spoofing, ARP scanning & DoS, 802.11 DoS & rogue AP and evil-twin attacks"
     ]
   },
   {
-    "d": 24,
+    "d": 65,
+    "title": "Link-layer & Wi-Fi attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 4–5"
+    ]
+  },
+  {
+    "d": 66,
     "title": "IP & TCP abnormalities",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 6–11: Fragmentation, IP spoofing, TTL attacks, TCP handshake abnormalities, resets & hijacking, ICMP tunneling"
+      "M8 · sections 6–7: Fragmentation, IP spoofing, TTL attacks, TCP handshake abnormalities, resets & hijacking, ICMP tunneling"
     ]
   },
   {
-    "d": 25,
+    "d": 67,
+    "title": "IP & TCP abnormalities",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 8–9"
+    ]
+  },
+  {
+    "d": 68,
+    "title": "IP & TCP abnormalities",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M8 · sections 10–11"
+    ]
+  },
+  {
+    "d": 69,
     "title": "HTTP, DNS & odd traffic",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 12–18: HTTP enumeration, strange headers, XSS & code injection, SSL renegotiation, DNS, Telnet & UDP, skills assessment",
+      "M8 · sections 12–14: HTTP enumeration, strange headers, XSS & code injection, SSL renegotiation, DNS, Telnet & UDP, skills assessment"
+    ]
+  },
+  {
+    "d": 70,
+    "title": "HTTP, DNS & odd traffic",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 15–16"
+    ]
+  },
+  {
+    "d": 71,
+    "title": "HTTP, DNS & odd traffic",
+    "type": "study",
+    "hrs": 0.5,
+    "tasks": [
+      "M8 · sections 17–18",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 8 complete — Intermediate Network Traffic Analysis"
   },
   {
-    "d": 26,
+    "d": 72,
     "title": "PCAP analysis practice",
     "type": "lab",
     "hrs": 1.5,
@@ -705,37 +1132,109 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 27,
+    "d": 73,
     "title": "Suricata rules",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Working with IDS/IPS' (11 sections · Medium)",
-      "M9 · sections 1–4: IDS/IPS intro, Suricata fundamentals & rule development, including encrypted traffic"
+      "M9 · section 1: IDS/IPS intro, Suricata fundamentals & rule development, including encrypted traffic"
     ]
   },
   {
-    "d": 28,
+    "d": 74,
+    "title": "Suricata rules",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 2"
+    ]
+  },
+  {
+    "d": 75,
+    "title": "Suricata rules",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 3"
+    ]
+  },
+  {
+    "d": 76,
+    "title": "Suricata rules",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 4"
+    ]
+  },
+  {
+    "d": 77,
     "title": "Snort & Zeek",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 5–8: Snort fundamentals & rule development, Zeek fundamentals & intrusion detection with Zeek"
+      "M9 · section 5: Snort fundamentals & rule development, Zeek fundamentals & intrusion detection with Zeek"
     ]
   },
   {
-    "d": 29,
+    "d": 78,
+    "title": "Snort & Zeek",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 6"
+    ]
+  },
+  {
+    "d": 79,
+    "title": "Snort & Zeek",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 7"
+    ]
+  },
+  {
+    "d": 80,
+    "title": "Snort & Zeek",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 8"
+    ]
+  },
+  {
+    "d": 81,
     "title": "IDS skills assessments",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 9–11: Skills assessments for Suricata, Snort & Zeek",
+      "M9 · section 9: Skills assessments for Suricata, Snort & Zeek"
+    ]
+  },
+  {
+    "d": 82,
+    "title": "IDS skills assessments",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · section 10"
+    ]
+  },
+  {
+    "d": 83,
+    "title": "IDS skills assessments",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 9 complete — Working with IDS/IPS"
   },
   {
-    "d": 30,
+    "d": 84,
     "title": "IDS rule writing",
     "type": "lab",
     "hrs": 1.5,
@@ -745,7 +1244,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 31,
+    "d": 85,
     "title": "Network analysis review",
     "type": "review",
     "hrs": 1,
@@ -755,70 +1254,232 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 32,
+    "d": 86,
     "title": "Internals & static analysis",
     "type": "study",
-    "hrs": 10.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Introduction to Malware Analysis' (9 sections · Hard)",
-      "M10 · sections 1–4: Malware analysis intro, Windows internals, static analysis on Linux & Windows"
+      "M10 · section 1: Malware analysis intro, Windows internals, static analysis on Linux & Windows"
     ]
   },
   {
-    "d": 33,
+    "d": 87,
+    "title": "Internals & static analysis",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M10 · section 2"
+    ]
+  },
+  {
+    "d": 88,
+    "title": "Internals & static analysis",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M10 · section 3"
+    ]
+  },
+  {
+    "d": 89,
+    "title": "Internals & static analysis",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M10 · section 4"
+    ]
+  },
+  {
+    "d": 90,
     "title": "Dynamic analysis & debugging",
     "type": "study",
-    "hrs": 13.5,
+    "hrs": 3,
     "tasks": [
-      "M10 · sections 5–9: Dynamic analysis, code analysis, debugging, creating detection rules & skills assessment",
+      "M10 · section 5: Dynamic analysis, code analysis, debugging, creating detection rules & skills assessment"
+    ]
+  },
+  {
+    "d": 91,
+    "title": "Dynamic analysis & debugging",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M10 · section 6"
+    ]
+  },
+  {
+    "d": 92,
+    "title": "Dynamic analysis & debugging",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M10 · section 7"
+    ]
+  },
+  {
+    "d": 93,
+    "title": "Dynamic analysis & debugging",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M10 · section 8"
+    ]
+  },
+  {
+    "d": 94,
+    "title": "Dynamic analysis & debugging",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M10 · section 9",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 10 complete — Introduction to Malware Analysis"
   },
   {
-    "d": 34,
+    "d": 95,
     "title": "Source & obfuscation",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'JavaScript Deobfuscation' (11 sections · Easy)",
-      "M11 · sections 1–5: Intro, source code, code obfuscation, basic & advanced obfuscation"
+      "M11 · sections 1–3: Intro, source code, code obfuscation, basic & advanced obfuscation"
     ]
   },
   {
-    "d": 35,
+    "d": 96,
+    "title": "Source & obfuscation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · sections 4–5"
+    ]
+  },
+  {
+    "d": 97,
     "title": "Deobfuscation & decoding",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M11 · sections 6–11: Deobfuscation, code analysis, HTTP requests, decoding, skills assessment & summary",
+      "M11 · sections 6–8: Deobfuscation, code analysis, HTTP requests, decoding, skills assessment & summary"
+    ]
+  },
+  {
+    "d": 98,
+    "title": "Deobfuscation & decoding",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · sections 9–11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 11 complete — JavaScript Deobfuscation"
   },
   {
-    "d": 36,
+    "d": 99,
     "title": "YARA rules & hunting",
     "type": "study",
-    "hrs": 13,
+    "hrs": 2.5,
     "tasks": [
       "Begin 'YARA & Sigma for SOC Analysts' (11 sections · Easy)",
-      "M12 · sections 1–6: YARA & Sigma intro, YARA rules, developing them & hunting on Windows, Linux & the web"
+      "M12 · section 1: YARA & Sigma intro, YARA rules, developing them & hunting on Windows, Linux & the web"
     ]
   },
   {
-    "d": 37,
+    "d": 100,
+    "title": "YARA rules & hunting",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M12 · section 2"
+    ]
+  },
+  {
+    "d": 101,
+    "title": "YARA rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 3"
+    ]
+  },
+  {
+    "d": 102,
+    "title": "YARA rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 4"
+    ]
+  },
+  {
+    "d": 103,
+    "title": "YARA rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 5"
+    ]
+  },
+  {
+    "d": 104,
+    "title": "YARA rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 6"
+    ]
+  },
+  {
+    "d": 105,
     "title": "Sigma rules & hunting",
     "type": "study",
-    "hrs": 11,
+    "hrs": 2.5,
     "tasks": [
-      "M12 · sections 7–11: Sigma rules, developing them, hunting with Chainsaw & Splunk, skills assessment",
+      "M12 · section 7: Sigma rules, developing them, hunting with Chainsaw & Splunk, skills assessment"
+    ]
+  },
+  {
+    "d": 106,
+    "title": "Sigma rules & hunting",
+    "type": "study",
+    "hrs": 2.5,
+    "tasks": [
+      "M12 · section 8"
+    ]
+  },
+  {
+    "d": 107,
+    "title": "Sigma rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 9"
+    ]
+  },
+  {
+    "d": 108,
+    "title": "Sigma rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 10"
+    ]
+  },
+  {
+    "d": 109,
+    "title": "Sigma rules & hunting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M12 · section 11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 12 complete — YARA & Sigma for SOC Analysts"
   },
   {
-    "d": 38,
+    "d": 110,
     "title": "YARA & Sigma drills",
     "type": "lab",
     "hrs": 1.5,
@@ -828,7 +1489,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 39,
+    "d": 111,
     "title": "Malware & rules review",
     "type": "review",
     "hrs": 1,
@@ -838,28 +1499,82 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 40,
+    "d": 112,
     "title": "Forensics & acquisition",
     "type": "study",
-    "hrs": 8,
+    "hrs": 2,
     "tasks": [
       "Begin 'Introduction to Digital Forensics' (8 sections · Medium)",
-      "M13 · sections 1–4: Digital forensics intro, Windows forensics overview, evidence acquisition & memory forensics"
+      "M13 · section 1: Digital forensics intro, Windows forensics overview, evidence acquisition & memory forensics"
     ]
   },
   {
-    "d": 41,
+    "d": 113,
+    "title": "Forensics & acquisition",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M13 · section 2"
+    ]
+  },
+  {
+    "d": 114,
+    "title": "Forensics & acquisition",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M13 · section 3"
+    ]
+  },
+  {
+    "d": 115,
+    "title": "Forensics & acquisition",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M13 · section 4"
+    ]
+  },
+  {
+    "d": 116,
     "title": "Disk forensics & triage",
     "type": "study",
-    "hrs": 8,
+    "hrs": 2,
     "tasks": [
-      "M13 · sections 5–8: Disk forensics, rapid triage tools, a practical forensics scenario & skills assessment",
+      "M13 · section 5: Disk forensics, rapid triage tools, a practical forensics scenario & skills assessment"
+    ]
+  },
+  {
+    "d": 117,
+    "title": "Disk forensics & triage",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M13 · section 6"
+    ]
+  },
+  {
+    "d": 118,
+    "title": "Disk forensics & triage",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M13 · section 7"
+    ]
+  },
+  {
+    "d": 119,
+    "title": "Disk forensics & triage",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M13 · section 8",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 13 complete — Introduction to Digital Forensics"
   },
   {
-    "d": 42,
+    "d": 120,
     "title": "Memory & disk triage",
     "type": "lab",
     "hrs": 1.5,
@@ -869,55 +1584,217 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 43,
+    "d": 121,
     "title": "Recon, spraying & roasting",
     "type": "study",
-    "hrs": 9,
+    "hrs": 2,
     "tasks": [
       "Begin 'Detecting Windows Attacks with Splunk' (23 sections · Medium)",
-      "M14 · sections 1–5: User/domain recon, password spraying, Responder-like attacks, Kerberoasting/AS-REProasting & pass-the-hash"
+      "M14 · section 1: User/domain recon, password spraying, Responder-like attacks, Kerberoasting/AS-REProasting & pass-the-hash"
     ]
   },
   {
-    "d": 44,
+    "d": 122,
+    "title": "Recon, spraying & roasting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M14 · section 2"
+    ]
+  },
+  {
+    "d": 123,
+    "title": "Recon, spraying & roasting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M14 · section 3"
+    ]
+  },
+  {
+    "d": 124,
+    "title": "Recon, spraying & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 4"
+    ]
+  },
+  {
+    "d": 125,
+    "title": "Recon, spraying & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 5"
+    ]
+  },
+  {
+    "d": 126,
     "title": "Tickets, delegation & DCSync",
     "type": "study",
-    "hrs": 8.5,
+    "hrs": 2,
     "tasks": [
-      "M14 · sections 6–10: Pass-the-ticket, overpass-the-hash, golden/silver tickets, delegation attacks & DCSync/DCShadow"
+      "M14 · section 6: Pass-the-ticket, overpass-the-hash, golden/silver tickets, delegation attacks & DCSync/DCShadow"
     ]
   },
   {
-    "d": 45,
+    "d": 127,
+    "title": "Tickets, delegation & DCSync",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M14 · section 7"
+    ]
+  },
+  {
+    "d": 128,
+    "title": "Tickets, delegation & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 8"
+    ]
+  },
+  {
+    "d": 129,
+    "title": "Tickets, delegation & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 9"
+    ]
+  },
+  {
+    "d": 130,
+    "title": "Tickets, delegation & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 10"
+    ]
+  },
+  {
+    "d": 131,
     "title": "Brute force & beaconing",
     "type": "study",
-    "hrs": 8.5,
+    "hrs": 2,
     "tasks": [
-      "M14 · sections 11–15: Custom Splunk apps, RDP brute force, beaconing malware, Nmap port scans & Kerberos brute force"
+      "M14 · section 11: Custom Splunk apps, RDP brute force, beaconing malware, Nmap port scans & Kerberos brute force"
     ]
   },
   {
-    "d": 46,
+    "d": 132,
+    "title": "Brute force & beaconing",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M14 · section 12"
+    ]
+  },
+  {
+    "d": 133,
+    "title": "Brute force & beaconing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 13"
+    ]
+  },
+  {
+    "d": 134,
+    "title": "Brute force & beaconing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 14"
+    ]
+  },
+  {
+    "d": 135,
+    "title": "Brute force & beaconing",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 15"
+    ]
+  },
+  {
+    "d": 136,
     "title": "Kerberoasting to Zerologon",
     "type": "study",
-    "hrs": 7,
+    "hrs": 2,
     "tasks": [
-      "M14 · sections 16–19: Kerberoasting, golden tickets, Cobalt Strike's PSExec & Zerologon"
+      "M14 · section 16: Kerberoasting, golden tickets, Cobalt Strike's PSExec & Zerologon"
     ]
   },
   {
-    "d": 47,
+    "d": 137,
+    "title": "Kerberoasting to Zerologon",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M14 · section 17"
+    ]
+  },
+  {
+    "d": 138,
+    "title": "Kerberoasting to Zerologon",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 18"
+    ]
+  },
+  {
+    "d": 139,
+    "title": "Kerberoasting to Zerologon",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 19"
+    ]
+  },
+  {
+    "d": 140,
     "title": "Exfiltration & ransomware",
     "type": "study",
-    "hrs": 7,
+    "hrs": 2,
     "tasks": [
-      "M14 · sections 20–23: HTTP and DNS exfiltration, ransomware & skills assessment",
+      "M14 · section 20: HTTP and DNS exfiltration, ransomware & skills assessment"
+    ]
+  },
+  {
+    "d": 141,
+    "title": "Exfiltration & ransomware",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M14 · section 21"
+    ]
+  },
+  {
+    "d": 142,
+    "title": "Exfiltration & ransomware",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 22"
+    ]
+  },
+  {
+    "d": 143,
+    "title": "Exfiltration & ransomware",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 23",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 14 complete — Detecting Windows Attacks with Splunk"
   },
   {
-    "d": 48,
+    "d": 144,
     "title": "Splunk hunting drills",
     "type": "lab",
     "hrs": 2,
@@ -927,7 +1804,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 49,
+    "d": 145,
     "title": "Forensics & detection review",
     "type": "review",
     "hrs": 1,
@@ -937,19 +1814,46 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 50,
+    "d": 146,
     "title": "Incident report elements",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1,
     "tasks": [
       "Begin 'Security Incident Reporting' (5 sections · Easy)",
-      "M15 · sections 1–5: Reporting intro, the reporting process, elements of a proper report, communications & a real-world report",
+      "M15 · sections 1–2: Reporting intro, the reporting process, elements of a proper report, communications & a real-world report"
+    ]
+  },
+  {
+    "d": 147,
+    "title": "Incident report elements",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 3"
+    ]
+  },
+  {
+    "d": 148,
+    "title": "Incident report elements",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 4"
+    ]
+  },
+  {
+    "d": 149,
+    "title": "Incident report elements",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 5",
       "Finish the module. The exam report has to follow its format, so save the real-world report as your model"
     ],
     "milestone": "Module 15 complete — Security Incident Reporting"
   },
   {
-    "d": 51,
+    "d": 150,
     "title": "SysReptor setup",
     "type": "lab",
     "hrs": 1.5,
@@ -959,7 +1863,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 52,
+    "d": 151,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2,
@@ -969,7 +1873,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 53,
+    "d": 152,
     "title": "Mock exam: investigation",
     "type": "lab",
     "hrs": 2.5,
@@ -979,7 +1883,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 54,
+    "d": 153,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -989,7 +1893,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 55,
+    "d": 154,
     "title": "Finalize cheat sheets",
     "type": "review",
     "hrs": 1.5,
@@ -999,7 +1903,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 56,
+    "d": 155,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
@@ -1009,77 +1913,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 57,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 58,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 59,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 60,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 61,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 62,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 63,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 64,
+    "d": 156,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 1,
@@ -1559,30 +2393,30 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "cdsa_tracker_v1";
+const STORE_KEY = "cdsa_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:30};
 
-/* Timeline modes: the same full curriculum, repackaged into 30 to 60 days. */
+/* Timeline modes: the same full curriculum, repackaged into 30 to 155 days. */
 const MODES = {
   "30": {
     "days": 30,
-    "hrs": "≈ 54 hrs/week"
+    "hrs": "≈ 52 hrs/week"
   },
   "40": {
     "days": 40,
-    "hrs": "≈ 40 hrs/week"
+    "hrs": "≈ 39 hrs/week"
   },
   "50": {
     "days": 50,
-    "hrs": "≈ 32 hrs/week"
+    "hrs": "≈ 31 hrs/week"
   },
-  "55": {
-    "days": 55,
-    "hrs": "≈ 29 hrs/week"
+  "80": {
+    "days": 80,
+    "hrs": "≈ 20 hrs/week"
   },
-  "60": {
-    "days": 60,
-    "hrs": "≈ 27 hrs/week"
+  "155": {
+    "days": 155,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#99f7fe", "#00eafc"];
@@ -1609,7 +2443,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   60-day -> 1-2, 55-day -> 1-2, 50-day -> 1-2, 40-day -> 1-2, 30-day -> 2-3.
+   155-day -> 1-2, 80-day -> 1-2, 50-day -> 3-4, 40-day -> 3-4, 30-day -> 5-6.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -1644,7 +2478,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(10, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(23, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -1837,7 +2671,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =

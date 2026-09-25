@@ -259,7 +259,7 @@
         <button type="button" class="modebtn" data-mode="30">30-day</button>
         <button type="button" class="modebtn" data-mode="45">45-day</button>
         <button type="button" class="modebtn" data-mode="65">65-day</button>
-        <button type="button" class="modebtn" data-mode="90">90-day</button>
+        <button type="button" class="modebtn" data-mode="130">130-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -355,7 +355,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (25/30/45/65/90 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (25/30/45/65/130 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for commands that worked, queries worth saving, and things to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -376,68 +376,76 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "InfoSec Foundations",
-  "Networking",
-  "Linux",
-  "Windows",
-  "Windows Command Line",
-  "Pentest Process",
-  "Pentest in a Nutshell",
-  "Footprinting",
-  "WordPress",
-  "Traffic Analysis",
-  "SIEM & Elastic",
-  "Reporting & Mock Exam",
-  "Final Exam Prep"
+  "Exam orientation",
+  "DNS & network security",
+  "Files & text",
+  "Bash basics",
+  "Windows internals",
+  "CMD basics",
+  "PowerShell essentials",
+  "PowerShell in practice",
+  "HTTP methods & APIs",
+  "Scoping & recon",
+  "Nmap scanning",
+  "Footprinting method",
+  "MSSQL, Oracle & remote mgmt",
+  "WordPress enumeration",
+  "Metasploit basics",
+  "Traffic analysis basics",
+  "IR lifecycle in practice",
+  "ETW & Get-WinEvent",
+  "Threat hunting with Elastic",
+  "Practice report",
+  "Catch-up day"
 ];
 
 const PHASES = [
   {
     "name": "Security & Networking Foundations",
     "from": 1,
-    "to": 14,
+    "to": 16,
     "color": "#2f95ff"
   },
   {
     "name": "Linux & Bash",
-    "from": 15,
-    "to": 23,
+    "from": 17,
+    "to": 28,
     "color": "#4d89e3"
   },
   {
     "name": "Windows & Command Line",
-    "from": 24,
-    "to": 32,
+    "from": 29,
+    "to": 55,
     "color": "#6a7cc8"
   },
   {
     "name": "Web Fundamentals",
-    "from": 33,
-    "to": 38,
+    "from": 56,
+    "to": 63,
     "color": "#8870ac"
   },
   {
     "name": "Pentest Process",
-    "from": 39,
-    "to": 48,
+    "from": 64,
+    "to": 74,
     "color": "#a66391"
   },
   {
     "name": "Enumeration & Exploitation",
-    "from": 49,
-    "to": 66,
+    "from": 75,
+    "to": 106,
     "color": "#c45775"
   },
   {
     "name": "Defensive: SOC & Detection",
-    "from": 67,
-    "to": 80,
+    "from": 107,
+    "to": 132,
     "color": "#e14a5a"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 81,
-    "to": 90,
+    "from": 133,
+    "to": 142,
     "color": "#ff3e3e"
   }
 ];
@@ -508,25 +516,43 @@ const CURRICULUM = [
     "d": 7,
     "title": "Network basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Network Foundations' (12 sections · Fundamental)",
-      "M2 · sections 1–6: Networks, concepts, components, communication, DHCP & NAT"
+      "M2 · sections 1–3: Networks, concepts, components, communication, DHCP & NAT"
     ]
   },
   {
     "d": 8,
+    "title": "Network basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 4–6"
+    ]
+  },
+  {
+    "d": 9,
     "title": "DNS & network security",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M2 · sections 7–12: DNS, internet architecture, wireless, network security & skills assessment",
+      "M2 · sections 7–9: DNS, internet architecture, wireless, network security & skills assessment"
+    ]
+  },
+  {
+    "d": 10,
+    "title": "DNS & network security",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · sections 10–12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 2 complete — Network Foundations"
   },
   {
-    "d": 9,
+    "d": 11,
     "title": "Network types & models",
     "type": "study",
     "hrs": 1,
@@ -536,7 +562,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 10,
+    "d": 12,
     "title": "OSI, TCP/IP & subnetting",
     "type": "study",
     "hrs": 1,
@@ -545,7 +571,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 11,
+    "d": 13,
     "title": "Addressing & protocols",
     "type": "study",
     "hrs": 1,
@@ -554,7 +580,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 12,
+    "d": 14,
     "title": "Crypto & authentication",
     "type": "study",
     "hrs": 1,
@@ -565,7 +591,7 @@ const CURRICULUM = [
     "milestone": "Module 3 complete — Introduction to Networking"
   },
   {
-    "d": 13,
+    "d": 15,
     "title": "Subnetting drills",
     "type": "lab",
     "hrs": 1.5,
@@ -575,7 +601,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 14,
+    "d": 16,
     "title": "Foundations review",
     "type": "review",
     "hrs": 1,
@@ -585,7 +611,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 15,
+    "d": 17,
     "title": "Linux basics",
     "type": "study",
     "hrs": 1,
@@ -595,16 +621,25 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 16,
+    "d": 18,
     "title": "Files & text",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M4 · sections 7–13: Navigation, files & directories, editing, find, redirection, filtering & regex"
+      "M4 · sections 7–10: Navigation, files & directories, editing, find, redirection, filtering & regex"
     ]
   },
   {
-    "d": 17,
+    "d": 19,
+    "title": "Files & text",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · sections 11–13"
+    ]
+  },
+  {
+    "d": 20,
     "title": "Users, perms & services",
     "type": "study",
     "hrs": 1,
@@ -613,7 +648,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 18,
+    "d": 21,
     "title": "Services & system admin",
     "type": "study",
     "hrs": 1,
@@ -622,7 +657,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 19,
+    "d": 22,
     "title": "Linux security & logs",
     "type": "study",
     "hrs": 1,
@@ -633,7 +668,7 @@ const CURRICULUM = [
     "milestone": "Module 4 complete — Linux Fundamentals"
   },
   {
-    "d": 20,
+    "d": 23,
     "title": "Linux CLI practice",
     "type": "lab",
     "hrs": 1.5,
@@ -643,28 +678,46 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 21,
+    "d": 24,
     "title": "Bash basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Introduction to Bash Scripting' (10 sections · Easy)",
-      "M5 · sections 1–5: Bash basics, conditionals, arguments/variables/arrays, comparisons & arithmetic"
+      "M5 · sections 1–3: Bash basics, conditionals, arguments/variables/arrays, comparisons & arithmetic"
     ]
   },
   {
-    "d": 22,
+    "d": 25,
+    "title": "Bash basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 4–5"
+    ]
+  },
+  {
+    "d": 26,
     "title": "Bash flow control",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 6–10: Input/output control, loops, branches, functions & debugging",
+      "M5 · sections 6–8: Input/output control, loops, branches, functions & debugging"
+    ]
+  },
+  {
+    "d": 27,
+    "title": "Bash flow control",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 9–10",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 5 complete — Introduction to Bash Scripting"
   },
   {
-    "d": 23,
+    "d": 28,
     "title": "Bash recon script",
     "type": "lab",
     "hrs": 1.5,
@@ -674,76 +727,238 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 24,
+    "d": 29,
     "title": "Windows internals",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Windows Fundamentals' (15 sections · Fundamental)",
-      "M6 · sections 1–5: Intro to Windows, OS structure, file system, NTFS vs share permissions & the registry"
+      "M6 · sections 1–3: Intro to Windows, OS structure, file system, NTFS vs share permissions & the registry"
     ]
   },
   {
-    "d": 25,
+    "d": 30,
+    "title": "Windows internals",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 4–5"
+    ]
+  },
+  {
+    "d": 31,
     "title": "Services & sessions",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 6–10: Services & processes, service permissions, sessions, interacting with Windows & WMI"
+      "M6 · sections 6–8: Services & processes, service permissions, sessions, interacting with Windows & WMI"
     ]
   },
   {
-    "d": 26,
+    "d": 32,
+    "title": "Services & sessions",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 9–10"
+    ]
+  },
+  {
+    "d": 33,
     "title": "Windows management",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 11–15: MMC, WSL, Desktop vs Server Core, Windows security & skills assessment",
+      "M6 · sections 11–13: MMC, WSL, Desktop vs Server Core, Windows security & skills assessment"
+    ]
+  },
+  {
+    "d": 34,
+    "title": "Windows management",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 14–15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 6 complete — Windows Fundamentals"
   },
   {
-    "d": 27,
+    "d": 35,
     "title": "CMD basics",
     "type": "study",
-    "hrs": 8.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Introduction to Windows Command Line' (23 sections · Easy)",
-      "M7 · sections 1–6: CMD basics, getting help, navigation, working with files & gathering system info"
+      "M7 · sections 1–2: CMD basics, getting help, navigation, working with files & gathering system info"
     ]
   },
   {
-    "d": 28,
+    "d": 36,
+    "title": "CMD basics",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M7 · section 3"
+    ]
+  },
+  {
+    "d": 37,
+    "title": "CMD basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 4"
+    ]
+  },
+  {
+    "d": 38,
+    "title": "CMD basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 5"
+    ]
+  },
+  {
+    "d": 39,
+    "title": "CMD basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 6"
+    ]
+  },
+  {
+    "d": 40,
     "title": "CMD admin tasks",
     "type": "study",
-    "hrs": 6.5,
+    "hrs": 2,
     "tasks": [
-      "M7 · sections 7–11: Finding files, environment variables, services, scheduled tasks & CMD vs PowerShell"
+      "M7 · sections 7–8: Finding files, environment variables, services, scheduled tasks & CMD vs PowerShell"
     ]
   },
   {
-    "d": 29,
+    "d": 41,
+    "title": "CMD admin tasks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 9"
+    ]
+  },
+  {
+    "d": 42,
+    "title": "CMD admin tasks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 10"
+    ]
+  },
+  {
+    "d": 43,
+    "title": "CMD admin tasks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 11"
+    ]
+  },
+  {
+    "d": 44,
     "title": "PowerShell essentials",
     "type": "study",
-    "hrs": 8.5,
+    "hrs": 2,
     "tasks": [
-      "M7 · sections 12–17: Cmdlets & modules, users/groups, PowerShell files, filtering, services & the registry"
+      "M7 · sections 12–13: Cmdlets & modules, users/groups, PowerShell files, filtering, services & the registry"
     ]
   },
   {
-    "d": 30,
+    "d": 45,
+    "title": "PowerShell essentials",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M7 · section 14"
+    ]
+  },
+  {
+    "d": 46,
+    "title": "PowerShell essentials",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 15"
+    ]
+  },
+  {
+    "d": 47,
+    "title": "PowerShell essentials",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 16"
+    ]
+  },
+  {
+    "d": 48,
+    "title": "PowerShell essentials",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 17"
+    ]
+  },
+  {
+    "d": 49,
     "title": "PowerShell in practice",
     "type": "study",
-    "hrs": 8.5,
+    "hrs": 2,
     "tasks": [
-      "M7 · sections 18–23: Event logs, networking, web requests, PowerShell scripting & skills assessment",
+      "M7 · sections 18–19: Event logs, networking, web requests, PowerShell scripting & skills assessment"
+    ]
+  },
+  {
+    "d": 50,
+    "title": "PowerShell in practice",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M7 · section 20"
+    ]
+  },
+  {
+    "d": 51,
+    "title": "PowerShell in practice",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 21"
+    ]
+  },
+  {
+    "d": 52,
+    "title": "PowerShell in practice",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 22"
+    ]
+  },
+  {
+    "d": 53,
+    "title": "PowerShell in practice",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · section 23",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 7 complete — Introduction to Windows Command Line"
   },
   {
-    "d": 31,
+    "d": 54,
     "title": "PowerShell practice",
     "type": "lab",
     "hrs": 1.5,
@@ -753,7 +968,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 32,
+    "d": 55,
     "title": "Linux & Windows review",
     "type": "review",
     "hrs": 1,
@@ -763,28 +978,46 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 33,
+    "d": 56,
     "title": "HTTP basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Web Requests' (8 sections · Fundamental)",
-      "M8 · sections 1–4: HTTP, HTTPS, requests & responses and HTTP headers"
+      "M8 · sections 1–2: HTTP, HTTPS, requests & responses and HTTP headers"
     ]
   },
   {
-    "d": 34,
+    "d": 57,
+    "title": "HTTP basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 3–4"
+    ]
+  },
+  {
+    "d": 58,
     "title": "HTTP methods & APIs",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 5–8: HTTP methods & codes, GET, POST and CRUD APIs",
+      "M8 · sections 5–6: HTTP methods & codes, GET, POST and CRUD APIs"
+    ]
+  },
+  {
+    "d": 59,
+    "title": "HTTP methods & APIs",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · sections 7–8",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 8 complete — Web Requests"
   },
   {
-    "d": 35,
+    "d": 60,
     "title": "Web app anatomy",
     "type": "study",
     "hrs": 1,
@@ -794,7 +1027,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 36,
+    "d": 61,
     "title": "Front-end vulns",
     "type": "study",
     "hrs": 1,
@@ -803,7 +1036,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 37,
+    "d": 62,
     "title": "Back end & common vulns",
     "type": "study",
     "hrs": 1,
@@ -814,7 +1047,7 @@ const CURRICULUM = [
     "milestone": "Module 9 complete — Introduction to Web Applications"
   },
   {
-    "d": 38,
+    "d": 63,
     "title": "Web requests lab",
     "type": "lab",
     "hrs": 1.5,
@@ -824,7 +1057,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 39,
+    "d": 64,
     "title": "Pentest types & ethics",
     "type": "study",
     "hrs": 1,
@@ -834,7 +1067,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 40,
+    "d": 65,
     "title": "Pentest methodology",
     "type": "study",
     "hrs": 1,
@@ -843,7 +1076,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 41,
+    "d": 66,
     "title": "Testing domains",
     "type": "study",
     "hrs": 1,
@@ -852,7 +1085,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 42,
+    "d": 67,
     "title": "The pentesting career",
     "type": "study",
     "hrs": 1,
@@ -863,17 +1096,26 @@ const CURRICULUM = [
     "milestone": "Module 10 complete — Introduction to Penetration Testing"
   },
   {
-    "d": 43,
+    "d": 68,
     "title": "Scoping & recon",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Pentest in a Nutshell' (24 sections · Easy)",
-      "M11 · sections 1–7: Scope, rules of engagement, preparation, OSINT, scanning & low-hanging fruit"
+      "M11 · sections 1–4: Scope, rules of engagement, preparation, OSINT, scanning & low-hanging fruit"
     ]
   },
   {
-    "d": 44,
+    "d": 69,
+    "title": "Scoping & recon",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · sections 5–7"
+    ]
+  },
+  {
+    "d": 70,
     "title": "Linux attack walkthrough",
     "type": "study",
     "hrs": 1.5,
@@ -882,7 +1124,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 45,
+    "d": 71,
     "title": "Windows attack walkthrough",
     "type": "study",
     "hrs": 1.5,
@@ -891,7 +1133,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 46,
+    "d": 72,
     "title": "Reporting the pentest",
     "type": "study",
     "hrs": 1,
@@ -902,7 +1144,7 @@ const CURRICULUM = [
     "milestone": "Module 11 complete — Pentest in a Nutshell"
   },
   {
-    "d": 47,
+    "d": 73,
     "title": "Build your methodology",
     "type": "lab",
     "hrs": 2,
@@ -912,7 +1154,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 48,
+    "d": 74,
     "title": "Web & pentest review",
     "type": "review",
     "hrs": 1,
@@ -922,85 +1164,175 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 49,
+    "d": 75,
     "title": "Nmap scanning",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Network Enumeration with Nmap' (12 sections · Easy)",
-      "M12 · sections 1–4: Enumeration, intro to Nmap, host discovery & host/port scanning"
+      "M12 · sections 1–2: Enumeration, intro to Nmap, host discovery & host/port scanning"
     ]
   },
   {
-    "d": 50,
+    "d": 76,
+    "title": "Nmap scanning",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · sections 3–4"
+    ]
+  },
+  {
+    "d": 77,
     "title": "Service enum & NSE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 5–8: Saving results, service enumeration, the Nmap Scripting Engine & performance"
+      "M12 · sections 5–6: Saving results, service enumeration, the Nmap Scripting Engine & performance"
     ]
   },
   {
-    "d": 51,
+    "d": 78,
+    "title": "Service enum & NSE",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · sections 7–8"
+    ]
+  },
+  {
+    "d": 79,
     "title": "Nmap evasion labs",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 9–12: Firewall and IDS/IPS evasion plus the easy, medium & hard labs",
+      "M12 · sections 9–10: Firewall and IDS/IPS evasion plus the easy, medium & hard labs"
+    ]
+  },
+  {
+    "d": 80,
+    "title": "Nmap evasion labs",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · sections 11–12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 12 complete — Network Enumeration with Nmap"
   },
   {
-    "d": 52,
+    "d": 81,
     "title": "Footprinting method",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Footprinting' (21 sections · Medium)",
-      "M13 · sections 1–5: Enumeration principles & methodology, domain info, cloud resources & staff"
+      "M13 · sections 1–2: Enumeration principles & methodology, domain info, cloud resources & staff"
     ]
   },
   {
-    "d": 53,
+    "d": 82,
+    "title": "Footprinting method",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · sections 3–4"
+    ]
+  },
+  {
+    "d": 83,
+    "title": "Footprinting method",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 5"
+    ]
+  },
+  {
+    "d": 84,
     "title": "FTP, SMB, NFS & DNS",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M13 · sections 6–9: FTP, SMB, NFS & DNS"
+      "M13 · sections 6–7: FTP, SMB, NFS & DNS"
     ]
   },
   {
-    "d": 54,
+    "d": 85,
+    "title": "FTP, SMB, NFS & DNS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · sections 8–9"
+    ]
+  },
+  {
+    "d": 86,
     "title": "Mail, SNMP & MySQL",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M13 · sections 10–13: SMTP, IMAP/POP3, SNMP & MySQL"
+      "M13 · sections 10–11: SMTP, IMAP/POP3, SNMP & MySQL"
     ]
   },
   {
-    "d": 55,
+    "d": 87,
+    "title": "Mail, SNMP & MySQL",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · sections 12–13"
+    ]
+  },
+  {
+    "d": 88,
     "title": "MSSQL, Oracle & remote mgmt",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M13 · sections 14–18: MSSQL, Oracle TNS, IPMI and Linux/Windows remote management protocols"
+      "M13 · sections 14–15: MSSQL, Oracle TNS, IPMI and Linux/Windows remote management protocols"
     ]
   },
   {
-    "d": 56,
+    "d": 89,
+    "title": "MSSQL, Oracle & remote mgmt",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · sections 16–17"
+    ]
+  },
+  {
+    "d": 90,
+    "title": "MSSQL, Oracle & remote mgmt",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 18"
+    ]
+  },
+  {
+    "d": 91,
     "title": "Footprinting labs",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M13 · sections 19–21: Footprinting labs: easy, medium & hard",
+      "M13 · sections 19–20: Footprinting labs: easy, medium & hard"
+    ]
+  },
+  {
+    "d": 92,
+    "title": "Footprinting labs",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 21",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 13 complete — Footprinting"
   },
   {
-    "d": 57,
+    "d": 93,
     "title": "Enumeration drills",
     "type": "lab",
     "hrs": 1.5,
@@ -1010,47 +1342,83 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 58,
+    "d": 94,
     "title": "WordPress enumeration",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Hacking WordPress' (16 sections · Easy)",
-      "M14 · sections 1–6: WordPress structure & roles; core, plugin & theme enumeration; directory indexing"
+      "M14 · sections 1–3: WordPress structure & roles; core, plugin & theme enumeration; directory indexing"
     ]
   },
   {
-    "d": 59,
+    "d": 95,
+    "title": "WordPress enumeration",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · sections 4–6"
+    ]
+  },
+  {
+    "d": 96,
     "title": "WPScan & plugins",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M14 · sections 7–11: User enumeration, login, WPScan & exploiting a vulnerable plugin"
+      "M14 · sections 7–9: User enumeration, login, WPScan & exploiting a vulnerable plugin"
     ]
   },
   {
-    "d": 60,
+    "d": 97,
+    "title": "WPScan & plugins",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · sections 10–11"
+    ]
+  },
+  {
+    "d": 98,
     "title": "Attacking WordPress",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M14 · sections 12–16: Attacking users, RCE via the theme editor, Metasploit, hardening & skills assessment",
+      "M14 · sections 12–14: Attacking users, RCE via the theme editor, Metasploit, hardening & skills assessment"
+    ]
+  },
+  {
+    "d": 99,
+    "title": "Attacking WordPress",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · sections 15–16",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 14 complete — Hacking WordPress"
   },
   {
-    "d": 61,
+    "d": 100,
     "title": "Metasploit basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Using the Metasploit Framework' (15 sections · Easy)",
-      "M15 · sections 1–5: Intro to Metasploit, msfconsole, modules & targets"
+      "M15 · sections 1–3: Intro to Metasploit, msfconsole, modules & targets"
     ]
   },
   {
-    "d": 62,
+    "d": 101,
+    "title": "Metasploit basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · sections 4–5"
+    ]
+  },
+  {
+    "d": 102,
     "title": "Payloads & sessions",
     "type": "study",
     "hrs": 1.5,
@@ -1059,7 +1427,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 63,
+    "d": 103,
     "title": "Meterpreter & msfvenom",
     "type": "study",
     "hrs": 1.5,
@@ -1070,7 +1438,7 @@ const CURRICULUM = [
     "milestone": "Module 15 complete — Using the Metasploit Framework"
   },
   {
-    "d": 64,
+    "d": 104,
     "title": "Easy boxes: Linux",
     "type": "lab",
     "hrs": 2,
@@ -1080,7 +1448,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 65,
+    "d": 105,
     "title": "Easy boxes: Windows",
     "type": "lab",
     "hrs": 2,
@@ -1090,7 +1458,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 66,
+    "d": 106,
     "title": "Enum & exploitation review",
     "type": "review",
     "hrs": 1,
@@ -1100,37 +1468,64 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 67,
+    "d": 107,
     "title": "Traffic analysis basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Intro to Network Traffic Analysis' (15 sections · Medium)",
-      "M16 · sections 1–5: Traffic analysis, networking primers (layers 1-7), the analysis process & practice"
+      "M16 · sections 1–3: Traffic analysis, networking primers (layers 1-7), the analysis process & practice"
     ]
   },
   {
-    "d": 68,
+    "d": 108,
+    "title": "Traffic analysis basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M16 · sections 4–5"
+    ]
+  },
+  {
+    "d": 109,
     "title": "tcpdump",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M16 · sections 6–7: tcpdump fundamentals, capturing, packet filtering and capture/display filters"
+    ]
+  },
+  {
+    "d": 110,
+    "title": "tcpdump",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M16 · sections 8–9"
+    ]
+  },
+  {
+    "d": 111,
+    "title": "Wireshark",
     "type": "study",
     "hrs": 2,
     "tasks": [
-      "M16 · sections 6–9: tcpdump fundamentals, capturing, packet filtering and capture/display filters"
+      "M16 · sections 10–12: Wireshark: analysis, advanced usage, dissecting traffic, guided lab & RDP decryption"
     ]
   },
   {
-    "d": 69,
+    "d": 112,
     "title": "Wireshark",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
-      "M16 · sections 10–15: Wireshark: analysis, advanced usage, dissecting traffic, guided lab & RDP decryption",
+      "M16 · sections 13–15",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 16 complete — Intro to Network Traffic Analysis"
   },
   {
-    "d": 70,
+    "d": 113,
     "title": "Packet capture lab",
     "type": "lab",
     "hrs": 1.5,
@@ -1140,70 +1535,133 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 71,
+    "d": 114,
     "title": "Incident handling basics",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Incident Handling Process' (11 sections · Easy)",
-      "M17 · sections 1–5: Incident handling, the Cyber Kill Chain, process overview & preparation"
+      "M17 · sections 1–3: Incident handling, the Cyber Kill Chain, process overview & preparation"
     ]
   },
   {
-    "d": 72,
+    "d": 115,
+    "title": "Incident handling basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M17 · sections 4–5"
+    ]
+  },
+  {
+    "d": 116,
     "title": "IR lifecycle in practice",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M17 · sections 6–11: Detection & analysis, containment/eradication/recovery, post-incident, a breach case study & assessment",
+      "M17 · sections 6–7: Detection & analysis, containment/eradication/recovery, post-incident, a breach case study & assessment"
+    ]
+  },
+  {
+    "d": 117,
+    "title": "IR lifecycle in practice",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M17 · sections 8–9"
+    ]
+  },
+  {
+    "d": 118,
+    "title": "IR lifecycle in practice",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M17 · sections 10–11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 17 complete — Incident Handling Process"
   },
   {
-    "d": 73,
+    "d": 119,
     "title": "Event logs & Sysmon",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Windows Event Logs & Finding Evil' (6 sections · Medium)",
-      "M18 · sections 1–3: Windows event logs, analyzing evil with Sysmon, Event Tracing for Windows"
+      "M18 · sections 1–2: Windows event logs, analyzing evil with Sysmon, Event Tracing for Windows"
     ]
   },
   {
-    "d": 74,
+    "d": 120,
+    "title": "Event logs & Sysmon",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M18 · section 3"
+    ]
+  },
+  {
+    "d": 121,
     "title": "ETW & Get-WinEvent",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M18 · sections 4–6: Tapping into ETW, Get-WinEvent & skills assessment",
+      "M18 · sections 4–5: Tapping into ETW, Get-WinEvent & skills assessment"
+    ]
+  },
+  {
+    "d": 122,
+    "title": "ETW & Get-WinEvent",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M18 · section 6",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 18 complete — Windows Event Logs & Finding Evil"
   },
   {
-    "d": 75,
+    "d": 123,
     "title": "SIEM & SOC basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Security Monitoring & SIEM Fundamentals' (11 sections · Easy)",
-      "M19 · sections 1–5: SIEM & SOC fundamentals, the Elastic Stack, MITRE ATT&CK & use-case development"
+      "M19 · sections 1–3: SIEM & SOC fundamentals, the Elastic Stack, MITRE ATT&CK & use-case development"
     ]
   },
   {
-    "d": 76,
+    "d": 124,
+    "title": "SIEM & SOC basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · sections 4–5"
+    ]
+  },
+  {
+    "d": 125,
     "title": "SIEM visualizations & triage",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M19 · sections 6–11: SIEM visualizations 1-4, the triaging process & skills assessment",
+      "M19 · sections 6–8: SIEM visualizations 1-4, the triaging process & skills assessment"
+    ]
+  },
+  {
+    "d": 126,
+    "title": "SIEM visualizations & triage",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M19 · sections 9–11",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 19 complete — Security Monitoring & SIEM Fundamentals"
   },
   {
-    "d": 77,
+    "d": 127,
     "title": "KQL drills",
     "type": "lab",
     "hrs": 1.5,
@@ -1213,19 +1671,37 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 78,
+    "d": 128,
     "title": "Threat hunting with Elastic",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Introduction to Threat Hunting & Hunting With Elastic' (6 sections · Medium)",
-      "M20 · sections 1–6: Hunting fundamentals, process & glossary, threat intel, hunting Stuxbot & assessment",
+      "M20 · sections 1–2: Hunting fundamentals, process & glossary, threat intel, hunting Stuxbot & assessment"
+    ]
+  },
+  {
+    "d": 129,
+    "title": "Threat hunting with Elastic",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M20 · sections 3–4"
+    ]
+  },
+  {
+    "d": 130,
+    "title": "Threat hunting with Elastic",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M20 · sections 5–6",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 20 complete — Introduction to Threat Hunting & Hunting With Elastic"
   },
   {
-    "d": 79,
+    "d": 131,
     "title": "Alert triage drill",
     "type": "lab",
     "hrs": 2,
@@ -1235,7 +1711,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 80,
+    "d": 132,
     "title": "SOC & detection review",
     "type": "review",
     "hrs": 1,
@@ -1245,7 +1721,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 81,
+    "d": 133,
     "title": "SysReptor setup",
     "type": "lab",
     "hrs": 1.5,
@@ -1255,7 +1731,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 82,
+    "d": 134,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2,
@@ -1265,7 +1741,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 83,
+    "d": 135,
     "title": "Mock exam: red team",
     "type": "lab",
     "hrs": 2.5,
@@ -1275,7 +1751,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 84,
+    "d": 136,
     "title": "Mock exam: blue team",
     "type": "lab",
     "hrs": 2,
@@ -1285,7 +1761,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 85,
+    "d": 137,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -1295,7 +1771,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 86,
+    "d": 138,
     "title": "Finalize cheat sheets",
     "type": "review",
     "hrs": 1.5,
@@ -1305,7 +1781,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 87,
+    "d": 139,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
@@ -1315,7 +1791,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 88,
+    "d": 140,
     "title": "Catch-up day",
     "type": "review",
     "hrs": 1,
@@ -1325,7 +1801,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 89,
+    "d": 141,
     "title": "Catch-up day",
     "type": "review",
     "hrs": 1,
@@ -1335,7 +1811,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 90,
+    "d": 142,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 1,
@@ -1788,10 +2264,10 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "cjca_tracker_v1";
+const STORE_KEY = "cjca_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:25};
 
-/* Timeline modes: the same full curriculum, repackaged into 25 to 90 days. */
+/* Timeline modes: the same full curriculum, repackaged into 25 to 130 days. */
 const MODES = {
   "25": {
     "days": 25,
@@ -1809,9 +2285,9 @@ const MODES = {
     "days": 65,
     "hrs": "≈ 20 hrs/week"
   },
-  "90": {
-    "days": 90,
-    "hrs": "≈ 14 hrs/week"
+  "130": {
+    "days": 130,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#2f95ff", "#ff3e3e"];
@@ -1838,7 +2314,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   90-day -> 1 master/day, 65-day -> 1-2, 45-day -> 2 master/day, 30-day -> 3 master/day, 25-day -> 3-4.
+   130-day -> 1-2, 65-day -> 2-3, 45-day -> 3-4, 30-day -> 4-5, 25-day -> 5-6.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -1873,7 +2349,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(13, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(21, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -2066,7 +2542,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =

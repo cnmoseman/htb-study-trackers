@@ -259,7 +259,7 @@
         <button type="button" class="modebtn" data-mode="35">35-day</button>
         <button type="button" class="modebtn" data-mode="45">45-day</button>
         <button type="button" class="modebtn" data-mode="70">70-day</button>
-        <button type="button" class="modebtn" data-mode="90">90-day</button>
+        <button type="button" class="modebtn" data-mode="140">140-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -353,7 +353,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (30/35/45/70/90 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (30/35/45/70/140 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for what you learned, payloads that worked, and things to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -374,19 +374,27 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "Foundations & Setup",
-  "ML Fundamentals I",
-  "ML Fundamentals II",
-  "AI for InfoSec",
-  "Red Teaming AI",
-  "Prompt Injection",
-  "LLM Output Attacks",
-  "AI Data Attacks",
-  "App & System Attacks",
-  "Evasion Foundations",
-  "First-Order Attacks",
-  "Sparsity Attacks",
-  "Defense & Exam Prep"
+  "Exam orientation",
+  "What AI & ML are",
+  "Core algorithms II",
+  "Scikit-learn workflows",
+  "The AI attack surface",
+  "Prompt injection basics",
+  "Insecure output handling",
+  "AI data pipelines",
+  "Data poisoning II",
+  "Pipeline exploitation",
+  "App & system attack surface",
+  "Evasion fundamentals",
+  "Evasion foundations wrap-up",
+  "Iterative attacks",
+  "L0-constrained attacks",
+  "Sparse perturbations",
+  "Membership inference",
+  "Model inversion & extraction",
+  "Adversarial training",
+  "AI defense wrap-up",
+  "Schedule your exam"
 ];
 
 const PHASES = [
@@ -405,25 +413,25 @@ const PHASES = [
   {
     "name": "LLM Attacks",
     "from": 29,
-    "to": 49,
+    "to": 52,
     "color": "#c0bbf2"
   },
   {
     "name": "Data & System Attacks",
-    "from": 50,
-    "to": 63,
+    "from": 53,
+    "to": 81,
     "color": "#b5aeef"
   },
   {
     "name": "Adversarial Evasion",
-    "from": 64,
-    "to": 80,
+    "from": 82,
+    "to": 116,
     "color": "#a9a1ed"
   },
   {
     "name": "Privacy, Defense & Exam Prep",
-    "from": 81,
-    "to": 90,
+    "from": 117,
+    "to": 141,
     "color": "#9d94ea"
   }
 ];
@@ -594,11 +602,11 @@ const CURRICULUM = [
     "title": "Deep learning & evaluation",
     "type": "study",
     "hrs": 1,
-    "milestone": "Module 1 complete — Fundamentals of AI",
     "tasks": [
       "M1 · sections 22–24: deep learning concepts and model evaluation",
       "Finish the module, including any skills assessment, and save its cheat sheet"
-    ]
+    ],
+    "milestone": "Module 1 complete — Fundamentals of AI"
   },
   {
     "d": 18,
@@ -690,10 +698,10 @@ const CURRICULUM = [
     "title": "InfoSec ML wrap-up",
     "type": "study",
     "hrs": 1,
-    "milestone": "Module 2 complete — Applications of AI in InfoSec",
     "tasks": [
       "M2 · sections 24–25: complete the module and its skills challenge"
-    ]
+    ],
+    "milestone": "Module 2 complete — Applications of AI in InfoSec"
   },
   {
     "d": 28,
@@ -739,11 +747,11 @@ const CURRICULUM = [
     "title": "AI red team methodology",
     "type": "study",
     "hrs": 1,
-    "milestone": "Module 3 complete — Introduction to Red Teaming AI",
     "tasks": [
       "M3 · sections 10–11: complete the module",
       "Summarize a red-team methodology for AI systems"
-    ]
+    ],
+    "milestone": "Module 3 complete — Introduction to Red Teaming AI"
   },
   {
     "d": 33,
@@ -779,14 +787,23 @@ const CURRICULUM = [
     "d": 36,
     "title": "Prompt injection basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Prompt Injection Attacks' (12 sections · Medium)",
-      "M4 · sections 1–3: prompt injection basics"
+      "M4 · sections 1–2: prompt injection basics"
     ]
   },
   {
     "d": 37,
+    "title": "Prompt injection basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · section 3"
+    ]
+  },
+  {
+    "d": 38,
     "title": "Direct prompt injection",
     "type": "study",
     "hrs": 1,
@@ -795,7 +812,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 38,
+    "d": 39,
     "title": "Indirect prompt injection",
     "type": "study",
     "hrs": 1,
@@ -804,7 +821,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 39,
+    "d": 40,
     "title": "Jailbreaks",
     "type": "study",
     "hrs": 1.5,
@@ -813,7 +830,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 40,
+    "d": 41,
     "title": "Advanced injection",
     "type": "study",
     "hrs": 1.5,
@@ -822,18 +839,18 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 41,
+    "d": 42,
     "title": "Injection assessment",
     "type": "study",
     "hrs": 1,
-    "milestone": "Module 4 complete — Prompt Injection Attacks",
     "tasks": [
       "M4 · section 12 and the skills assessment",
       "Finish the module, including any skills assessment, and save its cheat sheet"
-    ]
+    ],
+    "milestone": "Module 4 complete — Prompt Injection Attacks"
   },
   {
-    "d": 42,
+    "d": 43,
     "title": "Prompt injection practice",
     "type": "lab",
     "hrs": 2,
@@ -843,26 +860,44 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 43,
+    "d": 44,
     "title": "Insecure output handling",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'LLM Output Attacks' (14 sections · Medium)",
-      "M5 · sections 1–3: insecure output handling"
-    ]
-  },
-  {
-    "d": 44,
-    "title": "Output exploitation",
-    "type": "study",
-    "hrs": 2,
-    "tasks": [
-      "M5 · sections 4–6: XSS, SSRF, and code execution via LLM outputs"
+      "M5 · sections 1–2: insecure output handling"
     ]
   },
   {
     "d": 45,
+    "title": "Insecure output handling",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 3"
+    ]
+  },
+  {
+    "d": 46,
+    "title": "Output exploitation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · sections 4–5: XSS, SSRF, and code execution via LLM outputs"
+    ]
+  },
+  {
+    "d": 47,
+    "title": "Output exploitation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 6"
+    ]
+  },
+  {
+    "d": 48,
     "title": "Insecure LLM applications",
     "type": "study",
     "hrs": 1.5,
@@ -871,7 +906,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 46,
+    "d": 49,
     "title": "LLM abuse attacks",
     "type": "study",
     "hrs": 1.5,
@@ -880,18 +915,18 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 47,
+    "d": 50,
     "title": "Detection & mitigation",
     "type": "study",
     "hrs": 1,
-    "milestone": "Module 5 complete — LLM Output Attacks",
     "tasks": [
       "M5 · sections 13–14: detection and mitigation",
       "Finish the module, including any skills assessment, and save its cheat sheet"
-    ]
+    ],
+    "milestone": "Module 5 complete — LLM Output Attacks"
   },
   {
-    "d": 48,
+    "d": 51,
     "title": "LLM attacks review",
     "type": "review",
     "hrs": 2,
@@ -901,7 +936,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 49,
+    "d": 52,
     "title": "Mid-path checkpoint",
     "type": "review",
     "hrs": 1.5,
@@ -911,63 +946,171 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 50,
+    "d": 53,
     "title": "AI data pipelines",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'AI Data Attacks' (25 sections · Hard)",
-      "M6 · sections 1–4: AI data pipelines and their attack surface"
-    ]
-  },
-  {
-    "d": 51,
-    "title": "Data poisoning I",
-    "type": "study",
-    "hrs": 3.5,
-    "tasks": [
-      "M6 · sections 5–8: data poisoning fundamentals"
-    ]
-  },
-  {
-    "d": 52,
-    "title": "Data poisoning II",
-    "type": "study",
-    "hrs": 4,
-    "tasks": [
-      "M6 · sections 9–12: achieving targeted misclassification via poisoning"
-    ]
-  },
-  {
-    "d": 53,
-    "title": "Backdoor attacks",
-    "type": "study",
-    "hrs": 4,
-    "tasks": [
-      "M6 · sections 13–16: backdoor and trojan attacks on models"
+      "M6 · sections 1–2: AI data pipelines and their attack surface"
     ]
   },
   {
     "d": 54,
-    "title": "Pipeline exploitation",
+    "title": "AI data pipelines",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 17–20: arbitrary code execution through data pipelines"
+      "M6 · section 3"
     ]
   },
   {
     "d": 55,
-    "title": "Data attacks assessment",
+    "title": "AI data pipelines",
     "type": "study",
-    "hrs": 5,
-    "milestone": "Module 6 complete — AI Data Attacks",
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 21–25: complete the module and its skills assessment"
+      "M6 · section 4"
     ]
   },
   {
     "d": 56,
+    "title": "Data poisoning I",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 5–6: data poisoning fundamentals"
+    ]
+  },
+  {
+    "d": 57,
+    "title": "Data poisoning I",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 7"
+    ]
+  },
+  {
+    "d": 58,
+    "title": "Data poisoning I",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 8"
+    ]
+  },
+  {
+    "d": 59,
+    "title": "Data poisoning II",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 9–10: achieving targeted misclassification via poisoning"
+    ]
+  },
+  {
+    "d": 60,
+    "title": "Data poisoning II",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 11"
+    ]
+  },
+  {
+    "d": 61,
+    "title": "Data poisoning II",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 12"
+    ]
+  },
+  {
+    "d": 62,
+    "title": "Backdoor attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 13–14: backdoor and trojan attacks on models"
+    ]
+  },
+  {
+    "d": 63,
+    "title": "Backdoor attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 15"
+    ]
+  },
+  {
+    "d": 64,
+    "title": "Backdoor attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 16"
+    ]
+  },
+  {
+    "d": 65,
+    "title": "Pipeline exploitation",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 17–18: arbitrary code execution through data pipelines"
+    ]
+  },
+  {
+    "d": 66,
+    "title": "Pipeline exploitation",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 19"
+    ]
+  },
+  {
+    "d": 67,
+    "title": "Pipeline exploitation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 20"
+    ]
+  },
+  {
+    "d": 68,
+    "title": "Data attacks assessment",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M6 · sections 21–22: complete the module and its skills assessment"
+    ]
+  },
+  {
+    "d": 69,
+    "title": "Data attacks assessment",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · sections 23–24"
+    ]
+  },
+  {
+    "d": 70,
+    "title": "Data attacks assessment",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M6 · section 25"
+    ],
+    "milestone": "Module 6 complete — AI Data Attacks"
+  },
+  {
+    "d": 71,
     "title": "Data attacks review",
     "type": "review",
     "hrs": 2,
@@ -977,26 +1120,44 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 57,
+    "d": 72,
     "title": "App & system attack surface",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Attacking AI - Application and System' (14 sections · Medium)",
-      "M7 · sections 1–3: application and system component vulnerabilities"
+      "M7 · sections 1–2: application and system component vulnerabilities"
     ]
   },
   {
-    "d": 58,
+    "d": 73,
+    "title": "App & system attack surface",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 3"
+    ]
+  },
+  {
+    "d": 74,
     "title": "Deployment vulnerabilities",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M7 · sections 4–6: deployment-level attack vectors"
+      "M7 · sections 4–5: deployment-level attack vectors"
     ]
   },
   {
-    "d": 59,
+    "d": 75,
+    "title": "Deployment vulnerabilities",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 6"
+    ]
+  },
+  {
+    "d": 76,
     "title": "How MCP works",
     "type": "study",
     "hrs": 1.5,
@@ -1005,7 +1166,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 60,
+    "d": 77,
     "title": "MCP security",
     "type": "study",
     "hrs": 1.5,
@@ -1014,27 +1175,36 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 61,
+    "d": 78,
     "title": "App & system wrap-up",
     "type": "study",
     "hrs": 1,
-    "milestone": "Module 7 complete — Attacking AI - Application and System",
     "tasks": [
       "M7 · sections 13–14: complete the module"
-    ]
+    ],
+    "milestone": "Module 7 complete — Attacking AI - Application and System"
   },
   {
-    "d": 62,
+    "d": 79,
     "title": "Evasion fundamentals",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'AI Evasion - Foundations' (12 sections · Medium)",
-      "M8 · sections 1–3: inference-time evasion fundamentals"
+      "M8 · sections 1–2: inference-time evasion fundamentals"
     ]
   },
   {
-    "d": 63,
+    "d": 80,
+    "title": "Evasion fundamentals",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · section 3"
+    ]
+  },
+  {
+    "d": 81,
     "title": "App & system review",
     "type": "review",
     "hrs": 2,
@@ -1044,63 +1214,117 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 64,
+    "d": 82,
     "title": "White-box vs black-box",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 4–6: white-box and black-box evasion settings"
+      "M8 · sections 4–5: white-box and black-box evasion settings"
     ]
   },
   {
-    "d": 65,
+    "d": 83,
+    "title": "White-box vs black-box",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · section 6"
+    ]
+  },
+  {
+    "d": 84,
     "title": "Crafting evasion inputs",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 7–9: manipulating inputs to bypass classifiers"
+      "M8 · sections 7–8: manipulating inputs to bypass classifiers"
     ]
   },
   {
-    "d": 66,
+    "d": 85,
+    "title": "Crafting evasion inputs",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · section 9"
+    ]
+  },
+  {
+    "d": 86,
     "title": "Evasion foundations wrap-up",
     "type": "study",
-    "hrs": 2,
-    "milestone": "Module 8 complete — AI Evasion - Foundations",
+    "hrs": 1,
     "tasks": [
-      "M8 · sections 10–12: complete the module"
+      "M8 · sections 10–11: complete the module"
     ]
   },
   {
-    "d": 67,
+    "d": 87,
+    "title": "Evasion foundations wrap-up",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · section 12"
+    ],
+    "milestone": "Module 8 complete — AI Evasion - Foundations"
+  },
+  {
+    "d": 88,
     "title": "Gradient-based attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'AI Evasion - First-Order Attacks' (23 sections · Hard)",
-      "M9 · sections 1–4: an introduction to gradient-based attacks"
+      "M9 · sections 1–2: an introduction to gradient-based attacks"
     ]
   },
   {
-    "d": 68,
+    "d": 89,
+    "title": "Gradient-based attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · sections 3–4"
+    ]
+  },
+  {
+    "d": 90,
     "title": "FGSM",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 5–8: the Fast Gradient Sign Method"
+      "M9 · sections 5–6: the Fast Gradient Sign Method"
     ]
   },
   {
-    "d": 69,
+    "d": 91,
+    "title": "FGSM",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 7–8"
+    ]
+  },
+  {
+    "d": 92,
     "title": "Iterative attacks",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 9–12: BIM and PGD iterative attacks"
+      "M9 · sections 9–10: BIM and PGD iterative attacks"
     ]
   },
   {
-    "d": 70,
+    "d": 93,
+    "title": "Iterative attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 11–12"
+    ]
+  },
+  {
+    "d": 94,
     "title": "FGSM & PGD lab",
     "type": "lab",
     "hrs": 2.5,
@@ -1109,63 +1333,135 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 71,
+    "d": 95,
     "title": "Advanced first-order attacks",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 13–16: Carlini-Wagner and optimization-based attacks"
+      "M9 · sections 13–14: Carlini-Wagner and optimization-based attacks"
     ]
   },
   {
-    "d": 72,
+    "d": 96,
+    "title": "Advanced first-order attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 15–16"
+    ]
+  },
+  {
+    "d": 97,
     "title": "Targeted perturbations",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 17–20: crafting targeted misclassifications"
+      "M9 · sections 17–18: crafting targeted misclassifications"
     ]
   },
   {
-    "d": 73,
+    "d": 98,
+    "title": "Targeted perturbations",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M9 · sections 19–20"
+    ]
+  },
+  {
+    "d": 99,
     "title": "First-order wrap-up",
     "type": "study",
     "hrs": 1.5,
-    "milestone": "Module 9 complete — AI Evasion - First-Order Attacks",
     "tasks": [
       "M9 · sections 21–23: complete the module"
-    ]
+    ],
+    "milestone": "Module 9 complete — AI Evasion - First-Order Attacks"
   },
   {
-    "d": 74,
+    "d": 100,
     "title": "L0-constrained attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'AI Evasion - Sparsity Attacks' (28 sections · Hard)",
-      "M10 · sections 1–5: L0-constrained adversarial attacks"
+      "M10 · sections 1–2: L0-constrained adversarial attacks"
     ]
   },
   {
-    "d": 75,
+    "d": 101,
+    "title": "L0-constrained attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 3–4"
+    ]
+  },
+  {
+    "d": 102,
+    "title": "L0-constrained attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 5"
+    ]
+  },
+  {
+    "d": 103,
     "title": "Saliency-guided attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 6–10: saliency maps and feature selection"
+      "M10 · sections 6–7: saliency maps and feature selection"
     ]
   },
   {
-    "d": 76,
+    "d": 104,
+    "title": "Saliency-guided attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 8–9"
+    ]
+  },
+  {
+    "d": 105,
+    "title": "Saliency-guided attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 10"
+    ]
+  },
+  {
+    "d": 106,
     "title": "Sparse perturbations",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 11–15: minimizing the number of modified features"
+      "M10 · sections 11–12: minimizing the number of modified features"
     ]
   },
   {
-    "d": 77,
+    "d": 107,
+    "title": "Sparse perturbations",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 13–14"
+    ]
+  },
+  {
+    "d": 108,
+    "title": "Sparse perturbations",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 15"
+    ]
+  },
+  {
+    "d": 109,
     "title": "Evasion review",
     "type": "review",
     "hrs": 2.5,
@@ -1175,103 +1471,274 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 78,
+    "d": 110,
     "title": "One- & few-pixel attacks",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 16–20: one-pixel and few-pixel attacks"
+      "M10 · sections 16–17: one-pixel and few-pixel attacks"
     ]
   },
   {
-    "d": 79,
+    "d": 111,
+    "title": "One- & few-pixel attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 18–19"
+    ]
+  },
+  {
+    "d": 112,
+    "title": "One- & few-pixel attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 20"
+    ]
+  },
+  {
+    "d": 113,
     "title": "Targeted sparsity attacks",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 21–24: targeted L0 attacks"
+      "M10 · sections 21–22: targeted L0 attacks"
     ]
   },
   {
-    "d": 80,
+    "d": 114,
+    "title": "Targeted sparsity attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 23–24"
+    ]
+  },
+  {
+    "d": 115,
     "title": "Sparsity assessment",
     "type": "study",
-    "hrs": 3,
-    "milestone": "Module 10 complete — AI Evasion - Sparsity Attacks",
+    "hrs": 1.5,
     "tasks": [
-      "M10 · sections 25–28: complete the module and its skills assessment"
+      "M10 · sections 25–26: complete the module and its skills assessment"
     ]
   },
   {
-    "d": 81,
+    "d": 116,
+    "title": "Sparsity assessment",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · sections 27–28"
+    ],
+    "milestone": "Module 10 complete — AI Evasion - Sparsity Attacks"
+  },
+  {
+    "d": 117,
     "title": "Membership inference",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'AI Privacy' (21 sections · Medium)",
-      "M11 · sections 1–5: membership inference attacks"
+      "M11 · sections 1–2: membership inference attacks"
     ]
   },
   {
-    "d": 82,
+    "d": 118,
+    "title": "Membership inference",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 3–4"
+    ]
+  },
+  {
+    "d": 119,
+    "title": "Membership inference",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M11 · section 5"
+    ]
+  },
+  {
+    "d": 120,
     "title": "Model inversion & extraction",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M11 · sections 6–11: model inversion, extraction, and attribute inference"
+      "M11 · sections 6–7: model inversion, extraction, and attribute inference"
     ]
   },
   {
-    "d": 83,
+    "d": 121,
+    "title": "Model inversion & extraction",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 8–9"
+    ]
+  },
+  {
+    "d": 122,
+    "title": "Model inversion & extraction",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 10–11"
+    ]
+  },
+  {
+    "d": 123,
     "title": "Differential privacy",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M11 · sections 12–17: differential privacy fundamentals"
+      "M11 · sections 12–13: differential privacy fundamentals"
     ]
   },
   {
-    "d": 84,
+    "d": 124,
+    "title": "Differential privacy",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 14–15"
+    ]
+  },
+  {
+    "d": 125,
+    "title": "Differential privacy",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 16–17"
+    ]
+  },
+  {
+    "d": 126,
     "title": "AI privacy wrap-up",
     "type": "study",
-    "hrs": 3,
-    "milestone": "Module 11 complete — AI Privacy",
+    "hrs": 1.5,
     "tasks": [
-      "M11 · sections 18–21: complete the module"
+      "M11 · sections 18–19: complete the module"
     ]
   },
   {
-    "d": 85,
+    "d": 127,
+    "title": "AI privacy wrap-up",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · sections 20–21"
+    ],
+    "milestone": "Module 11 complete — AI Privacy"
+  },
+  {
+    "d": 128,
     "title": "Adversarial training",
     "type": "study",
-    "hrs": 5,
+    "hrs": 2,
     "tasks": [
       "Begin 'AI Defense' (21 sections · Medium)",
-      "M12 · sections 1–7: adversarial training and adversarial tuning"
+      "M12 · sections 1–3: adversarial training and adversarial tuning"
     ]
   },
   {
-    "d": 86,
+    "d": 129,
+    "title": "Adversarial training",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 4–5"
+    ]
+  },
+  {
+    "d": 130,
+    "title": "Adversarial training",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 6–7"
+    ]
+  },
+  {
+    "d": 131,
     "title": "Guardrails & defenses",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 8–14: LLM guardrails and their implementation"
+      "M12 · sections 8–9: LLM guardrails and their implementation"
     ]
   },
   {
-    "d": 87,
+    "d": 132,
+    "title": "Guardrails & defenses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 10–11"
+    ]
+  },
+  {
+    "d": 133,
+    "title": "Guardrails & defenses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 12–13"
+    ]
+  },
+  {
+    "d": 134,
+    "title": "Guardrails & defenses",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 14"
+    ]
+  },
+  {
+    "d": 135,
     "title": "AI defense wrap-up",
     "type": "study",
-    "hrs": 5.5,
-    "milestone": "Module 12 complete — AI Defense",
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 15–21: complete the module",
-      "Celebrate: that's all 12 modules of the AI Red Teamer path"
+      "M12 · sections 15–16: complete the module"
     ]
   },
   {
-    "d": 88,
+    "d": 136,
+    "title": "AI defense wrap-up",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 17–18"
+    ]
+  },
+  {
+    "d": 137,
+    "title": "AI defense wrap-up",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · sections 19–20"
+    ]
+  },
+  {
+    "d": 138,
+    "title": "AI defense wrap-up",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 21",
+      "Celebrate: that's all 12 modules of the AI Red Teamer path"
+    ],
+    "milestone": "Module 12 complete — AI Defense"
+  },
+  {
+    "d": 139,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2.5,
@@ -1281,7 +1748,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 89,
+    "d": 140,
     "title": "Mock engagement",
     "type": "lab",
     "hrs": 3,
@@ -1291,15 +1758,15 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 90,
+    "d": 141,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 2,
-    "milestone": "Exam-ready — schedule your COAE exam",
     "tasks": [
       "Confirm you've completed 100% of all 12 modules (required to unlock the exam)",
       "Confirm your voucher and schedule your 7-day COAE exam"
-    ]
+    ],
+    "milestone": "Exam-ready — schedule your COAE exam"
   }
 ];
 
@@ -1797,10 +2264,10 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "coae_tracker_v1";
+const STORE_KEY = "coae_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:30};
 
-/* Timeline modes: the same full curriculum, repackaged into 30 to 90 days. */
+/* Timeline modes: the same full curriculum, repackaged into 30 to 140 days. */
 const MODES = {
   "30": {
     "days": 30,
@@ -1818,9 +2285,9 @@ const MODES = {
     "days": 70,
     "hrs": "≈ 20 hrs/week"
   },
-  "90": {
-    "days": 90,
-    "hrs": "≈ 15 hrs/week"
+  "140": {
+    "days": 140,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#d8d4f7", "#9d94ea"];
@@ -1847,7 +2314,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   90-day -> 1 master/day, 70-day -> 1-2, 45-day -> 2 master/day, 35-day -> 2-3, 30-day -> 3 master/day.
+   140-day -> 1-2, 70-day -> 2-3, 45-day -> 3-4, 35-day -> 4-5, 30-day -> 4-5.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -1882,7 +2349,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(13, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(21, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -2075,7 +2542,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =

@@ -257,9 +257,9 @@
       <span class="modeseg" id="modeSeg">
         <button type="button" class="modebtn" data-mode="45">45-day</button>
         <button type="button" class="modebtn" data-mode="55">55-day</button>
-        <button type="button" class="modebtn" data-mode="65">65-day</button>
-        <button type="button" class="modebtn" data-mode="70">70-day</button>
         <button type="button" class="modebtn" data-mode="75">75-day</button>
+        <button type="button" class="modebtn" data-mode="115">115-day</button>
+        <button type="button" class="modebtn" data-mode="225">225-day</button>
       </span>
       <span class="spacer"></span>
       <button class="btn" id="todayBtn">Jump to Today</button>
@@ -355,7 +355,7 @@
       <h3>How to use this tracker</h3>
       <ul>
         <li>Set your <strong>start date</strong> at the top. Every day's calendar date and your pace indicator are computed from it.</li>
-        <li>Pick a <strong>timeline</strong> (45/55/65/70/75 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
+        <li>Pick a <strong>timeline</strong> (45/55/75/115/225 days). They all cover the same curriculum, just packed into more or fewer days, and your progress carries across when you switch.</li>
         <li>Tick each task as you finish it. A day is marked complete when all its tasks are done.</li>
         <li>Use the <strong>Notes</strong> field on each day as a journal for credentials you found, attack paths that worked, and hosts still to revisit.</li>
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
@@ -376,66 +376,89 @@
 
 /* ---------- Curriculum data ---------- */
 const WEEK_THEMES = [
-  "AD Enumeration",
-  "AD Enumeration II",
-  "BloodHound",
-  "NetExec",
-  "Kerberos",
-  "ADCS",
-  "Trust Attacks",
-  "C2 with Sliver",
-  "MSSQL, Exchange & SCCM",
-  "Reporting & Mock Exam",
-  "Exam Prep & Mock"
+  "Recon & initial enum",
+  "Poisoning & spraying",
+  "Credentialed enum & roasting",
+  "ACL abuse & DCSync",
+  "Domain trust attacks",
+  "AD & LDAP overview",
+  "LDAP search & enum",
+  "PowerView enumeration",
+  "BloodHound & collection",
+  "Remote services",
+  "Remote tools & defense",
+  "Roasting & shares",
+  "Secrets, C2 & modules",
+  "Roasting attacks",
+  "Delegation attacks",
+  "DACL abuse basics",
+  "Shadow creds & spoofing",
+  "Relay basics",
+  "Coercion & advanced relay",
+  "Enumeration & ESC1-3",
+  "ESC4 to ESC10 abuses",
+  "Certifried & Certipy",
+  "GPO, gMSA & ExtraSids",
+  "Cross-forest attacks",
+  "Setup & implants",
+  "Recon & lateral movement",
+  "Forest compromise",
+  "AV evasion & AMSI",
+  "UAC, AppLocker & LOLBAS",
+  "MSSQL attacks",
+  "Exchange attacks",
+  "SCCM post-exploitation",
+  "App & service drills",
+  "Finalize cheat sheets"
 ];
 
 const PHASES = [
   {
     "name": "Enumeration & Recon",
     "from": 1,
-    "to": 18,
+    "to": 64,
     "color": "#f4afe1"
   },
   {
     "name": "Lateral Movement & Tooling",
-    "from": 19,
-    "to": 27,
+    "from": 65,
+    "to": 93,
     "color": "#f29ddb"
   },
   {
     "name": "Kerberos & DACL Attacks",
-    "from": 28,
-    "to": 36,
+    "from": 94,
+    "to": 121,
     "color": "#f08cd4"
   },
   {
     "name": "NTLM Relay & ADCS",
-    "from": 37,
-    "to": 43,
+    "from": 122,
+    "to": 152,
     "color": "#ed7bce"
   },
   {
     "name": "Domain Trust Attacks",
-    "from": 44,
-    "to": 49,
+    "from": 153,
+    "to": 172,
     "color": "#eb6ac7"
   },
   {
     "name": "C2 & Evasion",
-    "from": 50,
-    "to": 56,
+    "from": 173,
+    "to": 205,
     "color": "#e958c1"
   },
   {
     "name": "App & Service Attacks",
-    "from": 57,
-    "to": 62,
+    "from": 206,
+    "to": 226,
     "color": "#e647ba"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 63,
-    "to": 75,
+    "from": 227,
+    "to": 234,
     "color": "#e436b4"
   }
 ];
@@ -467,131 +490,545 @@ const CURRICULUM = [
     "d": 3,
     "title": "Recon & initial enum",
     "type": "study",
-    "hrs": 8,
+    "hrs": 2,
     "tasks": [
       "Begin 'Active Directory Enumeration & Attacks' (36 sections · Medium)",
-      "M1 · sections 1–5: Tools of the trade, the scenario, external recon & initial domain enumeration"
+      "M1 · section 1: Tools of the trade, the scenario, external recon & initial domain enumeration"
     ]
   },
   {
     "d": 4,
-    "title": "Poisoning & spraying",
+    "title": "Recon & initial enum",
     "type": "study",
-    "hrs": 11,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 6–12: LLMNR/NBT-NS poisoning and internal password spraying from Linux and Windows, plus password policies"
+      "M1 · section 2"
     ]
   },
   {
     "d": 5,
-    "title": "Credentialed enum & roasting",
+    "title": "Recon & initial enum",
     "type": "study",
-    "hrs": 9.5,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 13–18: Security controls, credentialed enumeration from Linux and Windows, living off the land & Kerberoasting"
+      "M1 · section 3"
     ]
   },
   {
     "d": 6,
-    "title": "ACL abuse & DCSync",
+    "title": "Recon & initial enum",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 19–23: The ACL abuse primer, enumeration and tactics, DCSync & privileged access"
+      "M1 · section 4"
     ]
   },
   {
     "d": 7,
-    "title": "Double hop & trusts primer",
+    "title": "Recon & initial enum",
     "type": "study",
-    "hrs": 6,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 24–27: The Kerberos double hop problem, bleeding-edge vulnerabilities, misconfigurations & the domain trusts primer"
+      "M1 · section 5"
     ]
   },
   {
     "d": 8,
-    "title": "Domain trust attacks",
+    "title": "Poisoning & spraying",
     "type": "study",
-    "hrs": 9.5,
+    "hrs": 2,
     "tasks": [
-      "M1 · sections 28–33: Attacking child to parent and cross-forest trusts from Windows and Linux, hardening & auditing"
+      "M1 · section 6: LLMNR/NBT-NS poisoning and internal password spraying from Linux and Windows, plus password policies"
     ]
   },
   {
     "d": 9,
+    "title": "Poisoning & spraying",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 7"
+    ]
+  },
+  {
+    "d": 10,
+    "title": "Poisoning & spraying",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 8"
+    ]
+  },
+  {
+    "d": 11,
+    "title": "Poisoning & spraying",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 9"
+    ]
+  },
+  {
+    "d": 12,
+    "title": "Poisoning & spraying",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 10"
+    ]
+  },
+  {
+    "d": 13,
+    "title": "Poisoning & spraying",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 11"
+    ]
+  },
+  {
+    "d": 14,
+    "title": "Poisoning & spraying",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 12"
+    ]
+  },
+  {
+    "d": 15,
+    "title": "Credentialed enum & roasting",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M1 · section 13: Security controls, credentialed enumeration from Linux and Windows, living off the land & Kerberoasting"
+    ]
+  },
+  {
+    "d": 16,
+    "title": "Credentialed enum & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 14"
+    ]
+  },
+  {
+    "d": 17,
+    "title": "Credentialed enum & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 15"
+    ]
+  },
+  {
+    "d": 18,
+    "title": "Credentialed enum & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 16"
+    ]
+  },
+  {
+    "d": 19,
+    "title": "Credentialed enum & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 17"
+    ]
+  },
+  {
+    "d": 20,
+    "title": "Credentialed enum & roasting",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 18"
+    ]
+  },
+  {
+    "d": 21,
+    "title": "ACL abuse & DCSync",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M1 · section 19: The ACL abuse primer, enumeration and tactics, DCSync & privileged access"
+    ]
+  },
+  {
+    "d": 22,
+    "title": "ACL abuse & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 20"
+    ]
+  },
+  {
+    "d": 23,
+    "title": "ACL abuse & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 21"
+    ]
+  },
+  {
+    "d": 24,
+    "title": "ACL abuse & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 22"
+    ]
+  },
+  {
+    "d": 25,
+    "title": "ACL abuse & DCSync",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 23"
+    ]
+  },
+  {
+    "d": 26,
+    "title": "Double hop & trusts primer",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 24: The Kerberos double hop problem, bleeding-edge vulnerabilities, misconfigurations & the domain trusts primer"
+    ]
+  },
+  {
+    "d": 27,
+    "title": "Double hop & trusts primer",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 25"
+    ]
+  },
+  {
+    "d": 28,
+    "title": "Double hop & trusts primer",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 26"
+    ]
+  },
+  {
+    "d": 29,
+    "title": "Double hop & trusts primer",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 27"
+    ]
+  },
+  {
+    "d": 30,
+    "title": "Domain trust attacks",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M1 · section 28: Attacking child to parent and cross-forest trusts from Windows and Linux, hardening & auditing"
+    ]
+  },
+  {
+    "d": 31,
+    "title": "Domain trust attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 29"
+    ]
+  },
+  {
+    "d": 32,
+    "title": "Domain trust attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 30"
+    ]
+  },
+  {
+    "d": 33,
+    "title": "Domain trust attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 31"
+    ]
+  },
+  {
+    "d": 34,
+    "title": "Domain trust attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 32"
+    ]
+  },
+  {
+    "d": 35,
+    "title": "Domain trust attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 33"
+    ]
+  },
+  {
+    "d": 36,
     "title": "Skills assessment",
     "type": "study",
-    "hrs": 4,
+    "hrs": 1.5,
     "tasks": [
-      "M1 · sections 34–36: The two-part skills assessment & where to go beyond the module",
+      "M1 · section 34: The two-part skills assessment & where to go beyond the module"
+    ]
+  },
+  {
+    "d": 37,
+    "title": "Skills assessment",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M1 · section 35"
+    ]
+  },
+  {
+    "d": 38,
+    "title": "Skills assessment",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M1 · section 36",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 1 complete — Active Directory Enumeration & Attacks"
   },
   {
-    "d": 10,
+    "d": 39,
     "title": "AD & LDAP overview",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Active Directory LDAP' (12 sections · Medium)",
-      "M2 · sections 1–6: AD overview, why enumerate, rights and privileges, RSAT, NT AUTHORITY SYSTEM & the LDAP overview"
+      "M2 · section 1: AD overview, why enumerate, rights and privileges, RSAT, NT AUTHORITY SYSTEM & the LDAP overview"
     ]
   },
   {
-    "d": 11,
+    "d": 40,
+    "title": "AD & LDAP overview",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · section 2"
+    ]
+  },
+  {
+    "d": 41,
+    "title": "AD & LDAP overview",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · section 3"
+    ]
+  },
+  {
+    "d": 42,
+    "title": "AD & LDAP overview",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · section 4"
+    ]
+  },
+  {
+    "d": 43,
+    "title": "AD & LDAP overview",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · section 5"
+    ]
+  },
+  {
+    "d": 44,
+    "title": "AD & LDAP overview",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · section 6"
+    ]
+  },
+  {
+    "d": 45,
     "title": "LDAP search & enum",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M2 · sections 7–12: Search filters, built-in tools, anonymous bind, credentialed LDAP enumeration & skills assessment",
+      "M2 · section 7: Search filters, built-in tools, anonymous bind, credentialed LDAP enumeration & skills assessment"
+    ]
+  },
+  {
+    "d": 46,
+    "title": "LDAP search & enum",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · section 8"
+    ]
+  },
+  {
+    "d": 47,
+    "title": "LDAP search & enum",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · section 9"
+    ]
+  },
+  {
+    "d": 48,
+    "title": "LDAP search & enum",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M2 · section 10"
+    ]
+  },
+  {
+    "d": 49,
+    "title": "LDAP search & enum",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · section 11"
+    ]
+  },
+  {
+    "d": 50,
+    "title": "LDAP search & enum",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M2 · section 12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 2 complete — Active Directory LDAP"
   },
   {
-    "d": 12,
+    "d": 51,
     "title": "PowerView enumeration",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Active Directory PowerView' (9 sections · Medium)",
-      "M3 · sections 1–5: PowerView and SharpView usage, enumerating users, groups & computers"
+      "M3 · sections 1–2: PowerView and SharpView usage, enumerating users, groups & computers"
     ]
   },
   {
-    "d": 13,
+    "d": 52,
+    "title": "PowerView enumeration",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 3"
+    ]
+  },
+  {
+    "d": 53,
+    "title": "PowerView enumeration",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 4"
+    ]
+  },
+  {
+    "d": 54,
+    "title": "PowerView enumeration",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 5"
+    ]
+  },
+  {
+    "d": 55,
     "title": "ACLs, GPOs & trusts",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
-      "M3 · sections 6–9: Enumerating domain ACLs, GPOs, trusts & skills assessment",
+      "M3 · sections 6–7: Enumerating domain ACLs, GPOs, trusts & skills assessment"
+    ]
+  },
+  {
+    "d": 56,
+    "title": "ACLs, GPOs & trusts",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 8"
+    ]
+  },
+  {
+    "d": 57,
+    "title": "ACLs, GPOs & trusts",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M3 · section 9",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 3 complete — Active Directory PowerView"
   },
   {
-    "d": 14,
+    "d": 58,
     "title": "BloodHound & collection",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "Begin 'Active Directory BloodHound' (14 sections · Medium)",
-      "M4 · sections 1–5: Overview, setup, SharpHound from Windows & BloodHound.py from Linux"
+      "M4 · sections 1–3: Overview, setup, SharpHound from Windows & BloodHound.py from Linux"
     ]
   },
   {
-    "d": 15,
+    "d": 59,
+    "title": "BloodHound & collection",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · sections 4–5"
+    ]
+  },
+  {
+    "d": 60,
     "title": "Navigating the data",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
-      "M4 · sections 6–10: The GUI, nodes, edges, analyzing data & Cypher queries"
+      "M4 · sections 6–8: The GUI, nodes, edges, analyzing data & Cypher queries"
     ]
   },
   {
-    "d": 16,
+    "d": 61,
+    "title": "Navigating the data",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M4 · sections 9–10"
+    ]
+  },
+  {
+    "d": 62,
     "title": "Blue team & Azure",
     "type": "study",
     "hrs": 1,
@@ -602,7 +1039,7 @@ const CURRICULUM = [
     "milestone": "Module 4 complete — Active Directory BloodHound"
   },
   {
-    "d": 17,
+    "d": 63,
     "title": "BloodHound & enum drills",
     "type": "lab",
     "hrs": 2,
@@ -612,7 +1049,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 18,
+    "d": 64,
     "title": "Enumeration review",
     "type": "review",
     "hrs": 1,
@@ -622,76 +1059,256 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 19,
+    "d": 65,
     "title": "Remote services",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Windows Lateral Movement' (14 sections · Medium)",
-      "M5 · sections 1–7: Intro, remote services, RDP, SMB, WMI, WinRM & DCOM"
+      "M5 · sections 1–2: Intro, remote services, RDP, SMB, WMI, WinRM & DCOM"
     ]
   },
   {
-    "d": 20,
+    "d": 66,
+    "title": "Remote services",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 3"
+    ]
+  },
+  {
+    "d": 67,
+    "title": "Remote services",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 4"
+    ]
+  },
+  {
+    "d": 68,
+    "title": "Remote services",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 5"
+    ]
+  },
+  {
+    "d": 69,
+    "title": "Remote services",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 6"
+    ]
+  },
+  {
+    "d": 70,
+    "title": "Remote services",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 7"
+    ]
+  },
+  {
+    "d": 71,
     "title": "Remote tools & defense",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M5 · sections 8–14: SSH, remote management and software deployment tools, WSUS, prevention and detection & skill assessment",
+      "M5 · sections 8–9: SSH, remote management and software deployment tools, WSUS, prevention and detection & skill assessment"
+    ]
+  },
+  {
+    "d": 72,
+    "title": "Remote tools & defense",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 10"
+    ]
+  },
+  {
+    "d": 73,
+    "title": "Remote tools & defense",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 11"
+    ]
+  },
+  {
+    "d": 74,
+    "title": "Remote tools & defense",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M5 · section 12"
+    ]
+  },
+  {
+    "d": 75,
+    "title": "Remote tools & defense",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 13"
+    ]
+  },
+  {
+    "d": 76,
+    "title": "Remote tools & defense",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M5 · section 14",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 5 complete — Windows Lateral Movement"
   },
   {
-    "d": 21,
+    "d": 77,
     "title": "Basics & SMB recon",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Using CrackMapExec' (27 sections · Medium)",
-      "M6 · sections 1–6: What CrackMapExec is, installation, targets and protocols, SMB recon, null sessions & password spraying"
+      "M6 · sections 1–2: What CrackMapExec is, installation, targets and protocols, SMB recon, null sessions & password spraying"
     ]
   },
   {
-    "d": 22,
+    "d": 78,
+    "title": "Basics & SMB recon",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 3–4"
+    ]
+  },
+  {
+    "d": 79,
+    "title": "Basics & SMB recon",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 5–6"
+    ]
+  },
+  {
+    "d": 80,
     "title": "Roasting & shares",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
-      "M6 · sections 7–12: ASREPRoastable and Kerberoastable accounts, GPO accounts, modules, MSSQL & SMB share spidering"
+      "M6 · sections 7–8: ASREPRoastable and Kerberoastable accounts, GPO accounts, modules, MSSQL & SMB share spidering"
     ]
   },
   {
-    "d": 23,
+    "d": 81,
+    "title": "Roasting & shares",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 9–10"
+    ]
+  },
+  {
+    "d": 82,
+    "title": "Roasting & shares",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 11–12"
+    ]
+  },
+  {
+    "d": 83,
     "title": "Pivoting & execution",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 13–17: Proxychains, stealing hashes, SMB mapping, LDAP and RDP enumeration & command execution"
+      "M6 · sections 13–14: Proxychains, stealing hashes, SMB mapping, LDAP and RDP enumeration & command execution"
     ]
   },
   {
-    "d": 24,
+    "d": 84,
+    "title": "Pivoting & execution",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 15–16"
+    ]
+  },
+  {
+    "d": 85,
+    "title": "Pivoting & execution",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 17"
+    ]
+  },
+  {
+    "d": 86,
     "title": "Secrets, C2 & modules",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 18–22: Finding and using secrets, C2 sessions, BloodHound integration, popular and vuln-scan modules"
+      "M6 · sections 18–19: Finding and using secrets, C2 sessions, BloodHound integration, popular and vuln-scan modules"
     ]
   },
   {
-    "d": 25,
+    "d": 87,
+    "title": "Secrets, C2 & modules",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 20–21"
+    ]
+  },
+  {
+    "d": 88,
+    "title": "Secrets, C2 & modules",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 22"
+    ]
+  },
+  {
+    "d": 89,
     "title": "Custom modules & CMEDB",
     "type": "study",
-    "hrs": 3,
+    "hrs": 1,
     "tasks": [
-      "M6 · sections 23–27: Building your own module, extra functionality, Kerberos authentication, the CMEDB & skills assessment",
+      "M6 · sections 23–24: Building your own module, extra functionality, Kerberos authentication, the CMEDB & skills assessment"
+    ]
+  },
+  {
+    "d": 90,
+    "title": "Custom modules & CMEDB",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · sections 25–26"
+    ]
+  },
+  {
+    "d": 91,
+    "title": "Custom modules & CMEDB",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M6 · section 27",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 6 complete — Using CrackMapExec"
   },
   {
-    "d": 26,
+    "d": 92,
     "title": "Lateral movement drills",
     "type": "lab",
     "hrs": 2,
@@ -701,7 +1318,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 27,
+    "d": 93,
     "title": "Lateral movement review",
     "type": "review",
     "hrs": 1,
@@ -711,79 +1328,250 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 28,
+    "d": 94,
     "title": "Roasting attacks",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Kerberos Attacks' (23 sections · Hard)",
-      "M7 · sections 1–7: Kerberos overview and auth process, the attacks overview, AS-REPRoasting & Kerberoasting from Windows and Linux"
+      "M7 · sections 1–2: Kerberos overview and auth process, the attacks overview, AS-REPRoasting & Kerberoasting from Windows and Linux"
     ]
   },
   {
-    "d": 29,
+    "d": 95,
+    "title": "Roasting attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 3–4"
+    ]
+  },
+  {
+    "d": 96,
+    "title": "Roasting attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 5–6"
+    ]
+  },
+  {
+    "d": 97,
+    "title": "Roasting attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 7"
+    ]
+  },
+  {
+    "d": 98,
     "title": "Delegation attacks",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 8–14: Kerberos delegations: unconstrained, constrained and resource-based constrained from Windows and Linux"
+      "M7 · sections 8–9: Kerberos delegations: unconstrained, constrained and resource-based constrained from Windows and Linux"
     ]
   },
   {
-    "d": 30,
+    "d": 99,
+    "title": "Delegation attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M7 · sections 10–11"
+    ]
+  },
+  {
+    "d": 100,
+    "title": "Delegation attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 12–13"
+    ]
+  },
+  {
+    "d": 101,
+    "title": "Delegation attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 14"
+    ]
+  },
+  {
+    "d": 102,
     "title": "Ticket attacks",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 15–19: Golden and silver tickets from Windows and Linux, and pass-the-ticket"
+      "M7 · sections 15–16: Golden and silver tickets from Windows and Linux, and pass-the-ticket"
     ]
   },
   {
-    "d": 31,
+    "d": 103,
+    "title": "Ticket attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 17–18"
+    ]
+  },
+  {
+    "d": 104,
+    "title": "Ticket attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · section 19"
+    ]
+  },
+  {
+    "d": 105,
     "title": "Spraying & hardening",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M7 · sections 20–23: Kerberos account enumeration and spraying, hardening, detection & skills assessment",
+      "M7 · sections 20–21: Kerberos account enumeration and spraying, hardening, detection & skills assessment"
+    ]
+  },
+  {
+    "d": 106,
+    "title": "Spraying & hardening",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M7 · sections 22–23",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 7 complete — Kerberos Attacks"
   },
   {
-    "d": 32,
+    "d": 107,
     "title": "DACL abuse basics",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'DACL Attacks I' (7 sections · Hard)",
-      "M8 · sections 1–7: DACLs overview and enumeration, targeted Kerberoasting, adding members, password abuse, granting rights & skills assessment",
+      "M8 · sections 1–2: DACLs overview and enumeration, targeted Kerberoasting, adding members, password abuse, granting rights & skills assessment"
+    ]
+  },
+  {
+    "d": 108,
+    "title": "DACL abuse basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M8 · section 3"
+    ]
+  },
+  {
+    "d": 109,
+    "title": "DACL abuse basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M8 · section 4"
+    ]
+  },
+  {
+    "d": 110,
+    "title": "DACL abuse basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M8 · section 5"
+    ]
+  },
+  {
+    "d": 111,
+    "title": "DACL abuse basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · section 6"
+    ]
+  },
+  {
+    "d": 112,
+    "title": "DACL abuse basics",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M8 · section 7",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 8 complete — DACL Attacks I"
   },
   {
-    "d": 33,
+    "d": 113,
     "title": "Shadow creds & spoofing",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'DACL Attacks II' (9 sections · Hard)",
-      "M9 · sections 1–5: Shadow credentials, logon scripts, SPN jacking & sAMAccountName spoofing"
+      "M9 · sections 1–2: Shadow credentials, logon scripts, SPN jacking & sAMAccountName spoofing"
     ]
   },
   {
-    "d": 34,
+    "d": 114,
+    "title": "Shadow creds & spoofing",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 3"
+    ]
+  },
+  {
+    "d": 115,
+    "title": "Shadow creds & spoofing",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 4"
+    ]
+  },
+  {
+    "d": 116,
+    "title": "Shadow creds & spoofing",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 5"
+    ]
+  },
+  {
+    "d": 117,
     "title": "GPO attacks & defense",
     "type": "study",
-    "hrs": 3.5,
+    "hrs": 1.5,
     "tasks": [
-      "M9 · sections 6–9: Intro to GPOs, GPO attacks, detection and mitigation & skills assessment",
+      "M9 · sections 6–7: Intro to GPOs, GPO attacks, detection and mitigation & skills assessment"
+    ]
+  },
+  {
+    "d": 118,
+    "title": "GPO attacks & defense",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 8"
+    ]
+  },
+  {
+    "d": 119,
+    "title": "GPO attacks & defense",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M9 · section 9",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 9 complete — DACL Attacks II"
   },
   {
-    "d": 35,
+    "d": 120,
     "title": "Kerberos & DACL drills",
     "type": "lab",
     "hrs": 2,
@@ -793,7 +1581,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 36,
+    "d": 121,
     "title": "Kerberos & DACL review",
     "type": "review",
     "hrs": 1,
@@ -803,58 +1591,274 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 37,
+    "d": 122,
     "title": "Relay basics",
     "type": "study",
-    "hrs": 8,
+    "hrs": 2,
     "tasks": [
       "Begin 'NTLM Relay Attacks' (10 sections · Hard)",
-      "M10 · sections 1–5: The NTLM protocol, the relay attack, relay over SMB, ntlmrelayx use cases & cross-protocol relay"
+      "M10 · section 1: The NTLM protocol, the relay attack, relay over SMB, ntlmrelayx use cases & cross-protocol relay"
     ]
   },
   {
-    "d": 38,
+    "d": 123,
+    "title": "Relay basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 2"
+    ]
+  },
+  {
+    "d": 124,
+    "title": "Relay basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 3"
+    ]
+  },
+  {
+    "d": 125,
+    "title": "Relay basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 4"
+    ]
+  },
+  {
+    "d": 126,
+    "title": "Relay basics",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 5"
+    ]
+  },
+  {
+    "d": 127,
     "title": "Coercion & advanced relay",
     "type": "study",
-    "hrs": 8,
+    "hrs": 2,
     "tasks": [
-      "M10 · sections 6–10: Farming hashes, authentication coercion, advanced relay targeting Kerberos and AD CS & skills assessment",
+      "M10 · section 6: Farming hashes, authentication coercion, advanced relay targeting Kerberos and AD CS & skills assessment"
+    ]
+  },
+  {
+    "d": 128,
+    "title": "Coercion & advanced relay",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 7"
+    ]
+  },
+  {
+    "d": 129,
+    "title": "Coercion & advanced relay",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 8"
+    ]
+  },
+  {
+    "d": 130,
+    "title": "Coercion & advanced relay",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 9"
+    ]
+  },
+  {
+    "d": 131,
+    "title": "Coercion & advanced relay",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M10 · section 10",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 10 complete — NTLM Relay Attacks"
   },
   {
-    "d": 39,
+    "d": 132,
     "title": "Enumeration & ESC1-3",
     "type": "study",
-    "hrs": 12,
+    "hrs": 2,
     "tasks": [
       "Begin 'ADCS Attacks' (19 sections · Hard)",
-      "M11 · sections 1–7: ADCS intro, misconfigurations, enumeration, ESC1, ESC2, ESC3 & certificate mapping"
+      "M11 · section 1: ADCS intro, misconfigurations, enumeration, ESC1, ESC2, ESC3 & certificate mapping"
     ]
   },
   {
-    "d": 40,
+    "d": 133,
+    "title": "Enumeration & ESC1-3",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M11 · section 2"
+    ]
+  },
+  {
+    "d": 134,
+    "title": "Enumeration & ESC1-3",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M11 · section 3"
+    ]
+  },
+  {
+    "d": 135,
+    "title": "Enumeration & ESC1-3",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 4"
+    ]
+  },
+  {
+    "d": 136,
+    "title": "Enumeration & ESC1-3",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 5"
+    ]
+  },
+  {
+    "d": 137,
+    "title": "Enumeration & ESC1-3",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 6"
+    ]
+  },
+  {
+    "d": 138,
+    "title": "Enumeration & ESC1-3",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 7"
+    ]
+  },
+  {
+    "d": 139,
     "title": "ESC4 to ESC10 abuses",
     "type": "study",
-    "hrs": 12,
+    "hrs": 2,
     "tasks": [
-      "M11 · sections 8–14: ESC9, ESC10, ESC6, ESC4, ESC7, ESC5 & ESC8"
+      "M11 · section 8: ESC9, ESC10, ESC6, ESC4, ESC7, ESC5 & ESC8"
     ]
   },
   {
-    "d": 41,
+    "d": 140,
+    "title": "ESC4 to ESC10 abuses",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M11 · section 9"
+    ]
+  },
+  {
+    "d": 141,
+    "title": "ESC4 to ESC10 abuses",
+    "type": "study",
+    "hrs": 2,
+    "tasks": [
+      "M11 · section 10"
+    ]
+  },
+  {
+    "d": 142,
+    "title": "ESC4 to ESC10 abuses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 11"
+    ]
+  },
+  {
+    "d": 143,
+    "title": "ESC4 to ESC10 abuses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 12"
+    ]
+  },
+  {
+    "d": 144,
+    "title": "ESC4 to ESC10 abuses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 13"
+    ]
+  },
+  {
+    "d": 145,
+    "title": "ESC4 to ESC10 abuses",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 14"
+    ]
+  },
+  {
+    "d": 146,
     "title": "Certifried & Certipy",
     "type": "study",
-    "hrs": 8,
+    "hrs": 2,
     "tasks": [
-      "M11 · sections 15–19: ESC11, Certifried, PKINIT, using BloodHound with Certipy & skills assessment",
+      "M11 · section 15: ESC11, Certifried, PKINIT, using BloodHound with Certipy & skills assessment"
+    ]
+  },
+  {
+    "d": 147,
+    "title": "Certifried & Certipy",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 16"
+    ]
+  },
+  {
+    "d": 148,
+    "title": "Certifried & Certipy",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 17"
+    ]
+  },
+  {
+    "d": 149,
+    "title": "Certifried & Certipy",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 18"
+    ]
+  },
+  {
+    "d": 150,
+    "title": "Certifried & Certipy",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M11 · section 19",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 11 complete — ADCS Attacks"
   },
   {
-    "d": 42,
+    "d": 151,
     "title": "Relay & ADCS drills",
     "type": "lab",
     "hrs": 2,
@@ -864,7 +1868,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 43,
+    "d": 152,
     "title": "Relay & ADCS review",
     "type": "review",
     "hrs": 1,
@@ -874,46 +1878,172 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 44,
+    "d": 153,
     "title": "Enum & intra-forest",
     "type": "study",
-    "hrs": 7,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Active Directory Trust Attacks' (21 sections · Hard)",
-      "M12 · sections 1–6: Intro, enumerating and mapping trusts, unconstrained delegation, the configuration NC & abusing ADCS"
+      "M12 · sections 1–2: Intro, enumerating and mapping trusts, unconstrained delegation, the configuration NC & abusing ADCS"
     ]
   },
   {
-    "d": 45,
+    "d": 154,
+    "title": "Enum & intra-forest",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 3"
+    ]
+  },
+  {
+    "d": 155,
+    "title": "Enum & intra-forest",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 4"
+    ]
+  },
+  {
+    "d": 156,
+    "title": "Enum & intra-forest",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 5"
+    ]
+  },
+  {
+    "d": 157,
+    "title": "Enum & intra-forest",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 6"
+    ]
+  },
+  {
+    "d": 158,
     "title": "GPO, gMSA & ExtraSids",
     "type": "study",
-    "hrs": 5.5,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 7–11: The GPO on-site attack, GoldenGMSA, the DNS trust attack, abusing foreign groups & ExtraSids"
+      "M12 · sections 7–8: The GPO on-site attack, GoldenGMSA, the DNS trust attack, abusing foreign groups & ExtraSids"
     ]
   },
   {
-    "d": 46,
+    "d": 159,
+    "title": "GPO, gMSA & ExtraSids",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 9"
+    ]
+  },
+  {
+    "d": 160,
+    "title": "GPO, gMSA & ExtraSids",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 10"
+    ]
+  },
+  {
+    "d": 161,
+    "title": "GPO, gMSA & ExtraSids",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 11"
+    ]
+  },
+  {
+    "d": 162,
     "title": "Cross-forest attacks",
     "type": "study",
-    "hrs": 7,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 12–17: Cross-forest trusts, the trust account attack, cross-forest unconstrained delegation, SID history injection, SID filter bypass & SQL server links"
+      "M12 · sections 12–13: Cross-forest trusts, the trust account attack, cross-forest unconstrained delegation, SID history injection, SID filter bypass & SQL server links"
     ]
   },
   {
-    "d": 47,
+    "d": 163,
+    "title": "Cross-forest attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 14"
+    ]
+  },
+  {
+    "d": 164,
+    "title": "Cross-forest attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 15"
+    ]
+  },
+  {
+    "d": 165,
+    "title": "Cross-forest attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M12 · section 16"
+    ]
+  },
+  {
+    "d": 166,
+    "title": "Cross-forest attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 17"
+    ]
+  },
+  {
+    "d": 167,
     "title": "Foreign principals & PAM",
     "type": "study",
-    "hrs": 4.5,
+    "hrs": 1.5,
     "tasks": [
-      "M12 · sections 18–21: Abusing foreign security principals, PAM trusts, mitigations and detections & skills assessment",
+      "M12 · section 18: Abusing foreign security principals, PAM trusts, mitigations and detections & skills assessment"
+    ]
+  },
+  {
+    "d": 168,
+    "title": "Foreign principals & PAM",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 19"
+    ]
+  },
+  {
+    "d": 169,
+    "title": "Foreign principals & PAM",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 20"
+    ]
+  },
+  {
+    "d": 170,
+    "title": "Foreign principals & PAM",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M12 · section 21",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 12 complete — Active Directory Trust Attacks"
   },
   {
-    "d": 48,
+    "d": 171,
     "title": "Trust attack drills",
     "type": "lab",
     "hrs": 2,
@@ -923,7 +2053,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 49,
+    "d": 172,
     "title": "Trust attacks review",
     "type": "review",
     "hrs": 1,
@@ -933,58 +2063,292 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 50,
+    "d": 173,
     "title": "Setup & implants",
     "type": "study",
-    "hrs": 7.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Intro to C2 Operations with Sliver' (19 sections · Hard)",
-      "M13 · sections 1–6: Introduction, setting up, implants and beacons, probing the surface, commands and tools & privilege escalation"
+      "M13 · section 1: Introduction, setting up, implants and beacons, probing the surface, commands and tools & privilege escalation"
     ]
   },
   {
-    "d": 51,
+    "d": 174,
+    "title": "Setup & implants",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 2"
+    ]
+  },
+  {
+    "d": 175,
+    "title": "Setup & implants",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 3"
+    ]
+  },
+  {
+    "d": 176,
+    "title": "Setup & implants",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 4"
+    ]
+  },
+  {
+    "d": 177,
+    "title": "Setup & implants",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 5"
+    ]
+  },
+  {
+    "d": 178,
+    "title": "Setup & implants",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 6"
+    ]
+  },
+  {
+    "d": 179,
     "title": "Recon & lateral movement",
     "type": "study",
-    "hrs": 9,
+    "hrs": 1.5,
     "tasks": [
-      "M13 · sections 7–13: Assumed breach, domain reconnaissance, pivoting, Kerberos exploitation, impersonation, lateral movement & delegations"
+      "M13 · section 7: Assumed breach, domain reconnaissance, pivoting, Kerberos exploitation, impersonation, lateral movement & delegations"
     ]
   },
   {
-    "d": 52,
+    "d": 180,
+    "title": "Recon & lateral movement",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 8"
+    ]
+  },
+  {
+    "d": 181,
+    "title": "Recon & lateral movement",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 9"
+    ]
+  },
+  {
+    "d": 182,
+    "title": "Recon & lateral movement",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 10"
+    ]
+  },
+  {
+    "d": 183,
+    "title": "Recon & lateral movement",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 11"
+    ]
+  },
+  {
+    "d": 184,
+    "title": "Recon & lateral movement",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 12"
+    ]
+  },
+  {
+    "d": 185,
+    "title": "Recon & lateral movement",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 13"
+    ]
+  },
+  {
+    "d": 186,
     "title": "Forest compromise",
     "type": "study",
-    "hrs": 7.5,
+    "hrs": 1.5,
     "tasks": [
-      "M13 · sections 14–19: Advancing, DACL exploitation, domain controller and whole-forest compromise, detecting Sliver & skills assessment",
+      "M13 · section 14: Advancing, DACL exploitation, domain controller and whole-forest compromise, detecting Sliver & skills assessment"
+    ]
+  },
+  {
+    "d": 187,
+    "title": "Forest compromise",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 15"
+    ]
+  },
+  {
+    "d": 188,
+    "title": "Forest compromise",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M13 · section 16"
+    ]
+  },
+  {
+    "d": 189,
+    "title": "Forest compromise",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 17"
+    ]
+  },
+  {
+    "d": 190,
+    "title": "Forest compromise",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 18"
+    ]
+  },
+  {
+    "d": 191,
+    "title": "Forest compromise",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M13 · section 19",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 13 complete — Intro to C2 Operations with Sliver"
   },
   {
-    "d": 53,
+    "d": 192,
     "title": "AV evasion & AMSI",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Introduction to Windows Evasion Techniques' (14 sections · Hard)",
-      "M14 · sections 1–7: Intro, Microsoft Defender, static and dynamic analysis, process injection, AMSI & open-source tooling"
+      "M14 · sections 1–2: Intro, Microsoft Defender, static and dynamic analysis, process injection, AMSI & open-source tooling"
     ]
   },
   {
-    "d": 54,
+    "d": 193,
+    "title": "AV evasion & AMSI",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 3"
+    ]
+  },
+  {
+    "d": 194,
+    "title": "AV evasion & AMSI",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 4"
+    ]
+  },
+  {
+    "d": 195,
+    "title": "AV evasion & AMSI",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 5"
+    ]
+  },
+  {
+    "d": 196,
+    "title": "AV evasion & AMSI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · section 6"
+    ]
+  },
+  {
+    "d": 197,
+    "title": "AV evasion & AMSI",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · section 7"
+    ]
+  },
+  {
+    "d": 198,
     "title": "UAC, AppLocker & LOLBAS",
     "type": "study",
-    "hrs": 8,
+    "hrs": 1.5,
     "tasks": [
-      "M14 · sections 8–14: UAC, AppLocker, LOLBAS with InstallUtil and RunDll32, ConstrainedLanguage mode & two skills assessments",
+      "M14 · sections 8–9: UAC, AppLocker, LOLBAS with InstallUtil and RunDll32, ConstrainedLanguage mode & two skills assessments"
+    ]
+  },
+  {
+    "d": 199,
+    "title": "UAC, AppLocker & LOLBAS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 10"
+    ]
+  },
+  {
+    "d": 200,
+    "title": "UAC, AppLocker & LOLBAS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 11"
+    ]
+  },
+  {
+    "d": 201,
+    "title": "UAC, AppLocker & LOLBAS",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M14 · section 12"
+    ]
+  },
+  {
+    "d": 202,
+    "title": "UAC, AppLocker & LOLBAS",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · section 13"
+    ]
+  },
+  {
+    "d": 203,
+    "title": "UAC, AppLocker & LOLBAS",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M14 · section 14",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 14 complete — Introduction to Windows Evasion Techniques"
   },
   {
-    "d": 55,
+    "d": 204,
     "title": "C2 & evasion drills",
     "type": "lab",
     "hrs": 2,
@@ -994,7 +2358,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 56,
+    "d": 205,
     "title": "C2 & evasion review",
     "type": "review",
     "hrs": 1,
@@ -1004,46 +2368,181 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 57,
+    "d": 206,
     "title": "MSSQL attacks",
     "type": "study",
-    "hrs": 7.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'MSSQL, Exchange, and SCCM Attacks' (19 sections · Hard)",
-      "M15 · sections 1–6: MSSQL intro, privilege escalation, command execution, lateral movement, tooling & defensive considerations"
+      "M15 · section 1: MSSQL intro, privilege escalation, command execution, lateral movement, tooling & defensive considerations"
     ]
   },
   {
-    "d": 58,
+    "d": 207,
+    "title": "MSSQL attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 2"
+    ]
+  },
+  {
+    "d": 208,
+    "title": "MSSQL attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 3"
+    ]
+  },
+  {
+    "d": 209,
+    "title": "MSSQL attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 4"
+    ]
+  },
+  {
+    "d": 210,
+    "title": "MSSQL attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 5"
+    ]
+  },
+  {
+    "d": 211,
+    "title": "MSSQL attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 6"
+    ]
+  },
+  {
+    "d": 212,
     "title": "Exchange attacks",
     "type": "study",
-    "hrs": 6.5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 7–11: Exchange intro, enumeration, vulnerabilities, phishing & defensive considerations"
+      "M15 · section 7: Exchange intro, enumeration, vulnerabilities, phishing & defensive considerations"
     ]
   },
   {
-    "d": 59,
+    "d": 213,
+    "title": "Exchange attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 8"
+    ]
+  },
+  {
+    "d": 214,
+    "title": "Exchange attacks",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 9"
+    ]
+  },
+  {
+    "d": 215,
+    "title": "Exchange attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 10"
+    ]
+  },
+  {
+    "d": 216,
+    "title": "Exchange attacks",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 11"
+    ]
+  },
+  {
+    "d": 217,
     "title": "SCCM auditing & takeover",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 12–15: SCCM intro, auditing, abusing SCCM & site takeover part one"
+      "M15 · section 12: SCCM intro, auditing, abusing SCCM & site takeover part one"
     ]
   },
   {
-    "d": 60,
+    "d": 218,
+    "title": "SCCM auditing & takeover",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 13"
+    ]
+  },
+  {
+    "d": 219,
+    "title": "SCCM auditing & takeover",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 14"
+    ]
+  },
+  {
+    "d": 220,
+    "title": "SCCM auditing & takeover",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 15"
+    ]
+  },
+  {
+    "d": 221,
     "title": "SCCM post-exploitation",
     "type": "study",
-    "hrs": 5,
+    "hrs": 1.5,
     "tasks": [
-      "M15 · sections 16–19: Site takeover part two, post-exploitation, defensive considerations & skills assessment",
+      "M15 · section 16: Site takeover part two, post-exploitation, defensive considerations & skills assessment"
+    ]
+  },
+  {
+    "d": 222,
+    "title": "SCCM post-exploitation",
+    "type": "study",
+    "hrs": 1.5,
+    "tasks": [
+      "M15 · section 17"
+    ]
+  },
+  {
+    "d": 223,
+    "title": "SCCM post-exploitation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 18"
+    ]
+  },
+  {
+    "d": 224,
+    "title": "SCCM post-exploitation",
+    "type": "study",
+    "hrs": 1,
+    "tasks": [
+      "M15 · section 19",
       "Finish the module, including any skills assessment, and save its cheat sheet"
     ],
     "milestone": "Module 15 complete — MSSQL, Exchange, and SCCM Attacks"
   },
   {
-    "d": 61,
+    "d": 225,
     "title": "App & service drills",
     "type": "lab",
     "hrs": 2,
@@ -1053,7 +2552,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 62,
+    "d": 226,
     "title": "App attacks review",
     "type": "review",
     "hrs": 1,
@@ -1063,7 +2562,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 63,
+    "d": 227,
     "title": "SysReptor setup",
     "type": "lab",
     "hrs": 1.5,
@@ -1073,7 +2572,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 64,
+    "d": 228,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2.5,
@@ -1083,7 +2582,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 65,
+    "d": 229,
     "title": "Mock exam: recon",
     "type": "lab",
     "hrs": 2.5,
@@ -1093,7 +2592,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 66,
+    "d": 230,
     "title": "Mock exam: exploitation",
     "type": "lab",
     "hrs": 2.5,
@@ -1103,7 +2602,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 67,
+    "d": 231,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -1113,7 +2612,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 68,
+    "d": 232,
     "title": "Finalize cheat sheets",
     "type": "review",
     "hrs": 1.5,
@@ -1123,7 +2622,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 69,
+    "d": 233,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
@@ -1133,57 +2632,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 70,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 71,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 72,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 73,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 74,
-    "title": "Catch-up day",
-    "type": "review",
-    "hrs": 1,
-    "tasks": [
-      "Use this day to finish any module or lab you're behind on",
-      "Rest and review. Steady pacing beats burnout"
-    ]
-  },
-  {
-    "d": 75,
+    "d": 234,
     "title": "Schedule your exam",
     "type": "review",
     "hrs": 1,
@@ -1625,30 +3074,30 @@ const RESOURCES = [
 ];
 
 /* ---------- State ---------- */
-const STORE_KEY = "cape_tracker_v1";
+const STORE_KEY = "cape_tracker_v2";
 let state = {startDate:"", done:{}, notes:{}, mode:45};
 
-/* Timeline modes: the same full curriculum, repackaged into 45 to 75 days. */
+/* Timeline modes: the same full curriculum, repackaged into 45 to 225 days. */
 const MODES = {
   "45": {
     "days": 45,
-    "hrs": "≈ 51 hrs/week"
+    "hrs": "≈ 50 hrs/week"
   },
   "55": {
     "days": 55,
-    "hrs": "≈ 42 hrs/week"
-  },
-  "65": {
-    "days": 65,
-    "hrs": "≈ 35 hrs/week"
-  },
-  "70": {
-    "days": 70,
-    "hrs": "≈ 33 hrs/week"
+    "hrs": "≈ 41 hrs/week"
   },
   "75": {
     "days": 75,
-    "hrs": "≈ 31 hrs/week"
+    "hrs": "≈ 30 hrs/week"
+  },
+  "115": {
+    "days": 115,
+    "hrs": "≈ 20 hrs/week"
+  },
+  "225": {
+    "days": 225,
+    "hrs": "≈ 10 hrs/week"
   }
 };
 const WEEK_RAMP = ["#f4afe1", "#e436b4"];
@@ -1675,7 +3124,7 @@ function weekOf(day){ return Math.ceil(day/7); }
 function taskId(day,i){ return day+"-"+i; }
 
 /* Split the master curriculum days into N display days as evenly as possible:
-   75-day -> 1 master/day, 70-day -> 1-2, 65-day -> 1-2, 55-day -> 1-2, 45-day -> 1-2.
+   225-day -> 1-2, 115-day -> 2-3, 75-day -> 3-4, 55-day -> 4-5, 45-day -> 5-6.
    Task IDs stay tied to the master day, so progress survives mode switches. */
 function buildDays(N){
   const out = [];
@@ -1710,7 +3159,7 @@ function weekTheme(w){
   DAYS.filter(d=>weekOf(d.idx)===w).forEach(d=>d.masters.forEach(m=>mw.push(Math.ceil(m.d/7))));
   if(!mw.length) return "";
   mw.sort((a,b)=>a-b);
-  const mid = Math.min(11, Math.max(1, mw[Math.floor(mw.length/2)]));
+  const mid = Math.min(34, Math.max(1, mw[Math.floor(mw.length/2)]));
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
@@ -1903,7 +3352,7 @@ function renderDay(dd, cd){
 
   const dt = dateForDay(dd.idx);
   const typeLabel = {setup:"Setup",study:"Study",lab:"Lab",review:"Review"};
-  const title = dd.masters.map(m=>esc(m.title)).join(" · ");
+  const title = [...new Set(dd.masters.map(m=>m.title))].map(esc).join(" · ");
   const typeChips = dd.types.map(tp=>'<span class="chip type-'+tp+'">'+(typeLabel[tp]||tp)+'</span>').join("");
 
   let html =
