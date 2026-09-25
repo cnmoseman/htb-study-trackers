@@ -38,7 +38,9 @@ Every day has a notes box for commands, credentials, and anything you want to co
 
 ## Where your progress lives
 
-Your progress is saved in your browser, separately for each tracker. There's no account, and nothing gets sent anywhere. It doesn't sync between devices, so use Export and Import to move it.
+Your progress is saved in your browser, separately for each tracker, and it never leaves it. There's no account. Progress doesn't sync between devices, so use Export and Import to move it.
+
+The live site counts page visits with [GoatCounter](https://www.goatcounter.com/), which doesn't use cookies or collect personal data. Downloaded copies don't count anything.
 
 Each tracker is a single HTML file with its fonts and images built in, so a downloaded copy works offline.
 
