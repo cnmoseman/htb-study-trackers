@@ -1344,7 +1344,7 @@ const CURRICULUM = [
     "type": "lab",
     "hrs": 2,
     "tasks": [
-      "Own 1-2 Easy retired HTB boxes with a web foothold, black-box, with no writeups at first",
+      "Own 1-2 Easy retired HTB boxes with a web foothold (Soccer, Delivery, Shoppy, or BountyHunter), black-box, with no writeups at first",
       "Afterwards, read a writeup to catch approaches you missed"
     ]
   },
@@ -1354,7 +1354,7 @@ const CURRICULUM = [
     "type": "lab",
     "hrs": 2,
     "tasks": [
-      "Try a Medium retired box with a web foothold",
+      "Try a Medium retired box with a web foothold (Union or Cronos)",
       "Write up each finding with screenshots as soon as you confirm it"
     ]
   },
@@ -1763,6 +1763,11 @@ const RESOURCES = [
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
+        "n": "How I Passed the HTB CWES with 100/100 (2026) (Sahil Shah)",
+        "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558",
+        "note": "Scored 100/100 and finished the practical in 2 days; includes a practice machine list"
+      },
+      {
         "n": "HTB CWES Exam Review, Tips & Practice Machines (Sonal Chhen)",
         "u": "https://nalchhen.com/posts/cwes-review/",
         "note": "Reached 80% in 3 days, then spent 4 on the report"
@@ -1801,6 +1806,43 @@ const RESOURCES = [
         "n": "HTB-CWES-Review (0liverFlow)",
         "u": "https://github.com/0liverFlow/HTB-CWES-Review",
         "note": "Enumerate each app fully, and do each skills assessment twice"
+      }
+    ]
+  },
+  {
+    "cat": "Practice Machines",
+    "color": "#9fef00",
+    "note": "Retired HTB Labs boxes that CWES passers recommend for web practice. Try each one black-box before reading a writeup.",
+    "items": [
+      {
+        "n": "Soccer (Easy)",
+        "u": "https://app.hackthebox.com/machines/Soccer",
+        "note": "File manager default creds and upload, then SQL injection over a WebSocket"
+      },
+      {
+        "n": "Delivery (Easy)",
+        "u": "https://app.hackthebox.com/machines/Delivery",
+        "note": "Abusing a helpdesk ticket email to get into an internal app"
+      },
+      {
+        "n": "Shoppy (Easy)",
+        "u": "https://app.hackthebox.com/machines/Shoppy",
+        "note": "NoSQL injection login bypass and subdomain fuzzing"
+      },
+      {
+        "n": "BountyHunter (Easy)",
+        "u": "https://app.hackthebox.com/machines/BountyHunter",
+        "note": "XXE to read files from the server"
+      },
+      {
+        "n": "Union (Medium)",
+        "u": "https://app.hackthebox.com/machines/Union",
+        "note": "SQL injection that leads to file reads and credentials"
+      },
+      {
+        "n": "Cronos (Medium)",
+        "u": "https://app.hackthebox.com/machines/Cronos",
+        "note": "DNS zone transfer, SQL injection login bypass, command injection"
       }
     ]
   },
