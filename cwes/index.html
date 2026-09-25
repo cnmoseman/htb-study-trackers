@@ -215,7 +215,13 @@
   .hidden{display:none}
   .spacer{flex:1}
   footer{margin-top:30px;text-align:center;color:var(--faint);font-size:12px}
+  .home{display:inline-block;margin-bottom:10px;font:500 11px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  .home:hover{color:var(--green);text-decoration:none}
   @media(max-width:760px){
+    .settings .spacer{flex-basis:100%;height:0}
+    .settings .btn{flex:1 1 calc(50% - 5px)}
+    .modeseg{display:flex;width:100%}
+    .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
     .res-list{grid-template-columns:1fr}
@@ -228,6 +234,7 @@
 <div class="wrap">
 
   <header>
+    <a class="home" href="https://cnmoseman.github.io/htb-study-trackers/">&larr; All trackers</a>
     <div class="kicker">Hack The Box · Certified Web Exploitation Specialist</div>
     <h1>CWES Study Tracker</h1>
     <div class="sub">A day-by-day path through the Web Penetration Tester Job-Role Path: 20 modules, 279 sections, ending with the 7-day CWES exam.</div>

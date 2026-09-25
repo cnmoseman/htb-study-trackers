@@ -33,3 +33,9 @@ Using a tracker in the browser here is the easy way to start, and most updates a
 CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE. Each lives in its own folder with an `index.html`.
 
 Built on [mattrfield's coae-study-tracker](https://github.com/mattrfield/coae-study-tracker), the original inspiration for this project. These are independent study aids and are not affiliated with or endorsed by Hack The Box.
+
+## License
+
+The trackers are MIT licensed. See [LICENSE](LICENSE). The code builds on mattrfield's coae-study-tracker, so the original copyright notice is kept.
+
+Each tracker embeds two fonts, Chakra Petch and IBM Plex Mono. Both are under the SIL Open Font License 1.1, and their license files are in [LICENSES/](LICENSES/).
