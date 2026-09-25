@@ -92,7 +92,7 @@
   .weekchart{display:flex;gap:6px;align-items:flex-end;height:90px}
   .wbar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
   .wbar-track{flex:1;width:100%;display:flex;align-items:flex-end;background:var(--card);border-radius:4px 4px 0 0;overflow:hidden}
-  .wbar-fill{width:100%;background:linear-gradient(var(--green),var(--green-dim));border-radius:4px 4px 0 0;transition:height .3s}
+  .wbar-fill{width:100%;background-image:linear-gradient(rgba(255,255,255,.08),rgba(0,0,0,.22));border-radius:4px 4px 0 0;transition:height .3s}
   .wbar-lbl{font-size:9px;color:var(--faint)}
   .phases{display:flex;flex-direction:column;gap:7px;margin-top:14px}
   .phase-row{display:grid;grid-template-columns:170px 1fr 42px;gap:10px;align-items:center;font-size:12px}
@@ -145,6 +145,8 @@
     font-size:11px;font-weight:700;padding:3px 8px;color:var(--muted);white-space:nowrap;
   }
   .day.done .day-badge{color:var(--green);border-color:var(--green-dim)}
+  button.day-badge{cursor:pointer;line-height:inherit;transition:border-color .15s,color .15s}
+  button.day-badge:hover{border-color:var(--green);color:var(--txt)}
   .day-title{font-weight:700;font-size:14.5px;flex:1;min-width:160px}
   .day-date{font-size:11px;color:var(--faint)}
   .chip{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:5px}
@@ -1649,6 +1651,7 @@ const MODES = {
     "hrs": "≈ 31 hrs/week"
   }
 };
+const WEEK_RAMP = ["#f4afe1", "#e436b4"];
 let DAYS = [];   // display days for the currently selected mode
 
 function load(){
@@ -1695,6 +1698,12 @@ function buildDays(N){
   return out;
 }
 function numWeeks(){ return Math.ceil(DAYS.length/7); }
+/* week bar color: fades across the weeks of the current timeline */
+function weekColor(w){
+  const n = numWeeks(), t = n>1 ? (w-1)/(n-1) : 1;
+  const a = WEEK_RAMP[0].match(/\w\w/g).map(x=>parseInt(x,16)), b = WEEK_RAMP[1].match(/\w\w/g).map(x=>parseInt(x,16));
+  return "rgb("+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(",")+")";
+}
 /* Theme a display week from the master content it actually covers. */
 function weekTheme(w){
   const mw = [];
@@ -1804,7 +1813,7 @@ function renderDashboard(){
     const col = document.createElement("div");
     col.className = "wbar-col";
     col.title = "Week "+w+": "+weekTheme(w)+" — "+p+"%";
-    col.innerHTML = '<div class="wbar-track"><div class="wbar-fill" style="height:'+p+'%"></div></div>'+
+    col.innerHTML = '<div class="wbar-track"><div class="wbar-fill" style="height:'+p+'%;background-color:'+weekColor(w)+'"></div></div>'+
                     '<div class="wbar-lbl">W'+w+'</div>';
     wc.appendChild(col);
   }
@@ -1863,7 +1872,7 @@ function renderPlan(){
       '<span class="wk-theme">'+esc(weekTheme(w))+'</span>'+
       '<span class="wk-days">Days '+first+'–'+last+' · ~'+(Math.round(hrs*2)/2)+'h</span>'+
       '<span class="wk-spacer"></span>'+
-      '<span class="wk-mini"><span class="wk-mini-fill" style="width:'+p+'%"></span></span>'+
+      '<span class="wk-mini"><span class="wk-mini-fill" style="width:'+p+'%;background:'+weekColor(w)+'"></span></span>'+
       '<span class="wk-pct">'+p+'%</span>';
     head.addEventListener("click",()=>{ week.classList.toggle("open"); });
     week.appendChild(head);
@@ -1899,7 +1908,7 @@ function renderDay(dd, cd){
 
   let html =
     '<div class="day-head">'+
-      '<span class="day-badge">DAY '+dd.idx+(dd.idx===cd?' · TODAY':'')+'</span>'+
+      '<button type="button" class="day-badge" title="Check off every task in this day (click again to clear)">DAY '+dd.idx+(dd.idx===cd?' · TODAY':'')+'</button>'+
       '<span class="day-title">'+title+'</span>'+
       typeChips+
       '<span class="chip chip-hrs">~'+dd.hrs+'h</span>'+
@@ -1931,6 +1940,19 @@ function renderDay(dd, cd){
 
   card.innerHTML = html;
 
+  /* DAY badge: check the whole day, or clear it if it's already done */
+  card.querySelector(".day-badge").addEventListener("click",()=>{
+    const fill = !dayDone(dd);
+    card.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+      cb.checked = fill;
+      if(fill) state.done[cb.dataset.id]=true; else delete state.done[cb.dataset.id];
+    });
+    save();
+    card.classList.toggle("done", fill);
+    renderDashboard();
+    updateWeekHeader(weekOf(dd.idx));
+    if(fill && document.getElementById("hideDone").checked) renderPlan();
+  });
   card.querySelectorAll('input[type=checkbox]').forEach(cb=>{
     cb.addEventListener("change",()=>{
       if(cb.checked) state.done[cb.dataset.id]=true;
