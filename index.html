@@ -7,11 +7,11 @@
 <meta name="description" content="Interactive, single-file day-by-day study trackers for Hack The Box certifications.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Saira:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--bg:#141d2b;--panel:#1a2332;--line:#243044;--text:#eef1f8;--muted:#a4b1cd;--dim:#7c8aa5;--green:#9fef00;--ink:#0d1420}
   *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--text);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Saira",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:var(--muted)}a:hover{color:var(--green)}
   .hero{background:var(--green);color:var(--ink);padding:22px 40px 40px}
   .hero .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em}
@@ -29,16 +29,16 @@
   .tile:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 12px 32px rgba(0,0,0,.45)}
   .tile:hover img{transform:scale(1.06);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--acc),0 0 28px var(--acc)}
   .tile:focus-within{border-color:var(--acc)}
-  .info{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,3vw,64px);margin-top:clamp(36px,3vw,60px);align-items:start}
-  .info h2{font:600 clamp(12px,.9vw,17px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
-  .info ol{margin:.9em 0 0;padding:0;list-style:none;display:grid;gap:.45em;font:400 clamp(13px,1.05vw,20px)/1.5 "IBM Plex Sans",sans-serif;color:var(--muted)}
-  .info li{display:flex;gap:.75em}
-  .info li b{font:500 .95em/1.6 "IBM Plex Mono",monospace;color:var(--text)}
-  .note{padding:1.1em 1.25em;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:400 clamp(13px,1.05vw,20px)/1.55 "IBM Plex Sans",sans-serif;color:var(--muted)}
-  .note strong.t{display:block;font:600 1.05em "IBM Plex Sans",sans-serif;color:var(--text);margin-bottom:.45em}
+  .info{display:grid;grid-template-columns:1fr;gap:clamp(20px,1.6vw,32px);margin-top:clamp(36px,3vw,60px)}
+  .info h2{font:600 clamp(14px,1.1vw,21px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
+  .info ol{margin:.9em 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;font:500 clamp(13px,1.05vw,20px)/1.5 "Saira",sans-serif;color:var(--muted)}
+  .info li{display:flex;flex-direction:column;gap:.35em;padding-top:.8em;border-top:1px solid var(--line)}
+  .info li b{font:600 1.1em/1.2 "IBM Plex Mono",monospace;color:var(--green)}
+  .note{padding:1.1em 1.25em;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:500 clamp(13px,1.05vw,20px)/1.55 "Saira",sans-serif;color:var(--muted)}
+  .note strong.t{display:block;font:600 1.05em "Saira",sans-serif;color:var(--text);margin-bottom:.45em}
   .note strong.g{color:var(--green);font-weight:600}
-  footer{margin-top:clamp(44px,3.5vw,72px);padding:24px 0;border-top:1px solid var(--line);font:400 clamp(12px,.85vw,16px) "IBM Plex Sans",sans-serif;color:var(--dim);text-align:center}
-  @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info{grid-template-columns:1fr}}
+  footer{margin-top:clamp(44px,3.5vw,72px);padding:24px 0;border-top:1px solid var(--line);font:500 clamp(12px,.85vw,16px) "Saira",sans-serif;color:var(--dim);text-align:center}
+  @media (max-width:900px){.grid,.info ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:560px){.hero,.wrap{padding-left:20px;padding-right:20px}.hero h1{margin-top:32px}}
   @media (prefers-reduced-motion:reduce){.tile,.tile img{transition:none}}
 </style>
@@ -66,10 +66,10 @@
       <div>
         <h2>HOW TO USE</h2>
         <ol>
-          <li><b>1</b>Open a cert.</li>
-          <li><b>2</b>Set your start date and pick a timeline.</li>
-          <li><b>3</b>Check off tasks; a day completes when all are done.</li>
-          <li><b>4</b>Export a backup now and then.</li>
+          <li><b>0x01</b>Open a cert.</li>
+          <li><b>0x02</b>Set your start date and pick a timeline.</li>
+          <li><b>0x03</b>Check off tasks; a day completes when all are done.</li>
+          <li><b>0x04</b>Export a backup now and then.</li>
         </ol>
       </div>
       <div class="note">
