@@ -27,7 +27,7 @@ There are five timelines per cert, based on how many hours a week you have. The 
 
 Every day has a notes box for commands, credentials, and anything you want to come back to. The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
 
-![The CPTS tracker](assets/screenshot.png)
+![The CPTS tracker](assets/tracker-screenshot.png)
 
 ## How to use
 

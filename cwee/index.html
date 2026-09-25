@@ -92,7 +92,7 @@
   .weekchart{display:flex;gap:6px;align-items:flex-end;height:90px}
   .wbar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
   .wbar-track{flex:1;width:100%;display:flex;align-items:flex-end;background:var(--card);border-radius:4px 4px 0 0;overflow:hidden}
-  .wbar-fill{width:100%;background-image:linear-gradient(rgba(255,255,255,.08),rgba(0,0,0,.22));border-radius:4px 4px 0 0;transition:height .3s}
+  .wbar-fill{width:100%;background:linear-gradient(var(--green),var(--green-dim));border-radius:4px 4px 0 0;transition:height .3s}
   .wbar-lbl{font-size:9px;color:var(--faint)}
   .phases{display:flex;flex-direction:column;gap:7px;margin-top:14px}
   .phase-row{display:grid;grid-template-columns:170px 1fr 42px;gap:10px;align-items:center;font-size:12px}
@@ -1872,7 +1872,7 @@ function renderDashboard(){
     const col = document.createElement("div");
     col.className = "wbar-col";
     col.title = "Week "+w+": "+weekTheme(w)+" — "+p+"%";
-    col.innerHTML = '<div class="wbar-track"><div class="wbar-fill" style="height:'+p+'%;background-color:'+weekColor(w)+'"></div></div>'+
+    col.innerHTML = '<div class="wbar-track"><div class="wbar-fill" style="height:'+p+'%"></div></div>'+
                     '<div class="wbar-lbl">W'+w+'</div>';
     wc.appendChild(col);
   }
