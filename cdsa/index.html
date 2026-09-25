@@ -82,7 +82,7 @@
   .stat .num{font-size:22px;font-weight:800;line-height:1.1}
   .stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
   .stat .meta{font-size:11px;color:var(--faint);margin-top:2px}
-  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px dashed var(--line);background:var(--card)}
+  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
   .pace.ahead{color:var(--green);border-color:var(--green-dim);background:rgba(0,234,252,.09)}
   .pace.behind{color:var(--amber);border-color:var(--amber);background:rgba(255,180,84,.09)}
   .pace.on{color:var(--teal);border-color:var(--teal);background:rgba(46,230,200,.09)}
@@ -195,6 +195,7 @@
   .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
   .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
+  .res-item a{color:#9fef00}
   .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
   .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
   .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
@@ -390,37 +391,37 @@ const PHASES = [
     "name": "Incident Handling & SIEM",
     "from": 1,
     "to": 8,
-    "color": "#6ea8ff"
+    "color": "#99f7fe"
   },
   {
     "name": "Logs, Hunting & Splunk",
     "from": 9,
     "to": 14,
-    "color": "#2ee6c8"
+    "color": "#80f4fe"
   },
   {
     "name": "Windows Attacks & Defense",
     "from": 15,
     "to": 19,
-    "color": "#a4b1cd"
+    "color": "#66f2fd"
   },
   {
     "name": "Network Traffic & IDS",
     "from": 20,
     "to": 31,
-    "color": "#ffb454"
+    "color": "#4cf0fd"
   },
   {
     "name": "Malware & Detection Rules",
     "from": 32,
     "to": 39,
-    "color": "#ff8a5c"
+    "color": "#33eefd"
   },
   {
     "name": "Forensics & Splunk Detection",
     "from": 40,
     "to": 49,
-    "color": "#ffd84d"
+    "color": "#1aecfc"
   },
   {
     "name": "Reporting & Exam Prep",
@@ -1091,7 +1092,7 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#5865f2",
+    "color": "#00eafc",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
@@ -1150,7 +1151,7 @@ const RESOURCES = [
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#2ee6c8",
+    "color": "#00eafc",
     "note": "Work through these 15 in sequence. The plan follows this order.",
     "items": [
       {
@@ -1232,7 +1233,7 @@ const RESOURCES = [
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#ff6b6b",
+    "color": "#00eafc",
     "note": "Watch a couple before you start to set expectations. They're all exam reviews, and none of them teach the course.",
     "items": [
       {
@@ -1274,7 +1275,7 @@ const RESOURCES = [
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#c98bff",
+    "color": "#00eafc",
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
@@ -1316,7 +1317,7 @@ const RESOURCES = [
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#6ea8ff",
+    "color": "#00eafc",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
@@ -1338,7 +1339,7 @@ const RESOURCES = [
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#ffd84d",
+    "color": "#00eafc",
     "note": "The report decides the result, so practice the deliverable, not just the investigation.",
     "items": [
       {
@@ -1360,7 +1361,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tooling & References",
-    "color": "#ffb454",
+    "color": "#00eafc",
     "note": "Be comfortable with these before the exam.",
     "items": [
       {
@@ -1437,7 +1438,7 @@ const RESOURCES = [
   },
   {
     "cat": "Frameworks & Practice Data",
-    "color": "#2f95ff",
+    "color": "#00eafc",
     "note": "Background and extra practice beyond the path.",
     "items": [
       {
@@ -1459,7 +1460,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#ff9ecb",
+    "color": "#00eafc",
     "layout": "tips",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
     "items": [

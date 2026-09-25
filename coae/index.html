@@ -82,7 +82,7 @@
   .stat .num{font-size:22px;font-weight:800;line-height:1.1}
   .stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
   .stat .meta{font-size:11px;color:var(--faint);margin-top:2px}
-  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px dashed var(--line);background:var(--card)}
+  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
   .pace.ahead{color:var(--green);border-color:var(--green-dim);background:rgba(130,120,212,.09)}
   .pace.behind{color:var(--amber);border-color:var(--amber);background:rgba(255,180,84,.09)}
   .pace.on{color:var(--teal);border-color:var(--teal);background:rgba(46,230,200,.09)}
@@ -195,6 +195,7 @@
   .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
   .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
+  .res-item a{color:#9fef00}
   .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
   .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
   .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
@@ -391,37 +392,37 @@ const PHASES = [
     "name": "Foundations & Setup",
     "from": 1,
     "to": 7,
-    "color": "#6ea8ff"
+    "color": "#d8d4f7"
   },
   {
     "name": "AI/ML Core",
     "from": 8,
     "to": 28,
-    "color": "#9d94ea"
+    "color": "#ccc7f4"
   },
   {
     "name": "LLM Attacks",
     "from": 29,
     "to": 49,
-    "color": "#2ee6c8"
+    "color": "#c0bbf2"
   },
   {
     "name": "Data & System Attacks",
     "from": 50,
     "to": 63,
-    "color": "#ffb454"
+    "color": "#b5aeef"
   },
   {
     "name": "Adversarial Evasion",
     "from": 64,
     "to": 80,
-    "color": "#f78fb3"
+    "color": "#a9a1ed"
   },
   {
     "name": "Privacy, Defense & Exam Prep",
     "from": 81,
     "to": 90,
-    "color": "#ff6b6b"
+    "color": "#9d94ea"
   }
 ];
 
@@ -1303,7 +1304,7 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#5865f2",
+    "color": "#9d94ea",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
@@ -1352,7 +1353,7 @@ const RESOURCES = [
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#2ee6c8",
+    "color": "#9d94ea",
     "note": "Work through these 12 in sequence. The plan follows this order.",
     "items": [
       {
@@ -1419,7 +1420,7 @@ const RESOURCES = [
   },
   {
     "cat": "HTB AI Labs: Boxes & Challenges",
-    "color": "#8278d4",
+    "color": "#9d94ea",
     "note": "AI-themed boxes and challenges to practice the path. Each is marked Free or VIP+.",
     "items": [
       {
@@ -1466,7 +1467,7 @@ const RESOURCES = [
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#ff6b6b",
+    "color": "#9d94ea",
     "note": "Video reviews of the path and exam. Watch one before you start to set expectations.",
     "items": [
       {
@@ -1483,7 +1484,7 @@ const RESOURCES = [
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#c98bff",
+    "color": "#9d94ea",
     "note": "First-hand accounts of the path and exam. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
@@ -1515,7 +1516,7 @@ const RESOURCES = [
   },
   {
     "cat": "Practice Playgrounds & Events",
-    "color": "#6ea8ff",
+    "color": "#9d94ea",
     "note": "Sharpen prompt-injection instincts and meet the AI security community.",
     "items": [
       {
@@ -1537,7 +1538,7 @@ const RESOURCES = [
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#ffd84d",
+    "color": "#9d94ea",
     "note": "The exam is scored on a commercial-grade report, so practice the deliverable, not just the attacks.",
     "items": [
       {
@@ -1559,7 +1560,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tooling & References",
-    "color": "#c98bff",
+    "color": "#9d94ea",
     "note": "Hands-on tooling for practice and your mock engagement.",
     "items": [
       {
@@ -1601,7 +1602,7 @@ const RESOURCES = [
   },
   {
     "cat": "Frameworks & Standards",
-    "color": "#6ea8ff",
+    "color": "#9d94ea",
     "note": "The mental models behind the path. Reference them throughout.",
     "items": [
       {
@@ -1633,7 +1634,7 @@ const RESOURCES = [
   },
   {
     "cat": "Foundations: Python & ML",
-    "color": "#ffb454",
+    "color": "#9d94ea",
     "note": "Supplementary free material for the foundations weeks.",
     "items": [
       {
@@ -1670,7 +1671,7 @@ const RESOURCES = [
   },
   {
     "cat": "Key Research Papers",
-    "color": "#8da2bd",
+    "color": "#9d94ea",
     "note": "The primary sources behind the evasion modules.",
     "items": [
       {
@@ -1697,7 +1698,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#ff9ecb",
+    "color": "#9d94ea",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
     "items": [
       {

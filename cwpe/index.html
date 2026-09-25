@@ -82,7 +82,7 @@
   .stat .num{font-size:22px;font-weight:800;line-height:1.1}
   .stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
   .stat .meta{font-size:11px;color:var(--faint);margin-top:2px}
-  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px dashed var(--line);background:var(--card)}
+  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
   .pace.ahead{color:var(--green);border-color:var(--green-dim);background:rgba(240,90,30,.09)}
   .pace.behind{color:var(--amber);border-color:var(--amber);background:rgba(255,180,84,.09)}
   .pace.on{color:var(--teal);border-color:var(--teal);background:rgba(46,230,200,.09)}
@@ -195,6 +195,7 @@
   .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
   .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
+  .res-item a{color:#9fef00}
   .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
   .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
   .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
@@ -387,37 +388,37 @@ const PHASES = [
     "name": "Wi-Fi Fundamentals",
     "from": 1,
     "to": 7,
-    "color": "#6ea8ff"
+    "color": "#f9bda5"
   },
   {
     "name": "WPS & WEP Attacks",
     "from": 8,
     "to": 14,
-    "color": "#2ee6c8"
+    "color": "#f8ac8e"
   },
   {
     "name": "WPA, WPA2 & Evil Twins",
     "from": 15,
     "to": 22,
-    "color": "#a4b1cd"
+    "color": "#f69c78"
   },
   {
     "name": "WPA3 & Captive Portals",
     "from": 23,
     "to": 30,
-    "color": "#ffb454"
+    "color": "#f48c62"
   },
   {
     "name": "Cracking & Tooling",
     "from": 31,
     "to": 40,
-    "color": "#ff8a5c"
+    "color": "#f37b4b"
   },
   {
     "name": "Corporate Wi-Fi",
     "from": 41,
     "to": 45,
-    "color": "#ffd84d"
+    "color": "#f26a34"
   },
   {
     "name": "Reporting & Exam Prep",
@@ -995,7 +996,7 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#5865f2",
+    "color": "#f05a1e",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
@@ -1044,7 +1045,7 @@ const RESOURCES = [
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#2ee6c8",
+    "color": "#f05a1e",
     "note": "Work through these 10 in sequence. The plan follows this order.",
     "items": [
       {
@@ -1101,7 +1102,7 @@ const RESOURCES = [
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#ff6b6b",
+    "color": "#f05a1e",
     "note": "Watch this before you start to set expectations. It reviews the Wi-Fi Pentesting path that preps for CWPE.",
     "items": [
       {
@@ -1113,7 +1114,7 @@ const RESOURCES = [
   },
   {
     "cat": "News & Overviews",
-    "color": "#c98bff",
+    "color": "#f05a1e",
     "note": "CWPE launched in 2026, so there are no exam-taker write-ups yet. These are HTB's own overviews.",
     "items": [
       {
@@ -1135,7 +1136,7 @@ const RESOURCES = [
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#6ea8ff",
+    "color": "#f05a1e",
     "note": "No CWPE-specific notes exist yet, so these are general wireless references. Use them to unblock yourself, not to shortcut the labs.",
     "items": [
       {
@@ -1157,7 +1158,7 @@ const RESOURCES = [
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#ffd84d",
+    "color": "#f05a1e",
     "note": "The report is graded alongside the points, so practice the deliverable, not just the attacks.",
     "items": [
       {
@@ -1179,7 +1180,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tooling & References",
-    "color": "#ffb454",
+    "color": "#f05a1e",
     "note": "Be comfortable with these before the exam.",
     "items": [
       {
@@ -1241,7 +1242,7 @@ const RESOURCES = [
   },
   {
     "cat": "Wireless References",
-    "color": "#2f95ff",
+    "color": "#f05a1e",
     "note": "Background and reference beyond the path.",
     "items": [
       {
@@ -1263,7 +1264,7 @@ const RESOURCES = [
   },
   {
     "cat": "Study & Prep Tips",
-    "color": "#ff9ecb",
+    "color": "#f05a1e",
     "layout": "tips",
     "note": "CWPE is new, so these come from HTB's official guidance and wireless-pentest references, not exam-takers.",
     "items": [

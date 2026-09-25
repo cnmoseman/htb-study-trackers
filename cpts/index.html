@@ -82,7 +82,7 @@
   .stat .num{font-size:22px;font-weight:800;line-height:1.1}
   .stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
   .stat .meta{font-size:11px;color:var(--faint);margin-top:2px}
-  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px dashed var(--line);background:var(--card)}
+  .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
   .pace.ahead{color:var(--green);border-color:var(--green-dim);background:rgba(163,79,242,.09)}
   .pace.behind{color:var(--amber);border-color:var(--amber);background:rgba(255,180,84,.09)}
   .pace.on{color:var(--teal);border-color:var(--teal);background:rgba(46,230,200,.09)}
@@ -195,6 +195,7 @@
   .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
   .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
+  .res-item a{color:#9fef00}
   .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
   .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
   .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
@@ -403,49 +404,49 @@ const PHASES = [
     "name": "Foundations & Process",
     "from": 1,
     "to": 12,
-    "color": "#6ea8ff"
+    "color": "#dab9fa"
   },
   {
     "name": "Recon & Enumeration",
     "from": 13,
     "to": 30,
-    "color": "#2ee6c8"
+    "color": "#d2aaf9"
   },
   {
     "name": "Exploitation Fundamentals",
     "from": 31,
     "to": 41,
-    "color": "#9020e9"
+    "color": "#ca9af8"
   },
   {
     "name": "Credential & Service Attacks",
     "from": 42,
     "to": 54,
-    "color": "#ffd84d"
+    "color": "#c38bf6"
   },
   {
     "name": "Pivoting & Active Directory",
     "from": 55,
     "to": 70,
-    "color": "#c98bff"
+    "color": "#bb7cf5"
   },
   {
     "name": "Web Application Attacks",
     "from": 71,
     "to": 114,
-    "color": "#ffb454"
+    "color": "#b36df4"
   },
   {
     "name": "Privilege Escalation",
     "from": 115,
     "to": 131,
-    "color": "#ff6b6b"
+    "color": "#ab5ef3"
   },
   {
     "name": "Reporting & Exam Prep",
     "from": 132,
     "to": 150,
-    "color": "#f78fb3"
+    "color": "#a34ff2"
   }
 ];
 
@@ -1932,7 +1933,7 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#5865f2",
+    "color": "#a34ff2",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
@@ -1949,7 +1950,7 @@ const RESOURCES = [
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#9fef00",
+    "color": "#a34ff2",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
@@ -1981,7 +1982,7 @@ const RESOURCES = [
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#2ee6c8",
+    "color": "#a34ff2",
     "note": "Work through these 28 in sequence. The plan follows this order.",
     "items": [
       {
@@ -2128,7 +2129,7 @@ const RESOURCES = [
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#ff6b6b",
+    "color": "#a34ff2",
     "note": "Video series and exam debriefs to watch alongside the modules.",
     "items": [
       {
@@ -2200,7 +2201,7 @@ const RESOURCES = [
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#c98bff",
+    "color": "#a34ff2",
     "note": "First-hand pass reviews. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
@@ -2252,7 +2253,7 @@ const RESOURCES = [
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#6ea8ff",
+    "color": "#a34ff2",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
@@ -2289,7 +2290,7 @@ const RESOURCES = [
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#ffd84d",
+    "color": "#a34ff2",
     "note": "The report is a hard pass/fail gate, so practice the deliverable, not just the attacks.",
     "items": [
       {
@@ -2321,7 +2322,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tooling & References",
-    "color": "#ffb454",
+    "color": "#a34ff2",
     "note": "Be fluent with these before the exam.",
     "items": [
       {
@@ -2403,7 +2404,7 @@ const RESOURCES = [
   },
   {
     "cat": "AD & Methodology References",
-    "color": "#8da2bd",
+    "color": "#a34ff2",
     "note": "Deeper references for the AD-heavy exam.",
     "items": [
       {
@@ -2435,7 +2436,7 @@ const RESOURCES = [
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#ff9ecb",
+    "color": "#a34ff2",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
     "items": [
       {
