@@ -2592,10 +2592,22 @@ const MODES = {
 const WEEK_RAMP = ["#f8c1bf", "#ed635e"];
 let DAYS = [];   // display days for the currently selected mode
 
+function isObj(o){ return !!o && typeof o==="object" && !Array.isArray(o); }
+/* keep only valid fields, so bad data can't break rendering */
+function cleanState(o){
+  o = isObj(o) ? o : {};
+  return {
+    startDate: typeof o.startDate==="string" ? o.startDate : "",
+    done: isObj(o.done) ? o.done : {},
+    notes: isObj(o.notes) ? o.notes : {},
+    mode: MODES[o.mode] ? +o.mode : 30
+  };
+}
 function load(){
+  state = cleanState(null);
   try{
     const raw = localStorage.getItem(STORE_KEY);
-    if(raw){ state = Object.assign({startDate:"",done:{},notes:{},mode:30}, JSON.parse(raw)); }
+    if(raw){ state = cleanState(JSON.parse(raw)); }
   }catch(e){ /* ignore */ }
   if(!state.startDate){
     const t = new Date();
@@ -2672,7 +2684,7 @@ function currentPlanDay(){
   const s = parseStart(); if(!s) return 0;
   const now = new Date(); now.setHours(0,0,0,0);
   const sd = new Date(s.getTime()); sd.setHours(0,0,0,0);
-  const diff = Math.floor((now-sd)/86400000)+1;
+  const diff = Math.round((now-sd)/86400000)+1;  // round: DST days are 23/25h
   return diff;
 }
 
@@ -2974,6 +2986,7 @@ document.querySelectorAll(".tab").forEach(tb=>{
 
 /* ---------- Controls ---------- */
 document.getElementById("startDate").addEventListener("change",e=>{
+  if(!e.target.value){ e.target.value = state.startDate; return; }  // cleared: keep old date
   state.startDate = e.target.value;
   save(); renderAll();
 });
@@ -3008,7 +3021,7 @@ document.getElementById("todayBtn").addEventListener("click",()=>{
   if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
 });
 document.getElementById("exportBtn").addEventListener("click",()=>{
-  const blob = new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
+  const blob = new Blob([JSON.stringify(Object.assign({cert:"cwes"}, state),null,2)],{type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "cwes-tracker-backup.json";
@@ -3020,15 +3033,21 @@ document.getElementById("importBtn").addEventListener("click",()=>{
 });
 document.getElementById("importFile").addEventListener("change",e=>{
   const f = e.target.files[0];
+  e.target.value = "";  // so picking the same file again still fires
   if(!f) return;
   const r = new FileReader();
   r.onload = ()=>{
-    try{
-      const obj = JSON.parse(r.result);
-      state = Object.assign({startDate:"",done:{},notes:{},mode:30}, obj);
-      save(); init();
-      alert("Backup imported successfully.");
-    }catch(err){ alert("Could not read that file. Make sure it is a tracker backup."); }
+    let obj;
+    try{ obj = JSON.parse(r.result); }catch(err){ obj = null; }
+    if(!isObj(obj) || !isObj(obj.done)){
+      alert("Could not read that file. Make sure it is a tracker backup.");
+      return;
+    }
+    if(obj.cert && obj.cert!=="cwes" &&
+       !confirm("This backup is from the "+String(obj.cert).toUpperCase()+" tracker, not CWES. Import it anyway?")) return;
+    state = cleanState(obj);
+    save(); init();
+    alert("Backup imported successfully.");
   };
   r.readAsText(f);
 });
@@ -3038,6 +3057,12 @@ document.getElementById("resetBtn").addEventListener("click",()=>{
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
     init();
   }
+});
+
+/* another tab saved or reset: reload so this tab doesn't overwrite it */
+window.addEventListener("storage",e=>{
+  if(e.key!==STORE_KEY && e.key!==null) return;
+  load(); renderAll();
 });
 
 /* ---------- Init ---------- */

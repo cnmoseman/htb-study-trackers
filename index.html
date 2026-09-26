@@ -39,9 +39,9 @@
   .tile .name{font:500 13px/1.35 "Chakra Petch",sans-serif;color:var(--text);margin-top:4px;min-height:36px}
   .tile .dl{position:absolute;top:10px;right:10px;z-index:2;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);background:var(--bg);text-decoration:none}
   .tile .dl:hover{color:var(--green)}
-  .tile:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 12px 32px rgba(0,0,0,.45)}
-  .tile:hover img{transform:scale(1.06);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--acc),0 0 28px var(--acc)}
-  .tile:focus-within{border-color:var(--acc)}
+  @media (hover:hover){.tile:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+  .tile:hover img{transform:scale(1.06);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--acc),0 0 28px var(--acc)}}
+  .tile:has(a:focus-visible){border-color:var(--acc)}
   .info{display:grid;grid-template-columns:1fr;gap:clamp(20px,1.6vw,32px);margin-top:clamp(36px,3vw,60px)}
   .info h2{font:600 clamp(14px,1.1vw,21px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
   .info ol{margin:.9em 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;font:500 clamp(13px,1.05vw,20px)/1.5 "Saira",sans-serif;color:var(--muted)}
