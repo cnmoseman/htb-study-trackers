@@ -2857,6 +2857,68 @@ const RESOURCES = [
         "n": "HTB Academy CAPE Review (MANESEC)",
         "u": "https://manesec.github.io/2025/04/23/2025/37-hackthebox-academy-cape/",
         "note": "The hardest AD cert he'd faced, with a CPTS to Pro Labs runway"
+      },
+      {
+        "n": "OSEP & CAPE From Scratch (Scotsec)",
+        "u": "https://scotsec.github.io/posts/ProgressTwo/",
+        "note": "CAPE practical in about 3 days plus 3 of reporting, compared with OSEP; know your C2 well"
+      }
+    ]
+  },
+  {
+    "cat": "Practice Machines",
+    "color": "#e436b4",
+    "note": "Retired HTB Labs boxes from VegeLasagne's CAPE prep guide, in a suggested order. Together they cover the path's DACL, ADCS, delegation, relay, MSSQL, and trust modules. All ten need a VIP+ subscription. Try each one before reading a writeup.",
+    "items": [
+      {
+        "n": "EscapeTwo (Easy, VIP+)",
+        "u": "https://app.hackthebox.com/machines/EscapeTwo",
+        "note": "MSSQL to a shell, WriteOwner into shadow credentials, then ADCS ESC4 to ESC1"
+      },
+      {
+        "n": "Certified (Medium, VIP+)",
+        "u": "https://app.hackthebox.com/machines/Certified",
+        "note": "Assume-breach: a WriteOwner and GenericAll chain into ADCS ESC9"
+      },
+      {
+        "n": "BabyTwo (Medium, VIP+)",
+        "u": "https://app.hackthebox.com/machines/BabyTwo",
+        "note": "SYSVOL logon-script poisoning, WriteDacl and WriteOwner, then GPO abuse"
+      },
+      {
+        "n": "Sendai (Medium, VIP+)",
+        "u": "https://app.hackthebox.com/machines/Sendai",
+        "note": "Password spray, GenericAll on a group, gMSA read, then ADCS ESC4"
+      },
+      {
+        "n": "Manager (Medium, VIP+)",
+        "u": "https://app.hackthebox.com/machines/Manager",
+        "note": "RID cycling and spray, MSSQL file read, then ADCS ESC7 (ManageCA)"
+      },
+      {
+        "n": "TombWatcher (Medium, VIP+)",
+        "u": "https://app.hackthebox.com/machines/TombWatcher",
+        "note": "Long BloodHound chain: targeted Kerberoast, gMSA, shadow credentials, Recycle Bin, ESC15"
+      },
+      {
+        "n": "Delegate (Medium, VIP+)",
+        "u": "https://app.hackthebox.com/machines/Delegate",
+        "note": "Unconstrained delegation on an added computer, printer-bug coercion, krbrelayx"
+      },
+      {
+        "n": "Redelegate (Hard, VIP+)",
+        "u": "https://app.hackthebox.com/machines/Redelegate",
+        "note": "SeEnableDelegationPrivilege into constrained delegation (S4U)"
+      },
+      {
+        "n": "Pirate (Hard, VIP+)",
+        "u": "https://app.hackthebox.com/machines/Pirate",
+        "note": "Pre2k accounts, gMSA, coercion relayed to LDAPS for RBCD, SPN-jacking"
+      },
+      {
+        "n": "DarkZero (Hard, VIP+)",
+        "u": "https://app.hackthebox.com/machines/DarkZero",
+        "note": "Two forests: MSSQL linked servers across the trust, then cross-forest ticket capture"
       }
     ]
   },
@@ -2879,6 +2941,11 @@ const RESOURCES = [
         "n": "nirajkharel/AD-Pentesting-Notes",
         "u": "https://github.com/nirajkharel/AD-Pentesting-Notes",
         "note": "General AD pentest notes: Kerberos and credential attacks"
+      },
+      {
+        "n": "CAPE Preparation Guide (VegeLasagne)",
+        "u": "https://thepastamentor.github.io/cape-prep-guide.html",
+        "note": "Tooling, time management, and an AD practice list of boxes, chains, and mini Pro Labs"
       }
     ]
   },
@@ -2958,6 +3025,21 @@ const RESOURCES = [
         "n": "mimikatz",
         "u": "https://github.com/gentilkiwi/mimikatz",
         "note": "Credential and ticket handling on Windows"
+      },
+      {
+        "n": "bloodyAD",
+        "u": "https://github.com/CravateRouge/bloodyAD",
+        "note": "AD privilege escalation over LDAP; reads and edits DACLs and attributes"
+      },
+      {
+        "n": "powerview.py",
+        "u": "https://github.com/aniqfakhrul/powerview.py",
+        "note": "PowerView in Python, run from your Linux box"
+      },
+      {
+        "n": "AdaptixC2",
+        "u": "https://github.com/Adaptix-Framework/AdaptixC2",
+        "note": "Open-source C2 framework, an alternative to Sliver"
       }
     ]
   },
