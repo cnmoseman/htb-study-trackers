@@ -27,7 +27,11 @@ There are five timelines per cert, for about 50, 40, 30, 20, or 10 hours of stud
 
 Every day has a notes box for commands, credentials, and anything you want to come back to. The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
 
-![The CPTS tracker](assets/tracker-screenshot.png)
+![The CPTS tracker](assets/tracker-overview.png)
+
+If you've already finished some modules on HTB Academy, click **Already done some modules?** above the plan and tick them. The tracker checks off their study tasks and leaves the practice and review days for you to do. Some modules appear in more than one job-role path, so if you've passed a cert that shares modules with this one, its badge shows at the top of the list. One click on it selects every module the two paths have in common (CPTS and CWES share 11). For a cert that doesn't share modules with any other, you just get the list.
+
+![Marking modules you've already done in the CPTS tracker](assets/modules-checklist.png)
 
 ## How to use
 

@@ -232,6 +232,63 @@
     .phase-row{grid-template-columns:110px 1fr 38px}
     h1{font-size:22px}
   }
+  /* Already done some modules? */
+  dialog.mods{margin:auto;width:min(560px,calc(100vw - 32px));max-height:min(740px,calc(100vh - 48px));overflow:hidden;background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:12px;padding:0}
+  dialog.mods::backdrop{background:rgba(3,7,14,.7)}
+  .mods form{display:flex;flex-direction:column;max-height:calc(min(740px,100vh - 48px) - 2px)}
+  .mods .mh h3:focus{outline:none}
+  .mods .mh{padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+  .mods .mh h3{font-family:"Chakra Petch",sans-serif;font-size:18px}
+  .mods .mh p{font-size:13px;color:var(--muted);margin-top:4px}
+  .mods .quick{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+  .mods .quick button{display:flex;flex-direction:column;align-items:center;gap:9px;padding:6px 4px 0;background:none;border:0;cursor:pointer;font:700 11px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--faint);transition:color .25s ease}
+  /* ring + glow live on the wrapper; the image only fades grey to color (a filter on the glowing element made the glow vanish) */
+  .mods .quick .bd{position:relative;display:block;width:46px;height:46px;border-radius:50%;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+  .mods .quick .bd::before,.mods .quick .bd::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none}
+  .mods .quick .bd::before{box-shadow:0 0 0 4px var(--card),0 0 0 5px var(--line)}
+  .mods .quick .bd::after{box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--c),0 0 22px var(--c);opacity:0;transition:opacity .3s ease}
+  .mods .quick img{display:block;width:100%;height:100%;border-radius:50%;background:var(--bg);filter:grayscale(.5) brightness(.8);transition:filter .3s ease}
+  .mods .quick button:focus-visible{outline:none}
+  .mods .quick button:focus-visible .bd::before{box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--c)}
+  @media (hover:hover){.mods .quick button:hover{color:var(--c)}.mods .quick button:hover .bd{transform:scale(1.08)}.mods .quick button:hover .bd::after{opacity:1}.mods .quick button:hover img{filter:none}}
+  .mods .quick button[aria-pressed="true"]{color:var(--c)}
+  .mods .quick button[aria-pressed="true"] .bd::after{opacity:1}
+  .mods .quick button[aria-pressed="true"] img{filter:none}
+  @media (prefers-reduced-motion:reduce){.mods .quick button,.mods .quick .bd,.mods .quick .bd::after,.mods .quick img{transition:none}.mods .quick button:hover .bd{transform:none}}
+  .mods ul{list-style:none;overflow:auto;padding:8px 10px}
+  .mods ul{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .mods ul::-webkit-scrollbar{width:8px}
+  .mods ul::-webkit-scrollbar-track{background:transparent}
+  .mods ul::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  .mods li label{display:flex;gap:10px;align-items:center;padding:7px 8px;border-radius:6px;cursor:pointer;font-size:14px}
+  .mods li label:hover{background:var(--card2)}
+  .mods li input{appearance:none;-webkit-appearance:none;width:17px;height:17px;flex:none;border:1.5px solid var(--faint);border-radius:5px;cursor:pointer;background:var(--bg);position:relative}
+  .mods li input:checked{background:var(--green);border-color:var(--green)}
+  .mods li input:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:4px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+  .mods li input:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .mods li input:disabled{cursor:default}
+  .mods li .n{flex:1}
+  .mods li .s{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);white-space:nowrap}
+  .mods li .tag{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:4px;background:var(--card2);color:var(--green)}
+  .mods li .xc{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:4px;border:1px solid var(--line);background:var(--card2)}
+  .mods li.full label{opacity:.55;cursor:default}
+  .mods .mf{display:flex;gap:8px;justify-content:flex-end;align-items:center;padding:12px 18px;border-top:1px solid var(--line)}
+  .mods .mf .cnt{margin-right:auto;font-size:12px;color:var(--faint);font-family:"IBM Plex Mono",monospace}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;display:flex;gap:14px;align-items:center;padding:10px 12px 10px 16px;background:var(--card2);border:1px solid var(--line);border-radius:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.5);transition:opacity .2s,transform .2s;z-index:50}
+  .toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+  @media (prefers-reduced-motion:reduce){.toast{transition:none}}
+  @media(max-width:760px){
+    .toolbar .spacer{display:none}
+    .toolbar .btn{flex:1 1 calc(50% - 5px)}
+    .toolbar #modsBtn{flex-basis:100%}
+    .toast{width:max-content;max-width:calc(100vw - 32px);bottom:16px}
+    .mods .mh{padding:14px 14px 10px}
+    .mods ul{padding:6px 4px}
+    .mods li label{font-size:13.5px;gap:8px}
+    .mods .mf{padding:10px 14px}
+    .mods .quick .ql{flex-basis:100%}
+  }
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -270,6 +327,13 @@
     </div>
     <div class="sub endnote" id="endNote"></div>
   </header>
+
+  <dialog class="mods" id="modsDlg" aria-labelledby="modsTitle"><form method="dialog">
+    <div class="mh"><h3 id="modsTitle" tabindex="-1" autofocus>Modules you've already done</h3><p>Tick every module you've finished on HTB Academy. Its study tasks get checked off; practice and review days stay as they are.</p><div class="quick" id="modsQuick"></div></div>
+    <ul id="modsList"></ul>
+    <div class="mf"><span class="cnt" id="modsCnt"></span><button class="btn" value="cancel">Cancel</button><button class="btn primary" id="modsOk" value="ok">Mark done</button></div>
+  </form></dialog>
+  <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo">Undo</button></div>
 
   <!-- Dashboard -->
   <div class="dash">
@@ -311,6 +375,7 @@
     <div class="toolbar">
       <button class="btn" id="expandAll">Expand all</button>
       <button class="btn" id="collapseAll">Collapse all</button>
+      <button class="btn" id="modsBtn">Already done some modules?</button>
       <span class="spacer"></span>
       <label class="check-toggle"><input type="checkbox" id="hideDone"> Hide completed days</label>
     </div>
@@ -2589,6 +2654,7 @@ const MODES = {
     "hrs": "≈ 10 hrs/week"
   }
 };
+const MODS_DONE = {"mods": [["web-requests", "Web Requests", 8], ["introduction-to-web-applications", "Introduction to Web Applications", 17], ["using-web-proxies", "Using Web Proxies", 15], ["information-gathering---web-edition", "Information Gathering - Web Edition", 19], ["web-fuzzing", "Web Fuzzing", 12], ["javascript-deobfuscation", "JavaScript Deobfuscation", 11], ["cross-site-scripting-xss", "Cross-Site Scripting (XSS)", 10], ["sql-injection-fundamentals", "SQL Injection Fundamentals", 17], ["sqlmap-essentials", "SQLMap Essentials", 11], ["command-injections", "Command Injections", 12], ["file-upload-attacks", "File Upload Attacks", 11], ["server-side-attacks", "Server-side Attacks", 19], ["login-brute-forcing", "Login Brute Forcing", 13], ["broken-authentication", "Broken Authentication", 14], ["web-attacks", "Web Attacks", 18], ["file-inclusion", "File Inclusion", 11], ["attacking-graphql", "Attacking GraphQL", 9], ["api-attacks", "API Attacks", 13], ["attacking-common-applications", "Attacking Common Applications", 33], ["bug-bounty-hunting-process", "Bug Bounty Hunting Process", 6]], "taskMod": {"3-0": "web-requests", "3-1": "web-requests", "4-0": "web-requests", "5-0": "web-requests", "6-0": "web-requests", "6-1": "web-requests", "7-0": "introduction-to-web-applications", "7-1": "introduction-to-web-applications", "8-0": "introduction-to-web-applications", "9-0": "introduction-to-web-applications", "10-0": "introduction-to-web-applications", "11-0": "introduction-to-web-applications", "11-1": "introduction-to-web-applications", "12-0": "using-web-proxies", "12-1": "using-web-proxies", "13-0": "using-web-proxies", "14-0": "using-web-proxies", "15-0": "using-web-proxies", "16-0": "using-web-proxies", "17-0": "using-web-proxies", "17-1": "using-web-proxies", "20-0": "information-gathering---web-edition", "20-1": "information-gathering---web-edition", "21-0": "information-gathering---web-edition", "22-0": "information-gathering---web-edition", "23-0": "information-gathering---web-edition", "24-0": "information-gathering---web-edition", "25-0": "information-gathering---web-edition", "25-1": "information-gathering---web-edition", "26-0": "web-fuzzing", "26-1": "web-fuzzing", "27-0": "web-fuzzing", "28-0": "web-fuzzing", "29-0": "web-fuzzing", "30-0": "web-fuzzing", "31-0": "web-fuzzing", "31-1": "web-fuzzing", "33-0": "javascript-deobfuscation", "33-1": "javascript-deobfuscation", "34-0": "javascript-deobfuscation", "35-0": "javascript-deobfuscation", "36-0": "javascript-deobfuscation", "36-1": "javascript-deobfuscation", "38-0": "cross-site-scripting-xss", "38-1": "cross-site-scripting-xss", "39-0": "cross-site-scripting-xss", "40-0": "cross-site-scripting-xss", "41-0": "cross-site-scripting-xss", "42-0": "cross-site-scripting-xss", "42-1": "cross-site-scripting-xss", "44-0": "sql-injection-fundamentals", "44-1": "sql-injection-fundamentals", "45-0": "sql-injection-fundamentals", "46-0": "sql-injection-fundamentals", "47-0": "sql-injection-fundamentals", "48-0": "sql-injection-fundamentals", "49-0": "sql-injection-fundamentals", "50-0": "sql-injection-fundamentals", "50-1": "sql-injection-fundamentals", "51-0": "sqlmap-essentials", "51-1": "sqlmap-essentials", "52-0": "sqlmap-essentials", "53-0": "sqlmap-essentials", "53-1": "sqlmap-essentials", "55-0": "command-injections", "55-1": "command-injections", "56-0": "command-injections", "57-0": "command-injections", "58-0": "command-injections", "59-0": "command-injections", "60-0": "command-injections", "60-1": "command-injections", "62-0": "file-upload-attacks", "62-1": "file-upload-attacks", "63-0": "file-upload-attacks", "64-0": "file-upload-attacks", "65-0": "file-upload-attacks", "66-0": "file-upload-attacks", "67-0": "file-upload-attacks", "67-1": "file-upload-attacks", "68-0": "server-side-attacks", "68-1": "server-side-attacks", "69-0": "server-side-attacks", "70-0": "server-side-attacks", "71-0": "server-side-attacks", "72-0": "server-side-attacks", "73-0": "server-side-attacks", "73-1": "server-side-attacks", "76-0": "login-brute-forcing", "76-1": "login-brute-forcing", "77-0": "login-brute-forcing", "78-0": "login-brute-forcing", "79-0": "login-brute-forcing", "80-0": "login-brute-forcing", "80-1": "login-brute-forcing", "81-0": "broken-authentication", "81-1": "broken-authentication", "82-0": "broken-authentication", "83-0": "broken-authentication", "84-0": "broken-authentication", "85-0": "broken-authentication", "86-0": "broken-authentication", "87-0": "broken-authentication", "88-0": "broken-authentication", "89-0": "broken-authentication", "90-0": "broken-authentication", "90-1": "broken-authentication", "93-0": "web-attacks", "93-1": "web-attacks", "94-0": "web-attacks", "95-0": "web-attacks", "96-0": "web-attacks", "97-0": "web-attacks", "98-0": "web-attacks", "99-0": "web-attacks", "100-0": "web-attacks", "101-0": "web-attacks", "102-0": "web-attacks", "103-0": "web-attacks", "103-1": "web-attacks", "104-0": "file-inclusion", "104-1": "file-inclusion", "105-0": "file-inclusion", "106-0": "file-inclusion", "107-0": "file-inclusion", "108-0": "file-inclusion", "109-0": "file-inclusion", "110-0": "file-inclusion", "110-1": "file-inclusion", "112-0": "attacking-graphql", "112-1": "attacking-graphql", "113-0": "attacking-graphql", "114-0": "attacking-graphql", "115-0": "attacking-graphql", "116-0": "attacking-graphql", "116-1": "attacking-graphql", "117-0": "api-attacks", "117-1": "api-attacks", "118-0": "api-attacks", "119-0": "api-attacks", "120-0": "api-attacks", "121-0": "api-attacks", "122-0": "api-attacks", "122-1": "api-attacks", "126-0": "attacking-common-applications", "126-1": "attacking-common-applications", "127-0": "attacking-common-applications", "128-0": "attacking-common-applications", "129-0": "attacking-common-applications", "130-0": "attacking-common-applications", "131-0": "attacking-common-applications", "132-0": "attacking-common-applications", "133-0": "attacking-common-applications", "134-0": "attacking-common-applications", "135-0": "attacking-common-applications", "136-0": "attacking-common-applications", "137-0": "attacking-common-applications", "138-0": "attacking-common-applications", "139-0": "attacking-common-applications", "140-0": "attacking-common-applications", "141-0": "attacking-common-applications", "142-0": "attacking-common-applications", "143-0": "attacking-common-applications", "144-0": "attacking-common-applications", "145-0": "attacking-common-applications", "146-0": "attacking-common-applications", "147-0": "attacking-common-applications", "147-1": "attacking-common-applications", "152-0": "bug-bounty-hunting-process", "152-1": "bug-bounty-hunting-process", "152-2": "bug-bounty-hunting-process"}, "quick": [["CPTS", ["using-web-proxies", "information-gathering---web-edition", "cross-site-scripting-xss", "sql-injection-fundamentals", "sqlmap-essentials", "command-injections", "file-upload-attacks", "login-brute-forcing", "web-attacks", "file-inclusion", "attacking-common-applications"]], ["CJCA", ["web-requests", "introduction-to-web-applications"]], ["CDSA", ["javascript-deobfuscation"]]], "acc": {"CPTS": "#a34ff2", "CJCA": "#2f95ff", "CDSA": "#00eafc"}, "badge": {"CPTS": "data:image/webp;base64,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", "CJCA": "data:image/webp;base64,UklGRpYPAABXRUJQVlA4WAoAAAAQAAAAXwAAXwAAQUxQSGADAAABCjrStieSJElZMTw+M1xj2mKb7Inq9gZOkzUH6PHI5QMw867JzFilVERlZVem9Pfa3/crIhg4ktqGA4MPp3fyA3SF6xEATsxeLu+8+OrXKhD61YtcXp490VytlLAFDXB8dfD4h9ACP+gAx2uisOkiA5y6eO+3QLLyACpy2jrovXzKAIVNFenS9ZrxQ1RtGnhFTVxfKpIECuzfeB7IUa7YAciZ5PMNNSgis87s6L8P9E2mG+HJ9/0dxtm47OLj8XjPSEAmdTEiadUc3gwcekYElNw8HGuWDlj7IngwMgDmNQMXZdiucswyAZQsd6GIYOcetlhIxGU8PNdZe5j5rsmmITFjckdb/iuMmBCZutxJC6yTnkkBcr1DMqNPDyYGwGx67bP0FZMDnm2TivP/VKAAAPl8q6TDme+DpwiA36txLW5Gex6PFyQEmYrCTueuckgxUOaplGKlNkmKKersga8rL0lQfX3Auq39teYgOWN0S6eYq02azm2h1u14Ebw0AXWHs01/ofbynDacxd7PKy9PUH2+12LS92sv0fUnnd3xuvYS3esddsIvBZFGglo7h1vVSKZk6JghTv4RKpkC/pGN6+FSPVqoI0zP4UElV6Dj/tGJvtjuUYO14CkW4JrBIAzlinIA91h2o+7ET3IzJJh1FqBgAHpFcp8Er5RhJFkyy9vSG31J2TTzV9Llq1+li4LCAf7vQ35H/hD5M5J/Xcu/L8m/r8p/Lsh/rsl/Lst/rxD/XrQN3uvkv5dKf6/eDt8F8r9rxH+Xyf+ulP5dvA2+6+XXJcTXVeTXhcTXtcTX5eTXFcXXRcXXdeXXpcXX1bfffwGgh2V6AQrPbHpAS+3TJ08CzK0NUKyTiRXkejPbNvlX2uVk6kS2k858l/L6U2KmaR2S5x6GUaJRyHx4rs521l1lSEMqWe6KYIAD1r5IsFiAec3AIQasmsObgcOoAZTcPGwKayJBgcXHIeIykEldrFc3HqwzO/rv6zWOcB9B9uT7/g7jGmxEcv/G80COuhHImeTzDZ3KxpoldOn6bxNHFa1S8AqSv11fKszkPJMEOHXx3m+TWwGgIqetg97Lp0wzShM4AxxfHTz+oU3zgw5w3ABuHKUEewSAE7OXyzsvvvq1CoR+9SKXl2dPNFerIwBWUDggEAwAABAyAJ0BKmAAYAA+PRyKRCIhoRR8zRQgA8SxgF95+ID49HAH6IvFA8271V+YD9VfWU88b1AP69/qusN9AD9QPTS/ar4PP16/bf4Cf1v/+2cSf3vtU/uvQkd+PXP9x9BJ9XPuP5Afld8Xf5DwN4AX4j/Hf7P+QP5Ge4DsCpnfUC9XPof99/MX+085fyze4B/If5T/e/y7/f/6d/2H6AeRTQA/nv9M/2/90/If6T/5j/i/3T/L/s77Kfz3/Df8L/P/kz9gP8g/nf+d/un7kf3v/5/UH6wP2q9h39VPv/XrUJt9p3LdPrd7S5b0F1zA/30wemxvm3ruIkRSRBzRp8GQFgvZdqcSTbaJysACUAevwmQAhEIlYfy73/KM8MJsJ0jaOVtwGNSimYYhAbExKJKnuQrFt2pK06m0Zbpa5zmFXgcgQGxuxXNjrdH9hRfpxILZx+YfY2XhQOHQ7TsLFwkLId78dzqNbCU2JXHOJhYo6V0KrjX7Nd+bwY8YXDyD18zhqeiOSIJEQuRegKsvV8tyzqd4+PF0vukQjQAA/v/QbspiS+TjQfeneDM14jPJlUvL+ZmiD6em/9LNVnsYVtBwExGwu3WrOuMpIak2F4T4MTPlPg/Oc1S59MhxppDb/aTizy+zwoDfr9vadBSlGfJOw6y2OEgfy7qrBl/RmkBUdG+2C8pb/D5wPPl+iGbp6GvW6TMvKminzQLz/7AoVo7R77fkOWj4tDzbGS1xABDqLwrzD7tWH/y/7+f+QutQ/WOktumeJf5mPDPBrQx2X9pQUcmfqTc3jP4jPJeJXI1tC9HNS2VvWTjeD685Yweao0TNtYAz6/hi0PYRwjFgKqVb9W/QlxlWMbAUBMAtqROcc89pqbiBO2Zmz+NwjgJo/+RwTgdxDNR464g/zMNUAoewhnwtYSJs7m++/WBtD92fIbXvyN5x3WepR+goOczrZFPsozh7+9QGqUlpu0Dxm/99evQj7iD2X67jnPY20dhqMnBqKnuZU/t1AbjOuZdQ8+Sse8clEeDDzjlBLaVkM7Jz1rDtr5SBspElQj16MAKh+J59Hs6nH8WofWJpBbh3asbMefiK+Ay561iHCADMgqk6FjF75sGlpsfk1S4qLe/NBLf7Rw4J9g+C8vL/X81E8kxtKf67zbKL9K37eJBd6zqQK5d6Qyr4aO3/7SwYTfyXJT4lMOQIV8ptIsUL18bIfkhtOmzcqtmsBc7Tqt+Yn0grBF1vVMP0R/GUxAv8k1b6rJwvhmr9fGgtZEZfDFIHpL9SE1KXu5Pz2wJ9HOtIGoszU8wd+ewGpxl5quN8/fN5fx9XH8om9UX00gmVN2d2b2Z34iH5ZQUUUreaayBD+i0ZtIgkNif1h8y/JCDLSdgAYtbjfQW8K75dsPVufYrsH2H/3/6N216BLQ1Dq7wYx9l/3zMfvHDrSjt+ozUVJrfrXEonN9dAcluqgrB1/4PufV4vh2KUvQu3WAB2L5iLE004W7KSllwKMsQ0jVDuth4NZQg+GR8UjQ8gWOvbIMAoPPE0c4FKyw/TXCb2/o4SYayrTK3/TfJJchUGdppoZwrWXAaX4rMhwLWFCy+AuqN9Wrj2StHF7oau2Z+TgzG3znAGqzkAqrRt1bRe7if1iBmEPbRZtcaOi+ajkM+wKPGJkkc1ihKGrEmte21Fbq7I+/35qhcmYJYwPpiu/8YaSTf/6NP9H8v1Q9uR5jxkrBygkNi9DPn/OVY4Qh/nx5LfPMHbhhXZTxqzWvVP1LfnlLkDenAE/JpPBRPA4Yz03KQzhC3vwR9Pq7EFK795NKoFlLoylMr0IeW9cP4h/f4f+XdeiIhry7ov3smqfknKeXAdVYgPcqWUxLMz+vah3arblhvybfFexOURn/Qg8JZQYJo2EusOeAplbnzXA0fR2V2XkrO7NBnxy51WP9bt0hapvLE1La/t2gw2UpItX2+PedRHr4JVvqG055KdlY3/oI5vmckge58Z2XiQNhusiYkGJ4PH9nbklf5Vn6dJhNtEXvClvrS30VDI7QqUTcIxr0rB1RetZSxizliR330rdz7PY1KCyF54p8iI6Zfv2p3/ibBlHARnGD92DrOwptu8Ck3zmE4glt5jGYHJKoSO0YNtQv038PvqP2u1eeY2lcy625GFTVNVcedN+27FodxhNd+KP8CpApC4FiV4cgP+AwuRGlcB06y3wo7oj1cl6gD4iieqVYF5RspwlRXxaFgr/lYAwvW3C2SX9cHxpiwGdovBVrbDbGPWg0jQs/A4TWcAg+uxM5V6Tx2AyHeRyCumlSs8R6pVMXF+ec+1OrAZ5ACi8pjFqDWoeQ4HHPfWGmgAlVbso7fHFfm83CVhxgw2Td7Oh9xofz5LBGB447+d1dfG8DX+AK6Aky8695DAEvzf6epjxgfAazNV8Grn43hCgzExYdCKzVGfxEVnXXBTYpYiq+LYY8HTbPVwLDKpwxX3KKRalS/xjnQDEQsY7EuMHkX6cS7DyHheT4uCD8mr7nbyw+Pa5TQ4ciXPHRhRwOEb4RMMStVk/cdPsmNgW0yQwFoy0Hppjnrho4lMzhlk4fpaAbeghihZsQW1XQvIyt1B29GOhEfDx6MqLE2uUK9BThUrF0uWg8VHuUe0nKEbMjw8j95Q+e6Pzd+W0fnEmwgySK5CmdpDDf/xrjp35vgV2OV0+wRTG/QgRpsAil2NQ12r/A8BFXanJ8/JDfBTI0s5FuFODknCZ3sPw+Qd/vzzdTlpFBngTxiebf/0pY6hv+/B5wazbnPpUv8B3zer/38Lrc0FILY53LCCFAHM3SqgGmQ6o919oSzXOHxYYZ7ZyK3ndUUDBLUUbtY+drJDoOUWSvsyPM6QLf2T0tQ8zdsOMc0vAVEK+6DbmfFkwdz7bUGwgYvJ26huaHUtPhs5TCInqfTGVYr1wLNDxhvOZCqb6Y7DrpkGv8ArpOKJFM1gj7M+qaj7GuQj8YRFDJKiUp2qff/Bcy5HKQu0OYt5Op44ofu9hrxr4/8liz9h4x0Y/OfGE4NuxF2pfpUCSAQ9lbfYBgxu3ilcZnNOiJi1lc9TuUuciH8s0VRqu92TGyydqo4tp8Fg89Xepyp/21xrEdr6c7I80UNa8GICl0RrpshSNZphzd9nteOJWS842KRlut23fihsXg4Pxrza9sv7kn9jrntSj+p5nnNSq/jeZNBUBTry5wwwM4am1e5+y6sFJEz0qlkPqM9CJfhmJTHf4whzecojE0P46hz5yHcc4B2s7uzDcKrJjKcOHMovTlmPxUE2+HwydslYNa3CSBlYsdglBTPNH3M1jfjCO3hFVjc4lWAaNQ+TN7kSEqCBKlO59JW2WD63xhEmpPUpAof4yPqx2/KUQweiQcuSjEoWdyQ9hK/0VCnk/DbQU8YtB0qWW5zYTB/A8Iijzus6e+s2xJGvpQcJZukjsCD6XbrmGugXgpWqGjJHV8h9m340utnzq2YORP23HSb0wRhg2wrGPdR9Pi0Ar7N19wbi7t5GdNe+o+2N2P/p4/Hx98hqzH9IFLdPZzKBDIaczGCVVghqhIQ6ZDnHfxHEoOkkz2R6qJVNi8YYZmRs2v0blrfzGz35wXavi81zZA48QUElo7BueyntJlU+FXORGivbxpq5AGxYQFf8nEfafkLkv/8Pcki0IVWjB89ow4pus2Wz22bvcrPvZV73tHaGb6wAeWEyTPL368GSgmRyJeCOhqliw902fu+VWUmATrXTauQ8cAY7AXgGeXT6IVBlYk/yVxgysWqBKcI9tr9dsJhDB/sPH2g6nVFUxYqr8pKN/nBOMZNXe0ZIH6M+Xvlg55fTOU/QqeGcCa3n3aO6IX5FJt7X7/OaAXZmhwXjTCSvm+ihRxC/A/opBMhN2TN8TkpChqNdwV836TvgGlraNR5snBkwUPbOWRmTtu+LvQ7FFNeAmO6/SkYKnO3pUn/OVJFOlKAZspoCBjzz6UEBXawwAKLEErjnOewSpCjiW1fCXZ74IHJ5ME3ndHQdQ13GNms2V5JatTvYWW7PrxR8P2xq04wbBgqmP10Fbo6TiTzk+y9Nag+KO6FAh2VZx619cZBarsyYWEcrUI/oFDxLSAeZqyvdL+ZqJljkh6oAAAA=", "CDSA": "data:image/webp;base64,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"}};
 const WEEK_RAMP = ["#f8c1bf", "#ed635e"];
 let DAYS = [];   // display days for the currently selected mode
 
@@ -3084,6 +3150,74 @@ function init(){
   renderAll();
 }
 init();
+/* ---------- Already done some modules? ---------- */
+(function(){
+  const P = MODS_DONE;
+  const $ = id => document.getElementById(id);
+  const byMod = {};
+  Object.entries(P.taskMod).forEach(([id, s]) => (byMod[s] = byMod[s] || []).push(id));
+  const modFull = s => byMod[s].every(id => state.done[id]);
+  const boxes = () => [...$("modsList").querySelectorAll("input:not(:disabled)")];
+
+  let undo = [];
+  function mark(slugs){
+    undo = slugs.flatMap(s => byMod[s]).filter(id => !state.done[id]);
+    undo.forEach(id => state.done[id] = true);
+    save(); renderAll();
+    $("toastTxt").textContent = `Marked ${slugs.length} module${slugs.length === 1 ? "" : "s"} done (${undo.length} tasks).`;
+    $("toast").classList.add("on");
+    clearTimeout(mark.t); mark.t = setTimeout(() => $("toast").classList.remove("on"), 8000);
+  }
+  $("toastUndo").onclick = () => {
+    undo.forEach(id => delete state.done[id]); undo = [];
+    save(); renderAll(); $("toast").classList.remove("on");
+  };
+
+  function count(){
+    const n = boxes().filter(b => b.checked).length;
+    $("modsCnt").textContent = n + " selected"; $("modsOk").disabled = !n;
+  }
+  const also = {};
+  P.quick.forEach(([c, slugs]) => slugs.forEach(s => (also[s] = also[s] || []).push(c)));
+  function open(){
+    $("modsList").innerHTML = P.mods.map((m, i) => {
+      const full = modFull(m[0]);
+      return `<li class="${full ? "full" : ""}"><label><input type="checkbox" value="${m[0]}"${full ? " checked disabled" : ""}>
+        <span class="n">${i + 1}. ${m[1]}</span>${(also[m[0]] || []).map(c => `<span class="xc" style="color:${P.acc[c]}" title="Also in the ${c} path">${c}</span>`).join("")}${full ? `<span class="tag">DONE</span>` : ""}<span class="s">${m[2]} sec</span></label></li>`;
+    }).join("");
+    const q = P.quick.map(([c, slugs]) => [c, slugs.filter(s => !modFull(s))]).filter(([, s]) => s.length);
+    $("modsQuick").hidden = !q.length;
+    $("modsQuick").innerHTML = q.length ? `<span class="ql">Passed another cert?</span>` + q.map(([c, s]) =>
+      `<button type="button" data-c="${c}" style="--c:${P.acc[c]}" aria-pressed="false" title="Select the ${s.length} module${s.length === 1 ? "" : "s"} shared with ${c}"><span class="bd"><img src="${P.badge[c]}" alt=""></span>${c}</button>`).join("") : "";
+    const chips = [...$("modsQuick").querySelectorAll("button")];
+    const slugsOf = b => new Set(q.find(x => x[0] === b.dataset.c)[1]);
+    // a chip stays lit while every module it covers is ticked
+    const refresh = () => {
+      const on = new Set(boxes().filter(x => x.checked).map(x => x.value));
+      chips.forEach(b => b.setAttribute("aria-pressed", [...slugsOf(b)].every(s => on.has(s))));
+      count();
+    };
+    chips.forEach(b => b.onclick = () => {
+      const s = slugsOf(b), lit = b.getAttribute("aria-pressed") === "true";
+      boxes().forEach(x => { if (s.has(x.value)) x.checked = !lit; });
+      refresh();
+    });
+    $("modsList").onchange = refresh; refresh();
+    $("modsDlg").showModal();
+  }
+  $("modsOk").onclick = e => {
+    e.preventDefault();
+    const picked = boxes().filter(b => b.checked).map(b => b.value);
+    $("modsDlg").close();
+    if (picked.length) mark(picked);
+  };
+  // click outside the popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
+  let downOnBackdrop = false;
+  $("modsDlg").addEventListener("pointerdown", e => { downOnBackdrop = e.target === $("modsDlg"); });
+  $("modsDlg").addEventListener("click", e => { if (e.target === $("modsDlg") && downOnBackdrop) $("modsDlg").close(); });
+
+  $("modsBtn").onclick = open;
+})();
 </script>
 </body>
 </html>

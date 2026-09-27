@@ -232,6 +232,63 @@
     .phase-row{grid-template-columns:110px 1fr 38px}
     h1{font-size:22px}
   }
+  /* Already done some modules? */
+  dialog.mods{margin:auto;width:min(560px,calc(100vw - 32px));max-height:min(740px,calc(100vh - 48px));overflow:hidden;background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:12px;padding:0}
+  dialog.mods::backdrop{background:rgba(3,7,14,.7)}
+  .mods form{display:flex;flex-direction:column;max-height:calc(min(740px,100vh - 48px) - 2px)}
+  .mods .mh h3:focus{outline:none}
+  .mods .mh{padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+  .mods .mh h3{font-family:"Chakra Petch",sans-serif;font-size:18px}
+  .mods .mh p{font-size:13px;color:var(--muted);margin-top:4px}
+  .mods .quick{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+  .mods .quick button{display:flex;flex-direction:column;align-items:center;gap:9px;padding:6px 4px 0;background:none;border:0;cursor:pointer;font:700 11px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--faint);transition:color .25s ease}
+  /* ring + glow live on the wrapper; the image only fades grey to color (a filter on the glowing element made the glow vanish) */
+  .mods .quick .bd{position:relative;display:block;width:46px;height:46px;border-radius:50%;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+  .mods .quick .bd::before,.mods .quick .bd::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none}
+  .mods .quick .bd::before{box-shadow:0 0 0 4px var(--card),0 0 0 5px var(--line)}
+  .mods .quick .bd::after{box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--c),0 0 22px var(--c);opacity:0;transition:opacity .3s ease}
+  .mods .quick img{display:block;width:100%;height:100%;border-radius:50%;background:var(--bg);filter:grayscale(.5) brightness(.8);transition:filter .3s ease}
+  .mods .quick button:focus-visible{outline:none}
+  .mods .quick button:focus-visible .bd::before{box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--c)}
+  @media (hover:hover){.mods .quick button:hover{color:var(--c)}.mods .quick button:hover .bd{transform:scale(1.08)}.mods .quick button:hover .bd::after{opacity:1}.mods .quick button:hover img{filter:none}}
+  .mods .quick button[aria-pressed="true"]{color:var(--c)}
+  .mods .quick button[aria-pressed="true"] .bd::after{opacity:1}
+  .mods .quick button[aria-pressed="true"] img{filter:none}
+  @media (prefers-reduced-motion:reduce){.mods .quick button,.mods .quick .bd,.mods .quick .bd::after,.mods .quick img{transition:none}.mods .quick button:hover .bd{transform:none}}
+  .mods ul{list-style:none;overflow:auto;padding:8px 10px}
+  .mods ul{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .mods ul::-webkit-scrollbar{width:8px}
+  .mods ul::-webkit-scrollbar-track{background:transparent}
+  .mods ul::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  .mods li label{display:flex;gap:10px;align-items:center;padding:7px 8px;border-radius:6px;cursor:pointer;font-size:14px}
+  .mods li label:hover{background:var(--card2)}
+  .mods li input{appearance:none;-webkit-appearance:none;width:17px;height:17px;flex:none;border:1.5px solid var(--faint);border-radius:5px;cursor:pointer;background:var(--bg);position:relative}
+  .mods li input:checked{background:var(--green);border-color:var(--green)}
+  .mods li input:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:4px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+  .mods li input:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .mods li input:disabled{cursor:default}
+  .mods li .n{flex:1}
+  .mods li .s{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);white-space:nowrap}
+  .mods li .tag{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:4px;background:var(--card2);color:var(--green)}
+  .mods li .xc{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:4px;border:1px solid var(--line);background:var(--card2)}
+  .mods li.full label{opacity:.55;cursor:default}
+  .mods .mf{display:flex;gap:8px;justify-content:flex-end;align-items:center;padding:12px 18px;border-top:1px solid var(--line)}
+  .mods .mf .cnt{margin-right:auto;font-size:12px;color:var(--faint);font-family:"IBM Plex Mono",monospace}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;display:flex;gap:14px;align-items:center;padding:10px 12px 10px 16px;background:var(--card2);border:1px solid var(--line);border-radius:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.5);transition:opacity .2s,transform .2s;z-index:50}
+  .toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+  @media (prefers-reduced-motion:reduce){.toast{transition:none}}
+  @media(max-width:760px){
+    .toolbar .spacer{display:none}
+    .toolbar .btn{flex:1 1 calc(50% - 5px)}
+    .toolbar #modsBtn{flex-basis:100%}
+    .toast{width:max-content;max-width:calc(100vw - 32px);bottom:16px}
+    .mods .mh{padding:14px 14px 10px}
+    .mods ul{padding:6px 4px}
+    .mods li label{font-size:13.5px;gap:8px}
+    .mods .mf{padding:10px 14px}
+    .mods .quick .ql{flex-basis:100%}
+  }
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -270,6 +327,13 @@
     </div>
     <div class="sub endnote" id="endNote"></div>
   </header>
+
+  <dialog class="mods" id="modsDlg" aria-labelledby="modsTitle"><form method="dialog">
+    <div class="mh"><h3 id="modsTitle" tabindex="-1" autofocus>Modules you've already done</h3><p>Tick every module you've finished on HTB Academy. Its study tasks get checked off; practice and review days stay as they are.</p><div class="quick" id="modsQuick"></div></div>
+    <ul id="modsList"></ul>
+    <div class="mf"><span class="cnt" id="modsCnt"></span><button class="btn" value="cancel">Cancel</button><button class="btn primary" id="modsOk" value="ok">Mark done</button></div>
+  </form></dialog>
+  <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo">Undo</button></div>
 
   <!-- Dashboard -->
   <div class="dash">
@@ -311,6 +375,7 @@
     <div class="toolbar">
       <button class="btn" id="expandAll">Expand all</button>
       <button class="btn" id="collapseAll">Collapse all</button>
+      <button class="btn" id="modsBtn">Already done some modules?</button>
       <span class="spacer"></span>
       <label class="check-toggle"><input type="checkbox" id="hideDone"> Hide completed days</label>
     </div>
@@ -1923,6 +1988,7 @@ const MODES = {
     "hrs": "≈ 10 hrs/week"
   }
 };
+const MODS_DONE = {"mods": [["wi-fi-penetration-testing-basics", "Wi-Fi Penetration Testing Basics", 16], ["attacking-wi-fi-protected-setup-wps", "Attacking Wi-Fi Protected Setup (WPS)", 13], ["wired-equivalent-privacy-wep-attacks", "Wired Equivalent Privacy (WEP) Attacks", 13], ["attacking-wpawpa2-wi-fi-networks", "Attacking WPA/WPA2 Wi-Fi Networks", 15], ["wi-fi-evil-twin-attacks", "Wi-Fi Evil Twin Attacks", 16], ["attacking-wpa3-wi-fi-networks", "Attacking WPA3 Wi-Fi Networks", 16], ["bypassing-wi-fi-captive-portals", "Bypassing Wi-Fi Captive Portals", 17], ["wi-fi-password-cracking-techniques", "Wi-Fi Password Cracking Techniques", 16], ["wi-fi-penetration-testing-tools-and-techniques", "Wi-Fi Penetration Testing Tools and Techniques", 30], ["attacking-corporate-wi-fi-networks", "Attacking Corporate Wi-Fi Networks", 18]], "taskMod": {"3-0": "wi-fi-penetration-testing-basics", "3-1": "wi-fi-penetration-testing-basics", "4-0": "wi-fi-penetration-testing-basics", "5-0": "wi-fi-penetration-testing-basics", "6-0": "wi-fi-penetration-testing-basics", "7-0": "wi-fi-penetration-testing-basics", "8-0": "wi-fi-penetration-testing-basics", "8-1": "wi-fi-penetration-testing-basics", "11-0": "attacking-wi-fi-protected-setup-wps", "11-1": "attacking-wi-fi-protected-setup-wps", "12-0": "attacking-wi-fi-protected-setup-wps", "13-0": "attacking-wi-fi-protected-setup-wps", "14-0": "attacking-wi-fi-protected-setup-wps", "15-0": "attacking-wi-fi-protected-setup-wps", "16-0": "attacking-wi-fi-protected-setup-wps", "16-1": "attacking-wi-fi-protected-setup-wps", "17-0": "wired-equivalent-privacy-wep-attacks", "17-1": "wired-equivalent-privacy-wep-attacks", "18-0": "wired-equivalent-privacy-wep-attacks", "19-0": "wired-equivalent-privacy-wep-attacks", "20-0": "wired-equivalent-privacy-wep-attacks", "21-0": "wired-equivalent-privacy-wep-attacks", "22-0": "wired-equivalent-privacy-wep-attacks", "22-1": "wired-equivalent-privacy-wep-attacks", "25-0": "attacking-wpawpa2-wi-fi-networks", "25-1": "attacking-wpawpa2-wi-fi-networks", "26-0": "attacking-wpawpa2-wi-fi-networks", "27-0": "attacking-wpawpa2-wi-fi-networks", "28-0": "attacking-wpawpa2-wi-fi-networks", "29-0": "attacking-wpawpa2-wi-fi-networks", "30-0": "attacking-wpawpa2-wi-fi-networks", "31-0": "attacking-wpawpa2-wi-fi-networks", "32-0": "attacking-wpawpa2-wi-fi-networks", "33-0": "attacking-wpawpa2-wi-fi-networks", "34-0": "attacking-wpawpa2-wi-fi-networks", "35-0": "attacking-wpawpa2-wi-fi-networks", "35-1": "attacking-wpawpa2-wi-fi-networks", "36-0": "wi-fi-evil-twin-attacks", "36-1": "wi-fi-evil-twin-attacks", "37-0": "wi-fi-evil-twin-attacks", "38-0": "wi-fi-evil-twin-attacks", "39-0": "wi-fi-evil-twin-attacks", "40-0": "wi-fi-evil-twin-attacks", "41-0": "wi-fi-evil-twin-attacks", "42-0": "wi-fi-evil-twin-attacks", "43-0": "wi-fi-evil-twin-attacks", "44-0": "wi-fi-evil-twin-attacks", "45-0": "wi-fi-evil-twin-attacks", "46-0": "wi-fi-evil-twin-attacks", "46-1": "wi-fi-evil-twin-attacks", "49-0": "attacking-wpa3-wi-fi-networks", "49-1": "attacking-wpa3-wi-fi-networks", "50-0": "attacking-wpa3-wi-fi-networks", "51-0": "attacking-wpa3-wi-fi-networks", "52-0": "attacking-wpa3-wi-fi-networks", "53-0": "attacking-wpa3-wi-fi-networks", "54-0": "attacking-wpa3-wi-fi-networks", "55-0": "attacking-wpa3-wi-fi-networks", "56-0": "attacking-wpa3-wi-fi-networks", "57-0": "attacking-wpa3-wi-fi-networks", "58-0": "attacking-wpa3-wi-fi-networks", "59-0": "attacking-wpa3-wi-fi-networks", "59-1": "attacking-wpa3-wi-fi-networks", "60-0": "bypassing-wi-fi-captive-portals", "60-1": "bypassing-wi-fi-captive-portals", "61-0": "bypassing-wi-fi-captive-portals", "62-0": "bypassing-wi-fi-captive-portals", "63-0": "bypassing-wi-fi-captive-portals", "64-0": "bypassing-wi-fi-captive-portals", "65-0": "bypassing-wi-fi-captive-portals", "66-0": "bypassing-wi-fi-captive-portals", "67-0": "bypassing-wi-fi-captive-portals", "68-0": "bypassing-wi-fi-captive-portals", "69-0": "bypassing-wi-fi-captive-portals", "70-0": "bypassing-wi-fi-captive-portals", "70-1": "bypassing-wi-fi-captive-portals", "73-0": "wi-fi-password-cracking-techniques", "73-1": "wi-fi-password-cracking-techniques", "74-0": "wi-fi-password-cracking-techniques", "75-0": "wi-fi-password-cracking-techniques", "76-0": "wi-fi-password-cracking-techniques", "77-0": "wi-fi-password-cracking-techniques", "78-0": "wi-fi-password-cracking-techniques", "78-1": "wi-fi-password-cracking-techniques", "79-0": "wi-fi-penetration-testing-tools-and-techniques", "79-1": "wi-fi-penetration-testing-tools-and-techniques", "80-0": "wi-fi-penetration-testing-tools-and-techniques", "81-0": "wi-fi-penetration-testing-tools-and-techniques", "82-0": "wi-fi-penetration-testing-tools-and-techniques", "83-0": "wi-fi-penetration-testing-tools-and-techniques", "84-0": "wi-fi-penetration-testing-tools-and-techniques", "85-0": "wi-fi-penetration-testing-tools-and-techniques", "86-0": "wi-fi-penetration-testing-tools-and-techniques", "87-0": "wi-fi-penetration-testing-tools-and-techniques", "88-0": "wi-fi-penetration-testing-tools-and-techniques", "89-0": "wi-fi-penetration-testing-tools-and-techniques", "90-0": "wi-fi-penetration-testing-tools-and-techniques", "91-0": "wi-fi-penetration-testing-tools-and-techniques", "92-0": "wi-fi-penetration-testing-tools-and-techniques", "93-0": "wi-fi-penetration-testing-tools-and-techniques", "94-0": "wi-fi-penetration-testing-tools-and-techniques", "95-0": "wi-fi-penetration-testing-tools-and-techniques", "96-0": "wi-fi-penetration-testing-tools-and-techniques", "97-0": "wi-fi-penetration-testing-tools-and-techniques", "98-0": "wi-fi-penetration-testing-tools-and-techniques", "98-1": "wi-fi-penetration-testing-tools-and-techniques", "101-0": "attacking-corporate-wi-fi-networks", "101-1": "attacking-corporate-wi-fi-networks", "102-0": "attacking-corporate-wi-fi-networks", "103-0": "attacking-corporate-wi-fi-networks", "104-0": "attacking-corporate-wi-fi-networks", "105-0": "attacking-corporate-wi-fi-networks", "106-0": "attacking-corporate-wi-fi-networks", "107-0": "attacking-corporate-wi-fi-networks", "108-0": "attacking-corporate-wi-fi-networks", "109-0": "attacking-corporate-wi-fi-networks", "110-0": "attacking-corporate-wi-fi-networks", "111-0": "attacking-corporate-wi-fi-networks", "111-1": "attacking-corporate-wi-fi-networks"}, "quick": [], "acc": {}, "badge": {}};
 const WEEK_RAMP = ["#f9bda5", "#f05a1e"];
 let DAYS = [];   // display days for the currently selected mode
 
@@ -2418,6 +2484,74 @@ function init(){
   renderAll();
 }
 init();
+/* ---------- Already done some modules? ---------- */
+(function(){
+  const P = MODS_DONE;
+  const $ = id => document.getElementById(id);
+  const byMod = {};
+  Object.entries(P.taskMod).forEach(([id, s]) => (byMod[s] = byMod[s] || []).push(id));
+  const modFull = s => byMod[s].every(id => state.done[id]);
+  const boxes = () => [...$("modsList").querySelectorAll("input:not(:disabled)")];
+
+  let undo = [];
+  function mark(slugs){
+    undo = slugs.flatMap(s => byMod[s]).filter(id => !state.done[id]);
+    undo.forEach(id => state.done[id] = true);
+    save(); renderAll();
+    $("toastTxt").textContent = `Marked ${slugs.length} module${slugs.length === 1 ? "" : "s"} done (${undo.length} tasks).`;
+    $("toast").classList.add("on");
+    clearTimeout(mark.t); mark.t = setTimeout(() => $("toast").classList.remove("on"), 8000);
+  }
+  $("toastUndo").onclick = () => {
+    undo.forEach(id => delete state.done[id]); undo = [];
+    save(); renderAll(); $("toast").classList.remove("on");
+  };
+
+  function count(){
+    const n = boxes().filter(b => b.checked).length;
+    $("modsCnt").textContent = n + " selected"; $("modsOk").disabled = !n;
+  }
+  const also = {};
+  P.quick.forEach(([c, slugs]) => slugs.forEach(s => (also[s] = also[s] || []).push(c)));
+  function open(){
+    $("modsList").innerHTML = P.mods.map((m, i) => {
+      const full = modFull(m[0]);
+      return `<li class="${full ? "full" : ""}"><label><input type="checkbox" value="${m[0]}"${full ? " checked disabled" : ""}>
+        <span class="n">${i + 1}. ${m[1]}</span>${(also[m[0]] || []).map(c => `<span class="xc" style="color:${P.acc[c]}" title="Also in the ${c} path">${c}</span>`).join("")}${full ? `<span class="tag">DONE</span>` : ""}<span class="s">${m[2]} sec</span></label></li>`;
+    }).join("");
+    const q = P.quick.map(([c, slugs]) => [c, slugs.filter(s => !modFull(s))]).filter(([, s]) => s.length);
+    $("modsQuick").hidden = !q.length;
+    $("modsQuick").innerHTML = q.length ? `<span class="ql">Passed another cert?</span>` + q.map(([c, s]) =>
+      `<button type="button" data-c="${c}" style="--c:${P.acc[c]}" aria-pressed="false" title="Select the ${s.length} module${s.length === 1 ? "" : "s"} shared with ${c}"><span class="bd"><img src="${P.badge[c]}" alt=""></span>${c}</button>`).join("") : "";
+    const chips = [...$("modsQuick").querySelectorAll("button")];
+    const slugsOf = b => new Set(q.find(x => x[0] === b.dataset.c)[1]);
+    // a chip stays lit while every module it covers is ticked
+    const refresh = () => {
+      const on = new Set(boxes().filter(x => x.checked).map(x => x.value));
+      chips.forEach(b => b.setAttribute("aria-pressed", [...slugsOf(b)].every(s => on.has(s))));
+      count();
+    };
+    chips.forEach(b => b.onclick = () => {
+      const s = slugsOf(b), lit = b.getAttribute("aria-pressed") === "true";
+      boxes().forEach(x => { if (s.has(x.value)) x.checked = !lit; });
+      refresh();
+    });
+    $("modsList").onchange = refresh; refresh();
+    $("modsDlg").showModal();
+  }
+  $("modsOk").onclick = e => {
+    e.preventDefault();
+    const picked = boxes().filter(b => b.checked).map(b => b.value);
+    $("modsDlg").close();
+    if (picked.length) mark(picked);
+  };
+  // click outside the popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
+  let downOnBackdrop = false;
+  $("modsDlg").addEventListener("pointerdown", e => { downOnBackdrop = e.target === $("modsDlg"); });
+  $("modsDlg").addEventListener("click", e => { if (e.target === $("modsDlg") && downOnBackdrop) $("modsDlg").close(); });
+
+  $("modsBtn").onclick = open;
+})();
 </script>
 </body>
 </html>

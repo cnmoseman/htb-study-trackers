@@ -232,6 +232,63 @@
     .phase-row{grid-template-columns:110px 1fr 38px}
     h1{font-size:22px}
   }
+  /* Already done some modules? */
+  dialog.mods{margin:auto;width:min(560px,calc(100vw - 32px));max-height:min(740px,calc(100vh - 48px));overflow:hidden;background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:12px;padding:0}
+  dialog.mods::backdrop{background:rgba(3,7,14,.7)}
+  .mods form{display:flex;flex-direction:column;max-height:calc(min(740px,100vh - 48px) - 2px)}
+  .mods .mh h3:focus{outline:none}
+  .mods .mh{padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+  .mods .mh h3{font-family:"Chakra Petch",sans-serif;font-size:18px}
+  .mods .mh p{font-size:13px;color:var(--muted);margin-top:4px}
+  .mods .quick{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+  .mods .quick button{display:flex;flex-direction:column;align-items:center;gap:9px;padding:6px 4px 0;background:none;border:0;cursor:pointer;font:700 11px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--faint);transition:color .25s ease}
+  /* ring + glow live on the wrapper; the image only fades grey to color (a filter on the glowing element made the glow vanish) */
+  .mods .quick .bd{position:relative;display:block;width:46px;height:46px;border-radius:50%;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+  .mods .quick .bd::before,.mods .quick .bd::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none}
+  .mods .quick .bd::before{box-shadow:0 0 0 4px var(--card),0 0 0 5px var(--line)}
+  .mods .quick .bd::after{box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--c),0 0 22px var(--c);opacity:0;transition:opacity .3s ease}
+  .mods .quick img{display:block;width:100%;height:100%;border-radius:50%;background:var(--bg);filter:grayscale(.5) brightness(.8);transition:filter .3s ease}
+  .mods .quick button:focus-visible{outline:none}
+  .mods .quick button:focus-visible .bd::before{box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--c)}
+  @media (hover:hover){.mods .quick button:hover{color:var(--c)}.mods .quick button:hover .bd{transform:scale(1.08)}.mods .quick button:hover .bd::after{opacity:1}.mods .quick button:hover img{filter:none}}
+  .mods .quick button[aria-pressed="true"]{color:var(--c)}
+  .mods .quick button[aria-pressed="true"] .bd::after{opacity:1}
+  .mods .quick button[aria-pressed="true"] img{filter:none}
+  @media (prefers-reduced-motion:reduce){.mods .quick button,.mods .quick .bd,.mods .quick .bd::after,.mods .quick img{transition:none}.mods .quick button:hover .bd{transform:none}}
+  .mods ul{list-style:none;overflow:auto;padding:8px 10px}
+  .mods ul{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .mods ul::-webkit-scrollbar{width:8px}
+  .mods ul::-webkit-scrollbar-track{background:transparent}
+  .mods ul::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  .mods li label{display:flex;gap:10px;align-items:center;padding:7px 8px;border-radius:6px;cursor:pointer;font-size:14px}
+  .mods li label:hover{background:var(--card2)}
+  .mods li input{appearance:none;-webkit-appearance:none;width:17px;height:17px;flex:none;border:1.5px solid var(--faint);border-radius:5px;cursor:pointer;background:var(--bg);position:relative}
+  .mods li input:checked{background:var(--green);border-color:var(--green)}
+  .mods li input:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:4px;height:9px;border:solid #0d1320;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+  .mods li input:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .mods li input:disabled{cursor:default}
+  .mods li .n{flex:1}
+  .mods li .s{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);white-space:nowrap}
+  .mods li .tag{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:4px;background:var(--card2);color:var(--green)}
+  .mods li .xc{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:4px;border:1px solid var(--line);background:var(--card2)}
+  .mods li.full label{opacity:.55;cursor:default}
+  .mods .mf{display:flex;gap:8px;justify-content:flex-end;align-items:center;padding:12px 18px;border-top:1px solid var(--line)}
+  .mods .mf .cnt{margin-right:auto;font-size:12px;color:var(--faint);font-family:"IBM Plex Mono",monospace}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;display:flex;gap:14px;align-items:center;padding:10px 12px 10px 16px;background:var(--card2);border:1px solid var(--line);border-radius:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.5);transition:opacity .2s,transform .2s;z-index:50}
+  .toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+  @media (prefers-reduced-motion:reduce){.toast{transition:none}}
+  @media(max-width:760px){
+    .toolbar .spacer{display:none}
+    .toolbar .btn{flex:1 1 calc(50% - 5px)}
+    .toolbar #modsBtn{flex-basis:100%}
+    .toast{width:max-content;max-width:calc(100vw - 32px);bottom:16px}
+    .mods .mh{padding:14px 14px 10px}
+    .mods ul{padding:6px 4px}
+    .mods li label{font-size:13.5px;gap:8px}
+    .mods .mf{padding:10px 14px}
+    .mods .quick .ql{flex-basis:100%}
+  }
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -270,6 +327,13 @@
     </div>
     <div class="sub endnote" id="endNote"></div>
   </header>
+
+  <dialog class="mods" id="modsDlg" aria-labelledby="modsTitle"><form method="dialog">
+    <div class="mh"><h3 id="modsTitle" tabindex="-1" autofocus>Modules you've already done</h3><p>Tick every module you've finished on HTB Academy. Its study tasks get checked off; practice and review days stay as they are.</p><div class="quick" id="modsQuick"></div></div>
+    <ul id="modsList"></ul>
+    <div class="mf"><span class="cnt" id="modsCnt"></span><button class="btn" value="cancel">Cancel</button><button class="btn primary" id="modsOk" value="ok">Mark done</button></div>
+  </form></dialog>
+  <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo">Undo</button></div>
 
   <!-- Dashboard -->
   <div class="dash">
@@ -311,6 +375,7 @@
     <div class="toolbar">
       <button class="btn" id="expandAll">Expand all</button>
       <button class="btn" id="collapseAll">Collapse all</button>
+      <button class="btn" id="modsBtn">Already done some modules?</button>
       <span class="spacer"></span>
       <label class="check-toggle"><input type="checkbox" id="hideDone"> Hide completed days</label>
     </div>
@@ -2419,6 +2484,7 @@ const MODES = {
     "hrs": "≈ 10 hrs/week"
   }
 };
+const MODS_DONE = {"mods": [["incident-handling-process", "Incident Handling Process", 11], ["security-monitoring--siem-fundamentals", "Security Monitoring & SIEM Fundamentals", 11], ["windows-event-logs--finding-evil", "Windows Event Logs & Finding Evil", 6], ["introduction-to-threat-hunting--hunting-with-elastic", "Introduction to Threat Hunting & Hunting With Elastic", 6], ["understanding-log-sources--investigating-with-splunk", "Understanding Log Sources & Investigating with Splunk", 6], ["windows-attacks--defense", "Windows Attacks & Defense", 16], ["intro-to-network-traffic-analysis", "Intro to Network Traffic Analysis", 15], ["intermediate-network-traffic-analysis", "Intermediate Network Traffic Analysis", 18], ["working-with-idsips", "Working with IDS/IPS", 11], ["introduction-to-malware-analysis", "Introduction to Malware Analysis", 9], ["javascript-deobfuscation", "JavaScript Deobfuscation", 11], ["yara--sigma-for-soc-analysts", "YARA & Sigma for SOC Analysts", 11], ["introduction-to-digital-forensics", "Introduction to Digital Forensics", 8], ["detecting-windows-attacks-with-splunk", "Detecting Windows Attacks with Splunk", 23], ["security-incident-reporting", "Security Incident Reporting", 5]], "taskMod": {"3-0": "incident-handling-process", "3-1": "incident-handling-process", "4-0": "incident-handling-process", "5-0": "incident-handling-process", "6-0": "incident-handling-process", "7-0": "incident-handling-process", "8-0": "incident-handling-process", "9-0": "incident-handling-process", "10-0": "incident-handling-process", "10-1": "incident-handling-process", "11-0": "security-monitoring--siem-fundamentals", "11-1": "security-monitoring--siem-fundamentals", "12-0": "security-monitoring--siem-fundamentals", "13-0": "security-monitoring--siem-fundamentals", "14-0": "security-monitoring--siem-fundamentals", "15-0": "security-monitoring--siem-fundamentals", "16-0": "security-monitoring--siem-fundamentals", "16-1": "security-monitoring--siem-fundamentals", "19-0": "windows-event-logs--finding-evil", "19-1": "windows-event-logs--finding-evil", "20-0": "windows-event-logs--finding-evil", "21-0": "windows-event-logs--finding-evil", "22-0": "windows-event-logs--finding-evil", "23-0": "windows-event-logs--finding-evil", "23-1": "windows-event-logs--finding-evil", "24-0": "introduction-to-threat-hunting--hunting-with-elastic", "24-1": "introduction-to-threat-hunting--hunting-with-elastic", "25-0": "introduction-to-threat-hunting--hunting-with-elastic", "26-0": "introduction-to-threat-hunting--hunting-with-elastic", "27-0": "introduction-to-threat-hunting--hunting-with-elastic", "27-1": "introduction-to-threat-hunting--hunting-with-elastic", "29-0": "understanding-log-sources--investigating-with-splunk", "29-1": "understanding-log-sources--investigating-with-splunk", "30-0": "understanding-log-sources--investigating-with-splunk", "31-0": "understanding-log-sources--investigating-with-splunk", "32-0": "understanding-log-sources--investigating-with-splunk", "33-0": "understanding-log-sources--investigating-with-splunk", "34-0": "understanding-log-sources--investigating-with-splunk", "34-1": "understanding-log-sources--investigating-with-splunk", "37-0": "windows-attacks--defense", "37-1": "windows-attacks--defense", "38-0": "windows-attacks--defense", "39-0": "windows-attacks--defense", "40-0": "windows-attacks--defense", "41-0": "windows-attacks--defense", "42-0": "windows-attacks--defense", "43-0": "windows-attacks--defense", "44-0": "windows-attacks--defense", "45-0": "windows-attacks--defense", "46-0": "windows-attacks--defense", "47-0": "windows-attacks--defense", "48-0": "windows-attacks--defense", "49-0": "windows-attacks--defense", "50-0": "windows-attacks--defense", "51-0": "windows-attacks--defense", "52-0": "windows-attacks--defense", "52-1": "windows-attacks--defense", "55-0": "intro-to-network-traffic-analysis", "55-1": "intro-to-network-traffic-analysis", "56-0": "intro-to-network-traffic-analysis", "57-0": "intro-to-network-traffic-analysis", "58-0": "intro-to-network-traffic-analysis", "59-0": "intro-to-network-traffic-analysis", "60-0": "intro-to-network-traffic-analysis", "61-0": "intro-to-network-traffic-analysis", "62-0": "intro-to-network-traffic-analysis", "63-0": "intro-to-network-traffic-analysis", "63-1": "intro-to-network-traffic-analysis", "64-0": "intermediate-network-traffic-analysis", "64-1": "intermediate-network-traffic-analysis", "65-0": "intermediate-network-traffic-analysis", "66-0": "intermediate-network-traffic-analysis", "67-0": "intermediate-network-traffic-analysis", "68-0": "intermediate-network-traffic-analysis", "69-0": "intermediate-network-traffic-analysis", "70-0": "intermediate-network-traffic-analysis", "71-0": "intermediate-network-traffic-analysis", "71-1": "intermediate-network-traffic-analysis", "73-0": "working-with-idsips", "73-1": "working-with-idsips", "74-0": "working-with-idsips", "75-0": "working-with-idsips", "76-0": "working-with-idsips", "77-0": "working-with-idsips", "78-0": "working-with-idsips", "79-0": "working-with-idsips", "80-0": "working-with-idsips", "81-0": "working-with-idsips", "82-0": "working-with-idsips", "83-0": "working-with-idsips", "83-1": "working-with-idsips", "86-0": "introduction-to-malware-analysis", "86-1": "introduction-to-malware-analysis", "87-0": "introduction-to-malware-analysis", "88-0": "introduction-to-malware-analysis", "89-0": "introduction-to-malware-analysis", "90-0": "introduction-to-malware-analysis", "91-0": "introduction-to-malware-analysis", "92-0": "introduction-to-malware-analysis", "93-0": "introduction-to-malware-analysis", "94-0": "introduction-to-malware-analysis", "94-1": "introduction-to-malware-analysis", "95-0": "javascript-deobfuscation", "95-1": "javascript-deobfuscation", "96-0": "javascript-deobfuscation", "97-0": "javascript-deobfuscation", "98-0": "javascript-deobfuscation", "98-1": "javascript-deobfuscation", "99-0": "yara--sigma-for-soc-analysts", "99-1": "yara--sigma-for-soc-analysts", "100-0": "yara--sigma-for-soc-analysts", "101-0": "yara--sigma-for-soc-analysts", "102-0": "yara--sigma-for-soc-analysts", "103-0": "yara--sigma-for-soc-analysts", "104-0": "yara--sigma-for-soc-analysts", "105-0": "yara--sigma-for-soc-analysts", "106-0": "yara--sigma-for-soc-analysts", "107-0": "yara--sigma-for-soc-analysts", "108-0": "yara--sigma-for-soc-analysts", "109-0": "yara--sigma-for-soc-analysts", "109-1": "yara--sigma-for-soc-analysts", "112-0": "introduction-to-digital-forensics", "112-1": "introduction-to-digital-forensics", "113-0": "introduction-to-digital-forensics", "114-0": "introduction-to-digital-forensics", "115-0": "introduction-to-digital-forensics", "116-0": "introduction-to-digital-forensics", "117-0": "introduction-to-digital-forensics", "118-0": "introduction-to-digital-forensics", "119-0": "introduction-to-digital-forensics", "119-1": "introduction-to-digital-forensics", "121-0": "detecting-windows-attacks-with-splunk", "121-1": "detecting-windows-attacks-with-splunk", "122-0": "detecting-windows-attacks-with-splunk", "123-0": "detecting-windows-attacks-with-splunk", "124-0": "detecting-windows-attacks-with-splunk", "125-0": "detecting-windows-attacks-with-splunk", "126-0": "detecting-windows-attacks-with-splunk", "127-0": "detecting-windows-attacks-with-splunk", "128-0": "detecting-windows-attacks-with-splunk", "129-0": "detecting-windows-attacks-with-splunk", "130-0": "detecting-windows-attacks-with-splunk", "131-0": "detecting-windows-attacks-with-splunk", "132-0": "detecting-windows-attacks-with-splunk", "133-0": "detecting-windows-attacks-with-splunk", "134-0": "detecting-windows-attacks-with-splunk", "135-0": "detecting-windows-attacks-with-splunk", "136-0": "detecting-windows-attacks-with-splunk", "137-0": "detecting-windows-attacks-with-splunk", "138-0": "detecting-windows-attacks-with-splunk", "139-0": "detecting-windows-attacks-with-splunk", "140-0": "detecting-windows-attacks-with-splunk", "141-0": "detecting-windows-attacks-with-splunk", "142-0": "detecting-windows-attacks-with-splunk", "143-0": "detecting-windows-attacks-with-splunk", "143-1": "detecting-windows-attacks-with-splunk", "146-0": "security-incident-reporting", "146-1": "security-incident-reporting", "147-0": "security-incident-reporting", "148-0": "security-incident-reporting", "149-0": "security-incident-reporting", "149-1": "security-incident-reporting"}, "quick": [["CJCA", ["incident-handling-process", "security-monitoring--siem-fundamentals", "windows-event-logs--finding-evil", "introduction-to-threat-hunting--hunting-with-elastic", "intro-to-network-traffic-analysis"]], ["CWES", ["javascript-deobfuscation"]]], "acc": {"CJCA": "#2f95ff", "CWES": "#ed635e"}, "badge": {"CJCA": "data:image/webp;base64,UklGRpYPAABXRUJQVlA4WAoAAAAQAAAAXwAAXwAAQUxQSGADAAABCjrStieSJElZMTw+M1xj2mKb7Inq9gZOkzUH6PHI5QMw867JzFilVERlZVem9Pfa3/crIhg4ktqGA4MPp3fyA3SF6xEATsxeLu+8+OrXKhD61YtcXp490VytlLAFDXB8dfD4h9ACP+gAx2uisOkiA5y6eO+3QLLyACpy2jrovXzKAIVNFenS9ZrxQ1RtGnhFTVxfKpIECuzfeB7IUa7YAciZ5PMNNSgis87s6L8P9E2mG+HJ9/0dxtm47OLj8XjPSEAmdTEiadUc3gwcekYElNw8HGuWDlj7IngwMgDmNQMXZdiucswyAZQsd6GIYOcetlhIxGU8PNdZe5j5rsmmITFjckdb/iuMmBCZutxJC6yTnkkBcr1DMqNPDyYGwGx67bP0FZMDnm2TivP/VKAAAPl8q6TDme+DpwiA36txLW5Gex6PFyQEmYrCTueuckgxUOaplGKlNkmKKersga8rL0lQfX3Auq39teYgOWN0S6eYq02azm2h1u14Ebw0AXWHs01/ofbynDacxd7PKy9PUH2+12LS92sv0fUnnd3xuvYS3esddsIvBZFGglo7h1vVSKZk6JghTv4RKpkC/pGN6+FSPVqoI0zP4UElV6Dj/tGJvtjuUYO14CkW4JrBIAzlinIA91h2o+7ET3IzJJh1FqBgAHpFcp8Er5RhJFkyy9vSG31J2TTzV9Llq1+li4LCAf7vQ35H/hD5M5J/Xcu/L8m/r8p/Lsh/rsl/Lst/rxD/XrQN3uvkv5dKf6/eDt8F8r9rxH+Xyf+ulP5dvA2+6+XXJcTXVeTXhcTXtcTX5eTXFcXXRcXXdeXXpcXX1bfffwGgh2V6AQrPbHpAS+3TJ08CzK0NUKyTiRXkejPbNvlX2uVk6kS2k858l/L6U2KmaR2S5x6GUaJRyHx4rs521l1lSEMqWe6KYIAD1r5IsFiAec3AIQasmsObgcOoAZTcPGwKayJBgcXHIeIykEldrFc3HqwzO/rv6zWOcB9B9uT7/g7jGmxEcv/G80COuhHImeTzDZ3KxpoldOn6bxNHFa1S8AqSv11fKszkPJMEOHXx3m+TWwGgIqetg97Lp0wzShM4AxxfHTz+oU3zgw5w3ABuHKUEewSAE7OXyzsvvvq1CoR+9SKXl2dPNFerIwBWUDggEAwAABAyAJ0BKmAAYAA+PRyKRCIhoRR8zRQgA8SxgF95+ID49HAH6IvFA8271V+YD9VfWU88b1AP69/qusN9AD9QPTS/ar4PP16/bf4Cf1v/+2cSf3vtU/uvQkd+PXP9x9BJ9XPuP5Afld8Xf5DwN4AX4j/Hf7P+QP5Ge4DsCpnfUC9XPof99/MX+085fyze4B/If5T/e/y7/f/6d/2H6AeRTQA/nv9M/2/90/If6T/5j/i/3T/L/s77Kfz3/Df8L/P/kz9gP8g/nf+d/un7kf3v/5/UH6wP2q9h39VPv/XrUJt9p3LdPrd7S5b0F1zA/30wemxvm3ruIkRSRBzRp8GQFgvZdqcSTbaJysACUAevwmQAhEIlYfy73/KM8MJsJ0jaOVtwGNSimYYhAbExKJKnuQrFt2pK06m0Zbpa5zmFXgcgQGxuxXNjrdH9hRfpxILZx+YfY2XhQOHQ7TsLFwkLId78dzqNbCU2JXHOJhYo6V0KrjX7Nd+bwY8YXDyD18zhqeiOSIJEQuRegKsvV8tyzqd4+PF0vukQjQAA/v/QbspiS+TjQfeneDM14jPJlUvL+ZmiD6em/9LNVnsYVtBwExGwu3WrOuMpIak2F4T4MTPlPg/Oc1S59MhxppDb/aTizy+zwoDfr9vadBSlGfJOw6y2OEgfy7qrBl/RmkBUdG+2C8pb/D5wPPl+iGbp6GvW6TMvKminzQLz/7AoVo7R77fkOWj4tDzbGS1xABDqLwrzD7tWH/y/7+f+QutQ/WOktumeJf5mPDPBrQx2X9pQUcmfqTc3jP4jPJeJXI1tC9HNS2VvWTjeD685Yweao0TNtYAz6/hi0PYRwjFgKqVb9W/QlxlWMbAUBMAtqROcc89pqbiBO2Zmz+NwjgJo/+RwTgdxDNR464g/zMNUAoewhnwtYSJs7m++/WBtD92fIbXvyN5x3WepR+goOczrZFPsozh7+9QGqUlpu0Dxm/99evQj7iD2X67jnPY20dhqMnBqKnuZU/t1AbjOuZdQ8+Sse8clEeDDzjlBLaVkM7Jz1rDtr5SBspElQj16MAKh+J59Hs6nH8WofWJpBbh3asbMefiK+Ay561iHCADMgqk6FjF75sGlpsfk1S4qLe/NBLf7Rw4J9g+C8vL/X81E8kxtKf67zbKL9K37eJBd6zqQK5d6Qyr4aO3/7SwYTfyXJT4lMOQIV8ptIsUL18bIfkhtOmzcqtmsBc7Tqt+Yn0grBF1vVMP0R/GUxAv8k1b6rJwvhmr9fGgtZEZfDFIHpL9SE1KXu5Pz2wJ9HOtIGoszU8wd+ewGpxl5quN8/fN5fx9XH8om9UX00gmVN2d2b2Z34iH5ZQUUUreaayBD+i0ZtIgkNif1h8y/JCDLSdgAYtbjfQW8K75dsPVufYrsH2H/3/6N216BLQ1Dq7wYx9l/3zMfvHDrSjt+ozUVJrfrXEonN9dAcluqgrB1/4PufV4vh2KUvQu3WAB2L5iLE004W7KSllwKMsQ0jVDuth4NZQg+GR8UjQ8gWOvbIMAoPPE0c4FKyw/TXCb2/o4SYayrTK3/TfJJchUGdppoZwrWXAaX4rMhwLWFCy+AuqN9Wrj2StHF7oau2Z+TgzG3znAGqzkAqrRt1bRe7if1iBmEPbRZtcaOi+ajkM+wKPGJkkc1ihKGrEmte21Fbq7I+/35qhcmYJYwPpiu/8YaSTf/6NP9H8v1Q9uR5jxkrBygkNi9DPn/OVY4Qh/nx5LfPMHbhhXZTxqzWvVP1LfnlLkDenAE/JpPBRPA4Yz03KQzhC3vwR9Pq7EFK795NKoFlLoylMr0IeW9cP4h/f4f+XdeiIhry7ov3smqfknKeXAdVYgPcqWUxLMz+vah3arblhvybfFexOURn/Qg8JZQYJo2EusOeAplbnzXA0fR2V2XkrO7NBnxy51WP9bt0hapvLE1La/t2gw2UpItX2+PedRHr4JVvqG055KdlY3/oI5vmckge58Z2XiQNhusiYkGJ4PH9nbklf5Vn6dJhNtEXvClvrS30VDI7QqUTcIxr0rB1RetZSxizliR330rdz7PY1KCyF54p8iI6Zfv2p3/ibBlHARnGD92DrOwptu8Ck3zmE4glt5jGYHJKoSO0YNtQv038PvqP2u1eeY2lcy625GFTVNVcedN+27FodxhNd+KP8CpApC4FiV4cgP+AwuRGlcB06y3wo7oj1cl6gD4iieqVYF5RspwlRXxaFgr/lYAwvW3C2SX9cHxpiwGdovBVrbDbGPWg0jQs/A4TWcAg+uxM5V6Tx2AyHeRyCumlSs8R6pVMXF+ec+1OrAZ5ACi8pjFqDWoeQ4HHPfWGmgAlVbso7fHFfm83CVhxgw2Td7Oh9xofz5LBGB447+d1dfG8DX+AK6Aky8695DAEvzf6epjxgfAazNV8Grn43hCgzExYdCKzVGfxEVnXXBTYpYiq+LYY8HTbPVwLDKpwxX3KKRalS/xjnQDEQsY7EuMHkX6cS7DyHheT4uCD8mr7nbyw+Pa5TQ4ciXPHRhRwOEb4RMMStVk/cdPsmNgW0yQwFoy0Hppjnrho4lMzhlk4fpaAbeghihZsQW1XQvIyt1B29GOhEfDx6MqLE2uUK9BThUrF0uWg8VHuUe0nKEbMjw8j95Q+e6Pzd+W0fnEmwgySK5CmdpDDf/xrjp35vgV2OV0+wRTG/QgRpsAil2NQ12r/A8BFXanJ8/JDfBTI0s5FuFODknCZ3sPw+Qd/vzzdTlpFBngTxiebf/0pY6hv+/B5wazbnPpUv8B3zer/38Lrc0FILY53LCCFAHM3SqgGmQ6o919oSzXOHxYYZ7ZyK3ndUUDBLUUbtY+drJDoOUWSvsyPM6QLf2T0tQ8zdsOMc0vAVEK+6DbmfFkwdz7bUGwgYvJ26huaHUtPhs5TCInqfTGVYr1wLNDxhvOZCqb6Y7DrpkGv8ArpOKJFM1gj7M+qaj7GuQj8YRFDJKiUp2qff/Bcy5HKQu0OYt5Op44ofu9hrxr4/8liz9h4x0Y/OfGE4NuxF2pfpUCSAQ9lbfYBgxu3ilcZnNOiJi1lc9TuUuciH8s0VRqu92TGyydqo4tp8Fg89Xepyp/21xrEdr6c7I80UNa8GICl0RrpshSNZphzd9nteOJWS842KRlut23fihsXg4Pxrza9sv7kn9jrntSj+p5nnNSq/jeZNBUBTry5wwwM4am1e5+y6sFJEz0qlkPqM9CJfhmJTHf4whzecojE0P46hz5yHcc4B2s7uzDcKrJjKcOHMovTlmPxUE2+HwydslYNa3CSBlYsdglBTPNH3M1jfjCO3hFVjc4lWAaNQ+TN7kSEqCBKlO59JW2WD63xhEmpPUpAof4yPqx2/KUQweiQcuSjEoWdyQ9hK/0VCnk/DbQU8YtB0qWW5zYTB/A8Iijzus6e+s2xJGvpQcJZukjsCD6XbrmGugXgpWqGjJHV8h9m340utnzq2YORP23HSb0wRhg2wrGPdR9Pi0Ar7N19wbi7t5GdNe+o+2N2P/p4/Hx98hqzH9IFLdPZzKBDIaczGCVVghqhIQ6ZDnHfxHEoOkkz2R6qJVNi8YYZmRs2v0blrfzGz35wXavi81zZA48QUElo7BueyntJlU+FXORGivbxpq5AGxYQFf8nEfafkLkv/8Pcki0IVWjB89ow4pus2Wz22bvcrPvZV73tHaGb6wAeWEyTPL368GSgmRyJeCOhqliw902fu+VWUmATrXTauQ8cAY7AXgGeXT6IVBlYk/yVxgysWqBKcI9tr9dsJhDB/sPH2g6nVFUxYqr8pKN/nBOMZNXe0ZIH6M+Xvlg55fTOU/QqeGcCa3n3aO6IX5FJt7X7/OaAXZmhwXjTCSvm+ihRxC/A/opBMhN2TN8TkpChqNdwV836TvgGlraNR5snBkwUPbOWRmTtu+LvQ7FFNeAmO6/SkYKnO3pUn/OVJFOlKAZspoCBjzz6UEBXawwAKLEErjnOewSpCjiW1fCXZ74IHJ5ME3ndHQdQ13GNms2V5JatTvYWW7PrxR8P2xq04wbBgqmP10Fbo6TiTzk+y9Nag+KO6FAh2VZx619cZBarsyYWEcrUI/oFDxLSAeZqyvdL+ZqJljkh6oAAAA=", "CWES": "data:image/webp;base64,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"}};
 const WEEK_RAMP = ["#99f7fe", "#00eafc"];
 let DAYS = [];   // display days for the currently selected mode
 
@@ -2914,6 +2980,74 @@ function init(){
   renderAll();
 }
 init();
+/* ---------- Already done some modules? ---------- */
+(function(){
+  const P = MODS_DONE;
+  const $ = id => document.getElementById(id);
+  const byMod = {};
+  Object.entries(P.taskMod).forEach(([id, s]) => (byMod[s] = byMod[s] || []).push(id));
+  const modFull = s => byMod[s].every(id => state.done[id]);
+  const boxes = () => [...$("modsList").querySelectorAll("input:not(:disabled)")];
+
+  let undo = [];
+  function mark(slugs){
+    undo = slugs.flatMap(s => byMod[s]).filter(id => !state.done[id]);
+    undo.forEach(id => state.done[id] = true);
+    save(); renderAll();
+    $("toastTxt").textContent = `Marked ${slugs.length} module${slugs.length === 1 ? "" : "s"} done (${undo.length} tasks).`;
+    $("toast").classList.add("on");
+    clearTimeout(mark.t); mark.t = setTimeout(() => $("toast").classList.remove("on"), 8000);
+  }
+  $("toastUndo").onclick = () => {
+    undo.forEach(id => delete state.done[id]); undo = [];
+    save(); renderAll(); $("toast").classList.remove("on");
+  };
+
+  function count(){
+    const n = boxes().filter(b => b.checked).length;
+    $("modsCnt").textContent = n + " selected"; $("modsOk").disabled = !n;
+  }
+  const also = {};
+  P.quick.forEach(([c, slugs]) => slugs.forEach(s => (also[s] = also[s] || []).push(c)));
+  function open(){
+    $("modsList").innerHTML = P.mods.map((m, i) => {
+      const full = modFull(m[0]);
+      return `<li class="${full ? "full" : ""}"><label><input type="checkbox" value="${m[0]}"${full ? " checked disabled" : ""}>
+        <span class="n">${i + 1}. ${m[1]}</span>${(also[m[0]] || []).map(c => `<span class="xc" style="color:${P.acc[c]}" title="Also in the ${c} path">${c}</span>`).join("")}${full ? `<span class="tag">DONE</span>` : ""}<span class="s">${m[2]} sec</span></label></li>`;
+    }).join("");
+    const q = P.quick.map(([c, slugs]) => [c, slugs.filter(s => !modFull(s))]).filter(([, s]) => s.length);
+    $("modsQuick").hidden = !q.length;
+    $("modsQuick").innerHTML = q.length ? `<span class="ql">Passed another cert?</span>` + q.map(([c, s]) =>
+      `<button type="button" data-c="${c}" style="--c:${P.acc[c]}" aria-pressed="false" title="Select the ${s.length} module${s.length === 1 ? "" : "s"} shared with ${c}"><span class="bd"><img src="${P.badge[c]}" alt=""></span>${c}</button>`).join("") : "";
+    const chips = [...$("modsQuick").querySelectorAll("button")];
+    const slugsOf = b => new Set(q.find(x => x[0] === b.dataset.c)[1]);
+    // a chip stays lit while every module it covers is ticked
+    const refresh = () => {
+      const on = new Set(boxes().filter(x => x.checked).map(x => x.value));
+      chips.forEach(b => b.setAttribute("aria-pressed", [...slugsOf(b)].every(s => on.has(s))));
+      count();
+    };
+    chips.forEach(b => b.onclick = () => {
+      const s = slugsOf(b), lit = b.getAttribute("aria-pressed") === "true";
+      boxes().forEach(x => { if (s.has(x.value)) x.checked = !lit; });
+      refresh();
+    });
+    $("modsList").onchange = refresh; refresh();
+    $("modsDlg").showModal();
+  }
+  $("modsOk").onclick = e => {
+    e.preventDefault();
+    const picked = boxes().filter(b => b.checked).map(b => b.value);
+    $("modsDlg").close();
+    if (picked.length) mark(picked);
+  };
+  // click outside the popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
+  let downOnBackdrop = false;
+  $("modsDlg").addEventListener("pointerdown", e => { downOnBackdrop = e.target === $("modsDlg"); });
+  $("modsDlg").addEventListener("click", e => { if (e.target === $("modsDlg") && downOnBackdrop) $("modsDlg").close(); });
+
+  $("modsBtn").onclick = open;
+})();
 </script>
 </body>
 </html>
