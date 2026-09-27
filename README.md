@@ -19,19 +19,20 @@ Day-by-day study plans for Hack The Box certifications. Pick a cert, choose how 
 | [CWPE](https://cnmoseman.github.io/htb-study-trackers/cwpe/) | Certified Wi-Fi Pentesting Expert | 10 modules, 7-day exam | 25 to 120 days |
 | [COAE](https://cnmoseman.github.io/htb-study-trackers/coae/) | Certified Offensive AI Expert | 12 modules, 7-day exam | 30 to 140 days |
 
-## What's in a tracker
+## Features
 
-Each one takes the cert's HTB Academy job-role path and splits it into days, following the modules in order. The dashboard shows how much you've finished, your streak, which phase you're in, and whether you're ahead of or behind pace.
+The trackers all work the same way, whichever cert you pick.
 
-There are five timelines per cert, for about 50, 40, 30, 20, or 10 hours of study a week. The same material gets packed into more or fewer days, and your checkmarks carry over if you switch. Hours come from HTB's own per-module estimates, so the pacing is realistic.
-
-Every day has a notes box for commands, credentials, and anything you want to come back to. The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
+- Each one splits the cert's HTB Academy job-role path into days and follows the modules in order.
+- You choose one of five timelines, for about 50, 40, 30, 20, or 10 hours of study a week. The hours come from HTB's own module estimates, and your checkmarks carry over if you switch.
+- The dashboard shows your overall progress, your streak, which phase you're in, and whether you're ahead of or behind pace.
+- Every day has a notes box for commands, credentials, and anything you want to come back to.
+- The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
+- If you've already finished some modules on HTB Academy, tick them under **Already done some modules?** and the tracker checks off their study tasks.
+- Export and Import let you back up your progress or move it to another device.
+- Each tracker is a single HTML file with its fonts and images built in, so it works offline.
 
 ![The CPTS tracker](assets/tracker-overview.png)
-
-If you've already finished some modules on HTB Academy, click **Already done some modules?** above the plan and tick them. The tracker checks off their study tasks and leaves the practice and review days for you to do. Some modules appear in more than one job-role path, so if you've passed a cert that shares modules with this one, its badge shows at the top of the list. One click on it selects every module the two paths have in common (CPTS and CWES share 11). For a cert that doesn't share modules with any other, you just get the list.
-
-![Marking modules you've already done in the CPTS tracker](assets/modules-checklist.png)
 
 ## How to use
 
@@ -43,10 +44,6 @@ If you've already finished some modules on HTB Academy, click **Already done som
 ## Where your progress lives
 
 Your progress is saved in your browser, separately for each tracker, and it never leaves it. There's no account. Progress doesn't sync between devices, so use Export and Import to move it.
-
-The live site counts page visits with [GoatCounter](https://www.goatcounter.com/), which doesn't use cookies or collect personal data. Downloaded copies don't count anything.
-
-Each tracker is a single HTML file with its fonts and images built in, so a downloaded copy works offline.
 
 ## Hosted or downloaded?
 
