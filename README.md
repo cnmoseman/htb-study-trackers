@@ -1,6 +1,6 @@
 # Study Trackers
 
-![Pick a cert. Get a plan.](assets/share-card.png)
+![Pick a cert. Get a plan.](assets/share-home.png)
 
 Day-by-day study plans for Hack The Box certifications. Pick a cert, choose how many hours a week you can put in, and check off tasks as you go.
 
