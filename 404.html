@@ -3,19 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex">
-<title>Study Trackers</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found · Study Trackers</title>
 <meta name="theme-color" content="#9fef00">
-<style>html,body{margin:0;background:#141d2b}</style>
 <script>
-  // bad link: /CPTS, /cpts.html, /cpts/foo -> /cpts/; anything else -> landing
+  // /CPTS, /cpts.html, /cpts/foo -> /cpts/ ; unknown or already tried -> landing
   (function () {
-    var codes = ["cjca", "cpts", "cwes", "cwee", "cdsa", "cape", "cwpe", "coae"];
-    var m = location.pathname.match(/^\/htb-study-trackers\/([^\/.]+)/i);
-    var c = m && m[1].toLowerCase();
-    location.replace("/htb-study-trackers/" + (c && codes.indexOf(c) > -1 ? c + "/" + location.hash : ""));
+    var p = location.pathname.split("/");
+    var base = "/" + p[1] + "/", seg = (p[2] || "").split(".")[0].toLowerCase();
+    var tried = p.length === 4 && p[3] === "" && p[2] === seg;
+    location.replace(base + (seg && !tried ? seg + "/" + location.hash : ""));
   })();
 </script>
 <noscript><meta http-equiv="refresh" content="0; url=/htb-study-trackers/"></noscript>
+<style>
+  html,body{margin:0;height:100%;background:#141d2b;color:#a4b1cd;font:15px/1.5 system-ui,sans-serif}
+  body{display:grid;place-items:center;text-align:center}
+  a{color:#9fef00}
+</style>
 </head>
-<body></body>
+<body>
+<p>Page not found. <a href="/htb-study-trackers/">Go to all trackers</a></p>
+</body>
 </html>
