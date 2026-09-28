@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Study Trackers</title>
+<meta name="theme-color" content="#9fef00">
+<style>html,body{margin:0;background:#141d2b}</style>
+<script>
+  // bad link: /CPTS, /cpts.html, /cpts/foo -> /cpts/; anything else -> landing
+  (function () {
+    var codes = ["cjca", "cpts", "cwes", "cwee", "cdsa", "cape", "cwpe", "coae"];
+    var m = location.pathname.match(/^\/htb-study-trackers\/([^\/.]+)/i);
+    var c = m && m[1].toLowerCase();
+    location.replace("/htb-study-trackers/" + (c && codes.indexOf(c) > -1 ? c + "/" + location.hash : ""));
+  })();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=/htb-study-trackers/"></noscript>
+</head>
+<body></body>
+</html>
