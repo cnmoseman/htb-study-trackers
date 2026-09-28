@@ -104,7 +104,12 @@
   .wbar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
   .wbar-track{flex:1;width:100%;display:flex;align-items:flex-end;background:var(--card);border-radius:4px 4px 0 0;overflow:hidden}
   .wbar-fill{width:100%;background:linear-gradient(var(--green),var(--green-dim));border-radius:4px 4px 0 0;transition:height .3s}
-  .wbar-lbl{font-size:9px;color:var(--faint)}
+  .wbar-lbl{font-size:9px;color:var(--faint);white-space:nowrap}
+  .wbar-col{min-width:0}
+  /* long timelines: tighter bars, label every 5th week */
+  .weekchart.many{gap:2px}
+  .weekchart.many .wbar-lbl.minor{visibility:hidden}
+  @media(max-width:760px){.weekchart.some{gap:3px}.weekchart.some .wbar-lbl.minor{visibility:hidden}}
   .phases{display:flex;flex-direction:column;gap:7px;margin-top:14px}
   .phase-row{display:grid;grid-template-columns:170px 1fr 42px;gap:10px;align-items:center;font-size:12px}
   .phase-name{color:var(--muted)}
@@ -2533,6 +2538,8 @@ function renderDashboard(){
   const wc = document.getElementById("weekChart");
   wc.innerHTML = "";
   const nw = numWeeks();
+  wc.classList.toggle("some", nw>12);
+  wc.classList.toggle("many", nw>24);
   for(let w=1; w<=nw; w++){
     const wdays = DAYS.filter(d=>weekOf(d.idx)===w);
     let t=0,done=0;
@@ -2542,7 +2549,7 @@ function renderDashboard(){
     col.className = "wbar-col";
     col.title = "Week "+w+": "+weekTheme(w)+" — "+p+"%";
     col.innerHTML = '<div class="wbar-track"><div class="wbar-fill" style="height:'+p+'%"></div></div>'+
-                    '<div class="wbar-lbl">W'+w+'</div>';
+                    '<div class="wbar-lbl'+(w===1||w%5===0?'':' minor')+'">W'+w+'</div>';
     wc.appendChild(col);
   }
 
