@@ -4538,7 +4538,6 @@ function weekTheme(w){
   return WEEK_THEMES[mid-1];
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
-function dayDoneCount(d){ return d.tasks.filter(t=>state.done[t.id]).length; }
 
 function parseStart(){
   const p = (state.startDate||"").split("-");
