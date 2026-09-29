@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · Study Trackers</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#9fef00">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/faq/">
+<meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/faq/">
+<meta property="og:title" content="Study Trackers FAQ">
+<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers work, what the HTB terms mean, and how to set up notes, a field manual and your report.">
+<meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers work, HTB terms, Obsidian notes, field manuals, cheat sheets and reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Saira:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#141d2b;--panel:#1a2332;--line:#243044;--text:#eef1f8;--muted:#a4b1cd;--dim:#7c8aa5;--green:#9fef00;--ink:#0d1420}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Saira",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--green)}a:hover{color:var(--text)}
+  .hero{background:var(--green);color:var(--ink);padding:22px 40px 36px}
+  .hero .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em}
+  .hero .bar a{color:var(--ink);text-decoration:none}.hero .bar a:hover{text-decoration:underline}
+  .hero h1{font:700 clamp(40px,6.5vw,68px)/.95 "Chakra Petch",sans-serif;letter-spacing:-.045em;margin:40px 0 0}
+  .hero p{font:400 17px/1.5 "Chakra Petch",sans-serif;margin:22px 0 0;max-width:620px}
+  .wrap{padding:32px 40px 0;max-width:980px;margin:0 auto}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+  .jump a{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--muted);text-decoration:none;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel)}
+  .jump a:hover{color:var(--green);border-color:var(--green)}
+  section{margin-top:40px;scroll-margin-top:16px}
+  h2{font:600 15px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0 0 14px}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+  details[open]{border-color:#34445e}
+  summary{cursor:pointer;list-style:none;padding:15px 18px;font:600 17px/1.35 "Chakra Petch",sans-serif;display:flex;gap:12px;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+";font:700 16px "IBM Plex Mono",monospace;color:var(--green);width:12px;flex:none}
+  details[open] summary::before{content:"\2212"}
+  summary:hover{color:var(--green)}
+  .a{padding:0 18px 16px 42px;font:400 16px/1.6 "Saira",sans-serif;color:var(--muted)}
+  .a p{margin:0 0 .75em}.a p:last-child{margin-bottom:0}
+  .a ul,.a ol{margin:0 0 .75em;padding-left:1.2em}.a li{margin:.25em 0}
+  .a strong{color:var(--text);font-weight:600}
+  code{font:500 .88em "IBM Plex Mono",monospace;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--text)}
+  pre{font:500 13px/1.5 "IBM Plex Mono",monospace;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;color:var(--text);margin:0 0 .75em}
+  footer{margin-top:56px;padding:24px 0;border-top:1px solid var(--line);font:500 13px "Saira",sans-serif;color:var(--dim);text-align:center}
+  footer a{color:var(--muted)}footer a:hover{color:var(--green)}
+  @media (max-width:560px){.hero,.wrap{padding-left:16px;padding-right:16px}.hero h1{margin-top:28px}.hero .bar{font-size:11px;letter-spacing:.04em}.a{padding-left:18px}summary{font-size:16px}}
+
+  .tools{display:flex;flex-direction:column;gap:16px}
+  #q{width:100%;max-width:520px;font:500 16px "Saira",sans-serif;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;outline:none}
+  #q:focus{border-color:var(--green)}
+  .tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line)}
+  .tabs button{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;padding:10px 14px;cursor:pointer;margin-bottom:-1px}
+  .tabs button:hover{color:var(--text)}
+  .tabs button.on{color:var(--green);border-bottom-color:var(--green)}
+  #none{color:var(--muted);margin-top:28px}
+  section{margin-top:32px}
+
+</style>
+<script>
+  /* page-view counter (GoatCounter, no cookies); live site only */
+  if (location.hostname === "cnmoseman.github.io") {
+    var gc = document.createElement("script");
+    gc.async = true; gc.src = "https://cnmoseman.github.io/htb-study-trackers/assets/count.js";
+    gc.dataset.goatcounter = "https://cnmoseman.goatcounter.com/count";
+    document.head.appendChild(gc);
+  }
+</script>
+</head>
+<body>
+  <header class="hero">
+    <div class="bar"><a href="../">&larr; STUDY TRACKERS</a><span>FAQ</span></div>
+    <h1>New here?<br>Start with this.</h1>
+    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers work, what the HTB words mean, and how to set up your notes.</p>
+  </header>
+
+  <main class="wrap">
+    <div class="tools">
+      <input id="q" type="search" placeholder="Search the FAQ" aria-label="Search the FAQ" autocomplete="off">
+      <nav class="tabs" aria-label="Sections">
+        <button data-s="all" class="on">All</button>
+        <button data-s="trackers">The trackers</button>
+        <button data-s="htb">HTB basics</button>
+        <button data-s="setup">Your setup</button>
+        <button data-s="notes">Notes &amp; reports</button>
+      </nav>
+    </div>
+    <p id="none" hidden>No questions match that. Try another word.</p>
+
+    <section id="trackers">
+      <h2>THE TRACKERS</h2>
+
+      <details>
+        <summary>What is a study tracker?</summary>
+        <div class="a">
+          <p>It's a day-by-day plan for one HTB certification. Every module in the cert's job-role path is split into daily tasks, in the order you should study them, with practice, review days and exam prep mixed in. You check tasks off as you go, and the dashboard shows how far along you are and whether you're on pace.</p>
+          <p>Each tracker also has a Resource Library (videos, exam reviews, notes, tools and tips from people who passed) and an About tab explaining how the cert and exam work.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is this made by Hack The Box? Does it cost anything?</summary>
+        <div class="a">
+          <p>No to both. These are free, independent study aids, not affiliated with or endorsed by Hack The Box. You don't need an account or a sign-up. The HTB content itself (Academy modules, exam vouchers, lab subscriptions) is paid and comes from HTB.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Which timeline should I pick?</summary>
+        <div class="a">
+          <p>Each tracker offers five timelines, built for roughly 50, 40, 30, 20 or 10 hours of study a week. Pick the one that matches the hours you can really give it, not the hours you wish you had. Bigger certs take more days at the same pace. The CJCA, for example, runs from about 25 days at 50 hours a week to about 130 days at 10.</p>
+          <p>You can switch later without losing anything. Your checked tasks and notes stay attached to the tasks themselves, so they move with you to the new timeline.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Where do the time estimates come from, and how accurate are they?</summary>
+        <div class="a">
+          <p>They come from Hack The Box. Every module in HTB Academy shows an estimated completion time on its cert's path page, and the trackers use those official numbers. Each module's hours are spread across its days by section, and the timelines divide the path's total hours by your weekly hours.</p>
+          <p>Treat them as a minimum. Many learners find a module takes longer than HTB's estimate, especially when you're new to the topic, take thorough notes, or get stuck on a skills assessment. That's normal and doesn't mean you're slow.</p>
+          <p>If you keep running over, the pace box will show you're behind. Switch to a longer timeline. Your progress carries over, and it's better to plan for your real pace than to fight the calendar.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I fell behind. What now?</summary>
+        <div class="a">
+          <p>Everyone does. The pace box on the dashboard tells you whether you're ahead, on pace or behind, based on your start date. If you're behind you can:</p>
+          <ul>
+            <li>Use the catch-up days built into the plan.</li>
+            <li>Switch to a longer timeline. Your progress carries over.</li>
+            <li>Change your start date to give yourself a fresh baseline.</li>
+          </ul>
+          <p>The plan is there to keep you moving. Nobody's grading you on it.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Where is my progress saved?</summary>
+        <div class="a">
+          <p>In your browser, on your device. Nothing is sent anywhere. That has a few consequences worth knowing:</p>
+          <ul>
+            <li>Progress on your computer won't show up on your phone or on another browser.</li>
+            <li>Clearing your browser's site data (or cookies and site data) erases it.</li>
+            <li>Private or incognito windows forget everything when you close them.</li>
+          </ul>
+          <p>That's why the <strong>Export backup</strong> button exists. See the next question.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do backups work? How do I move to another computer?</summary>
+        <div class="a">
+          <p>Click <strong>Export backup</strong> in the tracker. It downloads a small file named like <code>cjca-tracker-backup.json</code> with your start date, timeline, checked tasks and notes. On the other computer, open the same tracker, click <strong>Import</strong> and choose that file.</p>
+          <p>Export one every week or so and keep it somewhere safe, like a cloud drive or your notes folder. If you ever clear your browser, importing it puts you right back where you were.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Should I use the website or download the file?</summary>
+        <div class="a">
+          <p>Either works. Opening a tracker on this site is the quickest way to start. The download arrow on each card on the home page saves the tracker as a single HTML file that runs offline in any browser.</p>
+          <p>One catch: the website and a downloaded file keep <em>separate</em> progress, because your browser treats them as different places. Pick one and stick with it, or move between them with Export and Import.</p>
+          <p>The website version also gets updates, like new resources, as soon as they're published. On rare occasions an update changes a tracker's plan in a way that affects its timeline, and your days might shift along with it. A downloaded file never changes, so it keeps your plan exactly as it was, but it also won't get new resources unless you download it again.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I already finished some modules. Do I start from day one?</summary>
+        <div class="a">
+          <p>No. Open <strong>Already done some modules?</strong> in the tracker and tick the modules you've completed. The tracker checks off those tasks for you. If you've passed another HTB cert, the <strong>Passed another cert?</strong> shortcuts tick every module the two paths share.</p>
+          <p>Clicking a day's <strong>DAY</strong> badge also marks that whole day done in one click, which is handy for catching up on days you did but didn't tick.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What do "Free", "VIP+" and "Pro Labs" mean next to a resource?</summary>
+        <div class="a">
+          <p>They tell you what you need to access a practice lab on the main HTB platform (not the Academy). <strong>Free</strong> means any HTB account can play it. <strong>VIP+</strong> means it's retired, and retired machines and challenges need a paid VIP+ subscription. HTB does keep a small, rotating set of retired machines free, so a VIP+ box might be free for a while when you look. <strong>Pro Labs</strong> need a separate Pro Labs subscription.</p>
+          <p>Labels can also go out of date. Active machines are free, but when one retires it becomes VIP+, so a box marked Free here might need VIP+ by the time you get to it. HTB's <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions">HTB Labs Subscriptions</a> page has the current details for each plan.</p>
+          <p>None of these are required to pass. They're extra practice.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>A link is broken, or I know a great resource. Who do I tell?</summary>
+        <div class="a">
+          <p>Use <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml">Report a problem</a> on GitHub. Both are short forms. You'll need a free GitHub account.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="htb">
+      <h2>HTB BASICS</h2>
+
+      <details>
+        <summary>What's the difference between HTB Academy and HTB Labs?</summary>
+        <div class="a">
+          <p><strong>HTB Academy</strong> (academy.hackthebox.com) is where the courses live. Its modules teach a topic step by step, with small labs and questions to answer. Certifications are earned through the Academy.</p>
+          <p><strong>HTB Labs</strong>, the main hackthebox.com platform, is where the "boxes" are: full practice machines you attack without instructions. They're great for practice, but separate from the Academy and billed separately.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What are job-role paths, modules and sections?</summary>
+        <div class="a">
+          <p>A <strong>module</strong> is one course on one topic, like "Linux Fundamentals" or "Network Enumeration with Nmap". Each module is split into <strong>sections</strong>, short lessons that often end with a question you answer from a lab.</p>
+          <p>A <strong>job-role path</strong> is HTB's ordered list of modules for a role. Each certification has one, and you have to finish the whole path before the exam unlocks. The About tab in each tracker says how big that cert's path is.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What's a skills assessment?</summary>
+        <div class="a">
+          <p>The last section of many modules. Instead of step-by-step questions, you get a scenario and have to use what the module taught to solve it on your own. It's the closest thing to exam practice inside the path. If one feels hard, redo it before the exam. The trackers schedule time for that.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What are cubes, subscriptions and vouchers?</summary>
+        <div class="a">
+          <p><strong>Cubes</strong> are the Academy's currency for unlocking modules one at a time. A <strong>subscription</strong> unlocks modules up to a tier every month instead. The exam is a separate purchase called a <strong>voucher</strong>, and some annual plans include one. Prices and plans change, so check HTB's own pricing page before you buy.</p>
+          <p>How many attempts a voucher gives you, and how retakes work, varies by cert. Each tracker's About tab covers it.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What are machines, boxes and flags?</summary>
+        <div class="a">
+          <p>A <strong>machine</strong> (or <strong>box</strong>) is a computer set up for you to break into legally. A <strong>flag</strong> is a string of text hidden on it that proves you got in. Usually there's a <strong>user flag</strong> for getting a foothold and a <strong>root flag</strong> for taking full control (privilege escalation). Many HTB exams are built from machines like these, so practicing on boxes is good exam prep.</p>
+          <p>A <strong>writeup</strong> is someone's walkthrough of how they solved a box. Try the box first, then read a writeup to see what you missed.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="setup">
+      <h2>YOUR SETUP</h2>
+
+      <details>
+        <summary>What is an "attack box"? Pwnbox or my own VM?</summary>
+        <div class="a">
+          <p>An attack box is the Linux machine you work from, loaded with security tools. You have two options:</p>
+          <ul>
+            <li><strong>Pwnbox</strong> is HTB's attack box that runs in your browser. Nothing to install, and it's already on HTB's network. How long you can use it depends on your plan.</li>
+            <li><strong>Your own virtual machine</strong> running Kali Linux or Parrot OS, inside free software like VirtualBox or VMware Workstation. It takes an hour to set up, but it's yours, it keeps your files, and it has no time limit.</li>
+          </ul>
+          <p>Pwnbox is the easiest way to start. Most people move to their own VM before the exam, since exams run for days.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I connect to the labs with the VPN?</summary>
+        <div class="a">
+          <p>If you're not using Pwnbox, your VM has to join HTB's lab network. In the Academy, open a lab section, choose to connect with VPN, and download the <code>.ovpn</code> file. Then in your VM's terminal:</p>
+<pre>sudo openvpn ~/Downloads/academy-regular.ovpn</pre>
+          <p>Use whatever name your file actually has. Leave that terminal open while you work. When it says "Initialization Sequence Completed", you're connected, and the lab's target IP should respond. Don't run Pwnbox and your own VPN connection at the same time.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="notes">
+      <h2>NOTES &amp; REPORTS</h2>
+
+      <details>
+        <summary>Why do I need notes if I can just reread the modules?</summary>
+        <div class="a">
+          <p>Because the exam is a race against the clock, and you need to find a command in seconds, not dig through your whole path. Your notes are also where your report comes from. Take notes on every module from day one: the exact commands that worked and a screenshot of the result.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Which note-taking app should I choose?</summary>
+        <div class="a">
+          <p>The popular ones for this kind of study are Obsidian, Joplin, CherryTree and Notion. They all work, and the best one is the one you'll actually keep using. TCM Security's <a href="https://www.youtube.com/watch?v=KpX7v5Ym3wg">The BEST Notetaking Apps Ranked</a> (9 minutes) compares them with pros and cons for each.</p>
+          <p>Personally, I use Obsidian. It's free, the notes are plain text files you own, and it handles code blocks and screenshots well. That's why the next answer walks through setting it up.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I set up Obsidian?</summary>
+        <div class="a">
+          <p><strong>Obsidian</strong> is a free note-taking app. Your notes are plain Markdown text files in a normal folder on your computer, so they're never locked inside an app.</p>
+          <ol>
+            <li>Download it from <a href="https://obsidian.md">obsidian.md</a> and install it.</li>
+            <li>Choose <strong>Create new vault</strong>. A vault is just the folder your notes live in. Name it after the cert, like <code>CJCA</code>.</li>
+            <li>Make a few folders: <code>Modules</code> (one note per module), <code>Field Manual</code> (see below), <code>Screenshots</code>, and <code>Exam</code>.</li>
+            <li>In <strong>Settings &rarr; Files and links</strong>, set the default location for new attachments to your <code>Screenshots</code> folder. Now screenshots you paste land there instead of cluttering everything.</li>
+            <li>Start your first module note. Headings start with <code>#</code>, and commands go in code blocks between two lines of three backticks (<code>```</code>), so they stay copyable.</li>
+          </ol>
+          <p>A simple note for each module is plenty: what the module is about, the commands that worked (with a line on what each does), gotchas, and screenshots. You don't need plugins or themes to start. Plenty of people over-build their Obsidian setup and study less.</p>
+          <p>Back up the vault folder like any other folder (a cloud drive or Git works).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is a cheat sheet?</summary>
+        <div class="a">
+          <p>A short list of commands for a topic with a line on what each does. Most HTB Academy modules come with an official cheat sheet: look for the <strong>Cheat Sheet</strong> button above the module's table of contents, which opens it as a PDF. The trackers remind you to save each one when you finish a module, and to merge them with your own notes before the exam.</p>
+          <p>To see what a finished one looks like, <a href="https://github.com/zagnox/CPTS-cheatsheet">zagnox/CPTS-cheatsheet</a> is a popular community cheat sheet that covers nmap, common services, passwords and more. It's built for the CPTS, but a lot of it applies to entry-level certs too.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is a field manual?</summary>
+        <div class="a">
+          <p>A field manual is your personal playbook, organized by <em>what you're trying to do</em>, not by which module taught it. Module notes follow the course. A field manual answers the question you'll actually have mid-exam, like "I found an SMB share, now what?"</p>
+          <p>Each page covers one technique or service and has:</p>
+          <ul>
+            <li>A short explanation of when to use it.</li>
+            <li>A table of the commands, with what each one does.</li>
+            <li>What to look for in the output, plus the next step.</li>
+          </ul>
+          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study by copying the commands that worked from your module notes into the right page. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module.</p>
+          <p>If you use Obsidian, <a href="https://github.com/blue-pho3nix/pentesting_templates_obsidian">blue-pho3nix/pentesting_templates_obsidian</a> is a good template to start from. It's a set of Obsidian templates organized the same way, by phase and then one page per service or technique (it even has an SMB page). Its README walks you through setup: copy the templates into your vault, turn on the free Templater community plugin, and insert a template with <code>Alt+E</code>. It was built for CPTS and OSCP prep, so treat it as a structure to copy and fill with the commands you learn in your own path.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is SysReptor, and why does the report matter so much?</summary>
+        <div class="a">
+          <p>HTB exams aren't just about the hands-on part. Every exam ends with a professional report that HTB staff grade, and a weak report can fail you even if you got enough points.</p>
+          <p><strong>SysReptor</strong> is a reporting tool that has official templates for HTB exams. You write your findings in it and it produces a polished PDF. You can run it yourself, or use SysReptor's free cloud for HTB students, explained on their <a href="https://docs.sysreptor.com/htb-reporting-with-sysreptor">Hack The Box Reporting</a> page. If you use the cloud, export your report when you're done, because inactive accounts are deleted after three months. SysReptor also publishes a sample report for each HTB cert (here's the <a href="https://docs.sysreptor.com/assets/reports/HTB-CJCA-Report.pdf">CJCA one</a>), and every tracker links its cert's sample under Reporting &amp; Exam Prep. Read yours before you start the exam, since it shows the structure and depth HTB expects.</p>
+          <p>For a walkthrough, Cyber Ryan's <a href="https://www.youtube.com/watch?v=ItVsQmHLicc">CPTS Report Made EASY</a> video covers setting up SysReptor and using the HTB template, and dollarboysushil's <a href="https://dollarboysushil.com/posts/cpts-report-writing-guide/">report writing guide</a> shows what each section of a finished report looks like. Both use the CPTS, but the process is the same for every HTB cert.</p>
+          <p>Practice once before exam day: pick an easy box, solve it, and write a short report about it in SysReptor. Several exam reviews in the Resource Library say the same thing: start writing during the exam, not on the last night.</p>
+        </div>
+      </details>
+    </section>
+
+    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · <a href="../">All trackers</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml">Suggest a resource</a></footer>
+  </main>
+<script>
+  const secs=[...document.querySelectorAll("main section")], tabs=[...document.querySelectorAll(".tabs button")], q=document.getElementById("q"), none=document.getElementById("none");
+  let cur="all";
+  function apply(){
+    const t=q.value.trim().toLowerCase(); let shown=0;
+    secs.forEach(s=>{
+      let any=0;
+      s.querySelectorAll("details").forEach(d=>{
+        const hit=!t||d.textContent.toLowerCase().includes(t);
+        d.hidden=!hit; if(hit) any++;
+        if(t.length>2) d.open=hit;
+      });
+      s.hidden=!((cur==="all"||s.id===cur)&&any); if(!s.hidden) shown++;
+    });
+    none.hidden=shown>0;
+  }
+  tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.toggle("on",x===b));cur=b.dataset.s;apply();});
+  q.oninput=apply;
+</script>
+</body>
+</html>
