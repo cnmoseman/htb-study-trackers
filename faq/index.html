@@ -251,8 +251,8 @@
         <div class="a">
           <p>An attack box is the Linux machine you work from, loaded with security tools. You have two options:</p>
           <ul>
-            <li><strong>Pwnbox</strong> is HTB's attack box that runs in your browser. Nothing to install, and it's already on HTB's network. How long you can use it depends on your plan.</li>
-            <li><strong>Your own virtual machine</strong> running Kali Linux or Parrot OS, inside free software like VirtualBox or VMware Workstation. It takes an hour to set up, but it's yours, it keeps your files, and it has no time limit.</li>
+            <li><strong>Pwnbox</strong> is HTB's attack box that runs in your browser: a Parrot Linux desktop with the tools already installed and already on HTB's network. Any paid Academy plan or purchase includes unlimited Pwnbox time, but each session shuts down eventually, so keep your notes outside it. HTB's <a href="https://help.hackthebox.com/en/articles/5185608-introduction-to-pwnbox">Introduction to Pwnbox</a> shows how to start one.</li>
+            <li><strong>Your own virtual machine</strong> running Kali Linux or Parrot OS, inside free software like VirtualBox or VMware Workstation. It takes an hour to set up, but it's yours, it keeps your files, and it has no time limit. HTB's guide to <a href="https://help.hackthebox.com/en/articles/6369713-installing-parrot-security-on-a-vm">installing Parrot on a VM</a> lists the settings to use, and Kali has its own <a href="https://www.kali.org/docs/virtualization/install-virtualbox-guest-vm/">VirtualBox guide</a>.</li>
           </ul>
           <p>Pwnbox is the easiest way to start. Most people move to their own VM before the exam, since exams run for days.</p>
         </div>
@@ -264,6 +264,7 @@
           <p>If you're not using Pwnbox, your VM has to join HTB's lab network. In the Academy, open a lab section, choose to connect with VPN, and download the <code>.ovpn</code> file. Then in your VM's terminal:</p>
 <pre>sudo openvpn ~/Downloads/academy-regular.ovpn</pre>
           <p>Use whatever name your file actually has. Leave that terminal open while you work. When it says "Initialization Sequence Completed", you're connected, and the lab's target IP should respond. Don't run Pwnbox and your own VPN connection at the same time.</p>
+          <p>HTB's <a href="https://help.hackthebox.com/en/articles/12710285-connecting-to-academy-vpn">Connecting to Academy VPN</a> article walks through each step, and <a href="https://help.hackthebox.com/en/articles/5185536-connection-troubleshooting">Connection Troubleshooting</a> covers the common errors if it won't connect.</p>
         </div>
       </details>
     </section>
