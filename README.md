@@ -30,6 +30,7 @@ The trackers all work the same way, whichever cert you pick.
 - The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
 - If you've already finished some modules on HTB Academy, tick them under **Already done some modules?** and the tracker checks off their study tasks.
 - Export and Import let you back up your progress or move it to another device.
+- The site's home page shows a progress ring on each tracker you've started, so you can pick up where you left off.
 - Each tracker is a single HTML file with its fonts and images built in, so it works offline.
 
 ![The CPTS tracker](assets/tracker-overview.png)
@@ -51,7 +52,7 @@ Your progress is saved in your browser, separately for each tracker, and it neve
 
 ## Hosted or downloaded?
 
-Using a tracker on the site is the easy way to start, and most updates won't touch your progress. Fixes to wording, resources, hours, or timelines keep your checkmarks where they are. A bigger change, like adding or reordering days or tasks, can shift saved progress onto the wrong items, though. If you want a copy that never changes under you, download the HTML file and run it locally. Either way, export a backup now and then.
+Using a tracker on the site is the easy way to start, and most updates won't touch your progress. Fixes to wording, resources, hours, or timelines keep your checkmarks where they are. A bigger change, like adding or reordering days or tasks, can shift saved progress onto the wrong items, though. If that happens, the tracker shows a "Plan updated" banner the next time you open it, so you know to look over your recent days. If you want a copy that never changes under you, download the HTML file and run it locally. Either way, export a backup now and then.
 
 ## Practice labs and paid content
 
