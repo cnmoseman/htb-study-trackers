@@ -93,6 +93,12 @@
   .stat .num{font-size:22px;font-weight:800;line-height:1.1}
   .stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
   .stat .meta{font-size:11px;color:var(--faint);margin-top:2px}
+  .planwarn{display:flex;align-items:center;gap:12px;margin:0 0 16px;padding:10px 14px;border-radius:8px;border:1px solid var(--amber);background:rgba(255,180,84,.09);font-size:13px;line-height:1.45}
+  .planwarn[hidden]{display:none}
+  .planwarn b{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.08em;color:var(--amber);flex:none}
+  .planwarn span{flex:1;color:var(--txt)}
+  .planwarn .btn{flex:none}
+  @media (max-width:760px){.planwarn{flex-wrap:wrap}.planwarn span{flex-basis:100%;order:2}.planwarn .btn{order:3}}
   .pace{grid-column:1/-1;font-size:13px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
   .pace.ahead{color:var(--green);border-color:var(--green-dim);background:rgba(252,192,0,.09)}
   .pace.behind{color:var(--amber);border-color:var(--amber);background:rgba(255,180,84,.09)}
@@ -320,6 +326,7 @@
 <div class="wrap">
 
   <header>
+    <div class="planwarn" id="planWarn" role="status" hidden><b>PLAN UPDATED</b><span>This tracker's plan was updated since your last visit, so some checkmarks may now be on different days. Look over your recent days and fix any that are off.</span><button class="btn" id="planOk">Got it</button></div>
     <a class="home" href="https://cnmoseman.github.io/htb-study-trackers/">&larr; All trackers</a>
     <div class="kicker">Hack The Box · Certified Web Exploitation Expert</div>
     <h1>CWEE Study Tracker</h1>
@@ -2718,6 +2725,7 @@ const RESOURCES = [
 
 /* ---------- State ---------- */
 const STORE_KEY = "cwee_tracker_v2";
+const PLAN_SIG = "9a4ac16c11";  // changes when days/tasks move, so saved checkmarks may shift
 let state = {startDate:"", done:{}, notes:{}, mode:35};
 
 /* Timeline modes: the same full curriculum, repackaged into 35 to 180 days. */
@@ -2755,7 +2763,8 @@ function cleanState(o){
     startDate: typeof o.startDate==="string" ? o.startDate : "",
     done: isObj(o.done) ? o.done : {},
     notes: isObj(o.notes) ? o.notes : {},
-    mode: MODES[o.mode] ? +o.mode : 35
+    mode: MODES[o.mode] ? +o.mode : 35,
+    plan: typeof o.plan==="string" ? o.plan : ""
   };
 }
 function load(){
@@ -2769,6 +2778,10 @@ function load(){
     state.startDate = t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
   }
   state.mode = MODES[state.mode] ? +state.mode : 35;
+  if(!state.plan){  // first visit, or progress saved before plans were stamped
+    state.plan = PLAN_SIG;
+    if(Object.keys(state.done).length) save();
+  }
 }
 function save(){
   try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){ /* ignore */ }
@@ -3209,10 +3222,15 @@ document.getElementById("importFile").addEventListener("change",e=>{
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{
   if(confirm("Reset all progress, notes, and start date? This cannot be undone. Consider exporting a backup first.")){
-    state = {startDate:"",done:{},notes:{},mode:35};
+    state = {startDate:"",done:{},notes:{},mode:35,plan:""};
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
     init();
   }
+});
+
+document.getElementById("planOk").addEventListener("click",()=>{
+  state.plan = PLAN_SIG; save();
+  document.getElementById("planWarn").hidden = true;
 });
 
 /* another tab saved or reset: reload so this tab doesn't overwrite it */
@@ -3231,6 +3249,7 @@ function renderAll(){
   const endDt = dateForDay(DAYS.length);
   document.getElementById("endNote").textContent =
     (endDt ? "Plan ends "+fmtDate(endDt)+"  ·  " : "") + MODES[state.mode].hrs;
+  document.getElementById("planWarn").hidden = !(state.plan!==PLAN_SIG && Object.keys(state.done).length);
   renderDashboard();
   renderPlan();
 }
