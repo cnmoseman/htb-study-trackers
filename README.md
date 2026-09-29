@@ -41,6 +41,10 @@ The trackers all work the same way, whichever cert you pick.
 3. Check off tasks as you finish them. A day is done when all of its tasks are.
 4. Use **Export backup** every so often to save your progress.
 
+## FAQ
+
+https://cnmoseman.github.io/htb-study-trackers/faq/
+
 ## Where your progress lives
 
 Your progress is saved in your browser, separately for each tracker, and it never leaves it. There's no account. Progress doesn't sync between devices, so use Export and Import to move it.
