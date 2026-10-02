@@ -235,6 +235,15 @@
   .about ul{margin:0 0 9px 20px;color:var(--muted);font-size:13.5px}
   .about li{margin-bottom:4px}
   .about strong{color:var(--txt)}
+  .about .fine{font-size:12px;color:var(--faint)}
+  .cost{width:100%;border-collapse:collapse;margin:4px 0 12px;font-size:13.5px;color:var(--muted)}
+  .cost th{font:500 11px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;padding:7px 12px;border-bottom:1px solid var(--line)}
+  .cost td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cost td span{display:block;font-size:12px;color:var(--faint)}
+  .cost .pr{font:700 15px "IBM Plex Mono",ui-monospace,monospace;color:var(--green);white-space:nowrap}
+  .cost .pr i{font:500 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);font-style:normal}
+  .cost tr.dim td{opacity:.7}
+  .cost .yr{display:none;font-weight:700}
   .callout{background:rgba(255,180,84,.1);border:1px solid rgba(255,180,84,.3);
     border-radius:8px;padding:11px 14px;font-size:13px;color:var(--amber);margin:10px 0}
 
@@ -252,6 +261,9 @@
     .stats{grid-template-columns:repeat(2,1fr)}
     .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
+    .cost th:nth-child(3),.cost td:nth-child(3){display:none}
+    .cost .yr{display:block}
+    .cost th,.cost td{padding-left:6px;padding-right:6px}
     h1{font-size:22px}
   }
   /* Already done some modules? */
@@ -418,6 +430,23 @@
       <h3>The exam</h3>
       <p>The CWES exam runs for <strong>7 days</strong> in a dedicated lab over VPN. A letter of engagement sets the scope, and you test <strong>several real-world web applications</strong>, submitting <strong>flags</strong> as you find them. HTB says only that you need a certain number of points plus a commercial-grade report. Reviewers report <strong>10 flags</strong> and a pass mark of <strong>8</strong>.</p>
       <p>The <strong>report is due within the same 7 days</strong>. It has to be a <strong>commercial-grade report in English</strong> based on HTB's template (SysReptor's HTB template works too), uploaded as a PDF or ZIP of 20 MB or less, and submitting it ends your lab access. You get <strong>2 attempts per voucher</strong>. The free retake has to start within 14 days of your feedback, and you only get it if you submitted a report the first time. Results arrive within 20 business days.</p>
+
+      <h3>What it costs</h3>
+      <p>You pay for two things: access to the modules, and the exam voucher. The CWES voucher is <strong>$210</strong> on its own, and the path needs modules up to <strong>Tier II</strong>.</p>
+      <table class="cost">
+        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
+        <tr><td><strong>Student</strong><span>Needs a Student Email</span></td><td class="pr">$10<i>/month</i></td><td>Up to Tier II</td><td>Buy separately, $210</td></tr>
+        <tr><td><strong>Silver monthly</strong></td><td class="pr">$30<i>/month</i></td><td>Up to Tier II</td><td>Buy separately, $210</td></tr>
+        <tr><td><strong>Silver Annual</strong></td><td class="pr">$550<i>/year</i></td><td>Up to Tier II</td><td>Included, plus a CJCA voucher</td></tr>
+        <tr class="dim"><td><strong>Gold Annual</strong><span>More Than the CWES Needs</span></td><td class="pr">$1,400<i>/year</i></td><td>Up to Tier III</td><td>Included, plus a CJCA voucher</td></tr>
+      </table>
+      <p>The practice machines in this tracker are optional. They are on HTB Labs, which is billed separately from the Academy.</p>
+      <table class="cost labs">
+        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
+        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
+        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
+      </table>
+      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
 
       <h3>The 20 modules in order</h3>
       <ul>
