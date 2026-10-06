@@ -1455,7 +1455,7 @@ const CURRICULUM = [
     "hrs": 1.5,
     "tasks": [
       "Redo the footprinting labs from scratch; scan each host more than once (TCP full, UDP top ports)",
-      "Add every service to your cheat sheet with its enum commands"
+      "Add every service to your cheat sheet with its enum commands, then try the Enigma box on HTB Labs (NFS, IMAP/POP3, MySQL)"
     ]
   },
   {
@@ -1994,6 +1994,11 @@ const RESOURCES = [
         "note": "HTB's own set of Labs boxes picked for this cert"
       },
       {
+        "n": "Enigma (HTB Labs machine)",
+        "u": "https://app.hackthebox.com/machines/Enigma",
+        "note": "Easy Linux box from Season 11 that leans on Footprinting: NFS, IMAP/POP3 and MySQL. Free while it's active, VIP once it retires"
+      },
+      {
         "n": "HTB blog: A jumpstart into cybersecurity with CJCA",
         "u": "https://www.hackthebox.com/blog/Start-cybersecurity-with-HTB-CJCA",
         "note": "Launch post: what the cert covers and who it's for"
@@ -2325,7 +2330,7 @@ const RESOURCES = [
   {
     "cat": "Tips & Tricks from People Who Passed",
     "color": "#2f95ff",
-    "note": "Pulled from the exam reviews above, grouped by reviewer.",
+    "note": "Pulled from the exam reviews above and the HTB Discord, grouped by source.",
     "items": [
       {
         "n": "Treat the report as the exam, since flags alone don't pass you",
@@ -2378,6 +2383,10 @@ const RESOURCES = [
       {
         "n": "Scan each host more than once",
         "note": "Chicken0248"
+      },
+      {
+        "n": "Footprinting is one of the most important modules, so practice enumerating every service it covers",
+        "note": "HTB Discord"
       },
       {
         "n": "Look for chains, since findings on one host often unlock the next (also Chicken0248)",
