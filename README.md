@@ -50,11 +50,21 @@ Every cert also has a prep vault: a ready-made Obsidian vault you download as a 
 
 ## How to use
 
-1. Pick a cert on the site, then open its tracker or download the tracker's HTML file.
-2. Set your start date and pick a timeline.
+Open the [site](https://cnmoseman.github.io/htb-study-trackers/) and pick your cert. Its page has both the tracker and the prep vault.
+
+### Study tracker
+
+1. Click **Open tracker**, or **Download .html** to keep a copy that runs offline in any browser. The site and a downloaded copy keep separate progress, so pick one and stick with it.
+2. Set your start date and pick the timeline that matches the hours you have each week.
 3. Check off tasks as you finish them. A day is done when all of its tasks are.
-4. Use **Export backup** every so often to save your progress.
-5. Download the cert's prep vault and take your notes in Obsidian.
+4. Use **Export backup** now and then to save your progress. **Import** puts it back, on the same device or a new one.
+
+### Prep vault
+
+1. Install [Obsidian](https://obsidian.md) (free).
+2. On your cert's page, click **Download .zip** and unzip it. Some unzip tools add an extra folder around it. The one you want is `<CERT>-Prep-Vault`, with `Home.md` inside.
+3. In Obsidian, choose **Open folder as vault** and pick that folder. If you already have a vault open, you'll find this option in the vault switcher.
+4. Start on **Home**. Rename the methodology phases to fit how you work, and fill in each module's note as you finish it.
 
 ## FAQ
 
