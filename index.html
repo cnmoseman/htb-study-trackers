@@ -60,6 +60,8 @@
   .info ol{margin:.9em 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;font:500 clamp(13px,1.05vw,20px)/1.5 "Saira",sans-serif;color:var(--muted)}
   .info li{display:flex;flex-direction:column;gap:.35em;padding-top:.8em;border-top:1px solid var(--line)}
   .info li b{font:600 1.1em/1.2 "IBM Plex Mono",monospace;color:var(--green)}
+  .info h3{font:600 clamp(12px,.9vw,16px) "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text);margin:1.4em 0 0}
+  .info h3 + ol + h3{margin-top:2.6em}
   .note{padding:1.1em 1.25em;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:500 clamp(13px,1.05vw,20px)/1.55 "Saira",sans-serif;color:var(--muted)}
   .note strong.t{display:block;font:600 1.05em "Saira",sans-serif;color:var(--text);margin-bottom:.45em}
   .note strong.g{color:var(--green);font-weight:600}
@@ -101,11 +103,19 @@
     <section class="info">
       <div>
         <h2>HOW TO USE</h2>
+        <h3>Study tracker</h3>
         <ol>
-          <li><b>0x01</b>Pick a cert.</li>
-          <li><b>0x02</b>Open its tracker, set a start date and pick a timeline.</li>
+          <li><b>0x01</b>Pick a cert and open its tracker.</li>
+          <li><b>0x02</b>Set a start date and pick a timeline that fits your week.</li>
           <li><b>0x03</b>Check off tasks; a day completes when all are done.</li>
-          <li><b>0x04</b>Download its prep vault and take your notes in Obsidian.</li>
+          <li><b>0x04</b>Export a backup now and then.</li>
+        </ol>
+        <h3>Prep vault</h3>
+        <ol>
+          <li><b>0x01</b>Install Obsidian. It's free.</li>
+          <li><b>0x02</b>Download your cert's vault and unzip it.</li>
+          <li><b>0x03</b>In Obsidian, choose Open folder as vault.</li>
+          <li><b>0x04</b>Start on Home and make the methodology your own.</li>
         </ol>
       </div>
       <div class="note">
@@ -114,12 +124,12 @@
       </div>
       <div class="note">
         <strong class="t">New to Hack The Box?</strong>
-        The FAQ explains how the trackers work, what the HTB terms mean, and how to set up your notes, field manual and report.<br>
+        The FAQ explains how the trackers and prep vaults work, what the HTB terms mean, and how to set up your notes, field manual and report.<br>
         <a class="go" href="./faq/">Read the FAQ &rarr;</a>
       </div>
     </section>
 
-    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · Built on <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield/coae-study-tracker</a> · <a href="./faq/">FAQ</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml">Suggest a resource</a></footer>
+    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · Built on <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield/coae-study-tracker</a> · <a href="./faq/">FAQ</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=Landing+page&amp;title=%5BProblem%5D+">Report a problem</a></footer>
   </main>
 <script>
   /* saved progress on each tile (same-origin localStorage, set by the trackers) */

@@ -5,12 +5,20 @@ labels: ["resource"]
 body:
   - type: markdown
     attributes:
-      value: Thanks for sharing. I review every suggestion before it goes into a tracker.
+      value: Thanks for sharing. I review every suggestion before it goes into a tracker or a prep vault.
   - type: dropdown
     id: cert
     attributes:
       label: Cert
-      options: [CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE, All / several]
+      options: [CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE, All / several, Not cert-specific]
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where should it go
+      description: Prep vaults only list command and payload cheat sheets. Everything else goes in the tracker's resource library.
+      options: [Study tracker (resource library), Prep vault (command sources), Not sure]
     validations:
       required: true
   - type: dropdown
@@ -28,7 +36,7 @@ body:
     validations:
       required: true
   - type: input
-    id: title
+    id: resource_title
     attributes:
       label: Title and author
       placeholder: "How I passed the CWES (Jane Doe)"
@@ -43,4 +51,4 @@ body:
     id: access
     attributes:
       label: Access (practice boxes and labs only)
-      options: [Not a box or lab, Free, VIP+, Pro Labs, Not sure]
+      options: [Not a box or lab, Free, VIP+, Pro Labs (HTB PRO), Not sure]

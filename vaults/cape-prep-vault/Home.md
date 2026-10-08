@@ -38,4 +38,4 @@ Get tested commands from these as you go:
 - Reporting: [SysReptor HTB-CAPE template](https://docs.sysreptor.com/assets/reports/HTB-CAPE-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---
-<span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/)
+<span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/) · [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&cert=CAPE&where=Prep+vault&title=%5BProblem%5D+%5BCAPE%5D+)

@@ -84,7 +84,7 @@ Some trackers point you to practice on HTB Labs. Retired machines and challenges
 
 ## Suggest a resource
 
-Found a write-up, video, or practice box that helped you? [Suggest it here](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml). Spotted a wrong module or a dead link? [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml). I read every submission before anything goes into a tracker.
+Found a write-up, video, or practice box that helped you? [Suggest it here](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml). Spotted a wrong module or a dead link? [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml). I read every submission before anything goes into a tracker or a prep vault.
 
 ## Credits
 

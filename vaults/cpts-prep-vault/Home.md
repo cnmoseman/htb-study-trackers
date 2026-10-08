@@ -40,4 +40,4 @@ Get tested commands from these as you go:
 - Reporting: [SysReptor HTB-CPTS template](https://docs.sysreptor.com/assets/reports/HTB-CPTS-Report.pdf) + [[M27 - Documentation & Reporting]]
 
 ---
-<span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/)
+<span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/) · [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&cert=CPTS&where=Prep+vault&title=%5BProblem%5D+%5BCPTS%5D+)
