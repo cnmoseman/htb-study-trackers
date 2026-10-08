@@ -21,7 +21,9 @@ Each cert's page has its tracker and its prep vault.
 | [CWPE](https://cnmoseman.github.io/htb-study-trackers/cwpe/) | Certified Wi-Fi Pentesting Expert | 10 modules, 7-day exam | 25 to 120 days |
 | [COAE](https://cnmoseman.github.io/htb-study-trackers/coae/) | Certified Offensive AI Expert | 12 modules, 7-day exam | 30 to 140 days |
 
-## Features
+## Study trackers
+
+![The CPTS study tracker](assets/shots/tracker-overview.png)
 
 The trackers all work the same way, whichever cert you pick.
 
@@ -35,7 +37,9 @@ The trackers all work the same way, whichever cert you pick.
 - The site's home page shows a progress ring on each tracker you've started, so you can pick up where you left off.
 - Each tracker is a single HTML file with its fonts and images built in, so it works offline.
 
-## Prep vaults
+## Obsidian prep vaults
+
+![The CPTS prep vault open in Obsidian](assets/shots/cpts-vault.webp)
 
 Every cert also has a prep vault: a ready-made Obsidian vault you download as a zip, unzip, and open with **Open folder as vault**.
 
@@ -43,8 +47,6 @@ Every cert also has a prep vault: a ready-made Obsidian vault you download as a 
 - Blank methodology phases you rename and fill in as your own workflow.
 - Links to tested community cheat sheets for the cert, plus the cert's SysReptor report template.
 - It only uses Obsidian's built-in features, so you don't need any plugins. You can browse every vault in [vaults/](vaults/) before downloading.
-
-![The CPTS tracker](assets/shots/tracker-overview.png)
 
 ## How to use
 
