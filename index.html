@@ -28,9 +28,10 @@
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Saira",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:var(--muted)}a:hover{color:var(--green)}
-  .hero{background:var(--green);color:var(--ink);padding:22px 40px 40px}
-  .hero .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em}
-  .hero h1{font:700 clamp(44px,7.5vw,76px)/.95 "Chakra Petch",sans-serif;letter-spacing:-.045em;margin:48px 0 0;max-width:900px}
+  /* fixed banner height, shared with the cert pages (build_hubs.py): keep both at 360px */
+  .hero{background:var(--green);color:var(--ink);padding:22px 40px 40px;min-height:360px;display:flex;flex-direction:column}
+  .hero .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;margin-bottom:48px}
+  .hero h1{font:700 clamp(44px,7.5vw,76px)/.95 "Chakra Petch",sans-serif;letter-spacing:-.045em;margin:auto 0 0;max-width:900px}
   .hero p{font:400 17px/1.5 "Chakra Petch",sans-serif;margin:28px 0 0;max-width:560px}
   .wrap{padding:36px 40px 0}
   .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:14px;margin-bottom:-14px}
@@ -67,7 +68,8 @@
   .note strong.g{color:var(--green);font-weight:600}
   footer{margin-top:clamp(44px,3.5vw,72px);padding:24px 0;border-top:1px solid var(--line);font:500 clamp(12px,.85vw,16px) "Saira",sans-serif;color:var(--dim);text-align:center}
   @media (max-width:900px){.grid,.info ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (max-width:560px){.tile .prog{font-size:11px;letter-spacing:.02em}.hero,.wrap{padding-left:20px;padding-right:20px}.hero h1{margin-top:32px}.hero .bar{font-size:11px;letter-spacing:.04em}}
+  @media (max-width:560px){.tile .prog{font-size:11px;letter-spacing:.02em}.hero,.wrap{padding-left:20px;padding-right:20px}.hero .bar{font-size:11px;letter-spacing:.04em;margin-bottom:32px}}
+  @media (max-width:340px){.hero{min-height:380px}}  /* tiny phones: the copy wraps more; cert pages match */
   @media (prefers-reduced-motion:reduce){.tile,.tile img{transition:none}}
   .note a.go{display:inline-block;margin-top:.5em;color:var(--green);font-weight:600;text-decoration:none}.note a.go:hover{text-decoration:underline}
 </style>
