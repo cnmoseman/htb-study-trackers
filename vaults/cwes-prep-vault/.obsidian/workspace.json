@@ -1,0 +1,32 @@
+{
+  "main": {
+    "id": "root",
+    "type": "split",
+    "direction": "vertical",
+    "children": [
+      {
+        "id": "tabs",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "home",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "preview"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "active": "home",
+  "lastOpenFiles": [
+    "Home.md",
+    "Methodology/00 - Attack Flow (MOC).md",
+    "Notes/00 - Module Index (MOC).md"
+  ]
+}

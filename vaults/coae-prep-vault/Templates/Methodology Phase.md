@@ -1,0 +1,32 @@
+---
+order: 
+tags: [coae, methodology]
+---
+
+> [!tip] Goal
+> <!-- what this phase is for in your workflow, and when you move on -->
+
+Notes: <!-- link the notes this phase uses -->
+
+## Checklist
+- [ ] 
+- [ ] 
+- [ ] 
+
+## Commands
+```bash
+# command            # what it does
+```
+
+## Tools
+- 
+
+## Decision Points
+<!-- if you find X, go to Y -->
+- 
+
+## Gotchas / Lessons Learned
+- 
+
+## Links
+- Methodology: [[00 - Attack Flow (MOC)]]

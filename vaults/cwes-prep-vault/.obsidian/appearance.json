@@ -1,0 +1,7 @@
+{
+  "theme": "obsidian",
+  "accentColor": "#ed635e",
+  "enabledCssSnippets": [
+    "cwes-brand"
+  ]
+}

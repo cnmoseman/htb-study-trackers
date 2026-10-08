@@ -1,0 +1,7 @@
+{
+  "theme": "obsidian",
+  "accentColor": "#a34ff2",
+  "enabledCssSnippets": [
+    "cpts-brand"
+  ]
+}

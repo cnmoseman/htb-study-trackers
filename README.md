@@ -1,12 +1,14 @@
 # Study Trackers
 
-![Pick a cert. Get a plan.](assets/share-home.png)
+![Pick a cert. Get the kit.](assets/share/home.png)
 
-Day-by-day study plans for Hack The Box certifications. Pick a cert, choose how many hours a week you can put in, and check off tasks as you go.
+Study trackers and Obsidian prep vaults for Hack The Box certifications. Each cert gets two things: a day-by-day study plan you check off as you go, and a ready-made Obsidian vault for your notes.
 
 **Open the site: https://cnmoseman.github.io/htb-study-trackers/**
 
-## The trackers
+## The certs
+
+Each cert's page has its tracker and its prep vault.
 
 | Cert | Name | Path | Timelines |
 |---|---|---|---|
@@ -33,14 +35,24 @@ The trackers all work the same way, whichever cert you pick.
 - The site's home page shows a progress ring on each tracker you've started, so you can pick up where you left off.
 - Each tracker is a single HTML file with its fonts and images built in, so it works offline.
 
-![The CPTS tracker](assets/tracker-overview.png)
+## Prep vaults
+
+Every cert also has a prep vault: a ready-made Obsidian vault you download as a zip, unzip, and open with **Open folder as vault**.
+
+- A note for each module in the cert's path, in course order, ready for your commands and screenshots.
+- Blank methodology phases you rename and fill in as your own workflow.
+- Links to tested community cheat sheets for the cert, plus the cert's SysReptor report template.
+- It only uses Obsidian's built-in features, so you don't need any plugins. You can browse every vault in [vaults/](vaults/) before downloading.
+
+![The CPTS tracker](assets/shots/tracker-overview.png)
 
 ## How to use
 
-1. Open a tracker from the site, or download its HTML file.
+1. Pick a cert on the site, then open its tracker or download the tracker's HTML file.
 2. Set your start date and pick a timeline.
 3. Check off tasks as you finish them. A day is done when all of its tasks are.
 4. Use **Export backup** every so often to save your progress.
+5. Download the cert's prep vault and take your notes in Obsidian.
 
 ## FAQ
 
@@ -56,7 +68,7 @@ Using a tracker on the site is the easy way to start, and most updates won't tou
 
 ## Practice labs and paid content
 
-Some trackers point you to practice on HTB Labs. Retired machines and challenges usually need a VIP+ subscription, and Pro Labs need their own. When a tracker names a specific box, challenge, or lab, it says whether it's Free, VIP+, or Pro Labs. HTB sometimes moves retired boxes into the free rotation, so check the Labs page too.
+Some trackers point you to practice on HTB Labs. Retired machines and challenges usually need a VIP+ subscription, and Pro Labs need HTB PRO. When a tracker names a specific box, challenge, or lab, it says whether it's Free, VIP+, or Pro Labs. HTB sometimes moves retired boxes into the free rotation, so check the Labs page too.
 
 ## Suggest a resource
 

@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FAQ · Study Trackers</title>
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#9fef00">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:title" content="Study Trackers FAQ">
 <meta property="og:description" content="Answers for people new to Hack The Box: how the trackers work, what the HTB terms mean, and how to set up notes, a field manual and your report.">
-<meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share-faq.png">
+<meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/faq.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="New here? Start with this. A beginner FAQ for the HTB study trackers, shown with the cert badges.">
@@ -71,7 +71,7 @@
   /* page-view counter (GoatCounter, no cookies); live site only */
   if (location.hostname === "cnmoseman.github.io") {
     var gc = document.createElement("script");
-    gc.async = true; gc.src = "https://cnmoseman.github.io/htb-study-trackers/assets/count.js";
+    gc.async = true; gc.src = "https://cnmoseman.github.io/htb-study-trackers/assets/js/count.js";
     gc.dataset.goatcounter = "https://cnmoseman.goatcounter.com/count";
     document.head.appendChild(gc);
   }
@@ -81,7 +81,7 @@
   <header class="hero">
     <div class="bar"><a href="../">&larr; STUDY TRACKERS</a><span>FAQ</span></div>
     <h1>New here?<br>Start with this.</h1>
-    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers work, what the HTB words mean, and how to set up your notes.</p>
+    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers and prep vaults work, what the HTB words mean, and how to set up your notes.</p>
   </header>
 
   <main class="wrap">
@@ -89,7 +89,7 @@
       <input id="q" type="search" placeholder="Search the FAQ" aria-label="Search the FAQ" autocomplete="off">
       <nav class="tabs" aria-label="Sections">
         <button data-s="all" class="on">All</button>
-        <button data-s="trackers">The trackers</button>
+        <button data-s="trackers">Trackers &amp; vaults</button>
         <button data-s="htb">HTB basics</button>
         <button data-s="setup">Your setup</button>
         <button data-s="notes">Notes &amp; reports</button>
@@ -98,13 +98,28 @@
     <p id="none" hidden>No questions match that. Try another word.</p>
 
     <section id="trackers">
-      <h2>THE TRACKERS</h2>
+      <h2>TRACKERS &amp; VAULTS</h2>
 
       <details>
         <summary>What is a study tracker?</summary>
         <div class="a">
           <p>It's a day-by-day plan for one HTB certification. Every module in the cert's job-role path is split into daily tasks, in the order you should study them, with practice, review days and exam prep mixed in. You check tasks off as you go, and the dashboard shows how far along you are and whether you're on pace.</p>
           <p>Each tracker also has a Resource Library (videos, exam reviews, notes, tools and tips from people who passed) and an About tab explaining how the cert and exam work.</p>
+          <p>Every cert has its own page on this site with two things on it: the tracker and a matching prep vault for your notes (see the next question).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is a prep vault?</summary>
+        <div class="a">
+          <p>It's a ready-made <strong>Obsidian</strong> vault for one cert, and it's the notes half of the kit. You'll find it on each cert's page next to the tracker. Inside:</p>
+          <ul>
+            <li>A <strong>Methodology</strong> folder with ten blank, numbered phases. You rename them to the steps of your own workflow and fill them in as you learn.</li>
+            <li>A note for every Academy module in the cert's path, in course order, ready for your commands and screenshots.</li>
+            <li>Links to community cheat sheets for that cert, plus reporting prep: the cert's SysReptor template and the reporting module.</li>
+          </ul>
+          <p>To use one, download the zip from the cert's page, unzip it, and in Obsidian choose <strong>Open folder as vault</strong>. It only uses Obsidian's built-in features, so you don't need any plugins. If you'd like to look inside first, the <strong>View files on GitHub</strong> link shows every note.</p>
+          <p>Once you start writing in it, the vault is yours. Later updates on this site won't touch your copy, so back up the folder like any other (a cloud drive or Git works).</p>
         </div>
       </details>
 
@@ -169,7 +184,7 @@
       <details>
         <summary>Should I use the website or download the file?</summary>
         <div class="a">
-          <p>Either works. Opening a tracker on this site is the quickest way to start. The download arrow on each card on the home page saves the tracker as a single HTML file that runs offline in any browser.</p>
+          <p>Either works. Opening a tracker on this site is the quickest way to start. The <strong>Download .html</strong> button on each cert's page saves the tracker as a single HTML file that runs offline in any browser.</p>
           <p>One catch: the website and a downloaded file keep <em>separate</em> progress, because your browser treats them as different places. Pick one and stick with it, or move between them with Export and Import.</p>
           <p>The website version also gets updates, like new resources, as soon as they're published. On rare occasions an update changes a tracker's plan in a way that affects its timeline, and your days might shift along with it. A downloaded file never changes, so it keeps your plan exactly as it was, but it also won't get new resources unless you download it again.</p>
         </div>
@@ -291,6 +306,7 @@
         <summary>How do I set up Obsidian?</summary>
         <div class="a">
           <p><strong>Obsidian</strong> is a free note-taking app. Your notes are plain Markdown text files in a normal folder on your computer, so they're never locked inside an app.</p>
+          <p>The quickest start is the prep vault for your cert. Install Obsidian, download the vault from the cert's page, unzip it and choose <strong>Open folder as vault</strong>. It's already set up with the folders, module notes and screenshot settings below. If you'd rather build your own from scratch, here's how:</p>
           <ol>
             <li>Download it from <a href="https://obsidian.md">obsidian.md</a> and install it.</li>
             <li>Choose <strong>Create new vault</strong>. A vault is just the folder your notes live in. Name it after the cert, like <code>CJCA</code>.</li>
@@ -307,7 +323,7 @@
         <summary>What is a cheat sheet?</summary>
         <div class="a">
           <p>A short list of commands for a topic with a line on what each does. Most HTB Academy modules come with an official cheat sheet: look for the <strong>Cheat Sheet</strong> button above the module's table of contents, which opens it as a PDF. The trackers remind you to save each one when you finish a module, and to merge them with your own notes before the exam.</p>
-          <p>To see what a finished one looks like, <a href="https://github.com/zagnox/CPTS-cheatsheet">zagnox/CPTS-cheatsheet</a> is a popular community cheat sheet that covers nmap, common services, passwords and more. It's built for the CPTS, but a lot of it applies to entry-level certs too.</p>
+          <p>To see what a finished one looks like, <a href="https://github.com/zagnox/CPTS-cheatsheet">zagnox/CPTS-cheatsheet</a> is a popular community cheat sheet that covers nmap, common services, passwords and more. It's built for the CPTS, but a lot of it applies to entry-level certs too. Each prep vault's Home page links the community cheat sheets for its own cert.</p>
         </div>
       </details>
 
@@ -321,7 +337,7 @@
             <li>A table of the commands, with what each one does.</li>
             <li>What to look for in the output, plus the next step.</li>
           </ul>
-          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study by copying the commands that worked from your module notes into the right page. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module.</p>
+          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study by copying the commands that worked from your module notes into the right page. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module. The prep vaults leave their Methodology folder blank for this reason, so you can build it your own way.</p>
           <p>If you use Obsidian, <a href="https://github.com/blue-pho3nix/pentesting_templates_obsidian">blue-pho3nix/pentesting_templates_obsidian</a> is a good template to start from. It's a set of Obsidian templates organized the same way, by phase and then one page per service or technique (it even has an SMB page). Its README walks you through setup: copy the templates into your vault, turn on the free Templater community plugin, and insert a template with <code>Alt+E</code>. It was built for CPTS and OSCP prep, so treat it as a structure to copy and fill with the commands you learn in your own path.</p>
         </div>
       </details>
@@ -332,6 +348,7 @@
           <p>HTB exams aren't just about the hands-on part. Every exam ends with a professional report that HTB staff grade, and a weak report can fail you even if you got enough points.</p>
           <p><strong>SysReptor</strong> is a reporting tool that has official templates for HTB exams. You write your findings in it and it produces a polished PDF. You can run it yourself, or use SysReptor's free cloud for HTB students, explained on their <a href="https://docs.sysreptor.com/htb-reporting-with-sysreptor">Hack The Box Reporting</a> page. If you use the cloud, export your report when you're done, because inactive accounts are deleted after three months. SysReptor also publishes a sample report for each HTB cert (here's the <a href="https://docs.sysreptor.com/assets/reports/HTB-CJCA-Report.pdf">CJCA one</a>), and every tracker links its cert's sample under Reporting &amp; Exam Prep. Read yours before you start the exam, since it shows the structure and depth HTB expects.</p>
           <p>For a walkthrough, Cyber Ryan's <a href="https://www.youtube.com/watch?v=ItVsQmHLicc">CPTS Report Made EASY</a> video covers setting up SysReptor and using the HTB template, and dollarboysushil's <a href="https://dollarboysushil.com/posts/cpts-report-writing-guide/">report writing guide</a> shows what each section of a finished report looks like. Both use the CPTS, but the process is the same for every HTB cert.</p>
+          <p>Whatever cert you're taking, do the <a href="https://academy.hackthebox.com/course/preview/documentation--reporting">Documentation &amp; Reporting</a> module from the Penetration Tester path. It's already part of the CPTS path; for other certs you add it yourself. It's built around the CPTS report, so it won't match your cert's report one for one, but the note-taking habits and report tips carry over to every exam.</p>
           <p>Practice once before exam day: pick an easy box, solve it, and write a short report about it in SysReptor. Several exam reviews in the Resource Library say the same thing: start writing during the exam, not on the last night.</p>
         </div>
       </details>
