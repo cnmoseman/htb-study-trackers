@@ -181,7 +181,7 @@
         </div>
       </details>
 
-      <details>
+      <details id="website-or-download">
         <summary>Should I use the website or download the file?</summary>
         <div class="a">
           <p>Either works. Opening a tracker on this site is the quickest way to start. The <strong>Download .html</strong> button on each cert's page saves the tracker as a single HTML file that runs offline in any browser.</p>
@@ -374,6 +374,9 @@
   }
   tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.toggle("on",x===b));cur=b.dataset.s;apply();});
   q.oninput=apply;
+  /* #id link: open that question */
+  const hd=location.hash&&document.getElementById(location.hash.slice(1));
+  if(hd&&hd.tagName==="DETAILS"){hd.open=true;hd.scrollIntoView();}
 </script>
 </body>
 </html>

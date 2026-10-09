@@ -66,6 +66,7 @@
   .note{padding:1.1em 1.25em;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:500 clamp(13px,1.05vw,20px)/1.55 "Saira",sans-serif;color:var(--muted)}
   .note strong.t{display:block;font:600 1.05em "Saira",sans-serif;color:var(--text);margin-bottom:.45em}
   .note strong.g{color:var(--green);font-weight:600}
+  .note .ln{display:block}.note .ln+.ln{margin-top:.45em}
   footer{margin-top:clamp(44px,3.5vw,72px);padding:24px 0;border-top:1px solid var(--line);font:500 clamp(12px,.85vw,16px) "Saira",sans-serif;color:var(--dim);text-align:center}
   @media (max-width:900px){.grid,.info ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:560px){.tile .prog{font-size:11px;letter-spacing:.02em}.hero,.wrap{padding-left:20px;padding-right:20px}.hero .bar{font-size:11px;letter-spacing:.04em;margin-bottom:32px}}
@@ -122,7 +123,9 @@
       </div>
       <div class="note">
         <strong class="t">Use it here, or take it with you</strong>
-        Opening a tracker on this site is the quickest way to start. If you'd rather have a copy that's yours to keep, <strong class="g">download the HTML file</strong> from the cert's page and open it in any browser.
+        <span class="ln"><strong class="g">Tracker:</strong> Use it on this site, or download the .html for an offline copy. The two keep separate progress, so move yours between them with Export and Import.</span>
+        <span class="ln"><strong class="g">Vault:</strong> It only comes as a download. Grab the .zip from the cert's page and edit it however you like.</span>
+        <a class="go" href="./faq/#website-or-download">Website or download? &rarr;</a>
       </div>
       <div class="note">
         <strong class="t">New to Hack The Box?</strong>
