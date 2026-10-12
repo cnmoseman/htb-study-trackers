@@ -31,7 +31,7 @@ Three parts:
 4. During the exam, work from your methodology. `Ctrl+click` any `[[link]]` to open the note behind it.
 
 ## Command sources
-Nobody has published CDEP cheat sheets yet. We're watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+vault+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).
+Nobody has published CDEP cheat sheets yet. I'm watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+vault+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).
 - Reporting: HTB hasn't published a CDEP report template yet. Practice with the [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---
