@@ -429,7 +429,7 @@
 
       <h3>The exam</h3>
       <p>The CDEP exam runs for <strong>10 days</strong> in a dedicated lab you can reset, and Pwnbox is enough. A letter of engagement sets the scope, and you investigate a realistic enterprise attack chain, submitting <strong>flags</strong> as you go. HTB has not published the exact pass mark.</p>
-      <p>You also upload a <strong>commercial-grade report</strong> in English within <strong>10 days</strong> of entering the exam, using HTB's template. It covers your investigation, the TTPs mapped to MITRE ATT&amp;CK, your evidence, and the detection logic you'd build along with its limits. An instructor grades both the points and the report. You get <strong>2 attempts per voucher</strong>, the free retake has to start within 14 days of your feedback, and results arrive within 20 business days.</p>
+      <p>You also upload a <strong>commercial-grade report</strong> in English within <strong>10 days</strong> of entering the exam, using the template HTB gives you in the exam (there's no public sample yet). It covers your investigation, the TTPs mapped to MITRE ATT&amp;CK, your evidence, and the detection logic you'd build along with its limits. An instructor grades both the points and the report. You get <strong>2 attempts per voucher</strong>, the free retake has to start within 14 days of your feedback, and results arrive within 20 business days.</p>
 
       <h3>What it costs</h3>
       <p>You pay for two things: access to the modules, and the exam voucher. The CDEP voucher is <strong>$450</strong> on its own, and the path needs modules up to <strong>Tier IV</strong>, which only the Platinum plans include.</p>
@@ -457,11 +457,11 @@
 
       <h3>Top tips to prepare</h3>
       <ul>
-        <li><strong>Log everything as you go.</strong> Keep every command and query you run, and screenshot anything important, so the report has its evidence ready. (Vladyslav Borodavka)</li>
-        <li><strong>Write the report during the exam.</strong> Draft it as you go instead of at the end, and map each finding to MITRE ATT&amp;CK. (Vladyslav Borodavka)</li>
-        <li><strong>Keep a timeline table.</strong> Put events in order in your notes so gaps in the attack chain stand out. (Vladyslav Borodavka)</li>
-        <li><strong>Write down each detection's limits.</strong> Note blind spots, assumptions and false positives for every alert, and test it in a lab first. (Palantir)</li>
-        <li><strong>Check the data before the rule.</strong> If a detection finds nothing, confirm the data source is actually ingested, then preview it against past data. (Elastic)</li>
+        <li><strong>Finish the whole path first.</strong> The exam unlocks only after 100% of the Detection Engineer path, and the path runs about 600 hours. (HTB)</li>
+        <li><strong>Cover the prerequisites.</strong> HTB treats the SOC Analyst path as assumed knowledge, strongly recommends x86/64 assembly and C/C++, and suggests the CDSA first. (HTB)</li>
+        <li><strong>Map everything to ATT&amp;CK.</strong> The report has to show the TTPs you found across every attack phase, mapped to MITRE ATT&amp;CK. (HTB)</li>
+        <li><strong>Write detections, not just findings.</strong> For each stage, the report needs the detection logic you'd build and where that logic falls short. (HTB)</li>
+        <li><strong>Always submit a first report.</strong> If you don't upload a report on your first attempt, you lose the free retake. (HTB)</li>
       </ul>
       <p>The full list of tips is at the bottom of the <strong>Resource Library</strong> tab.</p>
 
@@ -474,7 +474,7 @@
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
       </ul>
 
-      <div class="callout">CDEP launched in October 2026, so there are no exam write-ups yet. The path runs about 600 hours, close to three times the CWEE path, so pace yourself, get comfortable in WinDbg early, and practice turning each technique into a written detection with its blind spots.</div>
+      <div class="callout">CDEP launched in October 2026. Nobody has posted exam reviews or notes yet, and HTB hasn't published a sample report, so everything here comes from HTB itself. The path runs about 600 hours, close to three times the CWEE path, so pace yourself.</div>
 
       <p style="font-size:12px;color:var(--faint);margin-top:14px">This is an independent study aid and is not affiliated with or endorsed by Hack The Box. Always confirm current module counts, exam format, and pricing on the official HTB Academy site.</p>
       <p style="font-size:12px;color:var(--faint);margin-top:6px">Built on and inspired by mattrfield's <a href="https://github.com/mattrfield/coae-study-tracker">coae-study-tracker</a>.</p>
@@ -947,7 +947,7 @@ const CURRICULUM = [
     "hrs": 1.5,
     "tasks": [
       "Map the techniques from the Cyber Range module onto ATT&CK Navigator",
-      "For one technique, write a Sigma-style rule and list its blind spots and false positives"
+      "For one technique, write a detection and list its blind spots and false positives"
     ]
   },
   {
@@ -2938,12 +2938,12 @@ const CURRICULUM = [
   },
   {
     "d": 258,
-    "title": "Report template setup",
+    "title": "Report outline",
     "type": "lab",
     "hrs": 1.5,
     "tasks": [
-      "Set up SysReptor or your own template and read the HTB CDSA sample report for structure",
-      "Plan sections for investigation steps, ATT&CK-mapped TTPs, evidence, detection logic and limitations"
+      "Pick your reporting tool. HTB gives you the CDEP report template in the exam and hasn't published a sample yet",
+      "Outline the sections HTB asks for: investigation steps, ATT&CK-mapped TTPs, evidence, detection logic and limitations"
     ]
   },
   {
@@ -2952,7 +2952,7 @@ const CURRICULUM = [
     "type": "lab",
     "hrs": 2,
     "tasks": [
-      "Write a full report on one solved skills assessment, with a timeline table and evidence",
+      "Write a full report on one solved skills assessment, with evidence for each step",
       "Map every step to MITRE ATT&CK and give each detection its logic and blind spots"
     ]
   },
@@ -2963,7 +2963,7 @@ const CURRICULUM = [
     "hrs": 2.5,
     "tasks": [
       "Run a timed investigation over two or three skills assessments as one attack chain",
-      "Log every query and screenshot anything important as you go"
+      "Keep notes on every query and finding as you go"
     ]
   },
   {
@@ -3090,7 +3090,7 @@ const RESOURCES = [
   {
     "cat": "Official HTB: Cert & Path",
     "color": "#00eafc",
-    "note": "Start here. You have to finish the path 100% to unlock the exam.",
+    "note": "Start here. You have to finish the path 100% to unlock the exam. HTB hasn't published a CDEP sample report or report template yet.",
     "items": [
       {
         "n": "HTB Certified Detection Engineering Principal (CDEP)",
@@ -3116,6 +3116,11 @@ const RESOURCES = [
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
         "note": "Sherlocks and retired machines for extra practice"
+      },
+      {
+        "n": "Explore the new Introduction to Detection Engineering module (HTB changelog)",
+        "u": "https://roadmap.hackthebox.com/changelog/explore-the-new-introduction-to-detection-engineering-module",
+        "note": "HTB's overview of the path's core module"
       }
     ]
   },
@@ -3192,100 +3197,9 @@ const RESOURCES = [
     ]
   },
   {
-    "cat": "News & Overviews",
-    "color": "#00eafc",
-    "note": "CDEP launched in October 2026, so there are no exam write-ups yet. These are the closest reads.",
-    "items": [
-      {
-        "n": "Explore the new Introduction to Detection Engineering module (HTB changelog)",
-        "u": "https://roadmap.hackthebox.com/changelog/explore-the-new-introduction-to-detection-engineering-module",
-        "note": "HTB's overview of the path's core module"
-      },
-      {
-        "n": "My experience passing the HTB CDSA certification (Vladyslav Borodavka)",
-        "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e",
-        "note": "CDSA review; its exam and reporting habits carry over to CDEP"
-      }
-    ]
-  },
-  {
-    "cat": "Community Notes & Walkthroughs",
-    "color": "#00eafc",
-    "note": "No CDEP-specific notes exist yet, so these are general detection engineering references. Use them to unblock yourself, not to shortcut the labs.",
-    "items": [
-      {
-        "n": "infosecB/awesome-detection-engineering",
-        "u": "https://github.com/infosecB/awesome-detection-engineering",
-        "note": "Curated list of detection engineering resources"
-      },
-      {
-        "n": "SigmaHQ/sigma",
-        "u": "https://github.com/SigmaHQ/sigma",
-        "note": "The main Sigma rule repository"
-      },
-      {
-        "n": "elastic/detection-rules",
-        "u": "https://github.com/elastic/detection-rules",
-        "note": "Elastic's production detection rules"
-      },
-      {
-        "n": "splunk/security_content",
-        "u": "https://github.com/splunk/security_content",
-        "note": "Splunk's detections and analytic stories"
-      },
-      {
-        "n": "olafhartong/sysmon-modular",
-        "u": "https://github.com/olafhartong/sysmon-modular",
-        "note": "Sysmon config mapped to ATT&CK"
-      },
-      {
-        "n": "Neo23x0/signature-base",
-        "u": "https://github.com/Neo23x0/signature-base",
-        "note": "YARA rules and IOCs"
-      },
-      {
-        "n": "redcanaryco/atomic-red-team",
-        "u": "https://github.com/redcanaryco/atomic-red-team",
-        "note": "ATT&CK-mapped tests to fire your detections"
-      }
-    ]
-  },
-  {
-    "cat": "Reporting & Exam Prep",
-    "color": "#00eafc",
-    "note": "The report is graded alongside the points, so practice the deliverable, not just the investigation.",
-    "items": [
-      {
-        "n": "HTB CDSA Report Template (PDF)",
-        "u": "https://docs.sysreptor.com/assets/reports/HTB-CDSA-Report.pdf",
-        "note": "No CDEP template exists yet; the closest SysReptor sample for an investigation report"
-      },
-      {
-        "n": "Syslifters/HackTheBox-Reporting",
-        "u": "https://github.com/Syslifters/HackTheBox-Reporting",
-        "note": "SysReptor HTB templates, no CDEP one yet"
-      },
-      {
-        "n": "SysReptor (reporting platform)",
-        "u": "https://github.com/Syslifters/sysreptor",
-        "note": "Self-hosted or cloud report writing"
-      },
-      {
-        "n": "The DFIR Report",
-        "u": "https://thedfirreport.com/",
-        "note": "Real intrusion write-ups to learn a professional reporting style"
-      },
-      {
-        "n": "palantir/alerting-detection-strategy-framework",
-        "u": "https://github.com/palantir/alerting-detection-strategy-framework",
-        "note": "A template for documenting each detection, its blind spots and false positives"
-      }
-    ]
-  },
-  {
     "cat": "Tooling & References",
     "color": "#00eafc",
-    "note": "Be comfortable with these before the exam.",
+    "note": "Tools the CDEP cert page and the path modules use.",
     "items": [
       {
         "n": "WinDbg (Debugging Tools for Windows)",
@@ -3313,11 +3227,6 @@ const RESOURCES = [
         "note": "Live file, registry and process activity"
       },
       {
-        "n": "SilkETW",
-        "u": "https://github.com/mandiant/SilkETW",
-        "note": "Collect and filter ETW events"
-      },
-      {
         "n": "Event Tracing for Windows (ETW)",
         "u": "https://learn.microsoft.com/en-us/windows/win32/etw/about-event-tracing",
         "note": "Microsoft's ETW documentation"
@@ -3336,18 +3245,13 @@ const RESOURCES = [
         "n": "YARA",
         "u": "https://virustotal.github.io/yara/",
         "note": "Pattern matching for files and memory"
-      },
-      {
-        "n": "Sigma",
-        "u": "https://sigmahq.io/",
-        "note": "Generic, SIEM-agnostic detection rule format"
       }
     ]
   },
   {
     "cat": "Detection Frameworks",
     "color": "#00eafc",
-    "note": "The frameworks the path builds on.",
+    "note": "The frameworks the Introduction to Detection Engineering module teaches.",
     "items": [
       {
         "n": "MITRE ATT&CK",
@@ -3377,62 +3281,50 @@ const RESOURCES = [
     ]
   },
   {
-    "cat": "Study & Prep Tips",
+    "cat": "HTB Exam Tips",
     "color": "#00eafc",
     "layout": "tips",
-    "note": "CDEP is new, so these come from a CDSA exam review and detection engineering docs, not CDEP exam-takers.",
+    "note": "Nobody has published a CDEP exam review yet, so these come straight from HTB's cert page and Help Center.",
     "items": [
       {
-        "n": "Log every command and query you run during the exam",
-        "note": "Vladyslav Borodavka"
+        "n": "Finish 100% of the Detection Engineer path before booking",
+        "note": "HTB"
       },
       {
-        "n": "Screenshot everything important you notice in the exam environment",
-        "note": "Vladyslav Borodavka"
+        "n": "Know the SOC Analyst path material before you start",
+        "note": "HTB"
       },
       {
-        "n": "Draft the report as you go instead of waiting until the end",
-        "note": "Vladyslav Borodavka"
+        "n": "Brush up on x86/64 assembly and C/C++ before the deep modules",
+        "note": "HTB"
       },
       {
-        "n": "Keep a timeline table in your notes to spot missing events",
-        "note": "Vladyslav Borodavka"
+        "n": "Consider earning the CDSA before you attempt CDEP",
+        "note": "HTB"
       },
       {
-        "n": "Map findings to MITRE ATT&CK in the final report",
-        "note": "Vladyslav Borodavka"
+        "n": "Read the letter of engagement before you start investigating",
+        "note": "HTB"
       },
       {
-        "n": "Skip a stuck task and move on rather than losing hours",
-        "note": "Vladyslav Borodavka"
+        "n": "Map every TTP you find to MITRE ATT&CK in the report",
+        "note": "HTB"
       },
       {
-        "n": "Build red team knowledge so you understand the attacks in the logs",
-        "note": "Vladyslav Borodavka"
+        "n": "Give each finding its detection logic and that logic's limits",
+        "note": "HTB"
       },
       {
-        "n": "Prefer field-based searches over keywords in Sigma rules",
-        "note": "SigmaHQ"
+        "n": "Upload the report within 10 days of entering the exam",
+        "note": "HTB"
       },
       {
-        "n": "Put exclusions in a filter selection, not the falsepositives field",
-        "note": "SigmaHQ"
+        "n": "Upload a first-attempt report, or you lose the free retake",
+        "note": "HTB"
       },
       {
-        "n": "If a rule finds nothing, confirm the data source is ingested",
-        "note": "Elastic"
-      },
-      {
-        "n": "Preview a new rule against 7 to 14 days of historical data",
-        "note": "Elastic"
-      },
-      {
-        "n": "Document blind spots, assumptions and false positives for every alert",
-        "note": "Palantir"
-      },
-      {
-        "n": "Test each detection in a lab before deploying it",
-        "note": "Palantir"
+        "n": "Start your retake within 14 days of getting feedback",
+        "note": "HTB"
       }
     ]
   }

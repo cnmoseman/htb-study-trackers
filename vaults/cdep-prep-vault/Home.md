@@ -31,8 +31,8 @@ Three parts:
 4. During the exam, work from your methodology. `Ctrl+click` any `[[link]]` to open the note behind it.
 
 ## Command sources
-Get tested commands from these as you go:
-- Reporting: [SysReptor HTB-CDSA template](https://docs.sysreptor.com/assets/reports/HTB-CDSA-Report.pdf) (no CDEP template yet) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
+Nobody has published CDEP cheat sheets yet. We're watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+vault+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).
+- Reporting: HTB hasn't published a CDEP report template yet. Practice with the [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---
 <span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/) · [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&cert=CDEP&where=Prep+vault&title=%5BProblem%5D+%5BCDEP%5D+)
