@@ -110,7 +110,7 @@
   (function () {
     var st; try { st = JSON.parse(localStorage.getItem("cdep_tracker_v2")); } catch (e) { return; }
     if (!st || !st.done || typeof st.done !== "object") return;
-    var total = 318, done = 0;
+    var total = 323, done = 0;
     for (var k in st.done) if (st.done[k] === true && /^\d+-\d+$/.test(k)) done++;
     if (!done) return;
     var b = document.getElementById("open");

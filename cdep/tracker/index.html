@@ -516,18 +516,18 @@ const WEEK_THEMES = [
   "Kernel LPEs & token abuse",
   "Potatoes & PrintSpoofer",
   "Scheduled task internals",
-  "Service persistence",
   "Registry persistence & labs",
   "WinRM, wmiexec & events",
-  "NTLM & logon internals",
-  "LSA, secrets & cached creds",
+  "Event subs & WMI providers",
+  "Kerberos & NTDS",
   "DPAPI & browser creds",
+  "Credential Guard attacks",
   "ETW & ETW-TI",
-  "VAD tree & ghost processes",
   "Kernel callbacks",
   "Minifilters & WFP",
   "Syscall interception",
-  "Finalize cheat sheets"
+  "Catch-up day",
+  "Schedule your exam"
 ];
 
 const PHASES = [
@@ -552,18 +552,18 @@ const PHASES = [
   {
     "name": "Tradecraft Analysis",
     "from": 159,
-    "to": 235,
+    "to": 230,
     "color": "#3deffd"
   },
   {
     "name": "Kernel Telemetry",
-    "from": 236,
-    "to": 262,
+    "from": 231,
+    "to": 257,
     "color": "#1fedfc"
   },
   {
     "name": "Reporting & Exam Prep",
-    "from": 263,
+    "from": 258,
     "to": 270,
     "color": "#00eafc"
   }
@@ -596,7 +596,7 @@ const CURRICULUM = [
     "d": 3,
     "title": "Cyber Range basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Detection & OpSec Cyber Range' (9 sections · Medium)",
       "M1 · section 1: Intro, prerequisite knowledge, detecting T1014 and T1485 on Linux & T1136.001 on Windows"
@@ -606,7 +606,7 @@ const CURRICULUM = [
     "d": 4,
     "title": "Cyber Range basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M1 · section 2"
     ]
@@ -633,7 +633,7 @@ const CURRICULUM = [
     "d": 7,
     "title": "Cyber Range basics",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M1 · section 5"
     ]
@@ -642,7 +642,7 @@ const CURRICULUM = [
     "d": 8,
     "title": "More range detections",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M1 · section 6: Port scanning, T1053.003 cron jobs, T1547.001 Run keys & T1555.003 browser credentials"
     ]
@@ -680,7 +680,7 @@ const CURRICULUM = [
     "d": 12,
     "title": "Pyramid of Pain & MITRE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Introduction to Detection Engineering' (29 sections · Medium)",
       "M2 · section 1: Intro to detection engineering, the Pyramid of Pain, MITRE ATT&CK, CAR, D3FEND & ATT&CK Navigator"
@@ -690,7 +690,7 @@ const CURRICULUM = [
     "d": 13,
     "title": "Pyramid of Pain & MITRE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 2"
     ]
@@ -699,7 +699,7 @@ const CURRICULUM = [
     "d": 14,
     "title": "Pyramid of Pain & MITRE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 3"
     ]
@@ -708,7 +708,7 @@ const CURRICULUM = [
     "d": 15,
     "title": "Pyramid of Pain & MITRE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 4"
     ]
@@ -717,7 +717,7 @@ const CURRICULUM = [
     "d": 16,
     "title": "Pyramid of Pain & MITRE",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 5"
     ]
@@ -726,7 +726,7 @@ const CURRICULUM = [
     "d": 17,
     "title": "Pyramid of Pain & MITRE",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 6"
     ]
@@ -735,7 +735,7 @@ const CURRICULUM = [
     "d": 18,
     "title": "Windows telemetry & ETW",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 7: Windows telemetry capabilities parts 1 and 2, telemetry sources, ETW & kernel callbacks"
     ]
@@ -744,7 +744,7 @@ const CURRICULUM = [
     "d": 19,
     "title": "Windows telemetry & ETW",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 8"
     ]
@@ -753,7 +753,7 @@ const CURRICULUM = [
     "d": 20,
     "title": "Windows telemetry & ETW",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 9"
     ]
@@ -762,7 +762,7 @@ const CURRICULUM = [
     "d": 21,
     "title": "Windows telemetry & ETW",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 10"
     ]
@@ -771,7 +771,7 @@ const CURRICULUM = [
     "d": 22,
     "title": "Malware behavior & stacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 11: Static & dynamic malware behavior, the Windows call stack, return address spoofing & signaturing foreign memory"
     ]
@@ -780,7 +780,7 @@ const CURRICULUM = [
     "d": 23,
     "title": "Malware behavior & stacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 12"
     ]
@@ -789,7 +789,7 @@ const CURRICULUM = [
     "d": 24,
     "title": "Malware behavior & stacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 13"
     ]
@@ -798,7 +798,7 @@ const CURRICULUM = [
     "d": 25,
     "title": "Malware behavior & stacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 14"
     ]
@@ -807,7 +807,7 @@ const CURRICULUM = [
     "d": 26,
     "title": "Malware behavior & stacks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 15"
     ]
@@ -816,7 +816,7 @@ const CURRICULUM = [
     "d": 27,
     "title": "Summiting the Pyramid",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 16: Summiting the Pyramid: host-based and network-based models for T1047/T1021.003, SPLs & wrap-up"
     ]
@@ -825,7 +825,7 @@ const CURRICULUM = [
     "d": 28,
     "title": "Summiting the Pyramid",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 17"
     ]
@@ -834,7 +834,7 @@ const CURRICULUM = [
     "d": 29,
     "title": "Summiting the Pyramid",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 18"
     ]
@@ -843,7 +843,7 @@ const CURRICULUM = [
     "d": 30,
     "title": "Summiting the Pyramid",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 19"
     ]
@@ -852,7 +852,7 @@ const CURRICULUM = [
     "d": 31,
     "title": "APT & DLL cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 20: Investigations: T1218.010 APT, unwanted software, suspicious DLLs, APC injection & DPAPI, an sRDI payload"
     ]
@@ -861,7 +861,7 @@ const CURRICULUM = [
     "d": 32,
     "title": "APT & DLL cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 21"
     ]
@@ -870,7 +870,7 @@ const CURRICULUM = [
     "d": 33,
     "title": "APT & DLL cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 22"
     ]
@@ -879,7 +879,7 @@ const CURRICULUM = [
     "d": 34,
     "title": "APT & DLL cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 23"
     ]
@@ -888,7 +888,7 @@ const CURRICULUM = [
     "d": 35,
     "title": "APT & DLL cases",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 24"
     ]
@@ -897,7 +897,7 @@ const CURRICULUM = [
     "d": 36,
     "title": "Creds & evasion cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 25: Investigations: DPAPI theft, injection, credential dumping, privesc & COM hijacking, syscall & stack evasion"
     ]
@@ -906,7 +906,7 @@ const CURRICULUM = [
     "d": 37,
     "title": "Creds & evasion cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M2 · section 26"
     ]
@@ -915,7 +915,7 @@ const CURRICULUM = [
     "d": 38,
     "title": "Creds & evasion cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 27"
     ]
@@ -924,7 +924,7 @@ const CURRICULUM = [
     "d": 39,
     "title": "Creds & evasion cases",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 28"
     ]
@@ -933,7 +933,7 @@ const CURRICULUM = [
     "d": 40,
     "title": "Creds & evasion cases",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M2 · section 29",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -974,7 +974,7 @@ const CURRICULUM = [
     "d": 44,
     "title": "WinDbg basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 2"
     ]
@@ -983,7 +983,7 @@ const CURRICULUM = [
     "d": 45,
     "title": "WinDbg basics",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 3"
     ]
@@ -1010,7 +1010,7 @@ const CURRICULUM = [
     "d": 48,
     "title": "Debugger objects & TTD",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 6"
     ]
@@ -1019,7 +1019,7 @@ const CURRICULUM = [
     "d": 49,
     "title": "Debugger objects & TTD",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 7"
     ]
@@ -1046,7 +1046,7 @@ const CURRICULUM = [
     "d": 52,
     "title": "Kernel debugging",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 10"
     ]
@@ -1055,7 +1055,7 @@ const CURRICULUM = [
     "d": 53,
     "title": "Kernel debugging",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 11"
     ]
@@ -1073,7 +1073,7 @@ const CURRICULUM = [
     "d": 55,
     "title": "Debugger scripting",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 13"
     ]
@@ -1082,7 +1082,7 @@ const CURRICULUM = [
     "d": 56,
     "title": "Debugger scripting",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M3 · section 14"
     ]
@@ -1102,7 +1102,7 @@ const CURRICULUM = [
     "d": 58,
     "title": "Injection primer & internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Process Injection Attacks and Detection' (31 sections · Hard)",
       "M4 · section 1: Injection attacks and techniques, detections primer, tools, internals & key structures, ETW-TI"
@@ -1148,7 +1148,7 @@ const CURRICULUM = [
     "d": 63,
     "title": "Injection primer & internals",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M4 · section 6"
     ]
@@ -1157,7 +1157,7 @@ const CURRICULUM = [
     "d": 64,
     "title": "Self & DLL injection",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M4 · section 7: Compiling shellcode and DLLs, self injection & its detection, remote DLL injection & its detection"
     ]
@@ -1193,7 +1193,7 @@ const CURRICULUM = [
     "d": 68,
     "title": "Self & DLL injection",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M4 · section 11"
     ]
@@ -1202,7 +1202,7 @@ const CURRICULUM = [
     "d": 69,
     "title": "Thread hijacking & APCs",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M4 · section 12: Thread execution hijacking: intro, implementation & detection; APC and Early Bird injection & detection"
     ]
@@ -1247,7 +1247,7 @@ const CURRICULUM = [
     "d": 74,
     "title": "Thread hijacking & APCs",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M4 · section 17"
     ]
@@ -1256,7 +1256,7 @@ const CURRICULUM = [
     "d": 75,
     "title": "TLS callbacks & mapping",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M4 · section 18: TLS callback injection & debugging; section view mapping: intro, implementation & detection"
     ]
@@ -1292,7 +1292,7 @@ const CURRICULUM = [
     "d": 79,
     "title": "TLS callbacks & mapping",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M4 · section 22"
     ]
@@ -1328,7 +1328,7 @@ const CURRICULUM = [
     "d": 83,
     "title": "PE injection & hollowing",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M4 · section 26"
     ]
@@ -1337,7 +1337,7 @@ const CURRICULUM = [
     "d": 84,
     "title": "Reflective DLL injection",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M4 · section 27: Reflective code injection, a LoadLibrary deep dive, RDLL implementation & detections, skills assessment"
     ]
@@ -1373,7 +1373,7 @@ const CURRICULUM = [
     "d": 88,
     "title": "Reflective DLL injection",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M4 · section 31",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -1384,7 +1384,7 @@ const CURRICULUM = [
     "d": 89,
     "title": "ELF, procfs & PLT/GOT",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Linux Process Injections & Detections' (20 sections · Hard)",
       "M5 · section 1: Intro, ELF, the proc file system, PLT/GOT inspection parts 1 and 2 & the x64 calling convention"
@@ -1394,7 +1394,7 @@ const CURRICULUM = [
     "d": 90,
     "title": "ELF, procfs & PLT/GOT",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 2"
     ]
@@ -1403,7 +1403,7 @@ const CURRICULUM = [
     "d": 91,
     "title": "ELF, procfs & PLT/GOT",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 3"
     ]
@@ -1412,7 +1412,7 @@ const CURRICULUM = [
     "d": 92,
     "title": "ELF, procfs & PLT/GOT",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 4"
     ]
@@ -1430,7 +1430,7 @@ const CURRICULUM = [
     "d": 94,
     "title": "ELF, procfs & PLT/GOT",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M5 · section 6"
     ]
@@ -1439,7 +1439,7 @@ const CURRICULUM = [
     "d": 95,
     "title": "Ptrace, ROP & auditd",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 7: Ptrace injection, ROP, ROP gadget detection, kernel tracepoints & YARA, auditd & inotify"
     ]
@@ -1448,7 +1448,7 @@ const CURRICULUM = [
     "d": 96,
     "title": "Ptrace, ROP & auditd",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 8"
     ]
@@ -1457,7 +1457,7 @@ const CURRICULUM = [
     "d": 97,
     "title": "Ptrace, ROP & auditd",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 9"
     ]
@@ -1466,7 +1466,7 @@ const CURRICULUM = [
     "d": 98,
     "title": "Ptrace, ROP & auditd",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 10"
     ]
@@ -1484,7 +1484,7 @@ const CURRICULUM = [
     "d": 100,
     "title": "Ptrace, ROP & auditd",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M5 · section 12"
     ]
@@ -1493,7 +1493,7 @@ const CURRICULUM = [
     "d": 101,
     "title": "Fileless & linker hijacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 13: Fileless execution, dynamic linker hijacking, return address & GOT hijacking"
     ]
@@ -1502,7 +1502,7 @@ const CURRICULUM = [
     "d": 102,
     "title": "Fileless & linker hijacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 14"
     ]
@@ -1520,7 +1520,7 @@ const CURRICULUM = [
     "d": 104,
     "title": "Fileless & linker hijacks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M5 · section 16"
     ]
@@ -1529,7 +1529,7 @@ const CURRICULUM = [
     "d": 105,
     "title": "PLT & vDSO hijacking",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 17: PLT hijacking, PLT/GOT detection with ptrace, vDSO hijacking & the skills assessment"
     ]
@@ -1538,7 +1538,7 @@ const CURRICULUM = [
     "d": 106,
     "title": "PLT & vDSO hijacking",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M5 · section 18"
     ]
@@ -1556,7 +1556,7 @@ const CURRICULUM = [
     "d": 108,
     "title": "PLT & vDSO hijacking",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M5 · section 20",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -1651,7 +1651,7 @@ const CURRICULUM = [
     "d": 118,
     "title": "YARA, APCs & sleep tricks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M6 · section 8"
     ]
@@ -1743,7 +1743,7 @@ const CURRICULUM = [
     "d": 128,
     "title": "Toolset & logon process",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "Begin 'Detecting Access Token Manipulation Attacks' (17 sections · Hard)",
       "M7 · section 1: Intro, the toolset, the Windows logon process, process internals & protection"
@@ -1753,7 +1753,7 @@ const CURRICULUM = [
     "d": 129,
     "title": "Toolset & logon process",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 2"
     ]
@@ -1762,7 +1762,7 @@ const CURRICULUM = [
     "d": 130,
     "title": "Toolset & logon process",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 3"
     ]
@@ -1771,7 +1771,7 @@ const CURRICULUM = [
     "d": 131,
     "title": "Toolset & logon process",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M7 · section 4"
     ]
@@ -1780,7 +1780,7 @@ const CURRICULUM = [
     "d": 132,
     "title": "Access tokens & checks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 5: Access tokens, token structures, access checks, token privileges & enumeration"
     ]
@@ -1789,7 +1789,7 @@ const CURRICULUM = [
     "d": 133,
     "title": "Access tokens & checks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 6"
     ]
@@ -1798,7 +1798,7 @@ const CURRICULUM = [
     "d": 134,
     "title": "Access tokens & checks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 7"
     ]
@@ -1807,7 +1807,7 @@ const CURRICULUM = [
     "d": 135,
     "title": "Access tokens & checks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 8"
     ]
@@ -1816,7 +1816,7 @@ const CURRICULUM = [
     "d": 136,
     "title": "Access tokens & checks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M7 · section 9"
     ]
@@ -1825,7 +1825,7 @@ const CURRICULUM = [
     "d": 137,
     "title": "Token theft & impersonation",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 10: Token manipulation, token theft, impersonation & making access tokens"
     ]
@@ -1834,7 +1834,7 @@ const CURRICULUM = [
     "d": 138,
     "title": "Token theft & impersonation",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 11"
     ]
@@ -1843,7 +1843,7 @@ const CURRICULUM = [
     "d": 139,
     "title": "Token theft & impersonation",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 12"
     ]
@@ -1852,7 +1852,7 @@ const CURRICULUM = [
     "d": 140,
     "title": "Token theft & impersonation",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M7 · section 13"
     ]
@@ -1861,7 +1861,7 @@ const CURRICULUM = [
     "d": 141,
     "title": "Network auth & PPID spoof",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 14: Network authentication, PPID spoofing with tokens, detection opportunities & the skills assessment"
     ]
@@ -1870,7 +1870,7 @@ const CURRICULUM = [
     "d": 142,
     "title": "Network auth & PPID spoof",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 15"
     ]
@@ -1879,7 +1879,7 @@ const CURRICULUM = [
     "d": 143,
     "title": "Network auth & PPID spoof",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 2,
     "tasks": [
       "M7 · section 16"
     ]
@@ -1888,7 +1888,7 @@ const CURRICULUM = [
     "d": 144,
     "title": "Network auth & PPID spoof",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
       "M7 · section 17",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -1899,7 +1899,7 @@ const CURRICULUM = [
     "d": 145,
     "title": "API execution & hooking",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Windows API Monitoring and Hooking' (12 sections · Medium)",
       "M8 · section 1: API monitoring intro, how an API executes, IAT hooking, inline hooking with Detours"
@@ -1909,7 +1909,7 @@ const CURRICULUM = [
     "d": 146,
     "title": "API execution & hooking",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M8 · section 2"
     ]
@@ -1927,7 +1927,7 @@ const CURRICULUM = [
     "d": 148,
     "title": "API execution & hooking",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M8 · section 4"
     ]
@@ -1936,7 +1936,7 @@ const CURRICULUM = [
     "d": 149,
     "title": "Hooking for token attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M8 · section 5: API calls in token theft, a hooking DLL to detect it, an EDR kernel driver & DLL, detection demo"
     ]
@@ -1963,7 +1963,7 @@ const CURRICULUM = [
     "d": 152,
     "title": "Hooking for token attacks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M8 · section 8"
     ]
@@ -1972,7 +1972,7 @@ const CURRICULUM = [
     "d": 153,
     "title": "API logging & Splunk",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M8 · section 9: Logging API calls with parameters, building an API logger, return values & the Splunk skills assessment"
     ]
@@ -1999,7 +1999,7 @@ const CURRICULUM = [
     "d": 156,
     "title": "API logging & Splunk",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M8 · section 12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -2030,7 +2030,7 @@ const CURRICULUM = [
     "d": 159,
     "title": "UAC & AppInfo internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Privilege Escalation Tradecraft Analysis' (24 sections · Hard)",
       "M9 · section 1: Intro, User Access Control, AppInfo service internals parts 1 and 2"
@@ -2058,7 +2058,7 @@ const CURRICULUM = [
     "d": 162,
     "title": "UAC & AppInfo internals",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M9 · section 4"
     ]
@@ -2067,7 +2067,7 @@ const CURRICULUM = [
     "d": 163,
     "title": "UAC bypass analysis",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 5: Fodhelper, ICMLuaUtil & Pkgmgr DISM UAC bypasses, and their detections"
     ]
@@ -2094,7 +2094,7 @@ const CURRICULUM = [
     "d": 166,
     "title": "UAC bypass analysis",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M9 · section 8"
     ]
@@ -2103,7 +2103,7 @@ const CURRICULUM = [
     "d": 167,
     "title": "Kernel LPEs & token abuse",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 9: Process access tokens, two kernel LPE exploits, token impersonation, GetSystem & token abuse detections"
     ]
@@ -2112,7 +2112,7 @@ const CURRICULUM = [
     "d": 168,
     "title": "Kernel LPEs & token abuse",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 10"
     ]
@@ -2148,7 +2148,7 @@ const CURRICULUM = [
     "d": 172,
     "title": "Kernel LPEs & token abuse",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M9 · section 14"
     ]
@@ -2157,7 +2157,7 @@ const CURRICULUM = [
     "d": 173,
     "title": "Potatoes & PrintSpoofer",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 15: SeImpersonate & COM marshaling, JuicyPotato, RoguePotato, RogueWinRM, PrintSpoofer, PetitPotato & detections"
     ]
@@ -2166,7 +2166,7 @@ const CURRICULUM = [
     "d": 174,
     "title": "Potatoes & PrintSpoofer",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 16"
     ]
@@ -2175,7 +2175,7 @@ const CURRICULUM = [
     "d": 175,
     "title": "Potatoes & PrintSpoofer",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 17"
     ]
@@ -2211,7 +2211,7 @@ const CURRICULUM = [
     "d": 179,
     "title": "Potatoes & PrintSpoofer",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M9 · section 21"
     ]
@@ -2220,7 +2220,7 @@ const CURRICULUM = [
     "d": 180,
     "title": "PrivEsc skills assessment",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M9 · section 22: Skills assessment parts 1 to 3"
     ]
@@ -2249,161 +2249,116 @@ const CURRICULUM = [
     "d": 183,
     "title": "Scheduled task internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
       "Begin 'Persistence Tradecraft Analysis' (18 sections · Hard)",
-      "M10 · section 1: Intro to persistence, scheduled task internals, PowerShell & COM-based tasks"
+      "M10 · sections 1–2: Intro to persistence, scheduled task internals, PowerShell & COM-based tasks"
     ]
   },
   {
     "d": 184,
     "title": "Scheduled task internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M10 · section 2"
+      "M10 · section 3"
     ]
   },
   {
     "d": 185,
     "title": "Scheduled task internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M10 · section 3"
+      "M10 · section 4"
     ]
   },
   {
     "d": 186,
-    "title": "Scheduled task internals",
+    "title": "Hidden tasks & detection",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · section 4"
+      "M10 · sections 5–6: Lateral movement via tasks, hidden and direct tasks, detecting task persistence"
     ]
   },
   {
     "d": 187,
     "title": "Hidden tasks & detection",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M10 · section 5: Lateral movement via tasks, hidden and direct tasks, detecting task persistence"
+      "M10 · section 7"
     ]
   },
   {
     "d": 188,
-    "title": "Hidden tasks & detection",
+    "title": "Service persistence",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · section 6"
+      "M10 · sections 8–9: Service creation internals; PowerShell, WMI, RPC & registry methods; standalone vs shared; detection"
     ]
   },
   {
     "d": 189,
-    "title": "Hidden tasks & detection",
+    "title": "Service persistence",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M10 · section 7"
+      "M10 · section 10"
     ]
   },
   {
     "d": 190,
     "title": "Service persistence",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M10 · section 8: Service creation internals; PowerShell, WMI, RPC & registry methods; standalone vs shared; detection"
+      "M10 · section 11"
     ]
   },
   {
     "d": 191,
-    "title": "Service persistence",
+    "title": "Registry persistence & labs",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · section 9"
+      "M10 · sections 12–13: Registry persistence, Explorer.exe flow, WinLogon, UserInit, detection & both skills assessments"
     ]
   },
   {
     "d": 192,
-    "title": "Service persistence",
+    "title": "Registry persistence & labs",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · section 10"
+      "M10 · sections 14–15"
     ]
   },
   {
     "d": 193,
-    "title": "Service persistence",
+    "title": "Registry persistence & labs",
     "type": "study",
-    "hrs": 2,
+    "hrs": 1.5,
     "tasks": [
-      "M10 · section 11"
+      "M10 · section 16"
     ]
   },
   {
     "d": 194,
     "title": "Registry persistence & labs",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 1,
     "tasks": [
-      "M10 · section 12: Registry persistence, Explorer.exe flow, WinLogon, UserInit, detection & both skills assessments"
+      "M10 · section 17"
     ]
   },
   {
     "d": 195,
     "title": "Registry persistence & labs",
     "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M10 · section 13"
-    ]
-  },
-  {
-    "d": 196,
-    "title": "Registry persistence & labs",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M10 · section 14"
-    ]
-  },
-  {
-    "d": 197,
-    "title": "Registry persistence & labs",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M10 · section 15"
-    ]
-  },
-  {
-    "d": 198,
-    "title": "Registry persistence & labs",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M10 · section 16"
-    ]
-  },
-  {
-    "d": 199,
-    "title": "Registry persistence & labs",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M10 · section 17"
-    ]
-  },
-  {
-    "d": 200,
-    "title": "Registry persistence & labs",
-    "type": "study",
-    "hrs": 2,
+    "hrs": 1,
     "tasks": [
       "M10 · section 18",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -2411,26 +2366,26 @@ const CURRICULUM = [
     "milestone": "Module 10 complete — Persistence Tradecraft Analysis"
   },
   {
-    "d": 201,
+    "d": 196,
     "title": "WMI execution & movement",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'WMI Tradecraft Analysis' (12 sections · Medium)",
       "M11 · section 1: Intro to WMI, WMI execution & its detection, WMI lateral movement"
     ]
   },
   {
-    "d": 202,
+    "d": 197,
     "title": "WMI execution & movement",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M11 · section 2"
     ]
   },
   {
-    "d": 203,
+    "d": 198,
     "title": "WMI execution & movement",
     "type": "study",
     "hrs": 2.5,
@@ -2439,25 +2394,25 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 204,
+    "d": 199,
     "title": "WMI execution & movement",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M11 · section 4"
     ]
   },
   {
-    "d": 205,
+    "d": 200,
     "title": "WinRM, wmiexec & events",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M11 · section 5: WinRM, Impacket wmiexec.py, lateral movement detection, WMI event subscriptions"
     ]
   },
   {
-    "d": 206,
+    "d": 201,
     "title": "WinRM, wmiexec & events",
     "type": "study",
     "hrs": 2.5,
@@ -2466,7 +2421,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 207,
+    "d": 202,
     "title": "WinRM, wmiexec & events",
     "type": "study",
     "hrs": 2.5,
@@ -2475,25 +2430,25 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 208,
+    "d": 203,
     "title": "WinRM, wmiexec & events",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M11 · section 8"
     ]
   },
   {
-    "d": 209,
+    "d": 204,
     "title": "Event subs & WMI providers",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M11 · section 9: Malicious event subscription detection, malicious WMI providers & detection, Splunk exercises"
     ]
   },
   {
-    "d": 210,
+    "d": 205,
     "title": "Event subs & WMI providers",
     "type": "study",
     "hrs": 2.5,
@@ -2502,7 +2457,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 211,
+    "d": 206,
     "title": "Event subs & WMI providers",
     "type": "study",
     "hrs": 2.5,
@@ -2511,10 +2466,10 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 212,
+    "d": 207,
     "title": "Event subs & WMI providers",
     "type": "study",
-    "hrs": 2,
+    "hrs": 2.5,
     "tasks": [
       "M11 · section 12",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -2522,191 +2477,191 @@ const CURRICULUM = [
     "milestone": "Module 11 complete — WMI Tradecraft Analysis"
   },
   {
-    "d": 213,
+    "d": 208,
     "title": "NTLM & logon internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "Begin 'Credential Access Tradecraft Analysis' (21 sections · Hard)",
       "M12 · section 1: Intro, Windows logon internals, NTLM, NTLM credential attacks & detections"
     ]
   },
   {
-    "d": 214,
+    "d": 209,
     "title": "NTLM & logon internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 2"
     ]
   },
   {
-    "d": 215,
+    "d": 210,
     "title": "NTLM & logon internals",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 3"
     ]
   },
   {
-    "d": 216,
+    "d": 211,
     "title": "NTLM & logon internals",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M12 · section 4"
     ]
   },
   {
-    "d": 217,
+    "d": 212,
     "title": "Kerberos & NTDS",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 5: Kerberos internals parts 1 and 2, NTDS attacks & detections"
     ]
   },
   {
-    "d": 218,
+    "d": 213,
     "title": "Kerberos & NTDS",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 6"
     ]
   },
   {
-    "d": 219,
+    "d": 214,
     "title": "Kerberos & NTDS",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 7"
+    ]
+  },
+  {
+    "d": 215,
+    "title": "LSA, secrets & cached creds",
+    "type": "study",
+    "hrs": 3.5,
+    "tasks": [
+      "M12 · section 8: LSA internals, LSA service attacks, LSA secrets, cached domain credentials & their detections"
+    ]
+  },
+  {
+    "d": 216,
+    "title": "LSA, secrets & cached creds",
+    "type": "study",
+    "hrs": 3.5,
+    "tasks": [
+      "M12 · section 9"
+    ]
+  },
+  {
+    "d": 217,
+    "title": "LSA, secrets & cached creds",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M12 · section 10"
+    ]
+  },
+  {
+    "d": 218,
+    "title": "LSA, secrets & cached creds",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M12 · section 11"
+    ]
+  },
+  {
+    "d": 219,
+    "title": "LSA, secrets & cached creds",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M12 · section 12"
     ]
   },
   {
     "d": 220,
     "title": "LSA, secrets & cached creds",
     "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M12 · section 8: LSA internals, LSA service attacks, LSA secrets, cached domain credentials & their detections"
-    ]
-  },
-  {
-    "d": 221,
-    "title": "LSA, secrets & cached creds",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M12 · section 9"
-    ]
-  },
-  {
-    "d": 222,
-    "title": "LSA, secrets & cached creds",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M12 · section 10"
-    ]
-  },
-  {
-    "d": 223,
-    "title": "LSA, secrets & cached creds",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M12 · section 11"
-    ]
-  },
-  {
-    "d": 224,
-    "title": "LSA, secrets & cached creds",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M12 · section 12"
-    ]
-  },
-  {
-    "d": 225,
-    "title": "LSA, secrets & cached creds",
-    "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M12 · section 13"
     ]
   },
   {
-    "d": 226,
+    "d": 221,
     "title": "DPAPI & browser creds",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 14: Credential Manager and DPAPI attacks & detection, browser-stored credentials, Credential Guard"
     ]
   },
   {
-    "d": 227,
+    "d": 222,
     "title": "DPAPI & browser creds",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 15"
     ]
   },
   {
-    "d": 228,
+    "d": 223,
     "title": "DPAPI & browser creds",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 16"
     ]
   },
   {
-    "d": 229,
+    "d": 224,
     "title": "DPAPI & browser creds",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M12 · section 17"
     ]
   },
   {
-    "d": 230,
+    "d": 225,
     "title": "Credential Guard attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 18: Credential Guard attacks & detections parts 1 and 2, skills assessment parts 1 and 2"
     ]
   },
   {
-    "d": 231,
+    "d": 226,
     "title": "Credential Guard attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 19"
     ]
   },
   {
-    "d": 232,
+    "d": 227,
     "title": "Credential Guard attacks",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M12 · section 20"
     ]
   },
   {
-    "d": 233,
+    "d": 228,
     "title": "Credential Guard attacks",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M12 · section 21",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -2714,7 +2669,7 @@ const CURRICULUM = [
     "milestone": "Module 12 complete — Credential Access Tradecraft Analysis"
   },
   {
-    "d": 234,
+    "d": 229,
     "title": "Tradecraft hunt",
     "type": "lab",
     "hrs": 2,
@@ -2724,7 +2679,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 235,
+    "d": 230,
     "title": "Tradecraft review",
     "type": "review",
     "hrs": 1,
@@ -2734,227 +2689,227 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 236,
+    "d": 231,
     "title": "ETW & ETW-TI",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "Begin 'Windows Kernel Telemetry & Detection Techniques' (25 sections · Hard)",
       "M13 · section 1: Intro, ETW, the kernel process provider & stack tracing, ETW-TI and why it matters, interacting with ETW-TI"
     ]
   },
   {
-    "d": 237,
+    "d": 232,
     "title": "ETW & ETW-TI",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 2"
     ]
   },
   {
-    "d": 238,
+    "d": 233,
     "title": "ETW & ETW-TI",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 3"
     ]
   },
   {
-    "d": 239,
+    "d": 234,
     "title": "ETW & ETW-TI",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 4"
     ]
   },
   {
-    "d": 240,
+    "d": 235,
     "title": "ETW & ETW-TI",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 5"
     ]
   },
   {
-    "d": 241,
+    "d": 236,
     "title": "ETW & ETW-TI",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M13 · section 6"
     ]
   },
   {
-    "d": 242,
+    "d": 237,
     "title": "VAD tree & ghost processes",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 7: The kernel lab, the VAD tree, process creation callbacks, hunting ghost processes"
     ]
   },
   {
-    "d": 243,
+    "d": 238,
     "title": "VAD tree & ghost processes",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 8"
     ]
   },
   {
-    "d": 244,
+    "d": 239,
     "title": "VAD tree & ghost processes",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 9"
     ]
   },
   {
-    "d": 245,
+    "d": 240,
     "title": "VAD tree & ghost processes",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M13 · section 10"
+    ]
+  },
+  {
+    "d": 241,
+    "title": "Kernel callbacks",
+    "type": "study",
+    "hrs": 3.5,
+    "tasks": [
+      "M13 · section 11: Registry and thread callbacks, process hollowing detection, shadow stacks, image load & object handle callbacks"
+    ]
+  },
+  {
+    "d": 242,
+    "title": "Kernel callbacks",
+    "type": "study",
+    "hrs": 3.5,
+    "tasks": [
+      "M13 · section 12"
+    ]
+  },
+  {
+    "d": 243,
+    "title": "Kernel callbacks",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M13 · section 13"
+    ]
+  },
+  {
+    "d": 244,
+    "title": "Kernel callbacks",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M13 · section 14"
+    ]
+  },
+  {
+    "d": 245,
+    "title": "Kernel callbacks",
+    "type": "study",
+    "hrs": 3,
+    "tasks": [
+      "M13 · section 15"
     ]
   },
   {
     "d": 246,
     "title": "Kernel callbacks",
     "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M13 · section 11: Registry and thread callbacks, process hollowing detection, shadow stacks, image load & object handle callbacks"
-    ]
-  },
-  {
-    "d": 247,
-    "title": "Kernel callbacks",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M13 · section 12"
-    ]
-  },
-  {
-    "d": 248,
-    "title": "Kernel callbacks",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M13 · section 13"
-    ]
-  },
-  {
-    "d": 249,
-    "title": "Kernel callbacks",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M13 · section 14"
-    ]
-  },
-  {
-    "d": 250,
-    "title": "Kernel callbacks",
-    "type": "study",
-    "hrs": 2.5,
-    "tasks": [
-      "M13 · section 15"
-    ]
-  },
-  {
-    "d": 251,
-    "title": "Kernel callbacks",
-    "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M13 · section 16"
     ]
   },
   {
-    "d": 252,
+    "d": 247,
     "title": "Minifilters & WFP",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 17: Locating callbacks via drivers, NTFS/NPFS minifilters, named pipe monitoring, WFP & traffic filtering"
     ]
   },
   {
-    "d": 253,
+    "d": 248,
     "title": "Minifilters & WFP",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 18"
     ]
   },
   {
-    "d": 254,
+    "d": 249,
     "title": "Minifilters & WFP",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 19"
     ]
   },
   {
-    "d": 255,
+    "d": 250,
     "title": "Minifilters & WFP",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 20"
     ]
   },
   {
-    "d": 256,
+    "d": 251,
     "title": "Minifilters & WFP",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M13 · section 21"
     ]
   },
   {
-    "d": 257,
+    "d": 252,
     "title": "Syscall interception",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 22: Kernel syscall interception, alternative syscall handlers, skills assessment parts 1 and 2"
     ]
   },
   {
-    "d": 258,
+    "d": 253,
     "title": "Syscall interception",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3.5,
     "tasks": [
       "M13 · section 23"
     ]
   },
   {
-    "d": 259,
+    "d": 254,
     "title": "Syscall interception",
     "type": "study",
-    "hrs": 2.5,
+    "hrs": 3,
     "tasks": [
       "M13 · section 24"
     ]
   },
   {
-    "d": 260,
+    "d": 255,
     "title": "Syscall interception",
     "type": "study",
-    "hrs": 2,
+    "hrs": 3,
     "tasks": [
       "M13 · section 25",
       "Finish the module, including any skills assessment, and save its cheat sheet"
@@ -2962,7 +2917,7 @@ const CURRICULUM = [
     "milestone": "Module 13 complete — Windows Kernel Telemetry & Detection Techniques"
   },
   {
-    "d": 261,
+    "d": 256,
     "title": "Kernel telemetry drill",
     "type": "lab",
     "hrs": 2,
@@ -2972,7 +2927,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 262,
+    "d": 257,
     "title": "Kernel review",
     "type": "review",
     "hrs": 1,
@@ -2982,7 +2937,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 263,
+    "d": 258,
     "title": "Report template setup",
     "type": "lab",
     "hrs": 1.5,
@@ -2992,7 +2947,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 264,
+    "d": 259,
     "title": "Practice report",
     "type": "lab",
     "hrs": 2,
@@ -3002,7 +2957,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 265,
+    "d": 260,
     "title": "Mock exam: investigation",
     "type": "lab",
     "hrs": 2.5,
@@ -3012,7 +2967,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 266,
+    "d": 261,
     "title": "Mock exam: report",
     "type": "lab",
     "hrs": 2,
@@ -3022,7 +2977,7 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 267,
+    "d": 262,
     "title": "Finalize cheat sheets",
     "type": "review",
     "hrs": 1.5,
@@ -3032,13 +2987,63 @@ const CURRICULUM = [
     ]
   },
   {
-    "d": 268,
+    "d": 263,
     "title": "Weak-area review",
     "type": "lab",
     "hrs": 1.5,
     "tasks": [
       "Redo the skills assessments you found hardest",
       "Give the kernel telemetry and process injection modules one more pass"
+    ]
+  },
+  {
+    "d": 264,
+    "title": "Catch-up day",
+    "type": "review",
+    "hrs": 1,
+    "tasks": [
+      "Use this day to finish any module or lab you're behind on",
+      "Rest and review. Steady pacing beats burnout"
+    ]
+  },
+  {
+    "d": 265,
+    "title": "Catch-up day",
+    "type": "review",
+    "hrs": 1,
+    "tasks": [
+      "Use this day to finish any module or lab you're behind on",
+      "Rest and review. Steady pacing beats burnout"
+    ]
+  },
+  {
+    "d": 266,
+    "title": "Catch-up day",
+    "type": "review",
+    "hrs": 1,
+    "tasks": [
+      "Use this day to finish any module or lab you're behind on",
+      "Rest and review. Steady pacing beats burnout"
+    ]
+  },
+  {
+    "d": 267,
+    "title": "Catch-up day",
+    "type": "review",
+    "hrs": 1,
+    "tasks": [
+      "Use this day to finish any module or lab you're behind on",
+      "Rest and review. Steady pacing beats burnout"
+    ]
+  },
+  {
+    "d": 268,
+    "title": "Catch-up day",
+    "type": "review",
+    "hrs": 1,
+    "tasks": [
+      "Use this day to finish any module or lab you're behind on",
+      "Rest and review. Steady pacing beats burnout"
     ]
   },
   {
@@ -3435,7 +3440,7 @@ const RESOURCES = [
 
 /* ---------- State ---------- */
 const STORE_KEY = "cdep_tracker_v2";
-const PLAN_SIG = "6df91f9559";  // changes when days/tasks move, so saved checkmarks may shift
+const PLAN_SIG = "d9184bce5d";  // changes when days/tasks move, so saved checkmarks may shift
 let state = {startDate:"", done:{}, notes:{}, mode:90};
 
 /* Timeline modes: the same full curriculum, repackaged into 90 to 270 days. */
@@ -3450,7 +3455,7 @@ const MODES = {
   },
   "145": {
     "days": 145,
-    "hrs": "≈ 30 hrs/week"
+    "hrs": "≈ 31 hrs/week"
   },
   "220": {
     "days": 220,
@@ -3461,7 +3466,7 @@ const MODES = {
     "hrs": "≈ 16 hrs/week"
   }
 };
-const MODS_DONE = {"mods": [["detection--opsec-cyber-range", "Detection & OpSec Cyber Range", 9], ["introduction-to-detection-engineering", "Introduction to Detection Engineering", 29], ["introduction-to-dynamic-analysis-with-windbg", "Introduction to Dynamic Analysis with WinDbg", 15], ["process-injection-attacks-and-detection", "Process Injection Attacks and Detection", 31], ["linux-process-injections--detections", "Linux Process Injections & Detections", 20], ["windows-low-level-detectability", "Windows Low Level Detectability", 17], ["detecting-access-token-manipulation-attacks", "Detecting Access Token Manipulation Attacks", 17], ["windows-api-monitoring-and-hooking", "Windows API Monitoring and Hooking", 12], ["privilege-escalation-tradecraft-analysis", "Privilege Escalation Tradecraft Analysis", 24], ["persistence-tradecraft-analysis", "Persistence Tradecraft Analysis", 18], ["wmi-tradecraft-analysis", "WMI Tradecraft Analysis", 12], ["credential-access-tradecraft-analysis", "Credential Access Tradecraft Analysis", 21], ["windows-kernel-telemetry--detection-techniques", "Windows Kernel Telemetry & Detection Techniques", 25]], "taskMod": {"3-0": "detection--opsec-cyber-range", "3-1": "detection--opsec-cyber-range", "4-0": "detection--opsec-cyber-range", "5-0": "detection--opsec-cyber-range", "6-0": "detection--opsec-cyber-range", "7-0": "detection--opsec-cyber-range", "8-0": "detection--opsec-cyber-range", "9-0": "detection--opsec-cyber-range", "10-0": "detection--opsec-cyber-range", "11-0": "detection--opsec-cyber-range", "11-1": "detection--opsec-cyber-range", "12-0": "introduction-to-detection-engineering", "12-1": "introduction-to-detection-engineering", "13-0": "introduction-to-detection-engineering", "14-0": "introduction-to-detection-engineering", "15-0": "introduction-to-detection-engineering", "16-0": "introduction-to-detection-engineering", "17-0": "introduction-to-detection-engineering", "18-0": "introduction-to-detection-engineering", "19-0": "introduction-to-detection-engineering", "20-0": "introduction-to-detection-engineering", "21-0": "introduction-to-detection-engineering", "22-0": "introduction-to-detection-engineering", "23-0": "introduction-to-detection-engineering", "24-0": "introduction-to-detection-engineering", "25-0": "introduction-to-detection-engineering", "26-0": "introduction-to-detection-engineering", "27-0": "introduction-to-detection-engineering", "28-0": "introduction-to-detection-engineering", "29-0": "introduction-to-detection-engineering", "30-0": "introduction-to-detection-engineering", "31-0": "introduction-to-detection-engineering", "32-0": "introduction-to-detection-engineering", "33-0": "introduction-to-detection-engineering", "34-0": "introduction-to-detection-engineering", "35-0": "introduction-to-detection-engineering", "36-0": "introduction-to-detection-engineering", "37-0": "introduction-to-detection-engineering", "38-0": "introduction-to-detection-engineering", "39-0": "introduction-to-detection-engineering", "40-0": "introduction-to-detection-engineering", "40-1": "introduction-to-detection-engineering", "43-0": "introduction-to-dynamic-analysis-with-windbg", "43-1": "introduction-to-dynamic-analysis-with-windbg", "44-0": "introduction-to-dynamic-analysis-with-windbg", "45-0": "introduction-to-dynamic-analysis-with-windbg", "46-0": "introduction-to-dynamic-analysis-with-windbg", "47-0": "introduction-to-dynamic-analysis-with-windbg", "48-0": "introduction-to-dynamic-analysis-with-windbg", "49-0": "introduction-to-dynamic-analysis-with-windbg", "50-0": "introduction-to-dynamic-analysis-with-windbg", "51-0": "introduction-to-dynamic-analysis-with-windbg", "52-0": "introduction-to-dynamic-analysis-with-windbg", "53-0": "introduction-to-dynamic-analysis-with-windbg", "54-0": "introduction-to-dynamic-analysis-with-windbg", "55-0": "introduction-to-dynamic-analysis-with-windbg", "56-0": "introduction-to-dynamic-analysis-with-windbg", "57-0": "introduction-to-dynamic-analysis-with-windbg", "57-1": "introduction-to-dynamic-analysis-with-windbg", "58-0": "process-injection-attacks-and-detection", "58-1": "process-injection-attacks-and-detection", "59-0": "process-injection-attacks-and-detection", "60-0": "process-injection-attacks-and-detection", "61-0": "process-injection-attacks-and-detection", "62-0": "process-injection-attacks-and-detection", "63-0": "process-injection-attacks-and-detection", "64-0": "process-injection-attacks-and-detection", "65-0": "process-injection-attacks-and-detection", "66-0": "process-injection-attacks-and-detection", "67-0": "process-injection-attacks-and-detection", "68-0": "process-injection-attacks-and-detection", "69-0": "process-injection-attacks-and-detection", "70-0": "process-injection-attacks-and-detection", "71-0": "process-injection-attacks-and-detection", "72-0": "process-injection-attacks-and-detection", "73-0": "process-injection-attacks-and-detection", "74-0": "process-injection-attacks-and-detection", "75-0": "process-injection-attacks-and-detection", "76-0": "process-injection-attacks-and-detection", "77-0": "process-injection-attacks-and-detection", "78-0": "process-injection-attacks-and-detection", "79-0": "process-injection-attacks-and-detection", "80-0": "process-injection-attacks-and-detection", "81-0": "process-injection-attacks-and-detection", "82-0": "process-injection-attacks-and-detection", "83-0": "process-injection-attacks-and-detection", "84-0": "process-injection-attacks-and-detection", "85-0": "process-injection-attacks-and-detection", "86-0": "process-injection-attacks-and-detection", "87-0": "process-injection-attacks-and-detection", "88-0": "process-injection-attacks-and-detection", "88-1": "process-injection-attacks-and-detection", "89-0": "linux-process-injections--detections", "89-1": "linux-process-injections--detections", "90-0": "linux-process-injections--detections", "91-0": "linux-process-injections--detections", "92-0": "linux-process-injections--detections", "93-0": "linux-process-injections--detections", "94-0": "linux-process-injections--detections", "95-0": "linux-process-injections--detections", "96-0": "linux-process-injections--detections", "97-0": "linux-process-injections--detections", "98-0": "linux-process-injections--detections", "99-0": "linux-process-injections--detections", "100-0": "linux-process-injections--detections", "101-0": "linux-process-injections--detections", "102-0": "linux-process-injections--detections", "103-0": "linux-process-injections--detections", "104-0": "linux-process-injections--detections", "105-0": "linux-process-injections--detections", "106-0": "linux-process-injections--detections", "107-0": "linux-process-injections--detections", "108-0": "linux-process-injections--detections", "108-1": "linux-process-injections--detections", "111-0": "windows-low-level-detectability", "111-1": "windows-low-level-detectability", "112-0": "windows-low-level-detectability", "113-0": "windows-low-level-detectability", "114-0": "windows-low-level-detectability", "115-0": "windows-low-level-detectability", "116-0": "windows-low-level-detectability", "117-0": "windows-low-level-detectability", "118-0": "windows-low-level-detectability", "119-0": "windows-low-level-detectability", "120-0": "windows-low-level-detectability", "121-0": "windows-low-level-detectability", "122-0": "windows-low-level-detectability", "123-0": "windows-low-level-detectability", "124-0": "windows-low-level-detectability", "125-0": "windows-low-level-detectability", "126-0": "windows-low-level-detectability", "127-0": "windows-low-level-detectability", "127-1": "windows-low-level-detectability", "128-0": "detecting-access-token-manipulation-attacks", "128-1": "detecting-access-token-manipulation-attacks", "129-0": "detecting-access-token-manipulation-attacks", "130-0": "detecting-access-token-manipulation-attacks", "131-0": "detecting-access-token-manipulation-attacks", "132-0": "detecting-access-token-manipulation-attacks", "133-0": "detecting-access-token-manipulation-attacks", "134-0": "detecting-access-token-manipulation-attacks", "135-0": "detecting-access-token-manipulation-attacks", "136-0": "detecting-access-token-manipulation-attacks", "137-0": "detecting-access-token-manipulation-attacks", "138-0": "detecting-access-token-manipulation-attacks", "139-0": "detecting-access-token-manipulation-attacks", "140-0": "detecting-access-token-manipulation-attacks", "141-0": "detecting-access-token-manipulation-attacks", "142-0": "detecting-access-token-manipulation-attacks", "143-0": "detecting-access-token-manipulation-attacks", "144-0": "detecting-access-token-manipulation-attacks", "144-1": "detecting-access-token-manipulation-attacks", "145-0": "windows-api-monitoring-and-hooking", "145-1": "windows-api-monitoring-and-hooking", "146-0": "windows-api-monitoring-and-hooking", "147-0": "windows-api-monitoring-and-hooking", "148-0": "windows-api-monitoring-and-hooking", "149-0": "windows-api-monitoring-and-hooking", "150-0": "windows-api-monitoring-and-hooking", "151-0": "windows-api-monitoring-and-hooking", "152-0": "windows-api-monitoring-and-hooking", "153-0": "windows-api-monitoring-and-hooking", "154-0": "windows-api-monitoring-and-hooking", "155-0": "windows-api-monitoring-and-hooking", "156-0": "windows-api-monitoring-and-hooking", "156-1": "windows-api-monitoring-and-hooking", "159-0": "privilege-escalation-tradecraft-analysis", "159-1": "privilege-escalation-tradecraft-analysis", "160-0": "privilege-escalation-tradecraft-analysis", "161-0": "privilege-escalation-tradecraft-analysis", "162-0": "privilege-escalation-tradecraft-analysis", "163-0": "privilege-escalation-tradecraft-analysis", "164-0": "privilege-escalation-tradecraft-analysis", "165-0": "privilege-escalation-tradecraft-analysis", "166-0": "privilege-escalation-tradecraft-analysis", "167-0": "privilege-escalation-tradecraft-analysis", "168-0": "privilege-escalation-tradecraft-analysis", "169-0": "privilege-escalation-tradecraft-analysis", "170-0": "privilege-escalation-tradecraft-analysis", "171-0": "privilege-escalation-tradecraft-analysis", "172-0": "privilege-escalation-tradecraft-analysis", "173-0": "privilege-escalation-tradecraft-analysis", "174-0": "privilege-escalation-tradecraft-analysis", "175-0": "privilege-escalation-tradecraft-analysis", "176-0": "privilege-escalation-tradecraft-analysis", "177-0": "privilege-escalation-tradecraft-analysis", "178-0": "privilege-escalation-tradecraft-analysis", "179-0": "privilege-escalation-tradecraft-analysis", "180-0": "privilege-escalation-tradecraft-analysis", "181-0": "privilege-escalation-tradecraft-analysis", "182-0": "privilege-escalation-tradecraft-analysis", "182-1": "privilege-escalation-tradecraft-analysis", "183-0": "persistence-tradecraft-analysis", "183-1": "persistence-tradecraft-analysis", "184-0": "persistence-tradecraft-analysis", "185-0": "persistence-tradecraft-analysis", "186-0": "persistence-tradecraft-analysis", "187-0": "persistence-tradecraft-analysis", "188-0": "persistence-tradecraft-analysis", "189-0": "persistence-tradecraft-analysis", "190-0": "persistence-tradecraft-analysis", "191-0": "persistence-tradecraft-analysis", "192-0": "persistence-tradecraft-analysis", "193-0": "persistence-tradecraft-analysis", "194-0": "persistence-tradecraft-analysis", "195-0": "persistence-tradecraft-analysis", "196-0": "persistence-tradecraft-analysis", "197-0": "persistence-tradecraft-analysis", "198-0": "persistence-tradecraft-analysis", "199-0": "persistence-tradecraft-analysis", "200-0": "persistence-tradecraft-analysis", "200-1": "persistence-tradecraft-analysis", "201-0": "wmi-tradecraft-analysis", "201-1": "wmi-tradecraft-analysis", "202-0": "wmi-tradecraft-analysis", "203-0": "wmi-tradecraft-analysis", "204-0": "wmi-tradecraft-analysis", "205-0": "wmi-tradecraft-analysis", "206-0": "wmi-tradecraft-analysis", "207-0": "wmi-tradecraft-analysis", "208-0": "wmi-tradecraft-analysis", "209-0": "wmi-tradecraft-analysis", "210-0": "wmi-tradecraft-analysis", "211-0": "wmi-tradecraft-analysis", "212-0": "wmi-tradecraft-analysis", "212-1": "wmi-tradecraft-analysis", "213-0": "credential-access-tradecraft-analysis", "213-1": "credential-access-tradecraft-analysis", "214-0": "credential-access-tradecraft-analysis", "215-0": "credential-access-tradecraft-analysis", "216-0": "credential-access-tradecraft-analysis", "217-0": "credential-access-tradecraft-analysis", "218-0": "credential-access-tradecraft-analysis", "219-0": "credential-access-tradecraft-analysis", "220-0": "credential-access-tradecraft-analysis", "221-0": "credential-access-tradecraft-analysis", "222-0": "credential-access-tradecraft-analysis", "223-0": "credential-access-tradecraft-analysis", "224-0": "credential-access-tradecraft-analysis", "225-0": "credential-access-tradecraft-analysis", "226-0": "credential-access-tradecraft-analysis", "227-0": "credential-access-tradecraft-analysis", "228-0": "credential-access-tradecraft-analysis", "229-0": "credential-access-tradecraft-analysis", "230-0": "credential-access-tradecraft-analysis", "231-0": "credential-access-tradecraft-analysis", "232-0": "credential-access-tradecraft-analysis", "233-0": "credential-access-tradecraft-analysis", "233-1": "credential-access-tradecraft-analysis", "236-0": "windows-kernel-telemetry--detection-techniques", "236-1": "windows-kernel-telemetry--detection-techniques", "237-0": "windows-kernel-telemetry--detection-techniques", "238-0": "windows-kernel-telemetry--detection-techniques", "239-0": "windows-kernel-telemetry--detection-techniques", "240-0": "windows-kernel-telemetry--detection-techniques", "241-0": "windows-kernel-telemetry--detection-techniques", "242-0": "windows-kernel-telemetry--detection-techniques", "243-0": "windows-kernel-telemetry--detection-techniques", "244-0": "windows-kernel-telemetry--detection-techniques", "245-0": "windows-kernel-telemetry--detection-techniques", "246-0": "windows-kernel-telemetry--detection-techniques", "247-0": "windows-kernel-telemetry--detection-techniques", "248-0": "windows-kernel-telemetry--detection-techniques", "249-0": "windows-kernel-telemetry--detection-techniques", "250-0": "windows-kernel-telemetry--detection-techniques", "251-0": "windows-kernel-telemetry--detection-techniques", "252-0": "windows-kernel-telemetry--detection-techniques", "253-0": "windows-kernel-telemetry--detection-techniques", "254-0": "windows-kernel-telemetry--detection-techniques", "255-0": "windows-kernel-telemetry--detection-techniques", "256-0": "windows-kernel-telemetry--detection-techniques", "257-0": "windows-kernel-telemetry--detection-techniques", "258-0": "windows-kernel-telemetry--detection-techniques", "259-0": "windows-kernel-telemetry--detection-techniques", "260-0": "windows-kernel-telemetry--detection-techniques", "260-1": "windows-kernel-telemetry--detection-techniques"}, "quick": [], "acc": {}, "badge": {}};
+const MODS_DONE = {"mods": [["detection--opsec-cyber-range", "Detection & OpSec Cyber Range", 9], ["introduction-to-detection-engineering", "Introduction to Detection Engineering", 29], ["introduction-to-dynamic-analysis-with-windbg", "Introduction to Dynamic Analysis with WinDbg", 15], ["process-injection-attacks-and-detection", "Process Injection Attacks and Detection", 31], ["linux-process-injections--detections", "Linux Process Injections & Detections", 20], ["windows-low-level-detectability", "Windows Low Level Detectability", 17], ["detecting-access-token-manipulation-attacks", "Detecting Access Token Manipulation Attacks", 17], ["windows-api-monitoring-and-hooking", "Windows API Monitoring and Hooking", 12], ["privilege-escalation-tradecraft-analysis", "Privilege Escalation Tradecraft Analysis", 24], ["persistence-tradecraft-analysis", "Persistence Tradecraft Analysis", 18], ["wmi-tradecraft-analysis", "WMI Tradecraft Analysis", 12], ["credential-access-tradecraft-analysis", "Credential Access Tradecraft Analysis", 21], ["windows-kernel-telemetry--detection-techniques", "Windows Kernel Telemetry & Detection Techniques", 25]], "taskMod": {"3-0": "detection--opsec-cyber-range", "3-1": "detection--opsec-cyber-range", "4-0": "detection--opsec-cyber-range", "5-0": "detection--opsec-cyber-range", "6-0": "detection--opsec-cyber-range", "7-0": "detection--opsec-cyber-range", "8-0": "detection--opsec-cyber-range", "9-0": "detection--opsec-cyber-range", "10-0": "detection--opsec-cyber-range", "11-0": "detection--opsec-cyber-range", "11-1": "detection--opsec-cyber-range", "12-0": "introduction-to-detection-engineering", "12-1": "introduction-to-detection-engineering", "13-0": "introduction-to-detection-engineering", "14-0": "introduction-to-detection-engineering", "15-0": "introduction-to-detection-engineering", "16-0": "introduction-to-detection-engineering", "17-0": "introduction-to-detection-engineering", "18-0": "introduction-to-detection-engineering", "19-0": "introduction-to-detection-engineering", "20-0": "introduction-to-detection-engineering", "21-0": "introduction-to-detection-engineering", "22-0": "introduction-to-detection-engineering", "23-0": "introduction-to-detection-engineering", "24-0": "introduction-to-detection-engineering", "25-0": "introduction-to-detection-engineering", "26-0": "introduction-to-detection-engineering", "27-0": "introduction-to-detection-engineering", "28-0": "introduction-to-detection-engineering", "29-0": "introduction-to-detection-engineering", "30-0": "introduction-to-detection-engineering", "31-0": "introduction-to-detection-engineering", "32-0": "introduction-to-detection-engineering", "33-0": "introduction-to-detection-engineering", "34-0": "introduction-to-detection-engineering", "35-0": "introduction-to-detection-engineering", "36-0": "introduction-to-detection-engineering", "37-0": "introduction-to-detection-engineering", "38-0": "introduction-to-detection-engineering", "39-0": "introduction-to-detection-engineering", "40-0": "introduction-to-detection-engineering", "40-1": "introduction-to-detection-engineering", "43-0": "introduction-to-dynamic-analysis-with-windbg", "43-1": "introduction-to-dynamic-analysis-with-windbg", "44-0": "introduction-to-dynamic-analysis-with-windbg", "45-0": "introduction-to-dynamic-analysis-with-windbg", "46-0": "introduction-to-dynamic-analysis-with-windbg", "47-0": "introduction-to-dynamic-analysis-with-windbg", "48-0": "introduction-to-dynamic-analysis-with-windbg", "49-0": "introduction-to-dynamic-analysis-with-windbg", "50-0": "introduction-to-dynamic-analysis-with-windbg", "51-0": "introduction-to-dynamic-analysis-with-windbg", "52-0": "introduction-to-dynamic-analysis-with-windbg", "53-0": "introduction-to-dynamic-analysis-with-windbg", "54-0": "introduction-to-dynamic-analysis-with-windbg", "55-0": "introduction-to-dynamic-analysis-with-windbg", "56-0": "introduction-to-dynamic-analysis-with-windbg", "57-0": "introduction-to-dynamic-analysis-with-windbg", "57-1": "introduction-to-dynamic-analysis-with-windbg", "58-0": "process-injection-attacks-and-detection", "58-1": "process-injection-attacks-and-detection", "59-0": "process-injection-attacks-and-detection", "60-0": "process-injection-attacks-and-detection", "61-0": "process-injection-attacks-and-detection", "62-0": "process-injection-attacks-and-detection", "63-0": "process-injection-attacks-and-detection", "64-0": "process-injection-attacks-and-detection", "65-0": "process-injection-attacks-and-detection", "66-0": "process-injection-attacks-and-detection", "67-0": "process-injection-attacks-and-detection", "68-0": "process-injection-attacks-and-detection", "69-0": "process-injection-attacks-and-detection", "70-0": "process-injection-attacks-and-detection", "71-0": "process-injection-attacks-and-detection", "72-0": "process-injection-attacks-and-detection", "73-0": "process-injection-attacks-and-detection", "74-0": "process-injection-attacks-and-detection", "75-0": "process-injection-attacks-and-detection", "76-0": "process-injection-attacks-and-detection", "77-0": "process-injection-attacks-and-detection", "78-0": "process-injection-attacks-and-detection", "79-0": "process-injection-attacks-and-detection", "80-0": "process-injection-attacks-and-detection", "81-0": "process-injection-attacks-and-detection", "82-0": "process-injection-attacks-and-detection", "83-0": "process-injection-attacks-and-detection", "84-0": "process-injection-attacks-and-detection", "85-0": "process-injection-attacks-and-detection", "86-0": "process-injection-attacks-and-detection", "87-0": "process-injection-attacks-and-detection", "88-0": "process-injection-attacks-and-detection", "88-1": "process-injection-attacks-and-detection", "89-0": "linux-process-injections--detections", "89-1": "linux-process-injections--detections", "90-0": "linux-process-injections--detections", "91-0": "linux-process-injections--detections", "92-0": "linux-process-injections--detections", "93-0": "linux-process-injections--detections", "94-0": "linux-process-injections--detections", "95-0": "linux-process-injections--detections", "96-0": "linux-process-injections--detections", "97-0": "linux-process-injections--detections", "98-0": "linux-process-injections--detections", "99-0": "linux-process-injections--detections", "100-0": "linux-process-injections--detections", "101-0": "linux-process-injections--detections", "102-0": "linux-process-injections--detections", "103-0": "linux-process-injections--detections", "104-0": "linux-process-injections--detections", "105-0": "linux-process-injections--detections", "106-0": "linux-process-injections--detections", "107-0": "linux-process-injections--detections", "108-0": "linux-process-injections--detections", "108-1": "linux-process-injections--detections", "111-0": "windows-low-level-detectability", "111-1": "windows-low-level-detectability", "112-0": "windows-low-level-detectability", "113-0": "windows-low-level-detectability", "114-0": "windows-low-level-detectability", "115-0": "windows-low-level-detectability", "116-0": "windows-low-level-detectability", "117-0": "windows-low-level-detectability", "118-0": "windows-low-level-detectability", "119-0": "windows-low-level-detectability", "120-0": "windows-low-level-detectability", "121-0": "windows-low-level-detectability", "122-0": "windows-low-level-detectability", "123-0": "windows-low-level-detectability", "124-0": "windows-low-level-detectability", "125-0": "windows-low-level-detectability", "126-0": "windows-low-level-detectability", "127-0": "windows-low-level-detectability", "127-1": "windows-low-level-detectability", "128-0": "detecting-access-token-manipulation-attacks", "128-1": "detecting-access-token-manipulation-attacks", "129-0": "detecting-access-token-manipulation-attacks", "130-0": "detecting-access-token-manipulation-attacks", "131-0": "detecting-access-token-manipulation-attacks", "132-0": "detecting-access-token-manipulation-attacks", "133-0": "detecting-access-token-manipulation-attacks", "134-0": "detecting-access-token-manipulation-attacks", "135-0": "detecting-access-token-manipulation-attacks", "136-0": "detecting-access-token-manipulation-attacks", "137-0": "detecting-access-token-manipulation-attacks", "138-0": "detecting-access-token-manipulation-attacks", "139-0": "detecting-access-token-manipulation-attacks", "140-0": "detecting-access-token-manipulation-attacks", "141-0": "detecting-access-token-manipulation-attacks", "142-0": "detecting-access-token-manipulation-attacks", "143-0": "detecting-access-token-manipulation-attacks", "144-0": "detecting-access-token-manipulation-attacks", "144-1": "detecting-access-token-manipulation-attacks", "145-0": "windows-api-monitoring-and-hooking", "145-1": "windows-api-monitoring-and-hooking", "146-0": "windows-api-monitoring-and-hooking", "147-0": "windows-api-monitoring-and-hooking", "148-0": "windows-api-monitoring-and-hooking", "149-0": "windows-api-monitoring-and-hooking", "150-0": "windows-api-monitoring-and-hooking", "151-0": "windows-api-monitoring-and-hooking", "152-0": "windows-api-monitoring-and-hooking", "153-0": "windows-api-monitoring-and-hooking", "154-0": "windows-api-monitoring-and-hooking", "155-0": "windows-api-monitoring-and-hooking", "156-0": "windows-api-monitoring-and-hooking", "156-1": "windows-api-monitoring-and-hooking", "159-0": "privilege-escalation-tradecraft-analysis", "159-1": "privilege-escalation-tradecraft-analysis", "160-0": "privilege-escalation-tradecraft-analysis", "161-0": "privilege-escalation-tradecraft-analysis", "162-0": "privilege-escalation-tradecraft-analysis", "163-0": "privilege-escalation-tradecraft-analysis", "164-0": "privilege-escalation-tradecraft-analysis", "165-0": "privilege-escalation-tradecraft-analysis", "166-0": "privilege-escalation-tradecraft-analysis", "167-0": "privilege-escalation-tradecraft-analysis", "168-0": "privilege-escalation-tradecraft-analysis", "169-0": "privilege-escalation-tradecraft-analysis", "170-0": "privilege-escalation-tradecraft-analysis", "171-0": "privilege-escalation-tradecraft-analysis", "172-0": "privilege-escalation-tradecraft-analysis", "173-0": "privilege-escalation-tradecraft-analysis", "174-0": "privilege-escalation-tradecraft-analysis", "175-0": "privilege-escalation-tradecraft-analysis", "176-0": "privilege-escalation-tradecraft-analysis", "177-0": "privilege-escalation-tradecraft-analysis", "178-0": "privilege-escalation-tradecraft-analysis", "179-0": "privilege-escalation-tradecraft-analysis", "180-0": "privilege-escalation-tradecraft-analysis", "181-0": "privilege-escalation-tradecraft-analysis", "182-0": "privilege-escalation-tradecraft-analysis", "182-1": "privilege-escalation-tradecraft-analysis", "183-0": "persistence-tradecraft-analysis", "183-1": "persistence-tradecraft-analysis", "184-0": "persistence-tradecraft-analysis", "185-0": "persistence-tradecraft-analysis", "186-0": "persistence-tradecraft-analysis", "187-0": "persistence-tradecraft-analysis", "188-0": "persistence-tradecraft-analysis", "189-0": "persistence-tradecraft-analysis", "190-0": "persistence-tradecraft-analysis", "191-0": "persistence-tradecraft-analysis", "192-0": "persistence-tradecraft-analysis", "193-0": "persistence-tradecraft-analysis", "194-0": "persistence-tradecraft-analysis", "195-0": "persistence-tradecraft-analysis", "195-1": "persistence-tradecraft-analysis", "196-0": "wmi-tradecraft-analysis", "196-1": "wmi-tradecraft-analysis", "197-0": "wmi-tradecraft-analysis", "198-0": "wmi-tradecraft-analysis", "199-0": "wmi-tradecraft-analysis", "200-0": "wmi-tradecraft-analysis", "201-0": "wmi-tradecraft-analysis", "202-0": "wmi-tradecraft-analysis", "203-0": "wmi-tradecraft-analysis", "204-0": "wmi-tradecraft-analysis", "205-0": "wmi-tradecraft-analysis", "206-0": "wmi-tradecraft-analysis", "207-0": "wmi-tradecraft-analysis", "207-1": "wmi-tradecraft-analysis", "208-0": "credential-access-tradecraft-analysis", "208-1": "credential-access-tradecraft-analysis", "209-0": "credential-access-tradecraft-analysis", "210-0": "credential-access-tradecraft-analysis", "211-0": "credential-access-tradecraft-analysis", "212-0": "credential-access-tradecraft-analysis", "213-0": "credential-access-tradecraft-analysis", "214-0": "credential-access-tradecraft-analysis", "215-0": "credential-access-tradecraft-analysis", "216-0": "credential-access-tradecraft-analysis", "217-0": "credential-access-tradecraft-analysis", "218-0": "credential-access-tradecraft-analysis", "219-0": "credential-access-tradecraft-analysis", "220-0": "credential-access-tradecraft-analysis", "221-0": "credential-access-tradecraft-analysis", "222-0": "credential-access-tradecraft-analysis", "223-0": "credential-access-tradecraft-analysis", "224-0": "credential-access-tradecraft-analysis", "225-0": "credential-access-tradecraft-analysis", "226-0": "credential-access-tradecraft-analysis", "227-0": "credential-access-tradecraft-analysis", "228-0": "credential-access-tradecraft-analysis", "228-1": "credential-access-tradecraft-analysis", "231-0": "windows-kernel-telemetry--detection-techniques", "231-1": "windows-kernel-telemetry--detection-techniques", "232-0": "windows-kernel-telemetry--detection-techniques", "233-0": "windows-kernel-telemetry--detection-techniques", "234-0": "windows-kernel-telemetry--detection-techniques", "235-0": "windows-kernel-telemetry--detection-techniques", "236-0": "windows-kernel-telemetry--detection-techniques", "237-0": "windows-kernel-telemetry--detection-techniques", "238-0": "windows-kernel-telemetry--detection-techniques", "239-0": "windows-kernel-telemetry--detection-techniques", "240-0": "windows-kernel-telemetry--detection-techniques", "241-0": "windows-kernel-telemetry--detection-techniques", "242-0": "windows-kernel-telemetry--detection-techniques", "243-0": "windows-kernel-telemetry--detection-techniques", "244-0": "windows-kernel-telemetry--detection-techniques", "245-0": "windows-kernel-telemetry--detection-techniques", "246-0": "windows-kernel-telemetry--detection-techniques", "247-0": "windows-kernel-telemetry--detection-techniques", "248-0": "windows-kernel-telemetry--detection-techniques", "249-0": "windows-kernel-telemetry--detection-techniques", "250-0": "windows-kernel-telemetry--detection-techniques", "251-0": "windows-kernel-telemetry--detection-techniques", "252-0": "windows-kernel-telemetry--detection-techniques", "253-0": "windows-kernel-telemetry--detection-techniques", "254-0": "windows-kernel-telemetry--detection-techniques", "255-0": "windows-kernel-telemetry--detection-techniques", "255-1": "windows-kernel-telemetry--detection-techniques"}, "quick": [], "acc": {}, "badge": {}};
 const WEEK_RAMP = ["#99f7fe", "#00eafc"];
 let DAYS = [];   // display days for the currently selected mode
 
