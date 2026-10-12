@@ -15,7 +15,7 @@ jobs:
             const body = context.payload.issue.body || "";
             // read only the form's own fields: the line right after each heading
             const field = (h) => { const m = body.match(new RegExp("^### " + h + "[ \\t]*[\\r\\n]+([^\\r\\n]+)", "m")); return m ? m[1].trim() : ""; };
-            const certs = ["cjca","cpts","cwes","cwee","cdsa","cape","cwpe","coae"];
+            const certs = ["cjca","cpts","cwes","cwee","cdsa","cape","cwpe","coae","cdep"];
             const c = field("Cert").toLowerCase();
             const labels = certs.includes(c) ? [c] : [];
             // suggest form: "Where should it go"; problem form: "Where" (required, so the form's own field matches first)

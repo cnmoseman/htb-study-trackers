@@ -10,7 +10,7 @@ body:
     id: cert
     attributes:
       label: Cert
-      options: [CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE, All / several, Not cert-specific]
+      options: [CJCA, CPTS, CWES, CWEE, CDSA, CAPE, CWPE, COAE, CDEP, All / several, Not cert-specific]
     validations:
       required: true
   - type: dropdown
