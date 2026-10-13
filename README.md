@@ -1,6 +1,6 @@
 # Study Trackers
 
-![Pick a cert. Get the kit.](assets/share/home.png)
+![Pick a cert. Get the kit.](assets/share/home-v2.png)
 
 Study trackers and Obsidian prep vaults for Hack The Box certifications. Each cert gets two things: a day-by-day study plan you check off as you go, and a ready-made Obsidian vault for your notes.
 
