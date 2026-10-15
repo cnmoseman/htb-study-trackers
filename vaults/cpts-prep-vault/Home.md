@@ -37,6 +37,12 @@ Get tested commands from these as you go:
 - [0x1ceKing per-module cheatsheets](https://github.com/0x1ceKing/HTB-Certified-Penetration-Testing-Specialist)
 - [Divyesh's CPTS Cheatsheet (GitBook)](https://divyeshs-organization-1.gitbook.io/cpts-cheatsheet)
 - [kabaneridev/pt-notes (CPTS-PREP)](https://github.com/kabaneridev/pt-notes/tree/main/CPTS-PREP)
+- [ShortGiant13/HTB-CPTS-Notes](https://github.com/ShortGiant13/HTB-CPTS-Notes)
+- [dollarboysushil/oscp-cpts-notes](https://github.com/dollarboysushil/oscp-cpts-notes)
+- [sachinn403/HTB-CPTS-Notes](https://github.com/sachinn403/HTB-CPTS-Notes)
+- [0xnullptr1/CPTS-notes](https://github.com/0xnullptr1/CPTS-notes)
+- [imjustBuck/CPTS-Checklists](https://github.com/imjustBuck/CPTS-Checklists)
+- [InnocentSADO/CPTS-Prep](https://github.com/InnocentSADO/CPTS-Prep)
 - Reporting: [SysReptor HTB-CPTS template](https://docs.sysreptor.com/assets/reports/HTB-CPTS-Report.pdf) + [[M27 - Documentation & Reporting]]
 
 ---

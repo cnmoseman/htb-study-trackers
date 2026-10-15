@@ -36,6 +36,7 @@ Get tested commands from these as you go:
 - [Frank3nSti3n/CWEE-Scripts](https://github.com/Frank3nSti3n/CWEE-Scripts)
 - [key1one8 notes](https://github.com/key1one8/Senior-Web-Penetration-Tester)
 - [Dimpyj1604 notes](https://github.com/Dimpyj1604/SWPT-Notes)
+- [ceortiz33/Web-Pentesting](https://github.com/ceortiz33/Web-Pentesting)
 - Reporting: [SysReptor HTB-CWEE template](https://docs.sysreptor.com/assets/reports/HTB-CWEE-Report.pdf) (Markdown) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---

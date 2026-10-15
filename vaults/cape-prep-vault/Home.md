@@ -35,6 +35,8 @@ Get tested commands from these as you go:
 - [S1ckB0y1337 AD cheat sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet)
 - [Squ1shification/CAPE-Notes](https://github.com/Squ1shification/CAPE-Notes)
 - [The Hacker Recipes](https://www.thehacker.recipes/)
+- [Orange Cyberdefense AD Mindmap](https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg)
+- [nirajkharel/AD-Pentesting-Notes](https://github.com/nirajkharel/AD-Pentesting-Notes)
 - Reporting: [SysReptor HTB-CAPE template](https://docs.sysreptor.com/assets/reports/HTB-CAPE-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---

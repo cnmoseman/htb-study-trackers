@@ -39,6 +39,7 @@ Get tested commands from these as you go:
 - [nukIeer/AI-Prompt-Injection-Cheatsheet](https://github.com/nukIeer/AI-Prompt-Injection-Cheatsheet)
 - [HackTricks AI prompt injection](https://hacktricks.wiki/en/AI/AI-Prompts.html)
 - [invariantlabs-ai/mcp-injection-experiments](https://github.com/invariantlabs-ai/mcp-injection-experiments)
+- [ab-ha-y/htb-certified-offensive-ai-expert](https://github.com/ab-ha-y/htb-certified-offensive-ai-expert)
 - Reporting: [SysReptor HTB-COAE template](https://docs.sysreptor.com/assets/reports/HTB-COAE-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---

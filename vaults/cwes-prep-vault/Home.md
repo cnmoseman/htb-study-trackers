@@ -37,6 +37,10 @@ Get tested commands from these as you go:
 - [Jackie0x17/CBBH-Checklist](https://github.com/Jackie0x17/CBBH-Checklist)
 - [Burdy98/Pentest-Methodology](https://github.com/Burdy98/Pentest-Methodology)
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+- [CWES Cheatsheet (Sonal Chhen)](https://nalchhen.com/posts/cwes-cheatsheet/)
+- [AykhanJ/HTB_CWES-Notes](https://github.com/AykhanJ/HTB_CWES-Notes)
+- [Ferdibrgl/HTB-certifiedCBBH](https://github.com/Ferdibrgl/HTB-certifiedCBBH)
+- [francescolonardo/CBBH-Preparation](https://github.com/francescolonardo/CBBH-Preparation)
 - Reporting: [SysReptor HTB-CWES template](https://docs.sysreptor.com/assets/reports/HTB-CWES-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting) + [[M20 - Bug Bounty Hunting Process]]
 
 ---
