@@ -2711,6 +2711,21 @@ function backdropClose(dlg){
   let link = "", lastDefault = "";
   const enc = encodeURIComponent;
   const tags = " #HackTheBox #" + CODE;
+  // post text per 10% step (0..100)
+  const SHARE_LINES = [
+    "Day 1 of {N}. Officially started studying for the HTB {CODE}.",
+    "First {done} days of {CODE} prep are done. {pct} of the plan, plenty to go.",
+    "Still showing up. {pct} through my {CODE} prep, {done}/{N} days.",
+    "Almost a third of the way through my HTB {CODE} plan: {pct}, {done} of {N} days.",
+    "{pct} into the HTB {CODE}. Still on the plan, still going.",
+    "{pct} done. Officially past the halfway point on the HTB {CODE}.",
+    "{pct} of my {CODE} prep done. Downhill from here (hopefully).",
+    "{pct} through my HTB {CODE} study plan. {done} of {N} days, the end is starting to show.",
+    "{pct} through my HTB {CODE} plan. Final stretch.",
+    "{pct} through my HTB {CODE} study plan. Almost there.",
+    "Done with the HTB {CODE} plan. {N} days of study, now for the exam.",
+  ];
+  const SHARE_EARLY = "{pct} into my HTB {CODE} study plan, plenty to go.";  // 10% step with under 2 full days
   const body = () => $("shareTxt").value.trim();
   function hrefs(){
     const t = body();
@@ -2734,9 +2749,9 @@ function backdropClose(dlg){
     link = BASE + "cwpe/progress/" + step + "/";
     $("shareImg").hidden = false;
     $("shareImg").src = BASE + "assets/share/progress/cwpe-" + step + ".jpg";
-    const def = pct === 100 ? `Finished my HTB ${CODE} study plan, all ${N} days done.${tags}`
-      : pct === 0 ? `Starting my HTB ${CODE} study plan: ${N} days, one day at a time.${tags}`
-      : `${pct}% through my HTB ${CODE} study plan, ${st.doneDays} of ${N} days done.${tags}`;
+    const line = step === 10 && st.doneDays < 2 ? SHARE_EARLY : SHARE_LINES[step / 10];
+    const v = {CODE, N, pct: pct + "%", done: st.doneDays};
+    const def = line.replace(/\{(CODE|N|pct|done)\}/g, (_, k) => v[k]) + tags;
     // keep the user's edits unless their progress changed
     if (def !== lastDefault || !body()) $("shareTxt").value = def;
     lastDefault = def;
