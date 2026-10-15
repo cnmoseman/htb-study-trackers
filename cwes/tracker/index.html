@@ -87,6 +87,7 @@
   .ring-pct{font-size:20px;font-weight:800;color:var(--green);line-height:1}
   .ring-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
   .ring-cap{font-size:12px;color:var(--faint)}
+  .ring-box .btn{margin-top:4px}
 
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
@@ -309,6 +310,16 @@
   .mods .mf{display:flex;gap:8px;justify-content:flex-end;align-items:center;padding:12px 18px;border-top:1px solid var(--line)}
   .mods .mf .cnt{margin-right:auto;font-size:12px;color:var(--faint);font-family:"IBM Plex Mono",monospace}
   .btn[disabled]{opacity:.45;cursor:not-allowed}
+  /* Share progress */
+  .share .sb{display:grid;grid-auto-rows:max-content;gap:10px;padding:14px 18px;overflow-y:auto;min-height:0}
+  .share .sb img{display:block;width:100%;max-width:min(100%,64vh);margin:0 auto;height:auto;aspect-ratio:1200/630;border-radius:8px;border:1px solid var(--line);background:var(--bg2)}
+  .share .sb label{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+  .share textarea{width:100%;resize:vertical;background:var(--bg2);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;font-size:14px;line-height:1.45;min-height:5.2em}
+  .share .plats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .share .plats .btn{text-align:center;text-decoration:none;font-weight:700}
+  .share .shnote{font-size:12px;color:var(--faint)}
+  .share .shnote.ok{color:var(--green)}
+  @media(max-width:520px){.share .plats{grid-template-columns:1fr 1fr}}
   .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;display:flex;gap:14px;align-items:center;padding:10px 12px 10px 16px;background:var(--card2);border:1px solid var(--line);border-radius:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.5);transition:opacity .2s,transform .2s;z-index:50}
   .toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
   @media (prefers-reduced-motion:reduce){.toast{transition:none}}
@@ -368,6 +379,22 @@
     <ul id="modsList"></ul>
     <div class="mf"><span class="cnt" id="modsCnt"></span><button class="btn" value="cancel">Cancel</button><button class="btn primary" id="modsOk" value="ok">Mark done</button></div>
   </form></dialog>
+  <dialog class="mods share" id="shareDlg" aria-labelledby="shareTitle"><form method="dialog">
+    <div class="mh"><h3 id="shareTitle" tabindex="-1" autofocus>Share your progress</h3><p>Pick where to post. It opens with your text filled in, and the link shows this card.</p></div>
+    <div class="sb">
+      <img id="shareImg" alt="Your CWES progress card" width="1200" height="630">
+      <label for="shareTxt">POST TEXT</label>
+      <textarea id="shareTxt" rows="3"></textarea>
+      <div class="plats">
+        <a class="btn" id="shX" target="_blank" rel="noopener">X</a>
+        <a class="btn" id="shReddit" target="_blank" rel="noopener">Reddit</a>
+        <a class="btn" id="shLinkedIn" target="_blank" rel="noopener">LinkedIn</a>
+        <button type="button" class="btn" id="shCopy">Discord / Copy</button>
+      </div>
+      <p class="shnote" id="shNote" role="status">LinkedIn and Discord can't take pre-filled text, so those copy it for you to paste.</p>
+    </div>
+    <div class="mf"><button class="btn" value="cancel">Close</button></div>
+  </form></dialog>
   <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo">Undo</button></div>
 
   <!-- Dashboard -->
@@ -378,6 +405,7 @@
       </div>
       <div class="ring-stat"><span class="ring-pct" id="ringPct">0%</span><span class="ring-lbl">Complete</span></div>
       <div class="ring-cap" id="ringCap">0 / 0 tasks done</div>
+      <button class="btn" id="shareBtn">Share progress</button>
     </div>
     <div>
       <div class="stats">
@@ -2886,11 +2914,17 @@ function computeStats(){
   return {doneTasks, doneDays, best};
 }
 
+// overall %: rounded, but 100 only when every task is done
+function overallPct(st){
+  if(!TOTAL_TASKS) return 0;
+  return st.doneTasks===TOTAL_TASKS ? 100 : Math.min(99, Math.round(st.doneTasks/TOTAL_TASKS*100));
+}
+
 /* ---------- Render: dashboard ---------- */
 function renderDashboard(){
   const st = computeStats();
   const N = DAYS.length;
-  const pct = TOTAL_TASKS ? Math.round(st.doneTasks/TOTAL_TASKS*100) : 0;
+  const pct = overallPct(st);
   document.getElementById("ringPct").textContent = pct+"%";
   document.getElementById("ringCap").textContent = st.doneTasks+" / "+TOTAL_TASKS+" tasks done";
   document.getElementById("ring").style.background =
@@ -3277,6 +3311,12 @@ function init(){
   renderAll();
 }
 init();
+// click outside a popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
+function backdropClose(dlg){
+  let down = false;
+  dlg.addEventListener("pointerdown", e => { down = e.target === dlg; });
+  dlg.addEventListener("click", e => { if (e.target === dlg && down) dlg.close(); });
+}
 /* ---------- Already done some modules? ---------- */
 (function(){
   const P = MODS_DONE;
@@ -3338,12 +3378,75 @@ init();
     $("modsDlg").close();
     if (picked.length) mark(picked);
   };
-  // click outside the popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
-  let downOnBackdrop = false;
-  $("modsDlg").addEventListener("pointerdown", e => { downOnBackdrop = e.target === $("modsDlg"); });
-  $("modsDlg").addEventListener("click", e => { if (e.target === $("modsDlg") && downOnBackdrop) $("modsDlg").close(); });
+  backdropClose($("modsDlg"));
 
   $("modsBtn").onclick = open;
+})();
+/* ---------- Share progress ---------- */
+(function(){
+  const $ = id => document.getElementById(id);
+  const CODE = "CWES", BASE = "https://cnmoseman.github.io/htb-study-trackers/";
+  let link = "", lastDefault = "";
+  const enc = encodeURIComponent;
+  const tags = " #HackTheBox #" + CODE;
+  // post text per 10% step (0..100)
+  const SHARE_LINES = [
+    "Day 1 of {N}. Officially started studying for the HTB {CODE}.",
+    "First {done} days of {CODE} prep are done. {pct} of the plan, plenty to go.",
+    "Still showing up. {pct} through my {CODE} prep, {done}/{N} days.",
+    "Almost a third of the way through my HTB {CODE} plan: {pct}, {done} of {N} days.",
+    "{pct} into the HTB {CODE}. Still on the plan, still going.",
+    "{pct} done. Officially past the halfway point on the HTB {CODE}.",
+    "{pct} of my {CODE} prep done. Downhill from here (hopefully).",
+    "{pct} through my HTB {CODE} study plan. {done} of {N} days, the end is starting to show.",
+    "{pct} through my HTB {CODE} plan. Final stretch.",
+    "{pct} through my HTB {CODE} study plan. Almost there.",
+    "Done with the HTB {CODE} plan. {N} days of study, now for the exam.",
+  ];
+  const SHARE_EARLY = "{pct} into my HTB {CODE} study plan, plenty to go.";  // 10% step with under 2 full days
+  const body = () => $("shareTxt").value.trim();
+  function hrefs(){
+    const t = body();
+    $("shX").href = "https://x.com/intent/post?text=" + enc(t) + "&url=" + enc(link);
+    $("shReddit").href = "https://www.reddit.com/submit?type=LINK&url=" + enc(link) + "&title=" + enc(t.replace(/\s*#\S+/g, "").slice(0, 300));
+    $("shLinkedIn").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + enc(link);
+  }
+  function note(msg, ok){ $("shNote").textContent = msg; $("shNote").classList.toggle("ok", !!ok); }
+  // sync copy first, while this page still has focus (a link click opens a new tab right after)
+  function copy(text){
+    const ta = document.createElement("textarea"); ta.value = text; $("shareDlg").appendChild(ta); ta.select();
+    let ok = false; try{ ok = document.execCommand("copy"); }catch(_){}
+    ta.remove();
+    if (!ok && navigator.clipboard) navigator.clipboard.writeText(text).then(() => note(...copied), () => {});
+    return ok;
+  }
+  let copied = [];
+  function open(){
+    const st = computeStats(), N = DAYS.length, pct = overallPct(st);
+    const step = Math.floor(pct / 10) * 10;  // card shows the 10% step at or below the dashboard %
+    link = BASE + "cwes/progress/" + step + "/";
+    $("shareImg").hidden = false;
+    $("shareImg").src = BASE + "assets/share/progress/cwes-" + step + ".jpg";
+    const line = step === 10 && st.doneDays < 2 ? SHARE_EARLY : SHARE_LINES[step / 10];
+    const v = {CODE, N, pct: pct + "%", done: st.doneDays};
+    const def = line.replace(/\{(CODE|N|pct|done)\}/g, (_, k) => v[k]) + tags;
+    // keep the user's edits unless their progress changed
+    if (def !== lastDefault || !body()) $("shareTxt").value = def;
+    lastDefault = def;
+    note("LinkedIn and Discord can't take pre-filled text, so those copy it for you to paste.");
+    hrefs(); $("shareDlg").showModal();
+  }
+  // live image missing (local preview) -> try the site-relative copy, then hide (offline download)
+  $("shareImg").onerror = () => { const i = $("shareImg");
+    if (i.src.startsWith(BASE)) i.src = "../../" + i.src.slice(BASE.length); else i.hidden = true; };
+  $("shareTxt").oninput = hrefs;
+  const FAIL = "Couldn't copy. Select the text above and copy it.";
+  $("shLinkedIn").onclick = () => { copied = ["Text copied. Paste it into your LinkedIn post.", true];
+    copy(body()) ? note(...copied) : note(FAIL); };
+  $("shCopy").onclick = () => { copied = ["Copied the text and link. Paste them into Discord or anywhere else.", true];
+    copy(body() + "\n" + link) ? note(...copied) : note(FAIL); };
+  backdropClose($("shareDlg"));
+  $("shareBtn").onclick = open;
 })();
 </script>
 </body>
