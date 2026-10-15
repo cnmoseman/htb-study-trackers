@@ -334,6 +334,101 @@
     .mods .mf{padding:10px 14px}
     .mods .quick .ql{flex-basis:100%}
   }
+  /* Practice Boxes (shared by the tracker tab and the standalone page) */
+  .pb{--pb-link:#c38df7;--pb-acc:var(--green)}
+  .pb a{color:var(--pb-link);text-decoration:none}
+  .pb a:hover{text-decoration:underline}
+  .pb-mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .pb-panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .pb-sum{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .pb-big{font:700 26px "Chakra Petch",sans-serif;white-space:nowrap}
+  .pb-big small{font:500 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted)}
+  .pb-bar{flex:1;min-width:160px;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+  .pb-bar i,.pb-mbar i{display:block;height:100%;background:var(--pb-acc);transition:width .3s}
+  .pb-note{border-top:1px solid var(--line);margin:16px 0 0;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  .pb-tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .pb-tb .pb-sp{flex:1}
+  .pb-btn{font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  .pb-btn:hover{border-color:var(--pb-acc);color:var(--pb-link)}
+  .pb-seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+  .pb-seg button{font:inherit;font-size:13px;font-weight:600;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  .pb-seg button:last-child{border-right:0}
+  .pb-seg button[aria-pressed="true"]{background:var(--pb-acc);color:#fff}
+  .pb-dd{position:relative}
+  .pb-ddb{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;width:260px;max-width:100%;font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 12px;cursor:pointer;text-align:left}
+  .pb-ddb span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pb-ddb i{font-style:normal;color:var(--faint);font-size:11px}
+  .pb-ddb:hover,.pb-ddb[aria-expanded="true"]{border-color:var(--pb-acc)}
+  .pb-pop{position:absolute;top:calc(100% + 6px);left:0;z-index:20;width:400px;max-width:calc(100vw - 36px);background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.55);padding:8px}
+  .pb-q{width:100%;font:inherit;font-size:13px;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:4px}
+  .pb .pb-q:focus,.pb .pb-q:focus-visible{outline:none;border-color:var(--pb-acc)}
+  .pb-lst{max-height:330px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .pb-mg{font:700 10px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);padding:10px 10px 4px}
+  .pb-mi{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;font:inherit;font-size:13px;text-align:left;color:var(--muted);background:none;border:0;border-radius:6px;padding:6px 10px;cursor:pointer}
+  .pb-mi:hover,.pb-mi:focus-visible{background:var(--card2);color:var(--txt);outline:none}
+  .pb-mi[aria-selected="true"]{background:rgba(163,79,242,.18);color:var(--txt)}
+  .pb-mi i{font:700 11px "IBM Plex Mono",ui-monospace,monospace;font-style:normal;color:var(--pb-link);display:inline-block;width:34px}
+  .pb-mi b{font:600 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);background:var(--bg2);border-radius:10px;padding:1px 7px}
+  .pb-none{color:var(--faint);font-size:13px;padding:8px 10px}
+  .pb [hidden]{display:none!important}
+  .pb-rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  .pb-rh{display:grid;grid-template-columns:18px 30px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .pb-rh:hover{background:var(--card)}
+  .pb-cv{color:var(--faint);font-size:12px;transition:transform .15s;display:inline-block}
+  [aria-expanded="true"]>.pb-cv{transform:rotate(90deg);color:var(--pb-link)}
+  .pb-rn{font:700 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--pb-link)}
+  .pb-rt{font:700 19px/1.2 "Chakra Petch",sans-serif;display:block}
+  .pb-rs{font-size:13px;color:var(--faint);display:block;margin-top:1px}
+  .pb-mbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+  .pb-rc{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-align:right;white-space:nowrap}
+  .pb-rg.full .pb-rc{color:var(--pb-link)}
+  .pb-goal{margin:0;padding:10px 16px 10px 76px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
+  .pb-bx{border-bottom:1px solid var(--card)}
+  .pb-bx:last-child{border-bottom:0}
+  .pb-bh{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px 10px 46px;cursor:pointer}
+  .pb-bh:hover{background:var(--card)}
+  .pb-bx.open .pb-bh,.pb-bx.open .pb-bd{background:var(--card)}
+  .pb-x{background:none;border:0;padding:0;cursor:pointer;font:inherit}
+  .pb-cb{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:0;padding:0;border:1.5px solid var(--faint);border-radius:6px;background:var(--bg);cursor:pointer;position:relative}
+  .pb-cb:hover{border-color:var(--pb-link)}
+  .pb-cb[aria-pressed="true"]{background:var(--pb-acc);border-color:var(--pb-acc)}
+  .pb-cb[aria-pressed="true"]::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .pb-l1{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .pb-nm{font:700 16px "Chakra Petch",sans-serif;color:var(--txt)!important}
+  .pb-nm:hover{color:var(--pb-link)!important;text-decoration:none!important}
+  .pb-nm i{font-style:normal;font-size:12px;color:var(--faint);margin-left:3px}
+  .pb-bx.done .pb-nm{color:var(--muted)!important}
+  .pb-meta{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.03em;color:var(--pb-link);white-space:nowrap}
+  .pb-next{font:700 9.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.1em;color:#fff;background:var(--pb-acc);border-radius:4px;padding:1px 6px}
+  .pb-tech{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pb-bx.open .pb-tech{white-space:normal}
+  .pb-wq{font-size:12.5px;display:flex;gap:10px;white-space:nowrap}
+  .pb-bd{display:none;grid-template-columns:1.2fr 1fr;gap:24px;padding:2px 20px 16px 98px}
+  .pb-bx.open .pb-bd{display:grid}
+  .pb-lb{font:700 10px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:10px 0 4px}
+  .pb-bd p{margin:0;font-size:13.5px;color:var(--muted)}
+  .pb-mods{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .pb-mods li{position:relative;padding-left:13px;font-size:13px;color:var(--muted)}
+  .pb-mods li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--pb-acc)}
+  .pb-mods b{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;color:var(--txt)}
+  .pb-dim{color:var(--faint);font-style:normal}
+  .pb details{display:inline}
+  .pb summary{display:inline;cursor:pointer;color:var(--muted);text-decoration:underline dotted}
+  .pb details[open] summary{display:none}
+  .pb-empty{color:var(--faint);font-size:13px;padding:14px 4px}
+  .pb-sug{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
+  .pb :focus-visible{outline:2px solid var(--pb-link);outline-offset:2px}
+  @media (max-width:760px){
+    .pb-rh{grid-template-columns:14px minmax(0,1fr) 44px;padding:13px 12px}
+    .pb-rn,.pb-mbar{display:none}
+    .pb-goal{padding-left:12px}
+    .pb-bh{grid-template-columns:22px minmax(0,1fr) 14px;padding:10px 12px 10px 16px}
+    .pb-bh>.pb-cv{order:3}
+    .pb-wq{display:none}
+    .pb-bd{grid-template-columns:1fr;gap:0;padding:0 12px 14px 50px}
+    .pb-dd{flex:1 1 100%;order:2}.pb-ddb{width:100%}.pb-pop{width:100%;max-width:none}
+  }
+  @media (prefers-reduced-motion:reduce){.pb-cv,.pb-bar i,.pb-mbar i{transition:none}}
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -429,6 +524,7 @@
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" data-tab="plan">Study Plan</button>
+    <button class="tab" data-tab="practice">Practice Boxes</button>
     <button class="tab" data-tab="resources">Resource Library</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
@@ -444,6 +540,9 @@
     </div>
     <div id="weeks"></div>
   </div>
+
+  <!-- Practice Boxes -->
+  <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
   <div id="tab-resources" class="hidden"></div>
@@ -4704,6 +4803,174 @@ const RESOURCES = [
     "layout": "tips"
   }
 ];
+const PRACTICE = {"code": "CPTS", "path": {"name": "Penetration Tester Path", "url": "https://academy.hackthebox.com/path/preview/penetration-tester"}, "mods": ["Penetration Testing Process", "Getting Started", "Network Enumeration with Nmap", "Footprinting", "Information Gathering - Web Edition", "Vulnerability Assessment", "File Transfers", "Shells & Payloads", "Using the Metasploit Framework", "Password Attacks", "Attacking Common Services", "Pivoting, Tunneling, and Port Forwarding", "Active Directory Enumeration & Attacks", "Using Web Proxies", "Attacking Web Applications with Ffuf", "Login Brute Forcing", "SQL Injection Fundamentals", "SQLMap Essentials", "Cross-Site Scripting (XSS)", "File Inclusion", "File Upload Attacks", "Command Injections", "Web Attacks", "Attacking Common Applications", "Linux Privilege Escalation", "Windows Privilege Escalation", "Documentation & Reporting", "Attacking Enterprise Networks"], "groups": [["Foundations & Process", [1, 2]], ["Recon & Enumeration", [3, 4, 5, 6]], ["Exploitation Fundamentals", [7, 8, 9]], ["Credential & Service Attacks", [10, 11]], ["Pivoting & Active Directory", [12, 13]], ["Web Application Attacks", [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]], ["Privilege Escalation", [25, 26]], ["Reporting & Exam Prep", [27, 28]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Foundations", "sub": "Enumeration, Common Services, First Shells", "goal": "Scan, footprint services (FTP, NFS, Redis, SMB), use public exploits and Metasploit, catch shells, crack the first hashes, basic Linux/Windows privesc.", "items": [{"id": "postman", "n": "Postman", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Postman", "tech": "Unauthenticated Redis writes an SSH key, crack an encrypted SSH key, Webmin CVE as root.", "mods": [3, 4, 11, 24, 25], "ippsec": "https://www.youtube.com/watch?v=jJnHET1o8ZQ", "oxdf": "https://0xdf.gitlab.io/2020/03/14/htb-postman.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "delivery", "n": "Delivery", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Delivery", "tech": "Helpdesk ticket email trick into Mattermost, creds in chat, crack root hash with hashcat rules.", "mods": [5, 10, 24, 25], "ippsec": "https://www.youtube.com/watch?v=gbs43E71mFM", "oxdf": "https://0xdf.gitlab.io/2021/05/22/htb-delivery.html", "src": [{"k": "ippsec", "n": 6, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "remote", "n": "Remote", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Remote", "tech": "NFS share leaks a CMS hash, Umbraco authenticated RCE, TeamViewer stored creds from registry.", "mods": [4, 10, 11, 24, 26], "ippsec": "https://www.youtube.com/watch?v=iyYqgseKUPM", "oxdf": "https://0xdf.gitlab.io/2020/09/05/htb-remote.html", "src": [{"k": "ippsec", "n": 7, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "access", "n": "Access", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Access", "tech": "Anonymous FTP loot, Access DB and Outlook mail for creds, telnet, saved admin creds (runas).", "mods": [3, 4, 10, 11, 26], "ippsec": "https://www.youtube.com/watch?v=Rr6Oxrj2IjU", "oxdf": "https://0xdf.gitlab.io/2019/03/02/htb-access.html", "src": [{"k": "ippsec", "n": 8, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "driver", "n": "Driver", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Driver", "tech": "Printer upload page takes an SCF file to capture and crack NTLMv2, WinRM, printer driver or PrintNightmare privesc (Metasploit option).", "mods": [8, 9, 10, 21, 26], "ippsec": "https://www.youtube.com/watch?v=N2ahkarb-zI", "oxdf": "https://0xdf.gitlab.io/2022/02/26/htb-driver.html", "src": [{"k": "ippsec", "n": 10, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}]}, {"name": "Web Attacks", "sub": "The Core Vulnerability Classes", "goal": "One box per web module: proxies, fuzzing/vhosts, SQLi and SQLMap, XSS, LFI, uploads, command injection, IDOR/XXE.", "items": [{"id": "trick", "n": "Trick", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Trick", "tech": "DNS zone transfer and vhost fuzzing, SQLi auth bypass and file read (sqlmap), LFI to mail/log poisoning, fail2ban privesc.", "mods": [3, 4, 5, 15, 17, 20, 25], "ippsec": "https://www.youtube.com/watch?v=ai98umjeO8M", "oxdf": "https://0xdf.gitlab.io/2022/10/29/htb-trick.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "ippsec", "n": 11, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "soccer", "n": "Soccer", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Soccer", "tech": "Subdomain fuzzing, file-manager default creds and webshell upload, blind SQLi over websocket with sqlmap, doas/dstat plugin privesc.", "mods": [5, 15, 18, 21, 25], "ippsec": "https://www.youtube.com/watch?v=V_CkT7xyiCc", "oxdf": "https://0xdf.gitlab.io/2023/06/10/htb-soccer.html", "src": [{"k": "ippsec", "n": 3, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "metatwo", "n": "MetaTwo", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/MetaTwo", "tech": "WordPress plugin unauthenticated SQLi, XXE in media upload reads config, FTP creds, crack PGP key of a password manager.", "mods": [10, 17, 18, 23, 24], "ippsec": "https://www.youtube.com/watch?v=Alx5KQWq7ZM", "oxdf": "https://0xdf.gitlab.io/2023/04/29/htb-metatwo.html", "src": [{"k": "ippsec", "n": 9, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "shoppy", "n": "Shoppy", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Shoppy", "tech": "NoSQL injection login bypass and user dump, crack hash, creds in Mattermost, docker group privesc.", "mods": [10, 15, 17, 25], "ippsec": "https://www.youtube.com/watch?v=AJc53DUdt1M", "oxdf": "https://0xdf.gitlab.io/2023/01/14/htb-shoppy.html", "src": [{"k": "ippsec", "n": 12, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "code", "n": "Code", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Code", "tech": "Python code-editor deny-list bypass to RCE, crack MD5 from SQLite, sudo backup script path traversal", "mods": [10, 22, 25], "ippsec": "https://www.youtube.com/watch?v=-qGAM0Mt2V0", "oxdf": "https://0xdf.gitlab.io/2025/08/02/htb-code.html", "src": [{"k": "review", "w": "RadiantSec", "u": "https://radiantsec.io/blog/htb-cpts-review/"}]}, {"id": "mango", "n": "Mango", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Mango", "tech": "TLS cert reveals vhost, MongoDB NoSQL auth bypass and regex password extraction, password reuse, SUID jjs", "mods": [3, 5, 10, 25], "ippsec": "https://www.youtube.com/watch?v=NO_lsfhQK_s", "oxdf": "https://0xdf.gitlab.io/2020/04/18/htb-mango.html", "src": [{"k": "review", "w": "duskb1t", "u": "https://www.youtube.com/watch?v=yliMmUBDC90"}]}]}, {"name": "Web Chains & Common Applications", "sub": "", "goal": "Longer web chains on Medium/Hard boxes: CMS/app abuse (WordPress, Tomcat, Gogs), source review, brute forcing, file read to RCE.", "items": [{"id": "craft", "n": "Craft", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Craft", "tech": "Creds and API source in Gogs, code-exec bug in the API (container), repo SSH key, Vault-issued SSH to root.", "mods": [10, 14, 24, 25], "ippsec": "https://www.youtube.com/watch?v=3znkLWakuUA", "oxdf": "https://0xdf.gitlab.io/2020/01/04/htb-craft.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "union", "n": "Union", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Union", "tech": "Filtered UNION SQLi for file read and creds, command injection via X-Forwarded-For header, sudo.", "mods": [14, 17, 22, 25], "ippsec": "https://www.youtube.com/watch?v=z5pdizHDvt8", "oxdf": "https://0xdf.gitlab.io/2021/11/22/htb-union.html", "src": [{"k": "ippsec", "n": 2, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "agile", "n": "Agile", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Agile", "tech": "File read plus Flask debug PIN to RCE, DB creds, Chrome remote-debug creds, sudoedit CVE privesc.", "mods": [10, 14, 20, 25], "ippsec": "https://www.youtube.com/watch?v=ob-CwobmkKk", "oxdf": "https://0xdf.gitlab.io/2023/08/05/htb-agile.html", "src": [{"k": "ippsec", "n": 15, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "logforge", "n": "LogForge", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/LogForge", "tech": "Path-normalization bypass to Tomcat manager, Log4Shell foothold, Log4j leak from an internal FTP service.", "mods": [6, 8, 15, 24], "ippsec": "https://www.youtube.com/watch?v=XG14EstTgQ4", "oxdf": "https://0xdf.gitlab.io/2021/12/29/htb-logforge.html", "src": [{"k": "ippsec", "n": 17, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "monitored", "n": "Monitored", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Monitored", "tech": "UDP SNMP enum leaks creds, Nagios XI API token abuse, authenticated SQLi, sudo script privesc", "mods": [3, 4, 15, 18, 24, 25], "ippsec": "https://www.youtube.com/watch?v=Ulb2rm2qbJY", "oxdf": "https://0xdf.gitlab.io/2024/05/11/htb-monitored.html", "src": [{"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "snoopy", "n": "Snoopy", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Snoopy", "tech": "Traversal file read leaks BIND keys, DNS update hijacks password resets, Mattermost slash command to SSH honeypot, git and ClamAV CVEs.", "mods": [4, 5, 20, 22, 25], "ippsec": "https://www.youtube.com/watch?v=6tn30O0SjVQ", "oxdf": "https://0xdf.gitlab.io/2023/09/23/htb-snoopy.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "pressed", "n": "Pressed", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pressed", "tech": "WordPress with 2FA: XML-RPC abuse to edit a post into a webshell, no outbound traffic so tools/exploits move through the webshell, PwnKit.", "mods": [7, 8, 24, 25], "ippsec": "https://www.youtube.com/watch?v=p8mIdm93mfw", "oxdf": "https://0xdf.gitlab.io/2022/02/03/htb-pressed.html", "src": [{"k": "ippsec", "n": 16, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}]}, {"name": "Windows Foothold & Privilege Escalation", "sub": "", "goal": "Windows-specific web footholds and local privesc: token privileges, stored creds, KeePass, LAPS.", "items": [{"id": "jeeves", "n": "Jeeves", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Jeeves", "tech": "Unauthenticated Jenkins script console RCE, crack KeePass DB, pass-the-hash, alternate data stream flag.", "mods": [8, 10, 24, 26], "ippsec": "https://www.youtube.com/watch?v=EKGBskG8APc", "oxdf": "https://0xdf.gitlab.io/2022/04/14/htb-jeeves.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "pov", "n": "Pov", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pov", "tech": "File read leaks ASP.NET machine keys, ViewState deserialization RCE, PowerShell credential, SeDebugPrivilege (Metasploit or script).", "mods": [8, 9, 20, 26], "ippsec": "https://www.youtube.com/watch?v=84xCsHvkxYE", "oxdf": "https://0xdf.gitlab.io/2024/06/08/htb-pov.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "media", "n": "Media", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Media", "tech": "Video upload triggers an NTLMv2 leak to crack, junction point to land a webshell, FullPowers plus potato to SYSTEM.", "mods": [10, 21, 26], "ippsec": null, "oxdf": "https://0xdf.gitlab.io/2025/09/04/htb-media.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}]}, {"id": "streamio", "n": "StreamIO", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/StreamIO", "tech": "Subdomain fuzzing, MSSQL-backed SQLi, hidden debug param LFI/RFI to RCE, Firefox saved creds, read LAPS password.", "mods": [11, 13, 15, 17, 20], "ippsec": "https://www.youtube.com/watch?v=qKcUKlwoGw8", "oxdf": "https://0xdf.gitlab.io/2022/09/17/htb-streamio.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}]}, {"name": "Active Directory", "sub": "", "goal": "Easy-to-Hard AD: SMB/LDAP/RPC enumeration, AS-REP and Kerberoasting, BloodHound ACL chains, DCSync, ADCS, delegation.", "items": [{"id": "fluffy", "n": "Fluffy", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Fluffy", "tech": "Assume breach: library-ms file coerces NTLMv2, GenericWrite on service accounts (shadow creds), ADCS ESC16.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=KvUC7bakm-E", "oxdf": "https://0xdf.gitlab.io/2025/09/20/htb-fluffy.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "forest", "n": "Forest", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Forest", "tech": "RPC user enum, AS-REP roasting, WinRM, group rights to grant DCSync.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=H9FcE_FMZio", "oxdf": "https://0xdf.gitlab.io/2020/03/21/htb-forest.html", "src": [{"k": "ippsec", "n": 1, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}]}, {"id": "active", "n": "Active", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Active", "tech": "SMB share with GPP password, Kerberoasting the administrator.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=jUc1J31DNdw", "oxdf": "https://0xdf.gitlab.io/2018/12/08/htb-active.html", "src": [{"k": "ippsec", "n": 4, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "tombwatcher", "n": "TombWatcher", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/TombWatcher", "tech": "Assume breach BloodHound chain (targeted Kerberoast, gMSA, ForceChangePassword, shadow creds), AD Recycle Bin, ADCS ESC15.", "mods": [10, 13], "ippsec": "https://www.youtube.com/watch?v=um8b-TN76bY", "oxdf": "https://0xdf.gitlab.io/2025/10/11/htb-tombwatcher.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "vulncicada", "n": "VulnCicada", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/VulnCicada", "tech": "NFS share images leak a password, ADCS ESC8 via coercion and certificate relay, dump domain hashes.", "mods": [4, 11, 13], "ippsec": null, "oxdf": "https://0xdf.gitlab.io/2025/07/03/htb-vulncicada.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}]}, {"id": "voleur", "n": "Voleur", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Voleur", "tech": "Assume breach: creds in Excel, restore a deleted user, DPAPI secrets, SSH into a WSL instance, registry hive backups to admin hash.", "mods": [10, 12, 13], "ippsec": "https://www.youtube.com/watch?v=G7FOSfZMC1I", "oxdf": "https://0xdf.gitlab.io/2025/11/01/htb-voleur.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "administrator", "n": "Administrator", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Administrator", "tech": "Assume breach: BloodHound password-reset chain, Password Safe file cracked, targeted Kerberoast, DCSync.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=Miam4nw9pmE", "oxdf": "https://0xdf.gitlab.io/2025/04/19/htb-administrator.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "ippsec", "n": 5, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "authority", "n": "Authority", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Authority", "tech": "Ansible vault secrets on SMB cracked, PWM config mode leaks LDAP creds, ADCS ESC1 via an added computer.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=7AF5riqLy-8", "oxdf": "https://0xdf.gitlab.io/2023/12/09/htb-authority.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "manager", "n": "Manager", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Manager", "tech": "RID cycling, username=password spray, MSSQL xp_dirtree file listing, web backup creds, ADCS ESC7.", "mods": [10, 11, 13, 16], "ippsec": "https://www.youtube.com/watch?v=lT2Tv0m4k7M", "oxdf": "https://0xdf.gitlab.io/2024/03/16/htb-manager.html", "src": [{"k": "ippsec", "n": 13, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "redelegate", "n": "Redelegate", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Redelegate", "tech": "Anonymous FTP with KeePass DB, MSSQL user enum, password spray, helpdesk password reset, constrained delegation via SeEnableDelegationPrivilege.", "mods": [10, 11, 13], "ippsec": null, "oxdf": "https://0xdf.gitlab.io/2025/07/17/htb-redelegate.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "blackfield", "n": "Blackfield", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Blackfield", "tech": "AS-REP roast, BloodHound password reset over RPC, lsass dump on a share, Backup Operators to ntds.dit.", "mods": [10, 13, 26], "ippsec": "https://www.youtube.com/watch?v=IfCysW0Od8w", "oxdf": "https://0xdf.gitlab.io/2020/10/03/htb-blackfield.html", "src": [{"k": "ippsec", "n": 19, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}]}, {"id": "vintage", "n": "Vintage", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Vintage", "tech": "Pre-Windows 2000 computer password, gMSA read, targeted Kerberoast and spray, DPAPI creds, delegation abuse.", "mods": [10, 13], "ippsec": "https://www.youtube.com/watch?v=-JM--KfVhpA", "oxdf": "https://0xdf.gitlab.io/2025/04/26/htb-vintage.html", "src": [{"k": "ippsec", "n": 20, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}]}]}, {"name": "Pivoting & Full Chains", "sub": "", "goal": "Multi-host or multi-stage boxes: Linux VM inside Windows, tunneling, web-to-AD chains. Closest single boxes to the exam's network feel.", "items": [{"id": "outdated", "n": "Outdated", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Outdated", "tech": "Follina via emailed link, shadow credentials lateral move, WSUS malicious update to SYSTEM.", "mods": [4, 13, 26, 28], "ippsec": "https://www.youtube.com/watch?v=TR132R1h3Ds", "oxdf": "https://0xdf.gitlab.io/2022/12/10/htb-outdated.html", "src": [{"k": "ippsec", "n": 14, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "hospital", "n": "Hospital", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Hospital", "tech": "Upload filter bypass to webshell in a Linux VM, kernel exploit, cracked hash reused on Windows and webmail, Ghostscript file sent by email, several privesc paths.", "mods": [10, 21, 25, 26, 28], "ippsec": "https://www.youtube.com/watch?v=E8h0qWsBz6c", "oxdf": "https://0xdf.gitlab.io/2024/04/13/htb-hospital.html", "src": [{"k": "ippsec", "n": 18, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "ghost", "n": "Ghost", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Ghost", "tech": "LDAP injection and password brute force, file read in custom code, API command injection in a container, SSH ControlMaster hop, ADFS/golden SAML, cross-domain trust abuse.", "mods": [12, 13, 16, 20, 22, 28], "ippsec": "https://www.youtube.com/watch?v=4dEmocjKnZg", "oxdf": "https://0xdf.gitlab.io/2025/04/05/htb-ghost.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "reddish", "n": "Reddish", "type": "machine", "os": "Linux", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Reddish", "tech": "Node-RED to a container shell, then tunnel through several container networks with minimal tooling (Redis, rsync abuse).", "mods": [7, 8, 12, 25, 28], "ippsec": "https://www.youtube.com/watch?v=Yp4oxoQIBAM", "oxdf": "https://0xdf.gitlab.io/2019/01/26/htb-reddish.html", "src": [{"k": "ippsec", "n": 21, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "sekhmet", "n": "Sekhmet", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Sekhmet", "tech": "Node deserialization behind a WAF into a Linux VM, ZipCrypto known-plaintext, Kerberos-only AD, command injection via an AD attribute, proxychains tunneling.", "mods": [10, 12, 13, 22, 28], "ippsec": "https://www.youtube.com/watch?v=vsgPsMZx59w", "oxdf": "https://0xdf.gitlab.io/2023/04/01/htb-sekhmet.html", "src": [{"k": "ippsec", "n": 22, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}]}, {"name": "Final Boss", "sub": "Pro Labs", "goal": "Multi-machine networks that need pivoting, chained creds and reporting. Dante and Zephyr are the ones reviewers name most; two call Offshore overkill for CPTS.", "items": [{"id": "dante", "n": "Dante", "type": "prolab", "os": "Pro Lab", "diff": "Beginner", "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-i", "tech": "Multi-subnet network: enumeration, exploit modification, pivoting, lateral movement, Linux and Windows privesc", "mods": [3, 7, 8, 9, 12, 25, 26], "ippsec": null, "oxdf": null, "src": [{"k": "review", "w": "Divyesh Bhesaniya", "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde"}, {"k": "review", "w": "RadiantSec", "u": "https://radiantsec.io/blog/htb-cpts-review/"}, {"k": "review", "w": "r3zz", "u": "https://r3zz.io/posts/cpts-review/"}, {"k": "review", "w": "CertCrush", "u": "https://www.certcrush.app/blog/how-to-pass-htb-cpts-2026-study-plan-10-day-practical"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}, {"k": "review", "w": "ScotSec", "u": "https://scotsec.github.io/posts/Progress/"}, {"k": "review", "w": "Ballpoint", "u": "https://ballpoint.fr/en/blog/lessons-learned-first-certification-cpts-hackthebox"}, {"k": "review", "w": "Charles-Thibault Sanchez", "u": "https://medium.com/@charlesthibaultsanc/htb-cpts-review-2026-849d2e1b9b27"}, {"k": "review", "w": "notateamserver", "u": "https://notateamserver.xyz/blog/cpts-review/"}, {"k": "review", "w": "Nikita Astashenko", "u": "https://medium.com/@AstHnk0/how-i-passed-the-cpts-exam-after-3-attempts-cbd26d3dc0f8"}, {"k": "review", "w": "0x0Trace", "u": "https://www.youtube.com/watch?v=9acS_M43nac"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "0x3 Security", "u": "https://youtube.com/playlist?list=PLF947ZK4vUoJRueFGUqa6jGEmo9wIT732"}, {"k": "review", "w": "TheHuskeyHacker", "u": "https://www.youtube.com/watch?v=yYIR1yX-Y8c"}, {"k": "review", "w": "Clint & Si", "u": "https://www.youtube.com/watch?v=Bx6TMRQZWbQ"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}, {"k": "review", "w": "duskb1t", "u": "https://www.youtube.com/watch?v=yliMmUBDC90"}, {"k": "review", "w": "InfoSec Pat", "u": "https://www.youtube.com/watch?v=IIspkal-8Q8"}]}, {"id": "zephyr", "n": "Zephyr", "type": "prolab", "os": "Pro Lab", "diff": "Intermediate", "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-ii", "tech": "Red team AD sim: AD enumeration and abuse, relay attacks, trust-boundary pivoting, SQL attacks, cracking", "mods": [10, 12, 13, 17], "ippsec": null, "oxdf": null, "src": [{"k": "review", "w": "Divyesh Bhesaniya", "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde"}, {"k": "review", "w": "RadiantSec", "u": "https://radiantsec.io/blog/htb-cpts-review/"}, {"k": "review", "w": "r3zz", "u": "https://r3zz.io/posts/cpts-review/"}, {"k": "review", "w": "CertCrush", "u": "https://www.certcrush.app/blog/how-to-pass-htb-cpts-2026-study-plan-10-day-practical"}, {"k": "review", "w": "yusufsaka007 / viv4ldi", "u": "https://yusufsaka007.github.io/certs/htb-cpts-review/"}, {"k": "review", "w": "Ballpoint", "u": "https://ballpoint.fr/en/blog/lessons-learned-first-certification-cpts-hackthebox"}, {"k": "review", "w": "Charles-Thibault Sanchez", "u": "https://medium.com/@charlesthibaultsanc/htb-cpts-review-2026-849d2e1b9b27"}, {"k": "review", "w": "notateamserver", "u": "https://notateamserver.xyz/blog/cpts-review/"}, {"k": "review", "w": "Nikita Astashenko", "u": "https://medium.com/@AstHnk0/how-i-passed-the-cpts-exam-after-3-attempts-cbd26d3dc0f8"}, {"k": "review", "w": "0x0Trace", "u": "https://www.youtube.com/watch?v=9acS_M43nac"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}, {"k": "review", "w": "InfoSec Pat", "u": "https://www.youtube.com/watch?v=IIspkal-8Q8"}]}, {"id": "offshore", "n": "Offshore", "type": "prolab", "os": "Pro Lab", "diff": "Intermediate", "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-ii", "tech": "Enterprise AD across domain trusts: web footholds, lateral movement, local privesc, evading endpoint protection", "mods": [12, 13, 26, 28], "ippsec": "", "oxdf": "", "src": [{"k": "review", "w": "Divyesh Bhesaniya", "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "Clint & Si", "u": "https://www.youtube.com/watch?v=Bx6TMRQZWbQ"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}, {"k": "review", "w": "InfoSec Pat", "u": "https://www.youtube.com/watch?v=IIspkal-8Q8"}]}]}]};
+/* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
+const PRACTICE_KEY = "cpts_practice_v1";
+const PB = (function(){
+  const P = PRACTICE;
+  const all = P.rungs.flatMap((r, k) => r.items.map(i => Object.assign(i, {rung: k})));
+  const ids = new Set(all.map(i => i.id));
+  let done = {}, root = null, filt = "all", mod = "", started = false, ddOpen = false, ddQ = "";
+  const used = {};  // boxes per module; modules with none are left out of the filter
+  all.forEach(i => i.mods.forEach(m => used[m] = (used[m] || 0) + 1));
+  const openR = new Set(), openB = new Set();
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const L = (u, t) => '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + t + '</a>';
+
+  // only known box ids, so a bad backup can't break rendering
+  function clean(o){
+    const d = {};
+    if (o && typeof o.done === "object" && o.done) Object.keys(o.done).forEach(k => { if (ids.has(k) && o.done[k] === true) d[k] = true; });
+    return d;
+  }
+  function load(){ try{ done = clean(JSON.parse(localStorage.getItem(PRACTICE_KEY))); }catch(e){ done = {}; } }
+  function save(){ try{ localStorage.setItem(PRACTICE_KEY, JSON.stringify({done})); }catch(e){} }
+
+  const meta = i => [i.os, i.diff, i.access].map(esc).join(" &middot; ");
+  const picks = i => i.src.filter(x => x.k !== "review").map(x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : L(x.u, "IppSec " + P.code + " playlist #" + x.n));
+  const revs = i => i.src.filter(x => x.k === "review").map(x => L(x.u, esc(x.w)));
+  const walks = i => [i.ippsec && L(i.ippsec, "&#9654; IppSec video"), i.oxdf && L(i.oxdf, '<span class="pb-mono">0xdf</span> write-up')].filter(Boolean);
+  function walkLine(i){
+    const w = walks(i);
+    if (w.length) return w.join(" &middot; ");
+    return '<em class="pb-dim">' + (i.type === "prolab" ? "None public (HTB doesn't allow Pro Lab write-ups)" : "None yet") + '</em>';
+  }
+  function revLine(i){
+    const a = revs(i);
+    return a.slice(0, 4).join(", ") + (a.length > 4 ? ' <details><summary>+' + (a.length - 4) + ' more</summary>' + a.slice(4).join(", ") + '</details>' : "");
+  }
+  const next = () => all.find(i => !done[i.id]);
+  const count = r => [r.items.filter(i => done[i.id]).length, r.items.length];
+  const shown = i => (filt === "all" || (filt === "todo") === !done[i.id]) && (!mod || i.mods.includes(+mod));
+
+  // which control had focus, so a redraw can put it back
+  function focusKey(){
+    const a = document.activeElement;
+    if (!root || !a || !root.contains(a)) return null;
+    for (const k of ["tog", "r", "f", "all"]) if (a.dataset[k] != null) return "[data-" + k + '="' + a.dataset[k] + '"]';
+    if (a.classList.contains("pb-x")) return '[data-b="' + a.closest("[data-b]").dataset.b + '"] .pb-x';
+    return a.classList.contains("pb-ddb") ? ".pb-ddb" : a.classList.contains("pb-q") ? ".pb-q" : null;
+  }
+  // module filter: button + searchable list grouped by the path's sections
+  function modFilter(){
+    const opt = (m, label, n) => '<button type="button" role="option" class="pb-mi" data-m="' + m + '" aria-selected="' + (mod === m) + '"><span>' + label + '</span><b>' + n + '</b></button>';
+    let h = '<div class="pb-dd"><button type="button" class="pb-ddb" aria-haspopup="listbox" aria-expanded="' + ddOpen + '"><span>' +
+      (mod ? "M" + mod + " " + esc(P.mods[mod - 1]) : "All modules") + '</span><i>&#9662;</i></button>';
+    if (ddOpen){
+      h += '<div class="pb-pop"><input class="pb-q" type="search" placeholder="Search modules" aria-label="Search modules" autocomplete="off">' +
+        '<div class="pb-lst" role="listbox" aria-label="Modules">' + opt("", "All modules", all.length);
+      P.groups.forEach(([g, ms]) => {
+        ms = ms.filter(m => used[m]); if (!ms.length) return;
+        h += '<div class="pb-mg">' + esc(g) + '</div>' + ms.map(m => opt(String(m), '<i>M' + m + '</i> ' + esc(P.mods[m - 1]), used[m])).join("");
+      });
+      h += '<div class="pb-none" hidden>No modules match.</div></div></div>';
+    }
+    return h + '</div>';
+  }
+  function search(q){
+    q = q.trim().toLowerCase();
+    const lst = root.querySelector(".pb-lst"); let any = false, grp = null, grpAny = false;
+    [...lst.children].forEach(el => {
+      if (el.classList.contains("pb-mg")){ if (grp) grp.hidden = !grpAny; grp = el; grpAny = false; return; }
+      if (el.dataset.m == null) return;
+      const hit = !q || el.textContent.toLowerCase().includes(q) || "m" + el.dataset.m === q;
+      el.hidden = !hit || (!!q && el.dataset.m === "");
+      if (!el.hidden && el.dataset.m){ any = true; grpAny = true; }
+    });
+    if (grp) grp.hidden = !grpAny;
+    lst.querySelector(".pb-none").hidden = any || !q;
+  }
+  // a new filter opens every rung with matches; headers still toggle after that
+  function openMatches(){ if (filt !== "all" || mod) P.rungs.forEach((r, k) => { if (r.items.some(shown)) openR.add(k); }); }
+  function closeDd(focus){ ddOpen = false; ddQ = ""; render(); if (focus) root.querySelector(".pb-ddb").focus(); }
+  function render(){
+    if (!root) return;
+    const fk = focusKey();
+    const n = next(), d = all.filter(i => done[i.id]).length;
+    if (!started){ started = true; if (n){ openR.add(n.rung); openB.add(n.id); } }
+    let h = '<div class="pb-panel"><div class="pb-sum"><div class="pb-big">' + d + '<small> / ' + all.length + ' Boxes</small></div>' +
+      '<div class="pb-bar"><i style="width:' + (d / all.length * 100) + '%"></i></div></div>' +
+      '<p class="pb-note">Everything you need to pass the ' + P.code + ' is in HTB Academy\'s ' + L(P.path.url, esc(P.path.name)) +
+      ', and nothing outside it is in scope for the exam. These boxes are extra: use them to sharpen your methodology, and write a mock report for each one in ' +
+      L("https://docs.sysreptor.com/htb-reporting-with-sysreptor", "SysReptor") + ' to practice reporting. You don\'t need any of them to pass.</p></div>' +
+      '<div class="pb-tb"><div class="pb-seg" role="group" aria-label="Show">' +
+      [["all", "All"], ["todo", "To do"], ["done", "Done"]].map(([k, t]) => '<button type="button" data-f="' + k + '" aria-pressed="' + (filt === k) + '">' + t + '</button>').join("") +
+      '</div>' + modFilter() + '<span class="pb-sp"></span><button type="button" class="pb-btn" data-all="1">Expand all</button><button type="button" class="pb-btn" data-all="0">Collapse all</button></div>';
+    let any = false;
+    P.rungs.forEach((r, k) => {
+      const its = r.items.filter(shown); if (!its.length) return;
+      any = true;
+      const [rd, rt] = count(r), op = openR.has(k);
+      h += '<div class="pb-rg' + (rd === rt ? " full" : "") + '"><button type="button" class="pb-rh" data-r="' + k + '" aria-expanded="' + op + '">' +
+        '<span class="pb-cv">&#9654;</span><span class="pb-rn">' + String(k + 1).padStart(2, "0") + '</span>' +
+        '<span><span class="pb-rt">' + esc(r.name) + '</span><span class="pb-rs">' + its.length + (its.length === 1 ? " Box" : " Boxes") + (r.sub ? " &middot; " + esc(r.sub) : "") + '</span></span>' +
+        '<span class="pb-mbar"><i style="width:' + (rd / rt * 100) + '%"></i></span><span class="pb-rc">' + (rd === rt ? "&#10003; " : "") + rd + '/' + rt + '</span></button>';
+      if (op){
+        h += '<p class="pb-goal">' + esc(r.goal) + '</p>';
+        its.forEach(i => {
+          const ob = openB.has(i.id), w = walks(i);
+          h += '<div class="pb-bx' + (done[i.id] ? " done" : "") + (ob ? " open" : "") + '" data-b="' + i.id + '"><div class="pb-bh">' +
+            '<button type="button" class="pb-cv pb-x" aria-expanded="' + ob + '" aria-label="Details for ' + esc(i.n) + '">&#9654;</button>' +
+            '<button type="button" class="pb-cb" data-tog="' + i.id + '" aria-pressed="' + !!done[i.id] + '" aria-label="' + esc(i.n) + ' done"></button>' +
+            '<div style="min-width:0"><div class="pb-l1"><a class="pb-nm" href="' + esc(i.url) + '" target="_blank" rel="noopener">' + esc(i.n) + '<i>&#8599;</i></a>' +
+            '<span class="pb-meta">' + meta(i) + '</span>' + (n === i ? '<span class="pb-next">UP NEXT</span>' : "") + '</div>' +
+            '<div class="pb-tech">' + esc(i.tech) + '</div></div>' +
+            '<div class="pb-wq">' + (w.length ? w.map(x => x.replace(" video", "").replace(" write-up", "")).join("") : "") + '</div></div>' +
+            '<div class="pb-bd"><div><div class="pb-lb">Practices</div><ul class="pb-mods">' +
+            i.mods.map(m => '<li><b>M' + m + '</b> ' + esc(P.mods[m - 1]) + '</li>').join("") + '</ul></div>' +
+            '<div><div class="pb-lb">Walkthroughs</div><p>' + walkLine(i) + '</p>' +
+            (picks(i).length ? '<div class="pb-lb">Picked by</div><p>' + picks(i).join(" &middot; ") + '</p>' : "") +
+            (revs(i).length ? '<div class="pb-lb">Reviews</div><p>' + revLine(i) + '</p>' : "") + '</div></div></div>';
+        });
+      }
+      h += '</div>';
+    });
+    if (!any) h += '<div class="pb-empty">No boxes match that filter.</div>';
+    h += '<p class="pb-sug">Know a box that should be here? <a href="' + P.issues + '?template=suggest-resource.yml&amp;cert=' + P.code + '&amp;where=Practice+boxes&amp;type=Practice+box+or+lab&amp;title=%5BResource%5D+%5B' + P.code + '%5D+" target="_blank" rel="noopener">Suggest it on GitHub</a>' +
+      ' or <a href="' + P.issues + '?template=report-problem.yml&amp;cert=' + P.code + '&amp;where=Practice+boxes&amp;title=%5BProblem%5D+%5B' + P.code + '%5D+" target="_blank" rel="noopener">report a problem</a>.</p>';
+    root.innerHTML = h;
+    if (ddOpen && ddQ){ root.querySelector(".pb-q").value = ddQ; search(ddQ); }  // keep the search across redraws
+    const back = fk && root.querySelector(fk); if (back) back.focus();
+  }
+
+  function onClick(e){
+    const t = e.target; e.pbHandled = true;
+    const tog = t.closest("[data-tog]");
+    if (tog){ const id = tog.dataset.tog; if (done[id]) delete done[id]; else done[id] = true; save(); render(); return; }
+    if (t.closest("a,details,.pb-q")) return;
+    if (t.closest(".pb-ddb")){ ddOpen = !ddOpen; ddQ = ""; render(); if (ddOpen) root.querySelector(".pb-q").focus(); return; }
+    const mi = t.closest("[data-m]"); if (mi){ mod = mi.dataset.m; openMatches(); closeDd(true); return; }
+    const f = t.closest("[data-f]"); if (f){ filt = f.dataset.f; openMatches(); render(); return; }
+    const ea = t.closest("[data-all]");
+    if (ea){ P.rungs.forEach((r, k) => ea.dataset.all === "1" ? openR.add(k) : openR.delete(k)); if (ea.dataset.all === "0") openB.clear(); render(); return; }
+    const r = t.closest("[data-r]"); if (r){ const k = +r.dataset.r; openR.has(k) ? openR.delete(k) : openR.add(k); render(); return; }
+    const b = t.closest(".pb-bh"); if (b){ const id = b.parentNode.dataset.b; openB.has(id) ? openB.delete(id) : openB.add(id); render(); }
+  }
+
+  return {
+    mount(el){
+      root = el; root.classList.add("pb"); load(); render();
+      root.addEventListener("click", onClick);
+      root.addEventListener("input", e => { if (e.target.classList.contains("pb-q")){ ddQ = e.target.value; search(ddQ); } });
+      root.addEventListener("keydown", e => {
+        if (!ddOpen) return;
+        const opts = [...root.querySelectorAll(".pb-mi:not([hidden])")], i = opts.indexOf(document.activeElement);
+        if (e.key === "Escape"){ e.preventDefault(); closeDd(true); }
+        else if (e.key === "Enter" && e.target.classList.contains("pb-q")){ e.preventDefault(); const f = opts.find(o => o.dataset.m) || opts[0]; if (f) f.click(); }
+        else if (e.key === "ArrowDown"){ e.preventDefault(); if (opts.length) opts[(i + 1) % opts.length].focus(); }
+        else if (e.key === "ArrowUp"){ e.preventDefault(); i <= 0 ? root.querySelector(".pb-q").focus() : opts[i - 1].focus(); }
+      });
+      // click or tab away closes the module list
+      document.addEventListener("click", e => { if (ddOpen && !e.pbHandled) closeDd(false); });
+      root.addEventListener("focusout", e => { if (ddOpen && e.relatedTarget && !e.relatedTarget.closest(".pb-dd")) closeDd(false); });
+      // other tab or page saved: stay in sync
+      window.addEventListener("storage", e => { if (e.key === PRACTICE_KEY || e.key === null){ load(); render(); } });
+    },
+    get: () => ({done: Object.assign({}, done)}),
+    set(o){ done = clean(o); save(); render(); },
+    reset(){ done = {}; try{ localStorage.removeItem(PRACTICE_KEY); }catch(e){} render(); }
+  };
+})();
 
 /* ---------- State ---------- */
 const STORE_KEY = "cpts_tracker_v2";
@@ -5135,8 +5402,8 @@ document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     tb.classList.add("active");
-    ["plan","resources","about"].forEach(name=>{
-      document.getElementById("tab-"+name).classList.toggle("hidden", name!==tb.dataset.tab);
+    document.querySelectorAll(".tab").forEach(x=>{
+      document.getElementById("tab-"+x.dataset.tab).classList.toggle("hidden", x!==tb);
     });
   });
 });
@@ -5178,7 +5445,7 @@ document.getElementById("todayBtn").addEventListener("click",()=>{
   if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
 });
 document.getElementById("exportBtn").addEventListener("click",()=>{
-  const blob = new Blob([JSON.stringify(Object.assign({cert:"cpts"}, state),null,2)],{type:"application/json"});
+  const blob = new Blob([JSON.stringify(Object.assign({cert:"cpts"}, state, typeof PB!=="undefined" ? {practice:PB.get()} : {}),null,2)],{type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "cpts-tracker-backup.json";
@@ -5203,15 +5470,17 @@ document.getElementById("importFile").addEventListener("change",e=>{
     if(obj.cert && obj.cert!=="cpts" &&
        !confirm("This backup is from the "+String(obj.cert).toUpperCase()+" tracker, not CPTS. Import it anyway?")) return;
     state = cleanState(obj);
+    if(typeof PB!=="undefined" && isObj(obj.practice)) PB.set(obj.practice);
     save(); init();
     alert("Backup imported successfully.");
   };
   r.readAsText(f);
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{
-  if(confirm("Reset all progress, notes, and start date? This cannot be undone. Consider exporting a backup first.")){
+  if(confirm("Reset all progress"+(typeof PB!=="undefined" ? " (practice boxes too)" : "")+", notes, and start date? This cannot be undone. Consider exporting a backup first.")){
     state = {startDate:"",done:{},notes:{},mode:65,plan:""};
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
+    if(typeof PB!=="undefined") PB.reset();
     init();
   }
 });
@@ -5247,6 +5516,10 @@ function init(){
   renderAll();
 }
 init();
+if(typeof PB!=="undefined"){
+  PB.mount(document.getElementById("tab-practice"));
+  if(location.hash==="#practice") document.querySelector('.tab[data-tab="practice"]').click();
+}
 // click outside a popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
 function backdropClose(dlg){
   let down = false;
