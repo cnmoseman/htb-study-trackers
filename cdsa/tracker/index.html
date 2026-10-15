@@ -3272,12 +3272,13 @@ function backdropClose(dlg){
   let copied = [];
   function open(){
     const st = computeStats(), N = DAYS.length, pct = overallPct(st);
-    const step = Math.floor(pct / 10) * 10;  // card shows the 10% step at or below the dashboard %
+    // nearest 10% step (5 rounds up); 100 only when every task is done
+    const step = pct === 100 ? 100 : Math.min(90, Math.round(pct / 10) * 10);
     link = BASE + "cdsa/progress/" + step + "/";
     $("shareImg").hidden = false;
     $("shareImg").src = BASE + "assets/share/progress/cdsa-" + step + ".jpg";
     const line = step === 10 && st.doneDays < 2 ? SHARE_EARLY : SHARE_LINES[step / 10];
-    const v = {CODE, N, pct: pct + "%", done: st.doneDays};
+    const v = {CODE, N, pct: step + "%", done: st.doneDays};  // text says what the card shows
     const def = line.replace(/\{(CODE|N|pct|done)\}/g, (_, k) => v[k]) + tags;
     // keep the user's edits unless their progress changed
     if (def !== lastDefault || !body()) $("shareTxt").value = def;
