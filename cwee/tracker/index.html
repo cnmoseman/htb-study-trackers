@@ -3460,6 +3460,8 @@ function backdropClose(dlg){
   $("shCopy").onclick = () => { copied = ["Copied the text and link. Paste them into Discord or anywhere else.", true];
     copy(body() + "\n" + link) ? note(...copied) : note(FAIL); };
   backdropClose($("shareDlg"));
+  // live site only (localhost for testing); downloaded copies don't get the button
+  if (!["cnmoseman.github.io", "localhost"].includes(location.hostname)) { $("shareBtn").remove(); return; }
   $("shareBtn").onclick = open;
 })();
 </script>
