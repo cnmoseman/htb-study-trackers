@@ -346,6 +346,7 @@
   .pb-bar{flex:1;min-width:160px;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
   .pb-bar i,.pb-mbar i{display:block;height:100%;background:var(--pb-acc);transition:width .3s}
   .pb-note{border-top:1px solid var(--line);margin:16px 0 0;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  .pb-caveat{margin:12px 0 0;padding:11px 13px;border-radius:9px;border:1px solid var(--pb-acc);background:color-mix(in srgb,var(--pb-acc) 10%,transparent);color:var(--txt);font-size:14px;line-height:1.55}
   .pb-tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
   .pb-tb .pb-sp{flex:1}
   .pb-btn{font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
@@ -396,10 +397,9 @@
   .pb-l1{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
   .pb-nm{font:700 16px "Chakra Petch",sans-serif;color:var(--txt)!important}
   .pb-nm:hover{color:var(--pb-link)!important;text-decoration:none!important}
-  .pb-nm i{font-style:normal;font-size:12px;color:var(--faint);margin-left:3px}
+  .pb-nm i{font-style:normal;font-size:12px;color:var(--faint);margin-left:3px;font-variant-emoji:text}
   .pb-bx.done .pb-nm{color:var(--muted)!important}
   .pb-meta{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.03em;color:var(--pb-link);white-space:nowrap}
-  .pb-next{font:700 9.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.1em;color:#fff;background:var(--pb-acc);border-radius:4px;padding:1px 6px}
   .pb-tech{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .pb-bx.open .pb-tech{white-space:normal}
   .pb-wq{font-size:12.5px;display:flex;gap:10px;white-space:nowrap}
@@ -4826,9 +4826,9 @@ const PB = (function(){
   function load(){ try{ done = clean(JSON.parse(localStorage.getItem(PRACTICE_KEY))); }catch(e){ done = {}; } }
   function save(){ try{ localStorage.setItem(PRACTICE_KEY, JSON.stringify({done})); }catch(e){} }
 
-  const meta = i => [i.os, i.diff, i.access].map(esc).join(" &middot; ");
-  const picks = i => i.src.filter(x => x.k !== "review").map(x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : L(x.u, "IppSec " + P.code + " playlist #" + x.n));
-  const revs = i => i.src.filter(x => x.k === "review").map(x => L(x.u, esc(x.w)));
+  const meta = i => [i.os, i.diff, i.access].filter(Boolean).map(esc).join(" &middot; ");
+  const picks = i => (i.src || []).filter(x => x.k !== "review").map(x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : L(x.u, "IppSec " + P.code + " playlist #" + x.n));
+  const revs = i => (i.src || []).filter(x => x.k === "review").map(x => L(x.u, esc(x.w)));
   const walks = i => [i.ippsec && L(i.ippsec, "&#9654; IppSec video"), i.oxdf && L(i.oxdf, '<span class="pb-mono">0xdf</span> write-up')].filter(Boolean);
   function walkLine(i){
     const w = walks(i);
@@ -4892,7 +4892,8 @@ const PB = (function(){
       '<div class="pb-bar"><i style="width:' + (d / all.length * 100) + '%"></i></div></div>' +
       '<p class="pb-note">Everything you need to pass the ' + P.code + ' is in HTB Academy\'s ' + L(P.path.url, esc(P.path.name)) +
       ', and nothing outside it is in scope for the exam. These boxes are extra: use them to sharpen your methodology, and write a mock report for each one in ' +
-      L("https://docs.sysreptor.com/htb-reporting-with-sysreptor", "SysReptor") + ' to practice reporting. You don\'t need any of them to pass.</p></div>' +
+      L("https://docs.sysreptor.com/htb-reporting-with-sysreptor", "SysReptor") + ' to practice reporting. You don\'t need any of them to pass.</p>' +
+      (P.caveat ? '<p class="pb-caveat">' + esc(P.caveat) + '</p>' : '') + '</div>' +
       '<div class="pb-tb"><div class="pb-seg" role="group" aria-label="Show">' +
       [["all", "All"], ["todo", "To do"], ["done", "Done"]].map(([k, t]) => '<button type="button" data-f="' + k + '" aria-pressed="' + (filt === k) + '">' + t + '</button>').join("") +
       '</div>' + modFilter() + '<span class="pb-sp"></span><button type="button" class="pb-btn" data-all="1">Expand all</button><button type="button" class="pb-btn" data-all="0">Collapse all</button></div>';
@@ -4912,8 +4913,8 @@ const PB = (function(){
           h += '<div class="pb-bx' + (done[i.id] ? " done" : "") + (ob ? " open" : "") + '" data-b="' + i.id + '"><div class="pb-bh">' +
             '<button type="button" class="pb-cv pb-x" aria-expanded="' + ob + '" aria-label="Details for ' + esc(i.n) + '">&#9654;</button>' +
             '<button type="button" class="pb-cb" data-tog="' + i.id + '" aria-pressed="' + !!done[i.id] + '" aria-label="' + esc(i.n) + ' done"></button>' +
-            '<div style="min-width:0"><div class="pb-l1"><a class="pb-nm" href="' + esc(i.url) + '" target="_blank" rel="noopener">' + esc(i.n) + '<i>&#8599;</i></a>' +
-            '<span class="pb-meta">' + meta(i) + '</span>' + (n === i ? '<span class="pb-next">UP NEXT</span>' : "") + '</div>' +
+            '<div style="min-width:0"><div class="pb-l1"><a class="pb-nm" href="' + esc(i.url) + '" target="_blank" rel="noopener">' + esc(i.n) + '<i>&#8599;&#xFE0E;</i></a>' +
+            '<span class="pb-meta">' + meta(i) + '</span></div>' +
             '<div class="pb-tech">' + esc(i.tech) + '</div></div>' +
             '<div class="pb-wq">' + (w.length ? w.map(x => x.replace(" video", "").replace(" write-up", "")).join("") : "") + '</div></div>' +
             '<div class="pb-bd"><div><div class="pb-lb">Practices</div><ul class="pb-mods">' +

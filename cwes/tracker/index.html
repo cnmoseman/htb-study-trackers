@@ -334,6 +334,101 @@
     .mods .mf{padding:10px 14px}
     .mods .quick .ql{flex-basis:100%}
   }
+  /* Practice Boxes (shared by the tracker tab and the standalone page) */
+  .pb{--pb-link:#f39a96;--pb-acc:var(--green)}
+  .pb a{color:var(--pb-link);text-decoration:none}
+  .pb a:hover{text-decoration:underline}
+  .pb-mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .pb-panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .pb-sum{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .pb-big{font:700 26px "Chakra Petch",sans-serif;white-space:nowrap}
+  .pb-big small{font:500 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted)}
+  .pb-bar{flex:1;min-width:160px;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+  .pb-bar i,.pb-mbar i{display:block;height:100%;background:var(--pb-acc);transition:width .3s}
+  .pb-note{border-top:1px solid var(--line);margin:16px 0 0;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  .pb-caveat{margin:12px 0 0;padding:11px 13px;border-radius:9px;border:1px solid var(--pb-acc);background:color-mix(in srgb,var(--pb-acc) 10%,transparent);color:var(--txt);font-size:14px;line-height:1.55}
+  .pb-tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .pb-tb .pb-sp{flex:1}
+  .pb-btn{font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  .pb-btn:hover{border-color:var(--pb-acc);color:var(--pb-link)}
+  .pb-seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+  .pb-seg button{font:inherit;font-size:13px;font-weight:600;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  .pb-seg button:last-child{border-right:0}
+  .pb-seg button[aria-pressed="true"]{background:var(--pb-acc);color:#fff}
+  .pb-dd{position:relative}
+  .pb-ddb{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;width:260px;max-width:100%;font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 12px;cursor:pointer;text-align:left}
+  .pb-ddb span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pb-ddb i{font-style:normal;color:var(--faint);font-size:11px}
+  .pb-ddb:hover,.pb-ddb[aria-expanded="true"]{border-color:var(--pb-acc)}
+  .pb-pop{position:absolute;top:calc(100% + 6px);left:0;z-index:20;width:400px;max-width:calc(100vw - 36px);background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.55);padding:8px}
+  .pb-q{width:100%;font:inherit;font-size:13px;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:4px}
+  .pb .pb-q:focus,.pb .pb-q:focus-visible{outline:none;border-color:var(--pb-acc)}
+  .pb-lst{max-height:330px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .pb-mg{font:700 10px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);padding:10px 10px 4px}
+  .pb-mi{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;font:inherit;font-size:13px;text-align:left;color:var(--muted);background:none;border:0;border-radius:6px;padding:6px 10px;cursor:pointer}
+  .pb-mi:hover,.pb-mi:focus-visible{background:var(--card2);color:var(--txt);outline:none}
+  .pb-mi[aria-selected="true"]{background:rgba(237,99,94,.18);color:var(--txt)}
+  .pb-mi i{font:700 11px "IBM Plex Mono",ui-monospace,monospace;font-style:normal;color:var(--pb-link);display:inline-block;width:34px}
+  .pb-mi b{font:600 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);background:var(--bg2);border-radius:10px;padding:1px 7px}
+  .pb-none{color:var(--faint);font-size:13px;padding:8px 10px}
+  .pb [hidden]{display:none!important}
+  .pb-rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  .pb-rh{display:grid;grid-template-columns:18px 30px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .pb-rh:hover{background:var(--card)}
+  .pb-cv{color:var(--faint);font-size:12px;transition:transform .15s;display:inline-block}
+  [aria-expanded="true"]>.pb-cv{transform:rotate(90deg);color:var(--pb-link)}
+  .pb-rn{font:700 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--pb-link)}
+  .pb-rt{font:700 19px/1.2 "Chakra Petch",sans-serif;display:block}
+  .pb-rs{font-size:13px;color:var(--faint);display:block;margin-top:1px}
+  .pb-mbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+  .pb-rc{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-align:right;white-space:nowrap}
+  .pb-rg.full .pb-rc{color:var(--pb-link)}
+  .pb-goal{margin:0;padding:10px 16px 10px 76px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
+  .pb-bx{border-bottom:1px solid var(--card)}
+  .pb-bx:last-child{border-bottom:0}
+  .pb-bh{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px 10px 46px;cursor:pointer}
+  .pb-bh:hover{background:var(--card)}
+  .pb-bx.open .pb-bh,.pb-bx.open .pb-bd{background:var(--card)}
+  .pb-x{background:none;border:0;padding:0;cursor:pointer;font:inherit}
+  .pb-cb{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:0;padding:0;border:1.5px solid var(--faint);border-radius:6px;background:var(--bg);cursor:pointer;position:relative}
+  .pb-cb:hover{border-color:var(--pb-link)}
+  .pb-cb[aria-pressed="true"]{background:var(--pb-acc);border-color:var(--pb-acc)}
+  .pb-cb[aria-pressed="true"]::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .pb-l1{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .pb-nm{font:700 16px "Chakra Petch",sans-serif;color:var(--txt)!important}
+  .pb-nm:hover{color:var(--pb-link)!important;text-decoration:none!important}
+  .pb-nm i{font-style:normal;font-size:12px;color:var(--faint);margin-left:3px;font-variant-emoji:text}
+  .pb-bx.done .pb-nm{color:var(--muted)!important}
+  .pb-meta{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.03em;color:var(--pb-link);white-space:nowrap}
+  .pb-tech{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pb-bx.open .pb-tech{white-space:normal}
+  .pb-wq{font-size:12.5px;display:flex;gap:10px;white-space:nowrap}
+  .pb-bd{display:none;grid-template-columns:1.2fr 1fr;gap:24px;padding:2px 20px 16px 98px}
+  .pb-bx.open .pb-bd{display:grid}
+  .pb-lb{font:700 10px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:10px 0 4px}
+  .pb-bd p{margin:0;font-size:13.5px;color:var(--muted)}
+  .pb-mods{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .pb-mods li{position:relative;padding-left:13px;font-size:13px;color:var(--muted)}
+  .pb-mods li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--pb-acc)}
+  .pb-mods b{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;color:var(--txt)}
+  .pb-dim{color:var(--faint);font-style:normal}
+  .pb details{display:inline}
+  .pb summary{display:inline;cursor:pointer;color:var(--muted);text-decoration:underline dotted}
+  .pb details[open] summary{display:none}
+  .pb-empty{color:var(--faint);font-size:13px;padding:14px 4px}
+  .pb-sug{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
+  .pb :focus-visible{outline:2px solid var(--pb-link);outline-offset:2px}
+  @media (max-width:760px){
+    .pb-rh{grid-template-columns:14px minmax(0,1fr) 44px;padding:13px 12px}
+    .pb-rn,.pb-mbar{display:none}
+    .pb-goal{padding-left:12px}
+    .pb-bh{grid-template-columns:22px minmax(0,1fr) 14px;padding:10px 12px 10px 16px}
+    .pb-bh>.pb-cv{order:3}
+    .pb-wq{display:none}
+    .pb-bd{grid-template-columns:1fr;gap:0;padding:0 12px 14px 50px}
+    .pb-dd{flex:1 1 100%;order:2}.pb-ddb{width:100%}.pb-pop{width:100%;max-width:none}
+  }
+  @media (prefers-reduced-motion:reduce){.pb-cv,.pb-bar i,.pb-mbar i{transition:none}}
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -429,6 +524,7 @@
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" data-tab="plan">Study Plan</button>
+    <button class="tab" data-tab="practice">Practice Boxes</button>
     <button class="tab" data-tab="resources">Resource Library</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
@@ -444,6 +540,9 @@
     </div>
     <div id="weeks"></div>
   </div>
+
+  <!-- Practice Boxes -->
+  <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
   <div id="tab-resources" class="hidden"></div>
@@ -2505,43 +2604,6 @@ const RESOURCES = [
     ]
   },
   {
-    "cat": "Practice Machines",
-    "color": "#ed635e",
-    "note": "Retired HTB Labs boxes that CWES passers recommend for web practice. All six need a VIP+ subscription. Try each one black-box before reading a writeup.",
-    "items": [
-      {
-        "n": "Soccer (Easy, VIP+)",
-        "u": "https://app.hackthebox.com/machines/Soccer",
-        "note": "File manager default creds and upload, then SQL injection over a WebSocket"
-      },
-      {
-        "n": "Delivery (Easy, VIP+)",
-        "u": "https://app.hackthebox.com/machines/Delivery",
-        "note": "Abusing a helpdesk ticket email to get into an internal app"
-      },
-      {
-        "n": "Shoppy (Easy, VIP+)",
-        "u": "https://app.hackthebox.com/machines/Shoppy",
-        "note": "NoSQL injection login bypass and subdomain fuzzing"
-      },
-      {
-        "n": "BountyHunter (Easy, VIP+)",
-        "u": "https://app.hackthebox.com/machines/BountyHunter",
-        "note": "XXE to read files from the server"
-      },
-      {
-        "n": "Union (Medium, VIP+)",
-        "u": "https://app.hackthebox.com/machines/Union",
-        "note": "SQL injection that leads to file reads and credentials"
-      },
-      {
-        "n": "Cronos (Medium, VIP+)",
-        "u": "https://app.hackthebox.com/machines/Cronos",
-        "note": "DNS zone transfer, SQL injection login bypass, command injection"
-      }
-    ]
-  },
-  {
     "cat": "Community Notes & Walkthroughs",
     "color": "#ed635e",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
@@ -2849,6 +2911,175 @@ const RESOURCES = [
     ]
   }
 ];
+const PRACTICE = {"code": "CWES", "path": {"name": "Web Penetration Tester Path", "url": "https://academy.hackthebox.com/path/preview/web-penetration-tester"}, "mods": ["Web Requests", "Introduction to Web Applications", "Using Web Proxies", "Information Gathering - Web Edition", "Web Fuzzing", "JavaScript Deobfuscation", "Cross-Site Scripting (XSS)", "SQL Injection Fundamentals", "SQLMap Essentials", "Command Injections", "File Upload Attacks", "Server-side Attacks", "Login Brute Forcing", "Broken Authentication", "Web Attacks", "File Inclusion", "Attacking GraphQL", "API Attacks", "Attacking Common Applications", "Bug Bounty Hunting Process"], "groups": [["Web Fundamentals & Proxies", [1, 2, 3]], ["Recon & Fuzzing", [4, 5, 6]], ["XSS & Injection", [7, 8, 9, 10]], ["Uploads & Server-side", [11, 12]], ["Authentication Attacks", [13, 14]], ["Web Attacks, LFI & APIs", [15, 16, 17, 18]], ["Common Applications", [19]], ["Reporting & Exam Prep", [20]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Challenge Warm-Ups", "sub": "Single-Bug Web Challenges", "goal": "Find and exploit one web bug at a time in small challenge apps before moving to full boxes.", "items": [{"id": "onlyhacks", "n": "OnlyHacks", "type": "challenge", "os": null, "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/OnlyHacks", "tech": "Web challenge on the CWES track; technique not checked.", "mods": [], "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "armaxis", "n": "Armaxis", "type": "challenge", "os": null, "diff": null, "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Armaxis", "tech": "Web challenge on the CWES track; technique and difficulty not checked.", "mods": [], "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "blackout-ops", "n": "Blackout Ops", "type": "challenge", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Blackout%20Ops", "tech": "Find a hardcoded admin access code in the app's source, register, then upload a file to get command execution.", "mods": [6, 11, 14], "src": [{"k": "review", "w": "Notion write-up", "u": "https://verbose-butter-fad.notion.site/HackTheBox-Blackout-Ops-Easy-d49572b769db83d0924b81958b0a5972"}]}, {"id": "speednet", "n": "SpeedNet", "type": "challenge", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/SpeedNet", "tech": "Web challenge. The specific technique isn't documented publicly, so go in black-box.", "mods": []}]}, {"name": "First Footholds", "sub": "Fuzzing, Default Creds, Simple Logic Flaws", "goal": "Get used to black-box enumeration and simple web footholds on Easy boxes.", "items": [{"id": "soccer", "n": "Soccer", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Soccer", "tech": "File manager default creds and upload, then SQL injection over a WebSocket.", "mods": [4, 5, 8, 9, 11, 19], "ippsec": "https://www.youtube.com/watch?v=V_CkT7xyiCc", "oxdf": "https://0xdf.gitlab.io/2023/06/10/htb-soccer.html", "src": [{"k": "review", "u": "https://medium.com/@ramazan.abdirassilov/review-of-htb-certified-web-exploitation-specialist-htb-cwes-formerly-cbbh-certification-5f2eb78d2b1d", "w": "Ramazan"}, {"k": "review", "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558", "w": "Sahil Shah"}, {"k": "tracker-existing", "u": "https://app.hackthebox.com/machines/Soccer", "w": "CWES tracker Practice Machines"}]}, {"id": "delivery", "n": "Delivery", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Delivery", "tech": "Helpdesk ticket email trick to reach an internal chat app with credentials.", "mods": [4, 14], "ippsec": "https://www.youtube.com/watch?v=gbs43E71mFM", "oxdf": "https://0xdf.gitlab.io/2021/05/22/htb-delivery.html", "src": [{"k": "review", "u": "https://medium.com/@ramazan.abdirassilov/review-of-htb-certified-web-exploitation-specialist-htb-cwes-formerly-cbbh-certification-5f2eb78d2b1d", "w": "Ramazan"}, {"k": "review", "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558", "w": "Sahil Shah"}, {"k": "tracker-existing", "u": "https://app.hackthebox.com/machines/Delivery", "w": "CWES tracker Practice Machines"}]}, {"id": "shoppy", "n": "Shoppy", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Shoppy", "tech": "NoSQL injection login bypass and subdomain fuzzing.", "mods": [4, 5, 14], "ippsec": "https://www.youtube.com/watch?v=AJc53DUdt1M", "oxdf": "https://0xdf.gitlab.io/2023/01/14/htb-shoppy.html", "src": [{"k": "review", "u": "https://medium.com/@ramazan.abdirassilov/review-of-htb-certified-web-exploitation-specialist-htb-cwes-formerly-cbbh-certification-5f2eb78d2b1d", "w": "Ramazan"}, {"k": "review", "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558", "w": "Sahil Shah"}, {"k": "tracker-existing", "u": "https://app.hackthebox.com/machines/Shoppy", "w": "CWES tracker Practice Machines"}]}, {"id": "bashed", "n": "Bashed", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Bashed", "tech": "Directory fuzzing finds a web shell left behind by a developer.", "mods": [4, 5], "ippsec": "https://www.youtube.com/watch?v=2DqdPcbYcy8", "oxdf": "https://0xdf.gitlab.io/2018/04/29/htb-bashed.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "cap", "n": "Cap", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Cap", "tech": "IDOR exposes another user's packet capture with credentials.", "mods": [4, 15], "ippsec": "https://www.youtube.com/watch?v=O_z6o2xuvlw", "oxdf": "https://0xdf.gitlab.io/2021/10/02/htb-cap.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "twomillion", "n": "TwoMillion", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/TwoMillion", "tech": "Obfuscated JavaScript invite code, API enumeration to admin, then command injection.", "mods": [3, 6, 10, 18], "ippsec": "https://www.youtube.com/watch?v=Exl4P3fsF7U", "oxdf": "https://0xdf.gitlab.io/2023/06/07/htb-twomillion.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "return", "n": "Return", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Return", "tech": "Printer admin web panel leaks a service account password.", "mods": [2], "oxdf": "https://0xdf.gitlab.io/2022/05/05/htb-return.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}]}]}, {"name": "Classic Injections", "sub": "SQLi, XSS, XXE, Command Injection, LFI", "goal": "Spot and exploit the core injection classes from the path without being told which one to look for.", "items": [{"id": "trick", "n": "Trick", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Trick", "tech": "DNS zone transfer to hidden vhosts, SQL injection login bypass, then file inclusion.", "mods": [4, 8, 9, 16], "ippsec": "https://www.youtube.com/watch?v=ai98umjeO8M", "oxdf": "https://0xdf.gitlab.io/2022/10/29/htb-trick.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "reset", "n": "Reset", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Reset", "tech": "Broken password reset, then log poisoning through file inclusion.", "mods": [14, 16], "oxdf": "https://0xdf.gitlab.io/2025/07/15/htb-reset.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "bountyhunter", "n": "BountyHunter", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/BountyHunter", "tech": "XXE in a web form to read server files and credentials.", "mods": [5, 15], "ippsec": "https://www.youtube.com/watch?v=5axsDhumfhU", "oxdf": "https://0xdf.gitlab.io/2021/11/20/htb-bountyhunter.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}, {"k": "review", "u": "https://medium.com/@ramazan.abdirassilov/review-of-htb-certified-web-exploitation-specialist-htb-cwes-formerly-cbbh-certification-5f2eb78d2b1d", "w": "Ramazan"}, {"k": "review", "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558", "w": "Sahil Shah"}, {"k": "tracker-existing", "u": "https://app.hackthebox.com/machines/BountyHunter", "w": "CWES tracker Practice Machines"}]}, {"id": "cronos", "n": "Cronos", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Cronos", "tech": "DNS zone transfer to an admin vhost, SQL injection login bypass, command injection.", "mods": [4, 8, 10], "ippsec": "https://www.youtube.com/watch?v=CYeVUmOar3I", "oxdf": "https://0xdf.gitlab.io/2020/04/14/htb-cronos.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}, {"k": "review", "u": "https://medium.com/@ramazan.abdirassilov/review-of-htb-certified-web-exploitation-specialist-htb-cwes-formerly-cbbh-certification-5f2eb78d2b1d", "w": "Ramazan"}, {"k": "review", "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558", "w": "Sahil Shah"}, {"k": "tracker-existing", "u": "https://app.hackthebox.com/machines/Cronos", "w": "CWES tracker Practice Machines"}]}, {"id": "friendzone", "n": "Friendzone", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Friendzone", "tech": "DNS zone transfer to hidden vhosts, then local file inclusion.", "mods": [4, 16], "ippsec": "https://www.youtube.com/watch?v=Zf8p49IzEEA", "oxdf": "https://0xdf.gitlab.io/2019/07/13/htb-friendzone.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "headless", "n": "Headless", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Headless", "tech": "Blind XSS steals an admin cookie, then command injection.", "mods": [5, 7, 10], "ippsec": "https://www.youtube.com/watch?v=FDCpJbS1OuQ", "oxdf": "https://0xdf.gitlab.io/2024/07/20/htb-headless.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "alert", "n": "Alert", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Alert", "tech": "XSS through a Markdown viewer, then path traversal to read files.", "mods": [4, 7, 16], "ippsec": "https://www.youtube.com/watch?v=zSBEfW46zd0", "oxdf": "https://0xdf.gitlab.io/2025/03/22/htb-alert.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "usage", "n": "Usage", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Usage", "tech": "Blind SQL injection in a password reset form, then an admin panel upload.", "mods": [4, 8, 9, 11], "ippsec": "https://www.youtube.com/watch?v=cx9Da-PoXG4", "oxdf": "https://0xdf.gitlab.io/2024/08/10/htb-usage.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "nineveh", "n": "Nineveh", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Nineveh", "tech": "Login brute forcing, then local file inclusion.", "mods": [5, 13, 16], "ippsec": "https://www.youtube.com/watch?v=K9DKULxSBK4", "oxdf": "https://0xdf.gitlab.io/2020/04/22/htb-nineveh.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}]}, {"name": "Server-Side and Code Review", "sub": "SSRF, SSTI, Uploads, Source Review", "goal": "Work through server-side bugs and read source code to find the way in.", "items": [{"id": "editorial", "n": "Editorial", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Editorial", "tech": "SSRF to an internal API that leaks credentials.", "mods": [5, 12, 18], "ippsec": "https://www.youtube.com/watch?v=eggi_GQo9fk", "oxdf": "https://0xdf.gitlab.io/2024/10/19/htb-editorial.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}, {"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "imagery", "n": "Imagery", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Imagery", "tech": "Stored XSS to an admin session, path traversal, then command injection.", "mods": [7, 10, 16], "ippsec": "https://www.youtube.com/watch?v=4sMXhZiNjDE", "oxdf": "https://0xdf.gitlab.io/2026/01/24/htb-imagery.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "goodgames", "n": "GoodGames", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/GoodGames", "tech": "SQL injection login bypass, then server-side template injection.", "mods": [4, 8, 12], "oxdf": "https://0xdf.gitlab.io/2022/02/23/htb-goodgames.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "opensource", "n": "OpenSource", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/OpenSource", "tech": "Source code review of an upload app, path traversal to overwrite code.", "mods": [11, 16], "ippsec": "https://www.youtube.com/watch?v=z6nJNr8AFTU", "oxdf": "https://0xdf.gitlab.io/2022/10/08/htb-opensource.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "forge", "n": "Forge", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Forge", "tech": "SSRF with a filter bypass to reach an internal vhost.", "mods": [4, 12], "ippsec": "https://www.youtube.com/watch?v=-BL4uevhERg", "oxdf": "https://0xdf.gitlab.io/2022/01/22/htb-forge.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "shibboleth", "n": "Shibboleth", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Shibboleth", "tech": "Vhost fuzzing and leaked IPMI credentials into a Zabbix monitoring app.", "mods": [4, 5], "ippsec": "https://www.youtube.com/watch?v=tVXGM10kRwY", "oxdf": "https://0xdf.gitlab.io/2022/04/02/htb-shibboleth.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "saturn", "n": "Saturn", "type": "challenge", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Saturn", "tech": "SSRF against a patched safeurl filter. The obvious redirect and proxy bypasses are blocked, so you need a cleverer one.", "mods": [12], "src": [{"k": "review", "w": "HTB forum thread", "u": "https://forum.hackthebox.com/t/web-challenge-saturn/304408"}]}]}, {"name": "Chained Medium Boxes", "sub": "Multi-Step Web Chains", "goal": "Chain two or more web bugs together, the way the exam expects.", "items": [{"id": "broscience", "n": "BroScience", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/BroScience", "tech": "Path traversal with a filter bypass, weak account activation, then PHP deserialization.", "mods": [14, 16], "ippsec": "https://www.youtube.com/watch?v=kyPYfqMYQm8", "oxdf": "https://0xdf.gitlab.io/2023/04/08/htb-broscience.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "era", "n": "Era", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Era", "tech": "Subdomain fuzzing, IDOR on file downloads, and a security-question account takeover.", "mods": [4, 5, 14, 15], "ippsec": "https://www.youtube.com/watch?v=xhbKMAHxHcE", "oxdf": "https://0xdf.gitlab.io/2025/11/29/htb-era.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "monitorsthree", "n": "MonitorsThree", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/MonitorsThree", "tech": "SQL injection in a password reset form, then a known Cacti flaw.", "mods": [4, 5, 8, 9, 19], "ippsec": "https://www.youtube.com/watch?v=4y2gp_GTBqQ", "oxdf": "https://0xdf.gitlab.io/2025/01/18/htb-monitorsthree.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "instant", "n": "Instant", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Instant", "tech": "Mobile app leaks an API token, API docs, then path traversal.", "mods": [14, 16, 18], "ippsec": "https://www.youtube.com/watch?v=Oyh84PHjzsQ", "oxdf": "https://0xdf.gitlab.io/2025/03/01/htb-instant.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "union", "n": "Union", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Union", "tech": "SQL injection past a filter to read files and credentials, then command injection.", "mods": [3, 8, 10], "ippsec": "https://www.youtube.com/watch?v=z5pdizHDvt8", "oxdf": "https://0xdf.gitlab.io/2021/11/22/htb-union.html", "src": [{"k": "review", "u": "https://medium.com/@ramazan.abdirassilov/review-of-htb-certified-web-exploitation-specialist-htb-cwes-formerly-cbbh-certification-5f2eb78d2b1d", "w": "Ramazan"}, {"k": "review", "u": "https://medium.com/@sahil3276/how-i-passed-the-htb-cwes-with-100-100-2026-bcac57518558", "w": "Sahil Shah"}, {"k": "tracker-existing", "u": "https://app.hackthebox.com/machines/Union", "w": "CWES tracker Practice Machines"}]}, {"id": "timing", "n": "Timing", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Timing", "tech": "File inclusion to read source, timing-based user discovery, mass assignment, then upload.", "mods": [11, 14, 16, 18], "ippsec": "https://www.youtube.com/watch?v=hmtnxLUqRhQ", "oxdf": "https://0xdf.gitlab.io/2022/06/04/htb-timing.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "redcross", "n": "RedCross", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/RedCross", "tech": "XSS to an admin session, SQL injection, then command injection.", "mods": [4, 7, 8, 9, 10], "ippsec": "https://www.youtube.com/watch?v=-GNyDEQ9UDU", "oxdf": "https://0xdf.gitlab.io/2019/04/13/htb-redcross.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "node", "n": "Node", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Node", "tech": "An exposed API leaks user hashes and a backup of the app.", "mods": [5, 18], "ippsec": "https://www.youtube.com/watch?v=sW10TlZF62w", "oxdf": "https://0xdf.gitlab.io/2021/06/08/htb-node.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}, {"id": "enterprise", "n": "Enterprise", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Enterprise", "tech": "SQL injection in a WordPress plugin, then a Joomla admin.", "mods": [8, 9, 19], "ippsec": "https://www.youtube.com/watch?v=NWVJ2b0D1r8", "oxdf": "https://0xdf.gitlab.io/2021/06/16/htb-enterprise.html", "src": [{"k": "review", "u": "https://alexandruionutraducu.com/posts/cbbh_review/", "w": "Alexandru-Ionuț Răducu"}, {"k": "review", "u": "https://nalchhen.com/posts/cwes-review/", "w": "Sonal Chhen"}]}]}, {"name": "Hard Chains", "sub": "Long Chains and Full Labs", "goal": "Handle long, layered web chains and a multi-target lab under exam-like pressure.", "items": [{"id": "pollution", "n": "Pollution", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pollution", "tech": "Subdomain discovery, XXE file read, file inclusion, then prototype pollution in a Node API.", "mods": [4, 15, 16], "ippsec": "https://www.youtube.com/watch?v=dQt5iRFtgAY", "oxdf": "https://0xdf.gitlab.io/2023/07/01/htb-pollution.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}, {"id": "altered", "n": "Altered", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Altered", "tech": "Brute force past a rate limit, type juggling, then SQL injection.", "mods": [8, 13, 14], "ippsec": "https://www.youtube.com/watch?v=a29TXlGO0AA", "oxdf": "https://0xdf.gitlab.io/2022/03/30/htb-altered.html", "src": [{"k": "track", "u": "https://juanbelin.github.io/assets/img/Anexos/CWES%20POST-16.png", "w": "HTB CWES Preparation track (screenshot in Juan Belinchon's review)"}]}]}]};
+/* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
+const PRACTICE_KEY = "cwes_practice_v1";
+const PB = (function(){
+  const P = PRACTICE;
+  const all = P.rungs.flatMap((r, k) => r.items.map(i => Object.assign(i, {rung: k})));
+  const ids = new Set(all.map(i => i.id));
+  let done = {}, root = null, filt = "all", mod = "", started = false, ddOpen = false, ddQ = "";
+  const used = {};  // boxes per module; modules with none are left out of the filter
+  all.forEach(i => i.mods.forEach(m => used[m] = (used[m] || 0) + 1));
+  const openR = new Set(), openB = new Set();
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const L = (u, t) => '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + t + '</a>';
+
+  // only known box ids, so a bad backup can't break rendering
+  function clean(o){
+    const d = {};
+    if (o && typeof o.done === "object" && o.done) Object.keys(o.done).forEach(k => { if (ids.has(k) && o.done[k] === true) d[k] = true; });
+    return d;
+  }
+  function load(){ try{ done = clean(JSON.parse(localStorage.getItem(PRACTICE_KEY))); }catch(e){ done = {}; } }
+  function save(){ try{ localStorage.setItem(PRACTICE_KEY, JSON.stringify({done})); }catch(e){} }
+
+  const meta = i => [i.os, i.diff, i.access].filter(Boolean).map(esc).join(" &middot; ");
+  const picks = i => (i.src || []).filter(x => x.k !== "review").map(x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : L(x.u, "IppSec " + P.code + " playlist #" + x.n));
+  const revs = i => (i.src || []).filter(x => x.k === "review").map(x => L(x.u, esc(x.w)));
+  const walks = i => [i.ippsec && L(i.ippsec, "&#9654; IppSec video"), i.oxdf && L(i.oxdf, '<span class="pb-mono">0xdf</span> write-up')].filter(Boolean);
+  function walkLine(i){
+    const w = walks(i);
+    if (w.length) return w.join(" &middot; ");
+    return '<em class="pb-dim">' + (i.type === "prolab" ? "None public (HTB doesn't allow Pro Lab write-ups)" : "None yet") + '</em>';
+  }
+  function revLine(i){
+    const a = revs(i);
+    return a.slice(0, 4).join(", ") + (a.length > 4 ? ' <details><summary>+' + (a.length - 4) + ' more</summary>' + a.slice(4).join(", ") + '</details>' : "");
+  }
+  const next = () => all.find(i => !done[i.id]);
+  const count = r => [r.items.filter(i => done[i.id]).length, r.items.length];
+  const shown = i => (filt === "all" || (filt === "todo") === !done[i.id]) && (!mod || i.mods.includes(+mod));
+
+  // which control had focus, so a redraw can put it back
+  function focusKey(){
+    const a = document.activeElement;
+    if (!root || !a || !root.contains(a)) return null;
+    for (const k of ["tog", "r", "f", "all"]) if (a.dataset[k] != null) return "[data-" + k + '="' + a.dataset[k] + '"]';
+    if (a.classList.contains("pb-x")) return '[data-b="' + a.closest("[data-b]").dataset.b + '"] .pb-x';
+    return a.classList.contains("pb-ddb") ? ".pb-ddb" : a.classList.contains("pb-q") ? ".pb-q" : null;
+  }
+  // module filter: button + searchable list grouped by the path's sections
+  function modFilter(){
+    const opt = (m, label, n) => '<button type="button" role="option" class="pb-mi" data-m="' + m + '" aria-selected="' + (mod === m) + '"><span>' + label + '</span><b>' + n + '</b></button>';
+    let h = '<div class="pb-dd"><button type="button" class="pb-ddb" aria-haspopup="listbox" aria-expanded="' + ddOpen + '"><span>' +
+      (mod ? "M" + mod + " " + esc(P.mods[mod - 1]) : "All modules") + '</span><i>&#9662;</i></button>';
+    if (ddOpen){
+      h += '<div class="pb-pop"><input class="pb-q" type="search" placeholder="Search modules" aria-label="Search modules" autocomplete="off">' +
+        '<div class="pb-lst" role="listbox" aria-label="Modules">' + opt("", "All modules", all.length);
+      P.groups.forEach(([g, ms]) => {
+        ms = ms.filter(m => used[m]); if (!ms.length) return;
+        h += '<div class="pb-mg">' + esc(g) + '</div>' + ms.map(m => opt(String(m), '<i>M' + m + '</i> ' + esc(P.mods[m - 1]), used[m])).join("");
+      });
+      h += '<div class="pb-none" hidden>No modules match.</div></div></div>';
+    }
+    return h + '</div>';
+  }
+  function search(q){
+    q = q.trim().toLowerCase();
+    const lst = root.querySelector(".pb-lst"); let any = false, grp = null, grpAny = false;
+    [...lst.children].forEach(el => {
+      if (el.classList.contains("pb-mg")){ if (grp) grp.hidden = !grpAny; grp = el; grpAny = false; return; }
+      if (el.dataset.m == null) return;
+      const hit = !q || el.textContent.toLowerCase().includes(q) || "m" + el.dataset.m === q;
+      el.hidden = !hit || (!!q && el.dataset.m === "");
+      if (!el.hidden && el.dataset.m){ any = true; grpAny = true; }
+    });
+    if (grp) grp.hidden = !grpAny;
+    lst.querySelector(".pb-none").hidden = any || !q;
+  }
+  // a new filter opens every rung with matches; headers still toggle after that
+  function openMatches(){ if (filt !== "all" || mod) P.rungs.forEach((r, k) => { if (r.items.some(shown)) openR.add(k); }); }
+  function closeDd(focus){ ddOpen = false; ddQ = ""; render(); if (focus) root.querySelector(".pb-ddb").focus(); }
+  function render(){
+    if (!root) return;
+    const fk = focusKey();
+    const n = next(), d = all.filter(i => done[i.id]).length;
+    if (!started){ started = true; if (n){ openR.add(n.rung); openB.add(n.id); } }
+    let h = '<div class="pb-panel"><div class="pb-sum"><div class="pb-big">' + d + '<small> / ' + all.length + ' Boxes</small></div>' +
+      '<div class="pb-bar"><i style="width:' + (d / all.length * 100) + '%"></i></div></div>' +
+      '<p class="pb-note">Everything you need to pass the ' + P.code + ' is in HTB Academy\'s ' + L(P.path.url, esc(P.path.name)) +
+      ', and nothing outside it is in scope for the exam. These boxes are extra: use them to sharpen your methodology, and write a mock report for each one in ' +
+      L("https://docs.sysreptor.com/htb-reporting-with-sysreptor", "SysReptor") + ' to practice reporting. You don\'t need any of them to pass.</p>' +
+      (P.caveat ? '<p class="pb-caveat">' + esc(P.caveat) + '</p>' : '') + '</div>' +
+      '<div class="pb-tb"><div class="pb-seg" role="group" aria-label="Show">' +
+      [["all", "All"], ["todo", "To do"], ["done", "Done"]].map(([k, t]) => '<button type="button" data-f="' + k + '" aria-pressed="' + (filt === k) + '">' + t + '</button>').join("") +
+      '</div>' + modFilter() + '<span class="pb-sp"></span><button type="button" class="pb-btn" data-all="1">Expand all</button><button type="button" class="pb-btn" data-all="0">Collapse all</button></div>';
+    let any = false;
+    P.rungs.forEach((r, k) => {
+      const its = r.items.filter(shown); if (!its.length) return;
+      any = true;
+      const [rd, rt] = count(r), op = openR.has(k);
+      h += '<div class="pb-rg' + (rd === rt ? " full" : "") + '"><button type="button" class="pb-rh" data-r="' + k + '" aria-expanded="' + op + '">' +
+        '<span class="pb-cv">&#9654;</span><span class="pb-rn">' + String(k + 1).padStart(2, "0") + '</span>' +
+        '<span><span class="pb-rt">' + esc(r.name) + '</span><span class="pb-rs">' + its.length + (its.length === 1 ? " Box" : " Boxes") + (r.sub ? " &middot; " + esc(r.sub) : "") + '</span></span>' +
+        '<span class="pb-mbar"><i style="width:' + (rd / rt * 100) + '%"></i></span><span class="pb-rc">' + (rd === rt ? "&#10003; " : "") + rd + '/' + rt + '</span></button>';
+      if (op){
+        h += '<p class="pb-goal">' + esc(r.goal) + '</p>';
+        its.forEach(i => {
+          const ob = openB.has(i.id), w = walks(i);
+          h += '<div class="pb-bx' + (done[i.id] ? " done" : "") + (ob ? " open" : "") + '" data-b="' + i.id + '"><div class="pb-bh">' +
+            '<button type="button" class="pb-cv pb-x" aria-expanded="' + ob + '" aria-label="Details for ' + esc(i.n) + '">&#9654;</button>' +
+            '<button type="button" class="pb-cb" data-tog="' + i.id + '" aria-pressed="' + !!done[i.id] + '" aria-label="' + esc(i.n) + ' done"></button>' +
+            '<div style="min-width:0"><div class="pb-l1"><a class="pb-nm" href="' + esc(i.url) + '" target="_blank" rel="noopener">' + esc(i.n) + '<i>&#8599;&#xFE0E;</i></a>' +
+            '<span class="pb-meta">' + meta(i) + '</span></div>' +
+            '<div class="pb-tech">' + esc(i.tech) + '</div></div>' +
+            '<div class="pb-wq">' + (w.length ? w.map(x => x.replace(" video", "").replace(" write-up", "")).join("") : "") + '</div></div>' +
+            '<div class="pb-bd"><div><div class="pb-lb">Practices</div><ul class="pb-mods">' +
+            i.mods.map(m => '<li><b>M' + m + '</b> ' + esc(P.mods[m - 1]) + '</li>').join("") + '</ul></div>' +
+            '<div><div class="pb-lb">Walkthroughs</div><p>' + walkLine(i) + '</p>' +
+            (picks(i).length ? '<div class="pb-lb">Picked by</div><p>' + picks(i).join(" &middot; ") + '</p>' : "") +
+            (revs(i).length ? '<div class="pb-lb">Reviews</div><p>' + revLine(i) + '</p>' : "") + '</div></div></div>';
+        });
+      }
+      h += '</div>';
+    });
+    if (!any) h += '<div class="pb-empty">No boxes match that filter.</div>';
+    h += '<p class="pb-sug">Know a box that should be here? <a href="' + P.issues + '?template=suggest-resource.yml&amp;cert=' + P.code + '&amp;where=Practice+boxes&amp;type=Practice+box+or+lab&amp;title=%5BResource%5D+%5B' + P.code + '%5D+" target="_blank" rel="noopener">Suggest it on GitHub</a>' +
+      ' or <a href="' + P.issues + '?template=report-problem.yml&amp;cert=' + P.code + '&amp;where=Practice+boxes&amp;title=%5BProblem%5D+%5B' + P.code + '%5D+" target="_blank" rel="noopener">report a problem</a>.</p>';
+    root.innerHTML = h;
+    if (ddOpen && ddQ){ root.querySelector(".pb-q").value = ddQ; search(ddQ); }  // keep the search across redraws
+    const back = fk && root.querySelector(fk); if (back) back.focus();
+  }
+
+  function onClick(e){
+    const t = e.target; e.pbHandled = true;
+    const tog = t.closest("[data-tog]");
+    if (tog){ const id = tog.dataset.tog; if (done[id]) delete done[id]; else done[id] = true; save(); render(); return; }
+    if (t.closest("a,details,.pb-q")) return;
+    if (t.closest(".pb-ddb")){ ddOpen = !ddOpen; ddQ = ""; render(); if (ddOpen) root.querySelector(".pb-q").focus(); return; }
+    const mi = t.closest("[data-m]"); if (mi){ mod = mi.dataset.m; openMatches(); closeDd(true); return; }
+    const f = t.closest("[data-f]"); if (f){ filt = f.dataset.f; openMatches(); render(); return; }
+    const ea = t.closest("[data-all]");
+    if (ea){ P.rungs.forEach((r, k) => ea.dataset.all === "1" ? openR.add(k) : openR.delete(k)); if (ea.dataset.all === "0") openB.clear(); render(); return; }
+    const r = t.closest("[data-r]"); if (r){ const k = +r.dataset.r; openR.has(k) ? openR.delete(k) : openR.add(k); render(); return; }
+    const b = t.closest(".pb-bh"); if (b){ const id = b.parentNode.dataset.b; openB.has(id) ? openB.delete(id) : openB.add(id); render(); }
+  }
+
+  return {
+    mount(el){
+      root = el; root.classList.add("pb"); load(); render();
+      root.addEventListener("click", onClick);
+      root.addEventListener("input", e => { if (e.target.classList.contains("pb-q")){ ddQ = e.target.value; search(ddQ); } });
+      root.addEventListener("keydown", e => {
+        if (!ddOpen) return;
+        const opts = [...root.querySelectorAll(".pb-mi:not([hidden])")], i = opts.indexOf(document.activeElement);
+        if (e.key === "Escape"){ e.preventDefault(); closeDd(true); }
+        else if (e.key === "Enter" && e.target.classList.contains("pb-q")){ e.preventDefault(); const f = opts.find(o => o.dataset.m) || opts[0]; if (f) f.click(); }
+        else if (e.key === "ArrowDown"){ e.preventDefault(); if (opts.length) opts[(i + 1) % opts.length].focus(); }
+        else if (e.key === "ArrowUp"){ e.preventDefault(); i <= 0 ? root.querySelector(".pb-q").focus() : opts[i - 1].focus(); }
+      });
+      // click or tab away closes the module list
+      document.addEventListener("click", e => { if (ddOpen && !e.pbHandled) closeDd(false); });
+      root.addEventListener("focusout", e => { if (ddOpen && e.relatedTarget && !e.relatedTarget.closest(".pb-dd")) closeDd(false); });
+      // other tab or page saved: stay in sync
+      window.addEventListener("storage", e => { if (e.key === PRACTICE_KEY || e.key === null){ load(); render(); } });
+    },
+    get: () => ({done: Object.assign({}, done)}),
+    set(o){ done = clean(o); save(); render(); },
+    reset(){ done = {}; try{ localStorage.removeItem(PRACTICE_KEY); }catch(e){} render(); }
+  };
+})();
 
 /* ---------- State ---------- */
 const STORE_KEY = "cwes_tracker_v2";
@@ -3280,8 +3511,8 @@ document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     tb.classList.add("active");
-    ["plan","resources","about"].forEach(name=>{
-      document.getElementById("tab-"+name).classList.toggle("hidden", name!==tb.dataset.tab);
+    document.querySelectorAll(".tab").forEach(x=>{
+      document.getElementById("tab-"+x.dataset.tab).classList.toggle("hidden", x!==tb);
     });
   });
 });
@@ -3323,7 +3554,7 @@ document.getElementById("todayBtn").addEventListener("click",()=>{
   if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
 });
 document.getElementById("exportBtn").addEventListener("click",()=>{
-  const blob = new Blob([JSON.stringify(Object.assign({cert:"cwes"}, state),null,2)],{type:"application/json"});
+  const blob = new Blob([JSON.stringify(Object.assign({cert:"cwes"}, state, typeof PB!=="undefined" ? {practice:PB.get()} : {}),null,2)],{type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "cwes-tracker-backup.json";
@@ -3348,15 +3579,17 @@ document.getElementById("importFile").addEventListener("change",e=>{
     if(obj.cert && obj.cert!=="cwes" &&
        !confirm("This backup is from the "+String(obj.cert).toUpperCase()+" tracker, not CWES. Import it anyway?")) return;
     state = cleanState(obj);
+    if(typeof PB!=="undefined" && isObj(obj.practice)) PB.set(obj.practice);
     save(); init();
     alert("Backup imported successfully.");
   };
   r.readAsText(f);
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{
-  if(confirm("Reset all progress, notes, and start date? This cannot be undone. Consider exporting a backup first.")){
+  if(confirm("Reset all progress"+(typeof PB!=="undefined" ? " (practice boxes too)" : "")+", notes, and start date? This cannot be undone. Consider exporting a backup first.")){
     state = {startDate:"",done:{},notes:{},mode:30,plan:""};
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
+    if(typeof PB!=="undefined") PB.reset();
     init();
   }
 });
@@ -3392,6 +3625,10 @@ function init(){
   renderAll();
 }
 init();
+if(typeof PB!=="undefined"){
+  PB.mount(document.getElementById("tab-practice"));
+  if(location.hash==="#practice") document.querySelector('.tab[data-tab="practice"]').click();
+}
 // click outside a popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
 function backdropClose(dlg){
   let down = false;

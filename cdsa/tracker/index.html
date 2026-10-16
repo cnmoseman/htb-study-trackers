@@ -334,6 +334,101 @@
     .mods .mf{padding:10px 14px}
     .mods .quick .ql{flex-basis:100%}
   }
+  /* Practice Boxes (shared by the tracker tab and the standalone page) */
+  .pb{--pb-link:#59f1fd;--pb-acc:var(--green)}
+  .pb a{color:var(--pb-link);text-decoration:none}
+  .pb a:hover{text-decoration:underline}
+  .pb-mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .pb-panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .pb-sum{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .pb-big{font:700 26px "Chakra Petch",sans-serif;white-space:nowrap}
+  .pb-big small{font:500 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted)}
+  .pb-bar{flex:1;min-width:160px;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+  .pb-bar i,.pb-mbar i{display:block;height:100%;background:var(--pb-acc);transition:width .3s}
+  .pb-note{border-top:1px solid var(--line);margin:16px 0 0;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  .pb-caveat{margin:12px 0 0;padding:11px 13px;border-radius:9px;border:1px solid var(--pb-acc);background:color-mix(in srgb,var(--pb-acc) 10%,transparent);color:var(--txt);font-size:14px;line-height:1.55}
+  .pb-tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .pb-tb .pb-sp{flex:1}
+  .pb-btn{font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  .pb-btn:hover{border-color:var(--pb-acc);color:var(--pb-link)}
+  .pb-seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+  .pb-seg button{font:inherit;font-size:13px;font-weight:600;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  .pb-seg button:last-child{border-right:0}
+  .pb-seg button[aria-pressed="true"]{background:var(--pb-acc);color:#0d1320}
+  .pb-dd{position:relative}
+  .pb-ddb{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;width:260px;max-width:100%;font:inherit;font-size:13px;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 12px;cursor:pointer;text-align:left}
+  .pb-ddb span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pb-ddb i{font-style:normal;color:var(--faint);font-size:11px}
+  .pb-ddb:hover,.pb-ddb[aria-expanded="true"]{border-color:var(--pb-acc)}
+  .pb-pop{position:absolute;top:calc(100% + 6px);left:0;z-index:20;width:400px;max-width:calc(100vw - 36px);background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.55);padding:8px}
+  .pb-q{width:100%;font:inherit;font-size:13px;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:4px}
+  .pb .pb-q:focus,.pb .pb-q:focus-visible{outline:none;border-color:var(--pb-acc)}
+  .pb-lst{max-height:330px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .pb-mg{font:700 10px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);padding:10px 10px 4px}
+  .pb-mi{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;font:inherit;font-size:13px;text-align:left;color:var(--muted);background:none;border:0;border-radius:6px;padding:6px 10px;cursor:pointer}
+  .pb-mi:hover,.pb-mi:focus-visible{background:var(--card2);color:var(--txt);outline:none}
+  .pb-mi[aria-selected="true"]{background:rgba(0,234,252,.18);color:var(--txt)}
+  .pb-mi i{font:700 11px "IBM Plex Mono",ui-monospace,monospace;font-style:normal;color:var(--pb-link);display:inline-block;width:34px}
+  .pb-mi b{font:600 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);background:var(--bg2);border-radius:10px;padding:1px 7px}
+  .pb-none{color:var(--faint);font-size:13px;padding:8px 10px}
+  .pb [hidden]{display:none!important}
+  .pb-rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  .pb-rh{display:grid;grid-template-columns:18px 30px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .pb-rh:hover{background:var(--card)}
+  .pb-cv{color:var(--faint);font-size:12px;transition:transform .15s;display:inline-block}
+  [aria-expanded="true"]>.pb-cv{transform:rotate(90deg);color:var(--pb-link)}
+  .pb-rn{font:700 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--pb-link)}
+  .pb-rt{font:700 19px/1.2 "Chakra Petch",sans-serif;display:block}
+  .pb-rs{font-size:13px;color:var(--faint);display:block;margin-top:1px}
+  .pb-mbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+  .pb-rc{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-align:right;white-space:nowrap}
+  .pb-rg.full .pb-rc{color:var(--pb-link)}
+  .pb-goal{margin:0;padding:10px 16px 10px 76px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
+  .pb-bx{border-bottom:1px solid var(--card)}
+  .pb-bx:last-child{border-bottom:0}
+  .pb-bh{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px 10px 46px;cursor:pointer}
+  .pb-bh:hover{background:var(--card)}
+  .pb-bx.open .pb-bh,.pb-bx.open .pb-bd{background:var(--card)}
+  .pb-x{background:none;border:0;padding:0;cursor:pointer;font:inherit}
+  .pb-cb{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:0;padding:0;border:1.5px solid var(--faint);border-radius:6px;background:var(--bg);cursor:pointer;position:relative}
+  .pb-cb:hover{border-color:var(--pb-link)}
+  .pb-cb[aria-pressed="true"]{background:var(--pb-acc);border-color:var(--pb-acc)}
+  .pb-cb[aria-pressed="true"]::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #0d1320;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .pb-l1{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .pb-nm{font:700 16px "Chakra Petch",sans-serif;color:var(--txt)!important}
+  .pb-nm:hover{color:var(--pb-link)!important;text-decoration:none!important}
+  .pb-nm i{font-style:normal;font-size:12px;color:var(--faint);margin-left:3px;font-variant-emoji:text}
+  .pb-bx.done .pb-nm{color:var(--muted)!important}
+  .pb-meta{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.03em;color:var(--pb-link);white-space:nowrap}
+  .pb-tech{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pb-bx.open .pb-tech{white-space:normal}
+  .pb-wq{font-size:12.5px;display:flex;gap:10px;white-space:nowrap}
+  .pb-bd{display:none;grid-template-columns:1.2fr 1fr;gap:24px;padding:2px 20px 16px 98px}
+  .pb-bx.open .pb-bd{display:grid}
+  .pb-lb{font:700 10px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:10px 0 4px}
+  .pb-bd p{margin:0;font-size:13.5px;color:var(--muted)}
+  .pb-mods{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .pb-mods li{position:relative;padding-left:13px;font-size:13px;color:var(--muted)}
+  .pb-mods li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--pb-acc)}
+  .pb-mods b{font:700 11.5px "IBM Plex Mono",ui-monospace,monospace;color:var(--txt)}
+  .pb-dim{color:var(--faint);font-style:normal}
+  .pb details{display:inline}
+  .pb summary{display:inline;cursor:pointer;color:var(--muted);text-decoration:underline dotted}
+  .pb details[open] summary{display:none}
+  .pb-empty{color:var(--faint);font-size:13px;padding:14px 4px}
+  .pb-sug{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
+  .pb :focus-visible{outline:2px solid var(--pb-link);outline-offset:2px}
+  @media (max-width:760px){
+    .pb-rh{grid-template-columns:14px minmax(0,1fr) 44px;padding:13px 12px}
+    .pb-rn,.pb-mbar{display:none}
+    .pb-goal{padding-left:12px}
+    .pb-bh{grid-template-columns:22px minmax(0,1fr) 14px;padding:10px 12px 10px 16px}
+    .pb-bh>.pb-cv{order:3}
+    .pb-wq{display:none}
+    .pb-bd{grid-template-columns:1fr;gap:0;padding:0 12px 14px 50px}
+    .pb-dd{flex:1 1 100%;order:2}.pb-ddb{width:100%}.pb-pop{width:100%;max-width:none}
+  }
+  @media (prefers-reduced-motion:reduce){.pb-cv,.pb-bar i,.pb-mbar i{transition:none}}
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -429,6 +524,7 @@
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" data-tab="plan">Study Plan</button>
+    <button class="tab" data-tab="practice">Practice Boxes</button>
     <button class="tab" data-tab="resources">Resource Library</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
@@ -444,6 +540,9 @@
     </div>
     <div id="weeks"></div>
   </div>
+
+  <!-- Practice Boxes -->
+  <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
   <div id="tab-resources" class="hidden"></div>
@@ -2658,6 +2757,175 @@ const RESOURCES = [
     ]
   }
 ];
+const PRACTICE = {"code": "CDSA", "path": {"name": "SOC Analyst Path", "url": "https://academy.hackthebox.com/path/preview/soc-analyst"}, "mods": ["Incident Handling Process", "Security Monitoring & SIEM Fundamentals", "Windows Event Logs & Finding Evil", "Introduction to Threat Hunting & Hunting With Elastic", "Understanding Log Sources & Investigating with Splunk", "Windows Attacks & Defense", "Intro to Network Traffic Analysis", "Intermediate Network Traffic Analysis", "Working with IDS/IPS", "Introduction to Malware Analysis", "JavaScript Deobfuscation", "YARA & Sigma for SOC Analysts", "Introduction to Digital Forensics", "Detecting Windows Attacks with Splunk", "Security Incident Reporting"], "groups": [["Incident Handling & SIEM", [1, 2]], ["Logs, Hunting & Splunk", [3, 4, 5]], ["Windows Attacks & Defense", [6]], ["Network Traffic & IDS", [7, 8, 9]], ["Malware & Detection Rules", [10, 11, 12]], ["Forensics & Splunk Detection", [13, 14]], ["Reporting & Exam Prep", [15]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "First Investigations", "sub": "Very Easy · Linux Logs, Sysmon, MFT", "goal": "Read auth.log, Sysmon and MFT artifacts, answer every question from the evidence, and build a simple timeline.", "items": [{"id": "brutus", "n": "Brutus", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Brutus", "tech": "Linux auth.log and wtmp from an SSH brute force on a Confluence server, then trace what the attacker did after login.", "mods": [1, 13], "oxdf": "https://0xdf.gitlab.io/2024/04/09/htb-sherlock-brutus.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8", "w": "Abraham Penarubia"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}, {"id": "unit42", "n": "Unit42", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Unit42", "tech": "Sysmon logs from an UltraVNC backdoor infection: process creation, file drops, DNS and network events by Event ID.", "mods": [3, 4, 13], "oxdf": "https://0xdf.gitlab.io/2024/04/11/htb-sherlock-unit42.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "web", "u": "https://nathan2.com/posts/elklocks/", "w": "nathan2 (CDSA candidate blog)"}]}, {"id": "bft", "n": "BFT", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/BFT", "tech": "Parse a raw $MFT with MFTECmd and Timeline Explorer to find a malicious download and its Zone.Identifier data.", "mods": [13], "oxdf": "https://0xdf.gitlab.io/2024/04/17/htb-sherlock-bft.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}]}, {"name": "AD Attack Detection", "sub": "Very Easy · Kerberoasting, AS-REP, NTLM Relay, NTDS", "goal": "Spot classic AD attacks in Security event logs and match each one to its Event IDs and ATT&CK technique.", "items": [{"id": "campfire-1", "n": "Campfire-1", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Campfire-1", "tech": "DC Security log and prefetch files showing PowerView and Rubeus used for Kerberoasting (Event ID 4769).", "mods": [3, 6, 13, 14], "oxdf": "https://0xdf.gitlab.io/2024/06/24/htb-sherlock-campfire-1.html", "src": [{"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}, {"id": "reaper", "n": "Reaper", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Reaper", "tech": "PCAP plus Security log of an LLMNR-poisoning NTLM relay where the logon IP and workstation name don't match.", "mods": [3, 6, 7, 14], "oxdf": "https://0xdf.gitlab.io/2024/08/22/htb-sherlock-reaper.html", "src": [{"k": "review", "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8", "w": "Abraham Penarubia"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}]}, {"name": "Network Traffic & IDS", "sub": "PCAPs, Suricata Alerts, Tunneling", "goal": "Use Wireshark and IDS alerts to find the attacker, the exploit and any exfiltration in packet captures.", "items": [{"id": "noxious", "n": "Noxious", "type": "sherlock", "os": "SOC", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Noxious", "tech": "PCAP of an LLMNR poisoning attack from a rogue device: find the attacker and victim, then crack the captured NTLMv2 hash.", "mods": [6, 7, 8], "oxdf": "https://0xdf.gitlab.io/2024/09/04/htb-sherlock-noxious.html", "src": [{"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8", "w": "Abraham Penarubia"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "review", "u": "https://www.it-connect.fr/cybersecurite-mon-retour-dexperience-sur-la-certification-cdsa-proposee-par-hack-the-box/", "w": "Mickael Dorigny (IT-Connect)"}]}, {"id": "meerkat", "n": "Meerkat", "type": "sherlock", "os": "SOC", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Meerkat", "tech": "Suricata alerts and a PCAP showing credential stuffing and a Bonitasoft CVE exploit against a business platform.", "mods": [7, 8, 9], "oxdf": "https://0xdf.gitlab.io/2024/04/23/htb-sherlock-meerkat.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}, {"id": "litter", "n": "Litter", "type": "sherlock", "os": "SOC", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Litter", "tech": "PCAP analysis to spot DNS tunneling and data exfiltration from a test host.", "mods": [7, 8], "src": [{"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}]}, {"name": "Host Forensics & Event Logs", "sub": "Easy · Windows Event Logs, Artifacts, Linux Triage", "goal": "Combine event logs, prefetch, databases and triage collections into one clear incident story.", "items": [{"id": "logjammer", "n": "Logjammer", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Logjammer", "tech": "Windows Security, System, Defender, Firewall and PowerShell logs: audit policy changes, scheduled tasks, tampering.", "mods": [3, 13], "oxdf": "https://0xdf.gitlab.io/2024/05/16/htb-sherlock-logjammer.html", "src": [{"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}, {"id": "tracer", "n": "Tracer", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Tracer", "tech": "Event logs, prefetch and $MFT from a workstation where PsExec was used for lateral movement.", "mods": [3, 6, 13], "oxdf": "https://0xdf.gitlab.io/2024/07/23/htb-sherlock-tracer.html", "src": [{"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}, {"id": "bumblebee", "n": "Bumblebee", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Bumblebee", "tech": "phpBB SQLite database and web access log showing a contractor stealing admin credentials.", "mods": [1, 13], "oxdf": "https://0xdf.gitlab.io/2024/05/22/htb-sherlock-bumblebee.html", "src": [{"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "review", "u": "https://www.it-connect.fr/cybersecurite-mon-retour-dexperience-sur-la-certification-cdsa-proposee-par-hack-the-box/", "w": "Mickael Dorigny (IT-Connect)"}, {"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}]}, {"name": "Memory & Malware", "sub": "Easy · Volatility, Static Analysis, Ransomware", "goal": "Pull processes and C2 connections from memory images, and do basic static analysis of malware samples.", "items": [{"id": "rogueone", "n": "RogueOne", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/RogueOne", "tech": "Volatility 3 memory forensics to find a spoofed process and its C2 connection.", "mods": [10, 13], "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}, {"id": "recollection", "n": "Recollection", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Recollection", "tech": "Volatility memory analysis: obfuscated PowerShell (IEX aliasing), browser history and dropped files.", "mods": [13], "src": [{"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}]}]};
+/* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
+const PRACTICE_KEY = "cdsa_practice_v1";
+const PB = (function(){
+  const P = PRACTICE;
+  const all = P.rungs.flatMap((r, k) => r.items.map(i => Object.assign(i, {rung: k})));
+  const ids = new Set(all.map(i => i.id));
+  let done = {}, root = null, filt = "all", mod = "", started = false, ddOpen = false, ddQ = "";
+  const used = {};  // boxes per module; modules with none are left out of the filter
+  all.forEach(i => i.mods.forEach(m => used[m] = (used[m] || 0) + 1));
+  const openR = new Set(), openB = new Set();
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const L = (u, t) => '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + t + '</a>';
+
+  // only known box ids, so a bad backup can't break rendering
+  function clean(o){
+    const d = {};
+    if (o && typeof o.done === "object" && o.done) Object.keys(o.done).forEach(k => { if (ids.has(k) && o.done[k] === true) d[k] = true; });
+    return d;
+  }
+  function load(){ try{ done = clean(JSON.parse(localStorage.getItem(PRACTICE_KEY))); }catch(e){ done = {}; } }
+  function save(){ try{ localStorage.setItem(PRACTICE_KEY, JSON.stringify({done})); }catch(e){} }
+
+  const meta = i => [i.os, i.diff, i.access].filter(Boolean).map(esc).join(" &middot; ");
+  const picks = i => (i.src || []).filter(x => x.k !== "review").map(x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : L(x.u, "IppSec " + P.code + " playlist #" + x.n));
+  const revs = i => (i.src || []).filter(x => x.k === "review").map(x => L(x.u, esc(x.w)));
+  const walks = i => [i.ippsec && L(i.ippsec, "&#9654; IppSec video"), i.oxdf && L(i.oxdf, '<span class="pb-mono">0xdf</span> write-up')].filter(Boolean);
+  function walkLine(i){
+    const w = walks(i);
+    if (w.length) return w.join(" &middot; ");
+    return '<em class="pb-dim">' + (i.type === "prolab" ? "None public (HTB doesn't allow Pro Lab write-ups)" : "None yet") + '</em>';
+  }
+  function revLine(i){
+    const a = revs(i);
+    return a.slice(0, 4).join(", ") + (a.length > 4 ? ' <details><summary>+' + (a.length - 4) + ' more</summary>' + a.slice(4).join(", ") + '</details>' : "");
+  }
+  const next = () => all.find(i => !done[i.id]);
+  const count = r => [r.items.filter(i => done[i.id]).length, r.items.length];
+  const shown = i => (filt === "all" || (filt === "todo") === !done[i.id]) && (!mod || i.mods.includes(+mod));
+
+  // which control had focus, so a redraw can put it back
+  function focusKey(){
+    const a = document.activeElement;
+    if (!root || !a || !root.contains(a)) return null;
+    for (const k of ["tog", "r", "f", "all"]) if (a.dataset[k] != null) return "[data-" + k + '="' + a.dataset[k] + '"]';
+    if (a.classList.contains("pb-x")) return '[data-b="' + a.closest("[data-b]").dataset.b + '"] .pb-x';
+    return a.classList.contains("pb-ddb") ? ".pb-ddb" : a.classList.contains("pb-q") ? ".pb-q" : null;
+  }
+  // module filter: button + searchable list grouped by the path's sections
+  function modFilter(){
+    const opt = (m, label, n) => '<button type="button" role="option" class="pb-mi" data-m="' + m + '" aria-selected="' + (mod === m) + '"><span>' + label + '</span><b>' + n + '</b></button>';
+    let h = '<div class="pb-dd"><button type="button" class="pb-ddb" aria-haspopup="listbox" aria-expanded="' + ddOpen + '"><span>' +
+      (mod ? "M" + mod + " " + esc(P.mods[mod - 1]) : "All modules") + '</span><i>&#9662;</i></button>';
+    if (ddOpen){
+      h += '<div class="pb-pop"><input class="pb-q" type="search" placeholder="Search modules" aria-label="Search modules" autocomplete="off">' +
+        '<div class="pb-lst" role="listbox" aria-label="Modules">' + opt("", "All modules", all.length);
+      P.groups.forEach(([g, ms]) => {
+        ms = ms.filter(m => used[m]); if (!ms.length) return;
+        h += '<div class="pb-mg">' + esc(g) + '</div>' + ms.map(m => opt(String(m), '<i>M' + m + '</i> ' + esc(P.mods[m - 1]), used[m])).join("");
+      });
+      h += '<div class="pb-none" hidden>No modules match.</div></div></div>';
+    }
+    return h + '</div>';
+  }
+  function search(q){
+    q = q.trim().toLowerCase();
+    const lst = root.querySelector(".pb-lst"); let any = false, grp = null, grpAny = false;
+    [...lst.children].forEach(el => {
+      if (el.classList.contains("pb-mg")){ if (grp) grp.hidden = !grpAny; grp = el; grpAny = false; return; }
+      if (el.dataset.m == null) return;
+      const hit = !q || el.textContent.toLowerCase().includes(q) || "m" + el.dataset.m === q;
+      el.hidden = !hit || (!!q && el.dataset.m === "");
+      if (!el.hidden && el.dataset.m){ any = true; grpAny = true; }
+    });
+    if (grp) grp.hidden = !grpAny;
+    lst.querySelector(".pb-none").hidden = any || !q;
+  }
+  // a new filter opens every rung with matches; headers still toggle after that
+  function openMatches(){ if (filt !== "all" || mod) P.rungs.forEach((r, k) => { if (r.items.some(shown)) openR.add(k); }); }
+  function closeDd(focus){ ddOpen = false; ddQ = ""; render(); if (focus) root.querySelector(".pb-ddb").focus(); }
+  function render(){
+    if (!root) return;
+    const fk = focusKey();
+    const n = next(), d = all.filter(i => done[i.id]).length;
+    if (!started){ started = true; if (n){ openR.add(n.rung); openB.add(n.id); } }
+    let h = '<div class="pb-panel"><div class="pb-sum"><div class="pb-big">' + d + '<small> / ' + all.length + ' Boxes</small></div>' +
+      '<div class="pb-bar"><i style="width:' + (d / all.length * 100) + '%"></i></div></div>' +
+      '<p class="pb-note">Everything you need to pass the ' + P.code + ' is in HTB Academy\'s ' + L(P.path.url, esc(P.path.name)) +
+      ', and nothing outside it is in scope for the exam. These boxes are extra: use them to sharpen your methodology, and write a mock report for each one in ' +
+      L("https://docs.sysreptor.com/htb-reporting-with-sysreptor", "SysReptor") + ' to practice reporting. You don\'t need any of them to pass.</p>' +
+      (P.caveat ? '<p class="pb-caveat">' + esc(P.caveat) + '</p>' : '') + '</div>' +
+      '<div class="pb-tb"><div class="pb-seg" role="group" aria-label="Show">' +
+      [["all", "All"], ["todo", "To do"], ["done", "Done"]].map(([k, t]) => '<button type="button" data-f="' + k + '" aria-pressed="' + (filt === k) + '">' + t + '</button>').join("") +
+      '</div>' + modFilter() + '<span class="pb-sp"></span><button type="button" class="pb-btn" data-all="1">Expand all</button><button type="button" class="pb-btn" data-all="0">Collapse all</button></div>';
+    let any = false;
+    P.rungs.forEach((r, k) => {
+      const its = r.items.filter(shown); if (!its.length) return;
+      any = true;
+      const [rd, rt] = count(r), op = openR.has(k);
+      h += '<div class="pb-rg' + (rd === rt ? " full" : "") + '"><button type="button" class="pb-rh" data-r="' + k + '" aria-expanded="' + op + '">' +
+        '<span class="pb-cv">&#9654;</span><span class="pb-rn">' + String(k + 1).padStart(2, "0") + '</span>' +
+        '<span><span class="pb-rt">' + esc(r.name) + '</span><span class="pb-rs">' + its.length + (its.length === 1 ? " Box" : " Boxes") + (r.sub ? " &middot; " + esc(r.sub) : "") + '</span></span>' +
+        '<span class="pb-mbar"><i style="width:' + (rd / rt * 100) + '%"></i></span><span class="pb-rc">' + (rd === rt ? "&#10003; " : "") + rd + '/' + rt + '</span></button>';
+      if (op){
+        h += '<p class="pb-goal">' + esc(r.goal) + '</p>';
+        its.forEach(i => {
+          const ob = openB.has(i.id), w = walks(i);
+          h += '<div class="pb-bx' + (done[i.id] ? " done" : "") + (ob ? " open" : "") + '" data-b="' + i.id + '"><div class="pb-bh">' +
+            '<button type="button" class="pb-cv pb-x" aria-expanded="' + ob + '" aria-label="Details for ' + esc(i.n) + '">&#9654;</button>' +
+            '<button type="button" class="pb-cb" data-tog="' + i.id + '" aria-pressed="' + !!done[i.id] + '" aria-label="' + esc(i.n) + ' done"></button>' +
+            '<div style="min-width:0"><div class="pb-l1"><a class="pb-nm" href="' + esc(i.url) + '" target="_blank" rel="noopener">' + esc(i.n) + '<i>&#8599;&#xFE0E;</i></a>' +
+            '<span class="pb-meta">' + meta(i) + '</span></div>' +
+            '<div class="pb-tech">' + esc(i.tech) + '</div></div>' +
+            '<div class="pb-wq">' + (w.length ? w.map(x => x.replace(" video", "").replace(" write-up", "")).join("") : "") + '</div></div>' +
+            '<div class="pb-bd"><div><div class="pb-lb">Practices</div><ul class="pb-mods">' +
+            i.mods.map(m => '<li><b>M' + m + '</b> ' + esc(P.mods[m - 1]) + '</li>').join("") + '</ul></div>' +
+            '<div><div class="pb-lb">Walkthroughs</div><p>' + walkLine(i) + '</p>' +
+            (picks(i).length ? '<div class="pb-lb">Picked by</div><p>' + picks(i).join(" &middot; ") + '</p>' : "") +
+            (revs(i).length ? '<div class="pb-lb">Reviews</div><p>' + revLine(i) + '</p>' : "") + '</div></div></div>';
+        });
+      }
+      h += '</div>';
+    });
+    if (!any) h += '<div class="pb-empty">No boxes match that filter.</div>';
+    h += '<p class="pb-sug">Know a box that should be here? <a href="' + P.issues + '?template=suggest-resource.yml&amp;cert=' + P.code + '&amp;where=Practice+boxes&amp;type=Practice+box+or+lab&amp;title=%5BResource%5D+%5B' + P.code + '%5D+" target="_blank" rel="noopener">Suggest it on GitHub</a>' +
+      ' or <a href="' + P.issues + '?template=report-problem.yml&amp;cert=' + P.code + '&amp;where=Practice+boxes&amp;title=%5BProblem%5D+%5B' + P.code + '%5D+" target="_blank" rel="noopener">report a problem</a>.</p>';
+    root.innerHTML = h;
+    if (ddOpen && ddQ){ root.querySelector(".pb-q").value = ddQ; search(ddQ); }  // keep the search across redraws
+    const back = fk && root.querySelector(fk); if (back) back.focus();
+  }
+
+  function onClick(e){
+    const t = e.target; e.pbHandled = true;
+    const tog = t.closest("[data-tog]");
+    if (tog){ const id = tog.dataset.tog; if (done[id]) delete done[id]; else done[id] = true; save(); render(); return; }
+    if (t.closest("a,details,.pb-q")) return;
+    if (t.closest(".pb-ddb")){ ddOpen = !ddOpen; ddQ = ""; render(); if (ddOpen) root.querySelector(".pb-q").focus(); return; }
+    const mi = t.closest("[data-m]"); if (mi){ mod = mi.dataset.m; openMatches(); closeDd(true); return; }
+    const f = t.closest("[data-f]"); if (f){ filt = f.dataset.f; openMatches(); render(); return; }
+    const ea = t.closest("[data-all]");
+    if (ea){ P.rungs.forEach((r, k) => ea.dataset.all === "1" ? openR.add(k) : openR.delete(k)); if (ea.dataset.all === "0") openB.clear(); render(); return; }
+    const r = t.closest("[data-r]"); if (r){ const k = +r.dataset.r; openR.has(k) ? openR.delete(k) : openR.add(k); render(); return; }
+    const b = t.closest(".pb-bh"); if (b){ const id = b.parentNode.dataset.b; openB.has(id) ? openB.delete(id) : openB.add(id); render(); }
+  }
+
+  return {
+    mount(el){
+      root = el; root.classList.add("pb"); load(); render();
+      root.addEventListener("click", onClick);
+      root.addEventListener("input", e => { if (e.target.classList.contains("pb-q")){ ddQ = e.target.value; search(ddQ); } });
+      root.addEventListener("keydown", e => {
+        if (!ddOpen) return;
+        const opts = [...root.querySelectorAll(".pb-mi:not([hidden])")], i = opts.indexOf(document.activeElement);
+        if (e.key === "Escape"){ e.preventDefault(); closeDd(true); }
+        else if (e.key === "Enter" && e.target.classList.contains("pb-q")){ e.preventDefault(); const f = opts.find(o => o.dataset.m) || opts[0]; if (f) f.click(); }
+        else if (e.key === "ArrowDown"){ e.preventDefault(); if (opts.length) opts[(i + 1) % opts.length].focus(); }
+        else if (e.key === "ArrowUp"){ e.preventDefault(); i <= 0 ? root.querySelector(".pb-q").focus() : opts[i - 1].focus(); }
+      });
+      // click or tab away closes the module list
+      document.addEventListener("click", e => { if (ddOpen && !e.pbHandled) closeDd(false); });
+      root.addEventListener("focusout", e => { if (ddOpen && e.relatedTarget && !e.relatedTarget.closest(".pb-dd")) closeDd(false); });
+      // other tab or page saved: stay in sync
+      window.addEventListener("storage", e => { if (e.key === PRACTICE_KEY || e.key === null){ load(); render(); } });
+    },
+    get: () => ({done: Object.assign({}, done)}),
+    set(o){ done = clean(o); save(); render(); },
+    reset(){ done = {}; try{ localStorage.removeItem(PRACTICE_KEY); }catch(e){} render(); }
+  };
+})();
 
 /* ---------- State ---------- */
 const STORE_KEY = "cdsa_tracker_v2";
@@ -3089,8 +3357,8 @@ document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     tb.classList.add("active");
-    ["plan","resources","about"].forEach(name=>{
-      document.getElementById("tab-"+name).classList.toggle("hidden", name!==tb.dataset.tab);
+    document.querySelectorAll(".tab").forEach(x=>{
+      document.getElementById("tab-"+x.dataset.tab).classList.toggle("hidden", x!==tb);
     });
   });
 });
@@ -3132,7 +3400,7 @@ document.getElementById("todayBtn").addEventListener("click",()=>{
   if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
 });
 document.getElementById("exportBtn").addEventListener("click",()=>{
-  const blob = new Blob([JSON.stringify(Object.assign({cert:"cdsa"}, state),null,2)],{type:"application/json"});
+  const blob = new Blob([JSON.stringify(Object.assign({cert:"cdsa"}, state, typeof PB!=="undefined" ? {practice:PB.get()} : {}),null,2)],{type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "cdsa-tracker-backup.json";
@@ -3157,15 +3425,17 @@ document.getElementById("importFile").addEventListener("change",e=>{
     if(obj.cert && obj.cert!=="cdsa" &&
        !confirm("This backup is from the "+String(obj.cert).toUpperCase()+" tracker, not CDSA. Import it anyway?")) return;
     state = cleanState(obj);
+    if(typeof PB!=="undefined" && isObj(obj.practice)) PB.set(obj.practice);
     save(); init();
     alert("Backup imported successfully.");
   };
   r.readAsText(f);
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{
-  if(confirm("Reset all progress, notes, and start date? This cannot be undone. Consider exporting a backup first.")){
+  if(confirm("Reset all progress"+(typeof PB!=="undefined" ? " (practice boxes too)" : "")+", notes, and start date? This cannot be undone. Consider exporting a backup first.")){
     state = {startDate:"",done:{},notes:{},mode:30,plan:""};
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
+    if(typeof PB!=="undefined") PB.reset();
     init();
   }
 });
@@ -3201,6 +3471,10 @@ function init(){
   renderAll();
 }
 init();
+if(typeof PB!=="undefined"){
+  PB.mount(document.getElementById("tab-practice"));
+  if(location.hash==="#practice") document.querySelector('.tab[data-tab="practice"]').click();
+}
 // click outside a popup (on the backdrop) closes it; the form fills the dialog, so only the backdrop targets it
 function backdropClose(dlg){
   let down = false;
