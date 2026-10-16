@@ -15,16 +15,26 @@ tags: [cwpe, module]
 ## Summary
 <!-- 2-3 lines: what this module teaches and when you'd use it -->
 
-## Commands
+## Section Notes
+<!-- one heading per Academy section, in course order -->
+
+### 1. Section name
+**Notes**
+-
+
+**Commands**
 ```bash
 # command            # what it does
 ```
 
-## Tools
-- 
+**Tools**
+-
+
+## Module Tools
+-
 
 ## Gotchas / Lessons Learned
-- 
+-
 
 ## Links
 - Methodology: [[00 - Attack Flow (MOC)]]

@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "help",
+      "type": "text",
+      "text": "**How to use this map**\n- Drag host notes from `Exam/Targets` into the zone where you found them. Each one shows as a live card you can open.\n- Drag from the edge of a card to draw an arrow. Label it with how you got there: exploit, creds or tunnel.\n- Double-click empty space to add a text card. Right-click a card to change its color.\n- Need another zone? Right-click empty space and choose **Create group**.",
+      "x": 0,
+      "y": -250,
+      "width": 1520,
+      "height": 200
+    },
+    {
+      "id": "g0",
+      "type": "group",
+      "label": "Attacker",
+      "color": "4",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 420
+    },
+    {
+      "id": "c0",
+      "type": "text",
+      "text": "**Attack box**\nVPN IP: *e.g. 10.10.14.x*",
+      "color": "4",
+      "x": 30,
+      "y": 60,
+      "width": 260,
+      "height": 140
+    },
+    {
+      "id": "g1",
+      "type": "group",
+      "label": "External",
+      "color": "2",
+      "x": 400,
+      "y": 0,
+      "width": 320,
+      "height": 420
+    },
+    {
+      "id": "c1",
+      "type": "text",
+      "text": "**External host**\nIP: *e.g. 10.129.x.x*\nOpen ports: *e.g. 22, 80*",
+      "color": "2",
+      "x": 430,
+      "y": 60,
+      "width": 260,
+      "height": 140
+    },
+    {
+      "id": "g2",
+      "type": "group",
+      "label": "Internal Subnet 1",
+      "color": "6",
+      "x": 800,
+      "y": 0,
+      "width": 320,
+      "height": 420
+    },
+    {
+      "id": "c2",
+      "type": "text",
+      "text": "**Subnet 1**\nRange: *e.g. 172.16.5.0/23*\nReached via: *e.g. a tunnel on the foothold host*",
+      "color": "6",
+      "x": 830,
+      "y": 60,
+      "width": 260,
+      "height": 140
+    },
+    {
+      "id": "g3",
+      "type": "group",
+      "label": "Internal Subnet 2",
+      "color": "5",
+      "x": 1200,
+      "y": 0,
+      "width": 320,
+      "height": 420
+    },
+    {
+      "id": "c3",
+      "type": "text",
+      "text": "**Subnet 2**\nRange: *e.g. 172.16.6.0/24*\nReached via: *e.g. a tunnel on an internal host*",
+      "color": "5",
+      "x": 1230,
+      "y": 60,
+      "width": 260,
+      "height": 140
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "c0",
+      "fromSide": "right",
+      "toNode": "c1",
+      "toSide": "left",
+      "label": "VPN"
+    },
+    {
+      "id": "e2",
+      "fromNode": "c1",
+      "fromSide": "right",
+      "toNode": "c2",
+      "toSide": "left",
+      "label": "foothold + pivot"
+    },
+    {
+      "id": "e3",
+      "fromNode": "c2",
+      "fromSide": "right",
+      "toNode": "c3",
+      "toSide": "left",
+      "label": "pivot"
+    }
+  ]
+}

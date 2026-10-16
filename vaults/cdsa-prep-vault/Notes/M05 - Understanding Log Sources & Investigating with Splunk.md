@@ -15,16 +15,99 @@ tags: [cdsa, module]
 ## Summary
 <!-- 2-3 lines: what this module teaches and when you'd use it -->
 
-## Commands
+## Section Notes
+<!-- one heading per Academy section, in course order -->
+
+> [!example]- Example: a filled-in section
+> **Service Enumeration**
+> **Notes**
+> - Note the exact versions you find; they tell you what to look up next
+>
+> **Commands**
+> ```bash
+> # the command you ran            # a short note on what it does
+> ```
+>
+> **Tools**
+> - The tool you used in this section
+
+### 1. Introduction To Splunk & SPL
+**Notes**
+- 
+
+**Commands**
 ```bash
 # command            # what it does
 ```
 
-## Tools
+**Tools**
 - 
 
-## Gotchas / Lessons Learned
+### 2. Using Splunk Applications
+**Notes**
 - 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 3. Intrusion Detection With Splunk (Real-world Scenario)
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 4. Detecting Attacker Behavior With Splunk Based On TTPs
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 5. Detecting Attacker Behavior With Splunk Based On Analytics
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 6. Skills Assessment
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+## Module Tools
+- *e.g. Tool name: what you used it for in this module*
+
+## Gotchas / Lessons Learned
+- *e.g. A mistake you made in a lab and what fixed it*
 
 ## Links
 - Methodology: [[00 - Investigation Flow (MOC)]]

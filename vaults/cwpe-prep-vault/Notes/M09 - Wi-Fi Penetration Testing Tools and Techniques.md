@@ -15,16 +15,387 @@ tags: [cwpe, module]
 ## Summary
 <!-- 2-3 lines: what this module teaches and when you'd use it -->
 
-## Commands
+## Section Notes
+<!-- one heading per Academy section, in course order -->
+
+> [!example]- Example: a filled-in section
+> **Service Enumeration**
+> **Notes**
+> - Note the exact versions you find; they tell you what to look up next
+>
+> **Commands**
+> ```bash
+> # the command you ran            # a short note on what it does
+> ```
+>
+> **Tools**
+> - The tool you used in this section
+
+### 1. WiFi Security Essentials
+**Notes**
+- 
+
+**Commands**
 ```bash
 # command            # what it does
 ```
 
-## Tools
+**Tools**
 - 
 
-## Gotchas / Lessons Learned
+### 2. Airodump-ng
+**Notes**
 - 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 3. GPSD
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 4. Kismet WebUI
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 5. KismetDB Tools
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 6. Sparrow-Wifi
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 7. Wifi_db
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 8. LinSSID
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 9. WiGLE
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 10. Air-Hammer
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 11. Reaver
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 12. WifiBF
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 13. Wacker
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 14. Fern Wi-Fi Cracker
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 15. H4rpy
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 16. Wifite2
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 17. EAPHammer
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 18. Airgeddon
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 19. Wirespy
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 20. Wifipumpkin3
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 21. Aircrack-ng
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 22. Cowpatty
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 23. Pyrit
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 24. Pmkidcracker
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 25. Ettercap
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 26. Bettercap
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 27. DHCP Starvation Attack
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 28. Checking for Router Firmware Vulnerabilities
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 29. Gathering Wi-Fi Passwords from Exploited Machines
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+### 30. Skills Assessment
+**Notes**
+- 
+
+**Commands**
+```bash
+# command            # what it does
+```
+
+**Tools**
+- 
+
+## Module Tools
+- *e.g. Tool name: what you used it for in this module*
+
+## Gotchas / Lessons Learned
+- *e.g. A mistake you made in a lab and what fixed it*
 
 ## Links
 - Methodology: [[00 - Attack Flow (MOC)]]

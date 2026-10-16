@@ -44,7 +44,8 @@ The trackers all work the same way, whichever cert you pick.
 
 Every cert also has a prep vault: a ready-made Obsidian vault you download as a zip, unzip, and open with **Open folder as vault**.
 
-- A note for each module in the cert's path, in course order, ready for your commands and screenshots.
+- A note for each module in the cert's path, in course order, split into one part per Academy section.
+- An exam-day workspace (targets, credentials, findings, flags and a daily log) laid out to match the cert's report.
 - Blank methodology phases you rename and fill in as your own workflow.
 - Links to tested community cheat sheets for the cert, plus the cert's SysReptor report template.
 - It only uses Obsidian's built-in features, so you don't need any plugins. You can browse every vault in [vaults/](vaults/) before downloading.

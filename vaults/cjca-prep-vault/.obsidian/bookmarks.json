@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "path": "Exam/00 - Exam (MOC).md",
+      "title": "Exam"
+    },
+    {
+      "type": "file",
+      "path": "Exam/04 - Credentials.md",
+      "title": "Credentials"
+    },
+    {
+      "type": "file",
+      "path": "Exam/06 - Findings.md",
+      "title": "Findings"
+    },
+    {
+      "type": "file",
+      "path": "Exam/08 - Flags.md",
+      "title": "Flags"
+    }
+  ]
+}

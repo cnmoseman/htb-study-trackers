@@ -7,15 +7,16 @@ cssclasses: [cwes-hub]
 
 # CWES Prep Vault
 
-Certified Web Exploitation Specialist. This vault holds your methodology and module notes. Open this folder as an Obsidian vault (**Open folder as vault**).
+Certified Web Exploitation Specialist. This vault holds your methodology, module notes and exam workspace. Open this folder as an Obsidian vault (**Open folder as vault**).
 
 > [!abstract] The exam
 > CWES is a 7-day web pentest: several real-world apps, flags as you find bugs (~10 flags, pass at 8), plus a commercial-grade report. People who have taken it say the exam labs are harder than the course and need chained attacks and a lot of enumeration.
 
-Three parts:
+Four parts:
 
 - **[[00 - Attack Flow (MOC)]]**: your methodology, as numbered blank phases that you name and fill in your own way.
 - **[[00 - Module Index (MOC)]]**: your notes, one per Academy module, in course order. Your methodology links back to these.
+- **[[00 - Exam (MOC)]]**: your exam workspace, with apps, findings, flags and a log for each day, laid out like the report.
 - **[CWES Study Tracker](https://cnmoseman.github.io/htb-study-trackers/cwes/tracker/)**: the day-by-day study plan for this cert. Check off tasks there as you go.
 
 > [!warning] Read this first
@@ -28,7 +29,8 @@ Three parts:
 1. Work through the course in order. As you finish each module, fill in its note.
 2. Build your methodology as you go. Rename each `Fill in` phase to a step in your own workflow, and add or delete phases as you need. New phases use `Templates/Methodology Phase`.
 3. Fill each phase with your own checklist, commands and decision points, and link back to the module notes with `[[...]]`.
-4. During the exam, work from your methodology. `Ctrl+click` any `[[link]]` to open the note behind it.
+4. Each module note has one heading per Academy section. Use the **Outline** pane on the right to jump between them, and click the arrow by a heading to fold it.
+5. On exam day, start at [[00 - Exam (MOC)]] and work from your methodology. The exam notes are bookmarked on the left. `Ctrl+click` any `[[link]]` to open the note behind it.
 
 ## Command sources
 Get tested commands from these as you go:

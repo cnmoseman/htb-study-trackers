@@ -7,15 +7,16 @@ cssclasses: [cdep-hub]
 
 # CDEP Prep Vault
 
-Certified Detection Engineering Principal. This vault holds your methodology and module notes. Open this folder as an Obsidian vault (**Open folder as vault**).
+Certified Detection Engineering Principal. This vault holds your methodology, module notes and exam workspace. Open this folder as an Obsidian vault (**Open folder as vault**).
 
 > [!abstract] The exam
 > CDEP is a 10-day master-level exam. You investigate a realistic enterprise attack chain in your own resettable lab, submit flags as you go, and write a commercial-grade report that maps each TTP to MITRE ATT&CK and lays out the detection logic you'd build, along with its limits. HTB hasn't published the pass mark.
 
-Three parts:
+Four parts:
 
 - **[[00 - Investigation Flow (MOC)]]**: your methodology, as numbered blank phases that you name and fill in your own way.
 - **[[00 - Module Index (MOC)]]**: your notes, one per Academy module, in course order. Your methodology links back to these.
+- **[[00 - Exam (MOC)]]**: your exam workspace, with investigations, detections, IOCs, flags and a log for each day, laid out like the report.
 - **[CDEP Study Tracker](https://cnmoseman.github.io/htb-study-trackers/cdep/tracker/)**: the day-by-day study plan for this cert. Check off tasks there as you go.
 
 > [!warning] Read this first
@@ -28,7 +29,8 @@ Three parts:
 1. Work through the course in order. As you finish each module, fill in its note.
 2. Build your methodology as you go. Rename each `Fill in` phase to a step in your own workflow, and add or delete phases as you need. New phases use `Templates/Methodology Phase`.
 3. Fill each phase with your own checklist, commands and decision points, and link back to the module notes with `[[...]]`.
-4. During the exam, work from your methodology. `Ctrl+click` any `[[link]]` to open the note behind it.
+4. Each module note has one heading per Academy section. Use the **Outline** pane on the right to jump between them, and click the arrow by a heading to fold it.
+5. On exam day, start at [[00 - Exam (MOC)]] and work from your methodology. The exam notes are bookmarked on the left. `Ctrl+click` any `[[link]]` to open the note behind it.
 
 ## Command sources
 Nobody has published CDEP cheat sheets yet. I'm watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+vault+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).

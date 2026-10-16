@@ -23,9 +23,89 @@
       }
     ]
   },
+  "left": {
+    "id": "lsplit",
+    "type": "split",
+    "direction": "horizontal",
+    "width": 300,
+    "children": [
+      {
+        "id": "ltabs",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "se",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {}
+            }
+          },
+          {
+            "id": "bm",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "right": {
+    "id": "rsplit",
+    "type": "split",
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": false,
+    "children": [
+      {
+        "id": "rtabs",
+        "type": "tabs",
+        "currentTab": 0,
+        "children": [
+          {
+            "id": "ol",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "bl",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {}
+            }
+          },
+          {
+            "id": "tg",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ]
+  },
   "active": "home",
   "lastOpenFiles": [
     "Home.md",
+    "Exam/08 - Flags.md",
+    "Exam/00 - Exam (MOC).md",
     "Methodology/00 - Attack Flow (MOC).md",
     "Notes/00 - Module Index (MOC).md"
   ]

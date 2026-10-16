@@ -1,0 +1,6 @@
+filters:
+  and:
+    - file.inFolder("Exam/Investigations")
+views:
+  - type: table
+    name: Investigations
