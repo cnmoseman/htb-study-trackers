@@ -4827,7 +4827,8 @@ const PB = (function(){
   function save(){ try{ localStorage.setItem(PRACTICE_KEY, JSON.stringify({done})); }catch(e){} }
 
   const meta = i => [i.os, i.diff, i.access].filter(Boolean).map(esc).join(" &middot; ");
-  const picks = i => (i.src || []).filter(x => x.k !== "review").map(x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : L(x.u, "IppSec " + P.code + " playlist #" + x.n));
+  const pick = x => x.k === "track" ? L(x.u, "HTB " + P.code + " track") : x.k === "ippsec" ? L(x.u, "IppSec " + P.code + " playlist #" + x.n) : x.u ? L(x.u, esc(x.w)) : esc(x.w);
+  const picks = i => (i.src || []).filter(x => x.k !== "review").map(pick);
   const revs = i => (i.src || []).filter(x => x.k === "review").map(x => L(x.u, esc(x.w)));
   const walks = i => [i.ippsec && L(i.ippsec, "&#9654; IppSec video"), i.oxdf && L(i.oxdf, '<span class="pb-mono">0xdf</span> write-up')].filter(Boolean);
   function walkLine(i){

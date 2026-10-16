@@ -12,13 +12,13 @@
 <link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/">
 <meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/">
 <meta property="og:title" content="Study Trackers: Pick a cert. Get the kit.">
-<meta property="og:description" content="Study trackers and Obsidian prep vaults for Hack The Box certs. Each cert gets a day-by-day plan and a ready-made notes vault.">
-<meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/home-v2.png">
+<meta property="og:description" content="Study trackers, Obsidian prep vaults and practice boxes for Hack The Box certs. Each cert gets a day-by-day plan, a ready-made notes vault and a list of HTB Labs boxes to practice on.">
+<meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/home-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pick a cert. Get the kit. Study trackers and prep vaults for HTB certifications, shown with their badges.">
+<meta property="og:image:alt" content="Pick a cert. Get the kit. Study trackers, prep vaults and practice boxes for HTB certifications, shown with their badges.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Day-by-day study trackers and ready-made Obsidian prep vaults for Hack The Box certifications.">
+<meta name="description" content="Day-by-day study trackers, ready-made Obsidian prep vaults and practice box lists for Hack The Box certifications.">
 <meta name="google-site-verification" content="vymrIim2LdAK-OY06AMeya8dTX4Ngd60is9Ue69RExs">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,23 +56,31 @@
   .tile .lv i:nth-child(2){height:8px}.tile .lv i:nth-child(3){height:11px;margin-right:5px}
   .tile .lv.l1 i:first-child,.tile .lv.l2 i:nth-child(-n+2),.tile .lv.l3 i{background:var(--acc)}
   .tile:has(a:focus-visible){border-color:var(--acc)}
-  .info{display:grid;grid-template-columns:1fr;gap:clamp(20px,1.6vw,32px);margin-top:clamp(36px,3vw,60px)}
-  .info h2{font:600 clamp(14px,1.1vw,21px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0}
-  .info ol{margin:.9em 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;font:500 clamp(13px,1.05vw,20px)/1.5 "Saira",sans-serif;color:var(--muted)}
-  .info li{display:flex;flex-direction:column;gap:.35em;padding-top:.8em;border-top:1px solid var(--line)}
-  .info li b{font:600 1.1em/1.2 "IBM Plex Mono",monospace;color:var(--green)}
-  .info h3{font:600 clamp(12px,.9vw,16px) "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text);margin:1.4em 0 0}
-  .info h3 + ol + h3{margin-top:2.6em}
-  .note{padding:1.1em 1.25em;background:var(--panel);border:1px solid var(--line);border-radius:8px;font:500 clamp(13px,1.05vw,20px)/1.55 "Saira",sans-serif;color:var(--muted)}
-  .note strong.t{display:block;font:600 1.05em "Saira",sans-serif;color:var(--text);margin-bottom:.45em}
-  .note strong.g{color:var(--green);font-weight:600}
-  .note .ln{display:block}.note .ln+.ln{margin-top:.45em}
   footer{margin-top:clamp(44px,3.5vw,72px);padding:24px 0;border-top:1px solid var(--line);font:500 clamp(12px,.85vw,16px) "Saira",sans-serif;color:var(--dim);text-align:center}
-  @media (max-width:900px){.grid,.info ol{grid-template-columns:repeat(2,minmax(0,1fr))}.grid .tile:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}}  /* odd last tile: centered */
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid .tile:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}}  /* odd last tile: centered */
   @media (max-width:560px){.tile .prog{font-size:11px;letter-spacing:.02em}.hero,.wrap{padding-left:20px;padding-right:20px}.hero .bar{font-size:11px;letter-spacing:.04em;margin-bottom:32px}}
   @media (max-width:340px){.hero{min-height:380px}}  /* tiny phones: the copy wraps more; cert pages match */
   @media (prefers-reduced-motion:reduce){.tile,.tile img{transition:none}}
-  .note a.go{display:inline-block;margin-top:.5em;color:var(--green);font-weight:600;text-decoration:none}.note a.go:hover{text-decoration:underline}
+  /* how to use: one card per tool */
+  .hw{margin-top:clamp(40px,3vw,60px)}
+  .hw h2{font:600 clamp(14px,1.1vw,21px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0 0 16px}
+  .hcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .hc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;display:flex;flex-direction:column}
+  .hc .k{font:600 clamp(12px,.8vw,15px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green)}
+  .hc h3{font:600 clamp(19px,1.3vw,24px) "Chakra Petch",sans-serif;margin:4px 0 12px}
+  .hc ol{list-style:none;counter-reset:s;margin:0 0 14px;padding:0;font:500 clamp(14px,1vw,18px)/1.6 "Saira",sans-serif;color:var(--muted)}
+  .hc li{counter-increment:s;position:relative;padding-left:1.6em}
+  .hc li::before{content:counter(s) ".";position:absolute;left:0;font-family:"IBM Plex Mono",monospace;color:var(--green)}
+  .hc p{margin:auto 0 0;padding-top:12px;border-top:1px solid var(--line);font:500 clamp(13px,.9vw,16px)/1.5 "Saira",sans-serif;color:var(--dim)}
+  .help{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .help a{display:flex;flex-direction:column;padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:border-color .2s ease}
+  .help a:hover,.help a:focus-visible{border-color:var(--green)}
+  .help .k{font:600 clamp(12px,.8vw,15px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green)}
+  .help strong{font:600 clamp(18px,1.2vw,22px) "Chakra Petch",sans-serif;color:var(--text);margin:4px 0 6px}
+  .help .d{font:500 clamp(14px,1vw,17px)/1.5 "Saira",sans-serif;color:var(--muted);margin-bottom:12px}
+  .help .go{margin-top:auto;font:600 clamp(14px,1vw,17px) "Saira",sans-serif;color:var(--green)}
+  @media (max-width:900px){.hcs{grid-template-columns:1fr}}
+  @media (max-width:700px){.help{grid-template-columns:1fr}}
 </style>
 <script>
   /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
@@ -86,52 +94,34 @@
 </head>
 <body>
   <header class="hero">
-    <div class="bar"><span>STUDY TRACKERS</span><span>9 HTB CERTIFICATIONS · TRACKERS &amp; VAULTS</span></div>
+    <div class="bar"><span>STUDY TRACKERS</span><span>9 HTB CERTIFICATIONS · TRACKERS, VAULTS &amp; BOXES</span></div>
     <h1>Pick a cert.<br>Get the kit.</h1>
-    <p>Each cert comes with two things: a day-by-day study tracker and a ready-made Obsidian prep vault. Choose a cert to get both.</p>
+    <p>Each cert comes with three things: a day-by-day study tracker, a ready-made Obsidian prep vault, and a list of practice boxes from HTB Labs. Choose a cert to get all three.</p>
   </header>
 
   <main class="wrap">
     <div class="grid">
-      <div class="tile" style="--acc:#2f95ff" data-tasks="213" data-key="cjca_tracker_v2"><a class="open" href="./cjca/" aria-label="Open CJCA study kit"></a><span class="bd"><img src="assets/badges/cjca.png" alt="CJCA badge" width="96" height="96" loading="lazy"></span><div><div class="code">CJCA</div><div class="name">Certified Junior Cybersecurity Associate</div><div class="lv l1"><i></i><i></i><i></i>EASY</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#a34ff2" data-tasks="444" data-key="cpts_tracker_v2"><a class="open" href="./cpts/" aria-label="Open CPTS study kit"></a><span class="bd"><img src="assets/badges/cpts.png" alt="CPTS badge" width="96" height="96" loading="lazy"></span><div><div class="code">CPTS</div><div class="name">Certified Penetration Testing Specialist</div><div class="lv l2"><i></i><i></i><i></i>MEDIUM</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#ed635e" data-tasks="231" data-key="cwes_tracker_v2"><a class="open" href="./cwes/" aria-label="Open CWES study kit"></a><span class="bd"><img src="assets/badges/cwes.png" alt="CWES badge" width="96" height="96" loading="lazy"></span><div><div class="code">CWES</div><div class="name">Certified Web Exploitation Specialist</div><div class="lv l2"><i></i><i></i><i></i>MEDIUM</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#00eafc" data-tasks="212" data-key="cdsa_tracker_v2"><a class="open" href="./cdsa/" aria-label="Open CDSA study kit"></a><span class="bd"><img src="assets/badges/cdsa.png" alt="CDSA badge" width="96" height="96" loading="lazy"></span><div><div class="code">CDSA</div><div class="name">Certified Defensive Security Analyst</div><div class="lv l2"><i></i><i></i><i></i>MEDIUM</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#fcc000" data-tasks="237" data-key="cwee_tracker_v2"><a class="open" href="./cwee/" aria-label="Open CWEE study kit"></a><span class="bd"><img src="assets/badges/cwee.png" alt="CWEE badge" width="96" height="96" loading="lazy"></span><div><div class="code">CWEE</div><div class="name">Certified Web Exploitation Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#e436b4" data-tasks="290" data-key="cape_tracker_v2"><a class="open" href="./cape/" aria-label="Open CAPE study kit"></a><span class="bd"><img src="assets/badges/cape.png" alt="CAPE badge" width="96" height="96" loading="lazy"></span><div><div class="code">CAPE</div><div class="name">Certified Active Directory Pentesting Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#f05a1e" data-tasks="163" data-key="cwpe_tracker_v2"><a class="open" href="./cwpe/" aria-label="Open CWPE study kit"></a><span class="bd"><img src="assets/badges/cwpe.png" alt="CWPE badge" width="96" height="96" loading="lazy"></span><div><div class="code">CWPE</div><div class="name">Certified Wi-Fi Pentesting Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#9d94ea" data-tasks="190" data-key="coae_tracker_v2"><a class="open" href="./coae/" aria-label="Open COAE study kit"></a><span class="bd"><img src="assets/badges/coae.png" alt="COAE badge" width="96" height="96" loading="lazy"></span><div><div class="code">COAE</div><div class="name">Certified Offensive AI Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
-      <div class="tile" style="--acc:#00eafc" data-tasks="323" data-key="cdep_tracker_v2"><a class="open" href="./cdep/" aria-label="Open CDEP study kit"></a><span class="bd"><img src="assets/badges/cdep.png" alt="CDEP badge" width="96" height="96" loading="lazy"></span><div><div class="code">CDEP</div><div class="name">Certified Detection Engineering Principal</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault</div></div></div>
+      <div class="tile" style="--acc:#2f95ff" data-tasks="213" data-key="cjca_tracker_v2"><a class="open" href="./cjca/" aria-label="Open CJCA study kit"></a><span class="bd"><img src="assets/badges/cjca.png" alt="CJCA badge" width="96" height="96" loading="lazy"></span><div><div class="code">CJCA</div><div class="name">Certified Junior Cybersecurity Associate</div><div class="lv l1"><i></i><i></i><i></i>EASY</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#a34ff2" data-tasks="444" data-key="cpts_tracker_v2"><a class="open" href="./cpts/" aria-label="Open CPTS study kit"></a><span class="bd"><img src="assets/badges/cpts.png" alt="CPTS badge" width="96" height="96" loading="lazy"></span><div><div class="code">CPTS</div><div class="name">Certified Penetration Testing Specialist</div><div class="lv l2"><i></i><i></i><i></i>MEDIUM</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#ed635e" data-tasks="231" data-key="cwes_tracker_v2"><a class="open" href="./cwes/" aria-label="Open CWES study kit"></a><span class="bd"><img src="assets/badges/cwes.png" alt="CWES badge" width="96" height="96" loading="lazy"></span><div><div class="code">CWES</div><div class="name">Certified Web Exploitation Specialist</div><div class="lv l2"><i></i><i></i><i></i>MEDIUM</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#00eafc" data-tasks="212" data-key="cdsa_tracker_v2"><a class="open" href="./cdsa/" aria-label="Open CDSA study kit"></a><span class="bd"><img src="assets/badges/cdsa.png" alt="CDSA badge" width="96" height="96" loading="lazy"></span><div><div class="code">CDSA</div><div class="name">Certified Defensive Security Analyst</div><div class="lv l2"><i></i><i></i><i></i>MEDIUM</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#fcc000" data-tasks="237" data-key="cwee_tracker_v2"><a class="open" href="./cwee/" aria-label="Open CWEE study kit"></a><span class="bd"><img src="assets/badges/cwee.png" alt="CWEE badge" width="96" height="96" loading="lazy"></span><div><div class="code">CWEE</div><div class="name">Certified Web Exploitation Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#e436b4" data-tasks="290" data-key="cape_tracker_v2"><a class="open" href="./cape/" aria-label="Open CAPE study kit"></a><span class="bd"><img src="assets/badges/cape.png" alt="CAPE badge" width="96" height="96" loading="lazy"></span><div><div class="code">CAPE</div><div class="name">Certified Active Directory Pentesting Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#f05a1e" data-tasks="163" data-key="cwpe_tracker_v2"><a class="open" href="./cwpe/" aria-label="Open CWPE study kit"></a><span class="bd"><img src="assets/badges/cwpe.png" alt="CWPE badge" width="96" height="96" loading="lazy"></span><div><div class="code">CWPE</div><div class="name">Certified Wi-Fi Pentesting Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#9d94ea" data-tasks="190" data-key="coae_tracker_v2"><a class="open" href="./coae/" aria-label="Open COAE study kit"></a><span class="bd"><img src="assets/badges/coae.png" alt="COAE badge" width="96" height="96" loading="lazy"></span><div><div class="code">COAE</div><div class="name">Certified Offensive AI Expert</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
+      <div class="tile" style="--acc:#00eafc" data-tasks="323" data-key="cdep_tracker_v2"><a class="open" href="./cdep/" aria-label="Open CDEP study kit"></a><span class="bd"><img src="assets/badges/cdep.png" alt="CDEP badge" width="96" height="96" loading="lazy"></span><div><div class="code">CDEP</div><div class="name">Certified Detection Engineering Principal</div><div class="lv l3"><i></i><i></i><i></i>HARD</div><div class="offer">Tracker <span>+</span> Vault <span>+</span> Boxes</div></div></div>
     </div>
 
-    <section class="info">
-      <div>
-        <h2>HOW TO USE</h2>
-        <h3>Study tracker</h3>
-        <ol>
-          <li><b>0x01</b>Pick a cert and open its tracker.</li>
-          <li><b>0x02</b>Set a start date and pick a timeline that fits your week.</li>
-          <li><b>0x03</b>Check off tasks; a day completes when all are done.</li>
-          <li><b>0x04</b>Export a backup now and then.</li>
-        </ol>
-        <h3>Prep vault</h3>
-        <ol>
-          <li><b>0x01</b>Install Obsidian. It's free.</li>
-          <li><b>0x02</b>Download your cert's vault and unzip it.</li>
-          <li><b>0x03</b>In Obsidian, choose Open folder as vault.</li>
-          <li><b>0x04</b>Start on Home and make the methodology your own.</li>
-        </ol>
+    <section class="hw">
+      <h2>HOW TO USE</h2>
+      <div class="hcs">
+        <div class="hc"><span class="k">0x01</span><h3>Study Tracker</h3><ol><li>Open your cert's tracker.</li><li>Set a start date and a timeline.</li><li>Tick tasks off. Export a backup now and then.</li></ol><p>Use it here, or download the .html to run offline. The two keep separate progress.</p></div>
+        <div class="hc"><span class="k">0x02</span><h3>Prep Vault</h3><ol><li>Install Obsidian. It's free.</li><li>Download your cert's vault and unzip it.</li><li>Open folder as vault, then start on Home.</li></ol><p>Download only. Once it's on your machine, it's yours to edit.</p></div>
+        <div class="hc"><span class="k">0x03</span><h3>Practice Boxes</h3><ol><li>Open your cert's practice boxes.</li><li>Work from the easiest group down.</li><li>Tick each box off and write a mock report.</li></ol><p>Also a tab in the tracker. On the site, both share your progress.</p></div>
       </div>
-      <div class="note">
-        <strong class="t">Use it here, or take it with you</strong>
-        <span class="ln"><strong class="g">Tracker:</strong> Use it on this site, or download the .html for an offline copy. The two keep separate progress, so move yours between them with Export and Import.</span>
-        <span class="ln"><strong class="g">Vault:</strong> It only comes as a download. Grab the .zip from the cert's page and edit it however you like.</span>
-        <a class="go" href="./faq/#website-or-download">Website or download? &rarr;</a>
-      </div>
-      <div class="note">
-        <strong class="t">New to Hack The Box?</strong>
-        The FAQ explains how the trackers and prep vaults work, what the HTB terms mean, and how to set up your notes, field manual and report.<br>
-        <a class="go" href="./faq/">Read the FAQ &rarr;</a>
+      <div class="help">
+        <a href="./faq/"><span class="k">FAQ</span><strong>New to Hack The Box?</strong><span class="d">HTB terms, setting up your machine, notes and report writing, in plain answers.</span><span class="go">Read the FAQ &rarr;</span></a>
+        <a href="./faq/#website-or-download"><span class="k">FAQ</span><strong>Website or download?</strong><span class="d">Use the tools on this site or keep an offline copy. Here's what changes and how your progress moves.</span><span class="go">Find out &rarr;</span></a>
       </div>
     </section>
 

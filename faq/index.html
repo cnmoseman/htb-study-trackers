@@ -12,13 +12,13 @@
 <link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:title" content="Study Trackers FAQ">
-<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers work, what the HTB terms mean, and how to set up notes, a field manual and your report.">
+<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers, vaults and practice boxes work, what the HTB terms mean, and how to set up notes, a field manual and your report.">
 <meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/faq-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="New here? Start with this. A beginner FAQ for the HTB study trackers, shown with the cert badges.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers work, HTB terms, Obsidian notes, field manuals, cheat sheets and reporting.">
+<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers, vaults and practice boxes work, HTB terms, Obsidian notes, field manuals, cheat sheets and reporting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Saira:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -81,7 +81,7 @@
   <header class="hero">
     <div class="bar"><a href="../">&larr; STUDY TRACKERS</a><span>FAQ</span></div>
     <h1>New here?<br>Start with this.</h1>
-    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers and prep vaults work, what the HTB words mean, and how to set up your notes.</p>
+    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers, prep vaults and practice boxes work, what the HTB words mean, and how to set up your notes.</p>
   </header>
 
   <main class="wrap">
@@ -89,7 +89,7 @@
       <input id="q" type="search" placeholder="Search the FAQ" aria-label="Search the FAQ" autocomplete="off">
       <nav class="tabs" aria-label="Sections">
         <button data-s="all" class="on">All</button>
-        <button data-s="trackers">Trackers &amp; vaults</button>
+        <button data-s="trackers">Trackers, vaults &amp; boxes</button>
         <button data-s="htb">HTB basics</button>
         <button data-s="setup">Your setup</button>
         <button data-s="notes">Notes &amp; reports</button>
@@ -98,14 +98,14 @@
     <p id="none" hidden>No questions match that. Try another word.</p>
 
     <section id="trackers">
-      <h2>TRACKERS &amp; VAULTS</h2>
+      <h2>TRACKERS, VAULTS &amp; BOXES</h2>
 
       <details>
         <summary>What is a study tracker?</summary>
         <div class="a">
           <p>It's a day-by-day plan for one HTB certification. Every module in the cert's job-role path is split into daily tasks, in the order you should study them, with practice, review days and exam prep mixed in. You check tasks off as you go, and the dashboard shows how far along you are and whether you're on pace.</p>
           <p>Each tracker also has a Resource Library (videos, exam reviews, notes, tools and tips from people who passed) and an About tab explaining how the cert and exam work.</p>
-          <p>Every cert has its own page on this site with two things on it: the tracker and a matching prep vault for your notes (see the next question).</p>
+          <p>Every cert has its own page on this site with three things on it: the tracker, a matching prep vault for your notes, and a list of practice boxes (see the next two questions).</p>
         </div>
       </details>
 
@@ -121,6 +121,16 @@
           </ul>
           <p>To use one, download the zip from the cert's page, unzip it, and in Obsidian choose <strong>Open folder as vault</strong>. It only uses Obsidian's built-in features, so you don't need any plugins. If you'd like to look inside first, the <strong>View files on GitHub</strong> link shows every note.</p>
           <p>Once you start writing in it, the vault is yours. Later updates on this site won't touch your copy, so back up the folder like any other (a cloud drive or Git works).</p>
+        </div>
+      </details>
+
+      <details id="practice-boxes">
+        <summary>What are practice boxes?</summary>
+        <div class="a">
+          <p>It's a list of HTB Labs boxes picked for one cert, grouped from easiest to hardest. Each box shows which Academy modules it practices, links to walkthroughs (IppSec videos and 0xdf write-ups, where they exist), and who recommended it: HTB's prep track for the cert, community prep playlists, or reviews from people who passed. Tick each one off as you solve it.</p>
+          <p>You'll find them on each cert's page and in the tracker's <strong>Practice Boxes</strong> tab. On the site, both show the same list and the same progress, and the tracker's Export backup includes it.</p>
+          <p>They're optional. Everything you need to pass is in the cert's Academy path. Boxes let you practice your methodology without step-by-step help, and each one is a chance to write a mock report. Most need VIP+ (see the question on Free, VIP+ and Pro Labs below).</p>
+          <p>The CDSA and CDEP lists are Sherlocks instead of machines. HTB hasn't recommended any for the CDEP yet, so that list is my best guess, and the page says so.</p>
         </div>
       </details>
 
@@ -170,7 +180,7 @@
             <li>Clearing your browser's site data (or cookies and site data) erases it.</li>
             <li>Private or incognito windows forget everything when you close them.</li>
           </ul>
-          <p>That's why the <strong>Export backup</strong> button exists. See the next question.</p>
+          <p>That's why the <strong>Export backup</strong> button exists. See the next question. Practice boxes are saved the same way, and the tracker's backup includes them.</p>
         </div>
       </details>
 
@@ -188,6 +198,7 @@
           <p>Either works. Opening a tracker on this site is the quickest way to start. The <strong>Download .html</strong> button on each cert's page saves the tracker as a single HTML file that runs offline in any browser.</p>
           <p>One catch: the website and a downloaded file keep <em>separate</em> progress, because your browser treats them as different places. Pick one and stick with it, or move between them with Export and Import.</p>
           <p>The website version also gets updates, like new resources, as soon as they're published. On rare occasions an update changes a tracker's plan in a way that affects its timeline, and your days might shift along with it. A downloaded file never changes, so it keeps your plan exactly as it was, but it also won't get new resources unless you download it again.</p>
+          <p>Practice boxes work the same way: use the page on the site, or save it with <strong>Download this page</strong>. On the site, your ticks also show in the tracker's Practice Boxes tab.</p>
         </div>
       </details>
 
@@ -200,9 +211,9 @@
       </details>
 
       <details>
-        <summary>What do "Free", "VIP+" and "Pro Labs" mean next to a resource?</summary>
+        <summary>What do "Free", "VIP+" and "Pro Labs" mean next to a resource or box?</summary>
         <div class="a">
-          <p>They tell you what you need to access a practice lab on the main HTB platform (not the Academy). <strong>Free</strong> means any HTB account can play it. <strong>VIP+</strong> means it's retired, and retired machines and challenges need a paid VIP+ subscription. HTB does keep a small, rotating set of retired machines free, so a VIP+ box might be free for a while when you look. <strong>Pro Labs</strong> need an HTB PRO subscription, which includes 10 of them (Dante, Zephyr and Offshore among them).</p>
+          <p>They tell you what you need to access a practice lab on the main HTB platform (not the Academy). <strong>Free</strong> means any HTB account can play it. <strong>VIP+</strong> means it's retired, and retired machines and challenges need a paid VIP+ subscription. HTB does keep a small, rotating set of retired machines free, so a VIP+ box might be free for a while when you look. <strong>Pro Labs</strong> (marked <strong>HTB PRO</strong> in the practice boxes) need an HTB PRO subscription, which includes 10 of them (Dante, Zephyr and Offshore among them).</p>
           <p>Labels can also go out of date. Active machines are free, but when one retires it becomes VIP+, so a box marked Free here might need VIP+ by the time you get to it. HTB's <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions">HTB Labs Subscriptions</a> page has the current details for each plan.</p>
           <p>None of these are required to pass. They're extra practice.</p>
         </div>
@@ -211,7 +222,7 @@
       <details>
         <summary>A link is broken, or I know a great resource. Who do I tell?</summary>
         <div class="a">
-          <p>Use <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=FAQ&amp;title=%5BProblem%5D+">Report a problem</a> on GitHub. Both work for the trackers and the prep vaults. You'll need a free GitHub account.</p>
+          <p>Use <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=FAQ&amp;title=%5BProblem%5D+">Report a problem</a> on GitHub. Both work for the trackers, the prep vaults and the practice boxes. You'll need a free GitHub account.</p>
         </div>
       </details>
     </section>
@@ -223,7 +234,7 @@
         <summary>What's the difference between HTB Academy and HTB Labs?</summary>
         <div class="a">
           <p><strong>HTB Academy</strong> (academy.hackthebox.com) is where the courses live. Its modules teach a topic step by step, with small labs and questions to answer. Certifications are earned through the Academy.</p>
-          <p><strong>HTB Labs</strong>, the main hackthebox.com platform, is where the "boxes" are: full practice machines you attack without instructions. They're great for practice, but separate from the Academy and billed separately.</p>
+          <p><strong>HTB Labs</strong>, the main hackthebox.com platform, is where the "boxes" are: full practice machines you attack without instructions. They're great for practice, but separate from the Academy and billed separately. Each cert's <a href="#practice-boxes">practice boxes</a> pick out the ones worth doing for that exam.</p>
         </div>
       </details>
 
@@ -253,7 +264,7 @@
       <details>
         <summary>What are machines, boxes and flags?</summary>
         <div class="a">
-          <p>A <strong>machine</strong> (or <strong>box</strong>) is a computer set up for you to break into legally. A <strong>flag</strong> is a string of text hidden on it that proves you got in. Usually there's a <strong>user flag</strong> for getting a foothold and a <strong>root flag</strong> for taking full control (privilege escalation). Many HTB exams are built from machines like these, so practicing on boxes is good exam prep.</p>
+          <p>A <strong>machine</strong> (or <strong>box</strong>) is a computer set up for you to break into legally. A <strong>flag</strong> is a string of text hidden on it that proves you got in. Usually there's a <strong>user flag</strong> for getting a foothold and a <strong>root flag</strong> for taking full control (privilege escalation). Many HTB exams are built from machines like these, so practicing on boxes is good exam prep. A <strong>Sherlock</strong> is the defensive version: you get logs or a disk image and work out what happened.</p>
           <p>A <strong>writeup</strong> is someone's walkthrough of how they solved a box. Try the box first, then read a writeup to see what you missed.</p>
         </div>
       </details>
@@ -350,7 +361,7 @@
           <p><strong>SysReptor</strong> is a reporting tool that has official templates for HTB exams. You write your findings in it and it produces a polished PDF. You can run it yourself, or use SysReptor's free cloud for HTB students, explained on their <a href="https://docs.sysreptor.com/htb-reporting-with-sysreptor">Hack The Box Reporting</a> page. If you use the cloud, export your report when you're done, because inactive accounts are deleted after three months. SysReptor also publishes a sample report for each HTB cert (here's the <a href="https://docs.sysreptor.com/assets/reports/HTB-CJCA-Report.pdf">CJCA one</a>), and every tracker links its cert's sample under Reporting &amp; Exam Prep. Read yours before you start the exam, since it shows the structure and depth HTB expects.</p>
           <p>For a walkthrough, Cyber Ryan's <a href="https://www.youtube.com/watch?v=ItVsQmHLicc">CPTS Report Made EASY</a> video covers setting up SysReptor and using the HTB template, and dollarboysushil's <a href="https://dollarboysushil.com/posts/cpts-report-writing-guide/">report writing guide</a> shows what each section of a finished report looks like. Both use the CPTS, but the process is the same for every HTB cert.</p>
           <p>Whatever cert you're taking, do the <a href="https://academy.hackthebox.com/course/preview/documentation--reporting">Documentation &amp; Reporting</a> module from the Penetration Tester path. It's already part of the CPTS path; for other certs you add it yourself. It's built around the CPTS report, so it won't match your cert's report one for one, but the note-taking habits and report tips carry over to every exam.</p>
-          <p>Practice once before exam day: pick an easy box, solve it, and write a short report about it in SysReptor. Several exam reviews in the Resource Library say the same thing: start writing during the exam, not on the last night.</p>
+          <p>Practice once before exam day: pick an easy box (your cert's practice boxes start with easy ones), solve it, and write a short report about it in SysReptor. Several exam reviews in the Resource Library say the same thing: start writing during the exam, not on the last night.</p>
         </div>
       </details>
     </section>
@@ -376,8 +387,14 @@
   tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.toggle("on",x===b));cur=b.dataset.s;apply();});
   q.oninput=apply;
   /* #id link: open that question */
-  const hd=location.hash&&document.getElementById(location.hash.slice(1));
-  if(hd&&hd.tagName==="DETAILS"){hd.open=true;hd.scrollIntoView();}
+  function go(){
+    const hd=location.hash&&document.getElementById(location.hash.slice(1));
+    if(!hd||hd.tagName!=="DETAILS")return;
+    if(hd.closest("[hidden]")||hd.hidden){q.value="";tabs[0].click();}  /* show all so it's visible */
+    hd.open=true;hd.scrollIntoView();
+  }
+  go();addEventListener("hashchange",go);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{if(a.hash===location.hash)go();}));  /* same hash: no hashchange */
 </script>
 </body>
 </html>
