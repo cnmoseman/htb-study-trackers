@@ -33,6 +33,7 @@
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
   .in{max-width:1080px;margin:0 auto;padding:0 18px}
   .top{background:var(--green);color:#0d1420;padding:20px 0 30px}
+  .top .hwrap{padding:0 40px}  /* header spans full width, like the hub header */
   .bar{display:flex;justify-content:space-between;gap:12px;font:500 12px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em}
   .bar a{color:#0d1420;opacity:.8;text-decoration:none}.bar a:hover{opacity:1}
   .hd{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:22px}
@@ -45,7 +46,7 @@
   .ft a.pb-btn{text-decoration:none}
   .fine{margin-top:14px;font-size:12px}.fine a{color:var(--muted)}
   .hidden{display:none}
-  @media (max-width:640px){.hd img{display:none}.ft .pb-btn{flex:1 1 calc(50% - 5px);text-align:center}.ft .pb-sp{flex-basis:100%}}
+  @media (max-width:640px){.top .hwrap{padding:0 20px}.hd img{display:none}.ft .pb-btn{flex:1 1 calc(50% - 5px);text-align:center}.ft .pb-sp{flex-basis:100%}}
   /* Practice Boxes (shared by the tracker tab and the standalone page) */
   .pb{--pb-link:#ed7cce;--pb-acc:var(--green)}
   .pb a{color:var(--pb-link);text-decoration:none}
@@ -153,7 +154,7 @@
 </script>
 </head>
 <body>
-<header class="top"><div class="in">
+<header class="top"><div class="hwrap">
   <div class="bar"><a href="https://cnmoseman.github.io/htb-study-trackers/cape/">&larr; CAPE STUDY KIT</a><a href="https://cnmoseman.github.io/htb-study-trackers/cape/tracker/">OPEN TRACKER &rarr;</a></div>
   <div class="hd">
     <div><h1>CAPE Practice Boxes</h1>
