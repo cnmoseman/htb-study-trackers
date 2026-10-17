@@ -245,6 +245,41 @@
   .cost .pr i{font:500 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);font-style:normal}
   .cost tr.dim td{opacity:.7}
   .cost .yr{display:none;font-weight:700}
+  /* What It Costs: one bar per plan for a timeline */
+  .cmp{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:6px 0 14px}
+  .cmp .ctop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .cmp .ttl{font:700 15px "Chakra Petch",sans-serif;color:var(--txt)}
+  .cmp .sub2{font-size:12.5px;color:var(--faint)}
+  .cseg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .cseg button{background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:6px 11px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .cseg button:last-child{border-right:0}
+  .cseg button.on{background:var(--green);color:#0d1320}
+  .cseg button i{font-style:normal;font-size:10px;opacity:.8;margin-left:4px}
+  .br{display:grid;grid-template-columns:190px minmax(0,1fr) 84px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+  .br .n b{display:block;font-size:14px;color:var(--txt)}
+  .br .n small{font-size:11.5px;color:var(--faint)}
+  .br .n .pick{font:700 10.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;color:var(--green);text-transform:uppercase}
+  .br .trk{height:20px;background:var(--card);border-radius:5px;overflow:hidden;display:flex}
+  .br .trk i{display:block;height:100%;transition:width .3s}
+  .br .a,.ckey .sw.a{background:var(--green)}
+  .br .v,.ckey .sw.v{background:color-mix(in srgb,var(--green) 45%,var(--bg))}
+  .br .x,.ckey .sw.x{background:#3a4a66}
+  .br .tot{font:700 16px "IBM Plex Mono",ui-monospace,monospace;text-align:right;color:var(--txt)}
+  .br.best .tot{color:var(--green)}
+  .br.dim{opacity:.45}
+  .ckey{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--faint);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .ckey .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .ckey .sp{flex:1}
+  .ckey label{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--muted);font-size:12.5px}
+  .ckey input{accent-color:var(--green);margin:0}
+  .endnote .cl a{color:var(--green);text-decoration:none;white-space:nowrap}
+  .endnote .cl a:hover{text-decoration:underline}
+  .endnote .cl b{color:var(--txt)}
+  @media (prefers-reduced-motion:reduce){.br .trk i{transition:none}}
+  @media (max-width:640px){.tabs{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+    .tabs.end{-webkit-mask-image:none;mask-image:none}.tab{flex:0 0 auto;white-space:nowrap;padding-left:12px;padding-right:12px}
+    .br{grid-template-columns:1fr 74px;gap:6px 10px}.br .trk{grid-column:1/-1;grid-row:2}
+    .cseg{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent)}}
   .callout{background:rgba(255,180,84,.1);border:1px solid rgba(255,180,84,.3);
     border-radius:8px;padding:11px 14px;font-size:13px;color:var(--amber);margin:10px 0}
 
@@ -373,17 +408,17 @@
   .pb-none{color:var(--faint);font-size:13px;padding:8px 10px}
   .pb [hidden]{display:none!important}
   .pb-rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
-  .pb-rh{display:grid;grid-template-columns:18px 30px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .pb-rh{display:grid;grid-template-columns:18px 44px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
   .pb-rh:hover{background:var(--card)}
   .pb-cv{color:var(--faint);font-size:12px;transition:transform .15s;display:inline-block}
   [aria-expanded="true"]>.pb-cv{transform:rotate(90deg);color:var(--pb-link)}
-  .pb-rn{font:700 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--pb-link)}
+  .pb-rn{font:700 26px/1 "Chakra Petch",sans-serif;letter-spacing:-.02em;color:var(--pb-link)}
   .pb-rt{font:700 19px/1.2 "Chakra Petch",sans-serif;display:block}
   .pb-rs{font-size:13px;color:var(--faint);display:block;margin-top:1px}
   .pb-mbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
   .pb-rc{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-align:right;white-space:nowrap}
   .pb-rg.full .pb-rc{color:var(--pb-link)}
-  .pb-goal{margin:0;padding:10px 16px 10px 76px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
+  .pb-goal{margin:0;padding:10px 16px 10px 90px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
   .pb-bx{border-bottom:1px solid var(--card)}
   .pb-bx:last-child{border-bottom:0}
   .pb-bh{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px 10px 46px;cursor:pointer}
@@ -526,6 +561,7 @@
     <button class="tab active" data-tab="plan">Study Plan</button>
     <button class="tab" data-tab="practice">Practice Boxes</button>
     <button class="tab" data-tab="resources">Resource Library</button>
+    <button class="tab" data-tab="cost">What It Costs</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
 
@@ -559,19 +595,7 @@
       <p>You also upload a <strong>commercial-grade report</strong> in English within <strong>10 days</strong> of entering the exam, using the template HTB gives you in the exam (there's no public sample yet). It covers your investigation, the TTPs mapped to MITRE ATT&amp;CK, your evidence, and the detection logic you'd build along with its limits. An instructor grades both the points and the report. You get <strong>2 attempts per voucher</strong>, the free retake has to start within 14 days of your feedback, and results arrive within 20 business days.</p>
 
       <h3>What it costs</h3>
-      <p>You pay for two things: access to the modules, and the exam voucher. The CDEP voucher is <strong>$450</strong> on its own, and the path needs modules up to <strong>Tier IV</strong>, which only the Platinum plans include.</p>
-      <table class="cost">
-        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
-        <tr><td><strong>Platinum monthly</strong></td><td class="pr">$125<i>/month</i></td><td>Up to Tier IV</td><td>Buy separately, $450</td></tr>
-        <tr><td><strong>Platinum Annual</strong></td><td class="pr">$2,000<i>/year</i></td><td>Up to Tier IV</td><td>Included, plus a CJCA voucher and one more</td></tr>
-      </table>
-      <p>HTB Labs is optional extra practice outside the Academy, billed separately. You don't need it for this exam.</p>
-      <table class="cost labs">
-        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
-        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
-        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
-      </table>
-      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
+      <p>Plan prices, the voucher, and what your timeline costs are on the <a href="#" data-goto="cost">What It Costs</a> tab.</p>
 
       <h3>The 13 modules in order</h3>
       <ul>
@@ -605,6 +629,27 @@
 
       <p style="font-size:12px;color:var(--faint);margin-top:14px">This is an independent study aid and is not affiliated with or endorsed by Hack The Box. Always confirm current module counts, exam format, and pricing on the official HTB Academy site.</p>
       <p style="font-size:12px;color:var(--faint);margin-top:6px">Built on and inspired by mattrfield's <a href="https://github.com/mattrfield/coae-study-tracker">coae-study-tracker</a>.</p>
+    </div>
+  </div>
+
+  <!-- What It Costs -->
+  <div id="tab-cost" class="hidden">
+    <div class="about">
+      <h3>What it costs</h3>
+      <p>You pay for two things: access to the modules, and the exam voucher. The CDEP voucher is <strong>$450</strong> on its own, and the path needs modules up to <strong>Tier IV</strong>, which only the Platinum plans include.</p>
+      <div id="costMount"></div>
+      <table class="cost">
+        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
+        <tr><td><strong>Platinum monthly</strong></td><td class="pr">$125<i>/month</i></td><td>Up to Tier IV</td><td>Buy separately, $450</td></tr>
+        <tr><td><strong>Platinum Annual</strong></td><td class="pr">$2,000<i>/year</i></td><td>Up to Tier IV</td><td>Included, plus a CJCA voucher and one more</td></tr>
+      </table>
+      <p>HTB Labs is optional extra practice outside the Academy, billed separately. You don't need it for this exam.</p>
+      <table class="cost labs">
+        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
+        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
+        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
+      </table>
+      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
     </div>
   </div>
 
@@ -3678,6 +3723,7 @@ const MODES = {
   }
 };
 const MODS_DONE = {"mods": [["detection--opsec-cyber-range", "Detection & OpSec Cyber Range", 9], ["introduction-to-detection-engineering", "Introduction to Detection Engineering", 29], ["introduction-to-dynamic-analysis-with-windbg", "Introduction to Dynamic Analysis with WinDbg", 15], ["process-injection-attacks-and-detection", "Process Injection Attacks and Detection", 31], ["linux-process-injections--detections", "Linux Process Injections & Detections", 20], ["windows-low-level-detectability", "Windows Low Level Detectability", 17], ["detecting-access-token-manipulation-attacks", "Detecting Access Token Manipulation Attacks", 17], ["windows-api-monitoring-and-hooking", "Windows API Monitoring and Hooking", 12], ["privilege-escalation-tradecraft-analysis", "Privilege Escalation Tradecraft Analysis", 24], ["persistence-tradecraft-analysis", "Persistence Tradecraft Analysis", 18], ["wmi-tradecraft-analysis", "WMI Tradecraft Analysis", 12], ["credential-access-tradecraft-analysis", "Credential Access Tradecraft Analysis", 21], ["windows-kernel-telemetry--detection-techniques", "Windows Kernel Telemetry & Detection Techniques", 25]], "taskMod": {"3-0": "detection--opsec-cyber-range", "3-1": "detection--opsec-cyber-range", "4-0": "detection--opsec-cyber-range", "5-0": "detection--opsec-cyber-range", "6-0": "detection--opsec-cyber-range", "7-0": "detection--opsec-cyber-range", "8-0": "detection--opsec-cyber-range", "9-0": "detection--opsec-cyber-range", "10-0": "detection--opsec-cyber-range", "11-0": "detection--opsec-cyber-range", "11-1": "detection--opsec-cyber-range", "12-0": "introduction-to-detection-engineering", "12-1": "introduction-to-detection-engineering", "13-0": "introduction-to-detection-engineering", "14-0": "introduction-to-detection-engineering", "15-0": "introduction-to-detection-engineering", "16-0": "introduction-to-detection-engineering", "17-0": "introduction-to-detection-engineering", "18-0": "introduction-to-detection-engineering", "19-0": "introduction-to-detection-engineering", "20-0": "introduction-to-detection-engineering", "21-0": "introduction-to-detection-engineering", "22-0": "introduction-to-detection-engineering", "23-0": "introduction-to-detection-engineering", "24-0": "introduction-to-detection-engineering", "25-0": "introduction-to-detection-engineering", "26-0": "introduction-to-detection-engineering", "27-0": "introduction-to-detection-engineering", "28-0": "introduction-to-detection-engineering", "29-0": "introduction-to-detection-engineering", "30-0": "introduction-to-detection-engineering", "31-0": "introduction-to-detection-engineering", "32-0": "introduction-to-detection-engineering", "33-0": "introduction-to-detection-engineering", "34-0": "introduction-to-detection-engineering", "35-0": "introduction-to-detection-engineering", "36-0": "introduction-to-detection-engineering", "37-0": "introduction-to-detection-engineering", "38-0": "introduction-to-detection-engineering", "39-0": "introduction-to-detection-engineering", "40-0": "introduction-to-detection-engineering", "40-1": "introduction-to-detection-engineering", "43-0": "introduction-to-dynamic-analysis-with-windbg", "43-1": "introduction-to-dynamic-analysis-with-windbg", "44-0": "introduction-to-dynamic-analysis-with-windbg", "45-0": "introduction-to-dynamic-analysis-with-windbg", "46-0": "introduction-to-dynamic-analysis-with-windbg", "47-0": "introduction-to-dynamic-analysis-with-windbg", "48-0": "introduction-to-dynamic-analysis-with-windbg", "49-0": "introduction-to-dynamic-analysis-with-windbg", "50-0": "introduction-to-dynamic-analysis-with-windbg", "51-0": "introduction-to-dynamic-analysis-with-windbg", "52-0": "introduction-to-dynamic-analysis-with-windbg", "53-0": "introduction-to-dynamic-analysis-with-windbg", "54-0": "introduction-to-dynamic-analysis-with-windbg", "55-0": "introduction-to-dynamic-analysis-with-windbg", "56-0": "introduction-to-dynamic-analysis-with-windbg", "57-0": "introduction-to-dynamic-analysis-with-windbg", "57-1": "introduction-to-dynamic-analysis-with-windbg", "58-0": "process-injection-attacks-and-detection", "58-1": "process-injection-attacks-and-detection", "59-0": "process-injection-attacks-and-detection", "60-0": "process-injection-attacks-and-detection", "61-0": "process-injection-attacks-and-detection", "62-0": "process-injection-attacks-and-detection", "63-0": "process-injection-attacks-and-detection", "64-0": "process-injection-attacks-and-detection", "65-0": "process-injection-attacks-and-detection", "66-0": "process-injection-attacks-and-detection", "67-0": "process-injection-attacks-and-detection", "68-0": "process-injection-attacks-and-detection", "69-0": "process-injection-attacks-and-detection", "70-0": "process-injection-attacks-and-detection", "71-0": "process-injection-attacks-and-detection", "72-0": "process-injection-attacks-and-detection", "73-0": "process-injection-attacks-and-detection", "74-0": "process-injection-attacks-and-detection", "75-0": "process-injection-attacks-and-detection", "76-0": "process-injection-attacks-and-detection", "77-0": "process-injection-attacks-and-detection", "78-0": "process-injection-attacks-and-detection", "79-0": "process-injection-attacks-and-detection", "80-0": "process-injection-attacks-and-detection", "81-0": "process-injection-attacks-and-detection", "82-0": "process-injection-attacks-and-detection", "83-0": "process-injection-attacks-and-detection", "84-0": "process-injection-attacks-and-detection", "85-0": "process-injection-attacks-and-detection", "86-0": "process-injection-attacks-and-detection", "87-0": "process-injection-attacks-and-detection", "88-0": "process-injection-attacks-and-detection", "88-1": "process-injection-attacks-and-detection", "89-0": "linux-process-injections--detections", "89-1": "linux-process-injections--detections", "90-0": "linux-process-injections--detections", "91-0": "linux-process-injections--detections", "92-0": "linux-process-injections--detections", "93-0": "linux-process-injections--detections", "94-0": "linux-process-injections--detections", "95-0": "linux-process-injections--detections", "96-0": "linux-process-injections--detections", "97-0": "linux-process-injections--detections", "98-0": "linux-process-injections--detections", "99-0": "linux-process-injections--detections", "100-0": "linux-process-injections--detections", "101-0": "linux-process-injections--detections", "102-0": "linux-process-injections--detections", "103-0": "linux-process-injections--detections", "104-0": "linux-process-injections--detections", "105-0": "linux-process-injections--detections", "106-0": "linux-process-injections--detections", "107-0": "linux-process-injections--detections", "108-0": "linux-process-injections--detections", "108-1": "linux-process-injections--detections", "111-0": "windows-low-level-detectability", "111-1": "windows-low-level-detectability", "112-0": "windows-low-level-detectability", "113-0": "windows-low-level-detectability", "114-0": "windows-low-level-detectability", "115-0": "windows-low-level-detectability", "116-0": "windows-low-level-detectability", "117-0": "windows-low-level-detectability", "118-0": "windows-low-level-detectability", "119-0": "windows-low-level-detectability", "120-0": "windows-low-level-detectability", "121-0": "windows-low-level-detectability", "122-0": "windows-low-level-detectability", "123-0": "windows-low-level-detectability", "124-0": "windows-low-level-detectability", "125-0": "windows-low-level-detectability", "126-0": "windows-low-level-detectability", "127-0": "windows-low-level-detectability", "127-1": "windows-low-level-detectability", "128-0": "detecting-access-token-manipulation-attacks", "128-1": "detecting-access-token-manipulation-attacks", "129-0": "detecting-access-token-manipulation-attacks", "130-0": "detecting-access-token-manipulation-attacks", "131-0": "detecting-access-token-manipulation-attacks", "132-0": "detecting-access-token-manipulation-attacks", "133-0": "detecting-access-token-manipulation-attacks", "134-0": "detecting-access-token-manipulation-attacks", "135-0": "detecting-access-token-manipulation-attacks", "136-0": "detecting-access-token-manipulation-attacks", "137-0": "detecting-access-token-manipulation-attacks", "138-0": "detecting-access-token-manipulation-attacks", "139-0": "detecting-access-token-manipulation-attacks", "140-0": "detecting-access-token-manipulation-attacks", "141-0": "detecting-access-token-manipulation-attacks", "142-0": "detecting-access-token-manipulation-attacks", "143-0": "detecting-access-token-manipulation-attacks", "144-0": "detecting-access-token-manipulation-attacks", "144-1": "detecting-access-token-manipulation-attacks", "145-0": "windows-api-monitoring-and-hooking", "145-1": "windows-api-monitoring-and-hooking", "146-0": "windows-api-monitoring-and-hooking", "147-0": "windows-api-monitoring-and-hooking", "148-0": "windows-api-monitoring-and-hooking", "149-0": "windows-api-monitoring-and-hooking", "150-0": "windows-api-monitoring-and-hooking", "151-0": "windows-api-monitoring-and-hooking", "152-0": "windows-api-monitoring-and-hooking", "153-0": "windows-api-monitoring-and-hooking", "154-0": "windows-api-monitoring-and-hooking", "155-0": "windows-api-monitoring-and-hooking", "156-0": "windows-api-monitoring-and-hooking", "156-1": "windows-api-monitoring-and-hooking", "159-0": "privilege-escalation-tradecraft-analysis", "159-1": "privilege-escalation-tradecraft-analysis", "160-0": "privilege-escalation-tradecraft-analysis", "161-0": "privilege-escalation-tradecraft-analysis", "162-0": "privilege-escalation-tradecraft-analysis", "163-0": "privilege-escalation-tradecraft-analysis", "164-0": "privilege-escalation-tradecraft-analysis", "165-0": "privilege-escalation-tradecraft-analysis", "166-0": "privilege-escalation-tradecraft-analysis", "167-0": "privilege-escalation-tradecraft-analysis", "168-0": "privilege-escalation-tradecraft-analysis", "169-0": "privilege-escalation-tradecraft-analysis", "170-0": "privilege-escalation-tradecraft-analysis", "171-0": "privilege-escalation-tradecraft-analysis", "172-0": "privilege-escalation-tradecraft-analysis", "173-0": "privilege-escalation-tradecraft-analysis", "174-0": "privilege-escalation-tradecraft-analysis", "175-0": "privilege-escalation-tradecraft-analysis", "176-0": "privilege-escalation-tradecraft-analysis", "177-0": "privilege-escalation-tradecraft-analysis", "178-0": "privilege-escalation-tradecraft-analysis", "179-0": "privilege-escalation-tradecraft-analysis", "180-0": "privilege-escalation-tradecraft-analysis", "181-0": "privilege-escalation-tradecraft-analysis", "182-0": "privilege-escalation-tradecraft-analysis", "182-1": "privilege-escalation-tradecraft-analysis", "183-0": "persistence-tradecraft-analysis", "183-1": "persistence-tradecraft-analysis", "184-0": "persistence-tradecraft-analysis", "185-0": "persistence-tradecraft-analysis", "186-0": "persistence-tradecraft-analysis", "187-0": "persistence-tradecraft-analysis", "188-0": "persistence-tradecraft-analysis", "189-0": "persistence-tradecraft-analysis", "190-0": "persistence-tradecraft-analysis", "191-0": "persistence-tradecraft-analysis", "192-0": "persistence-tradecraft-analysis", "193-0": "persistence-tradecraft-analysis", "194-0": "persistence-tradecraft-analysis", "195-0": "persistence-tradecraft-analysis", "195-1": "persistence-tradecraft-analysis", "196-0": "wmi-tradecraft-analysis", "196-1": "wmi-tradecraft-analysis", "197-0": "wmi-tradecraft-analysis", "198-0": "wmi-tradecraft-analysis", "199-0": "wmi-tradecraft-analysis", "200-0": "wmi-tradecraft-analysis", "201-0": "wmi-tradecraft-analysis", "202-0": "wmi-tradecraft-analysis", "203-0": "wmi-tradecraft-analysis", "204-0": "wmi-tradecraft-analysis", "205-0": "wmi-tradecraft-analysis", "206-0": "wmi-tradecraft-analysis", "207-0": "wmi-tradecraft-analysis", "207-1": "wmi-tradecraft-analysis", "208-0": "credential-access-tradecraft-analysis", "208-1": "credential-access-tradecraft-analysis", "209-0": "credential-access-tradecraft-analysis", "210-0": "credential-access-tradecraft-analysis", "211-0": "credential-access-tradecraft-analysis", "212-0": "credential-access-tradecraft-analysis", "213-0": "credential-access-tradecraft-analysis", "214-0": "credential-access-tradecraft-analysis", "215-0": "credential-access-tradecraft-analysis", "216-0": "credential-access-tradecraft-analysis", "217-0": "credential-access-tradecraft-analysis", "218-0": "credential-access-tradecraft-analysis", "219-0": "credential-access-tradecraft-analysis", "220-0": "credential-access-tradecraft-analysis", "221-0": "credential-access-tradecraft-analysis", "222-0": "credential-access-tradecraft-analysis", "223-0": "credential-access-tradecraft-analysis", "224-0": "credential-access-tradecraft-analysis", "225-0": "credential-access-tradecraft-analysis", "226-0": "credential-access-tradecraft-analysis", "227-0": "credential-access-tradecraft-analysis", "228-0": "credential-access-tradecraft-analysis", "228-1": "credential-access-tradecraft-analysis", "231-0": "windows-kernel-telemetry--detection-techniques", "231-1": "windows-kernel-telemetry--detection-techniques", "232-0": "windows-kernel-telemetry--detection-techniques", "233-0": "windows-kernel-telemetry--detection-techniques", "234-0": "windows-kernel-telemetry--detection-techniques", "235-0": "windows-kernel-telemetry--detection-techniques", "236-0": "windows-kernel-telemetry--detection-techniques", "237-0": "windows-kernel-telemetry--detection-techniques", "238-0": "windows-kernel-telemetry--detection-techniques", "239-0": "windows-kernel-telemetry--detection-techniques", "240-0": "windows-kernel-telemetry--detection-techniques", "241-0": "windows-kernel-telemetry--detection-techniques", "242-0": "windows-kernel-telemetry--detection-techniques", "243-0": "windows-kernel-telemetry--detection-techniques", "244-0": "windows-kernel-telemetry--detection-techniques", "245-0": "windows-kernel-telemetry--detection-techniques", "246-0": "windows-kernel-telemetry--detection-techniques", "247-0": "windows-kernel-telemetry--detection-techniques", "248-0": "windows-kernel-telemetry--detection-techniques", "249-0": "windows-kernel-telemetry--detection-techniques", "250-0": "windows-kernel-telemetry--detection-techniques", "251-0": "windows-kernel-telemetry--detection-techniques", "252-0": "windows-kernel-telemetry--detection-techniques", "253-0": "windows-kernel-telemetry--detection-techniques", "254-0": "windows-kernel-telemetry--detection-techniques", "255-0": "windows-kernel-telemetry--detection-techniques", "255-1": "windows-kernel-telemetry--detection-techniques"}, "quick": [], "acc": {}, "badge": {}};
+const COST = {"code": "CDEP", "v": 450, "labs": "", "plans": [{"k": "plat", "n": "Platinum monthly", "per": 125, "unit": "mo", "inc": false, "student": false, "over": false}, {"k": "plat_y", "n": "Platinum Annual", "per": 2000, "unit": "yr", "inc": true, "student": false, "over": false}], "labsPrice": {"mo": 25, "yr": 223}};
 const WEEK_RAMP = ["#99f7fe", "#00eafc"];
 let DAYS = [];   // display days for the currently selected mode
 
@@ -4079,11 +4125,17 @@ document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     tb.classList.add("active");
+    const row = tb.parentNode, tr = row.getBoundingClientRect(), br = tb.getBoundingClientRect();  // phones: the tab row scrolls sideways; bring this tab into it (row only, never the page)
+    if(br.left < tr.left || br.right > tr.right) row.scrollLeft += br.left - tr.left - (tr.width - br.width) / 2;
     document.querySelectorAll(".tab").forEach(x=>{
       document.getElementById("tab-"+x.dataset.tab).classList.toggle("hidden", x!==tb);
     });
   });
 });
+
+/* phones: drop the right-edge fade once the tab row is scrolled to its end */
+(function(){ const t = document.querySelector(".tabs"); const f = () => t.classList.toggle("end", t.scrollLeft + t.clientWidth >= t.scrollWidth - 2);
+  t.addEventListener("scroll", f, {passive:true}); addEventListener("resize", f); f(); })();
 
 /* ---------- Controls ---------- */
 document.getElementById("startDate").addEventListener("change",e=>{
@@ -4186,7 +4238,58 @@ function renderAll(){
   document.getElementById("planWarn").hidden = !(state.plan!==PLAN_SIG && Object.keys(state.done).length);
   renderDashboard();
   renderPlan();
+  renderCost();
 }
+
+/* ---------- What It Costs: plan days -> months of Academy access + voucher ---------- */
+const COST_KEY = "cdep_cost_v1";
+let costOpt = {student:false, labs:false, have:false}, costView = null, costMode = null;  // costView: a timeline being compared, null = yours
+try{ Object.assign(costOpt, JSON.parse(localStorage.getItem(COST_KEY)) || {}); }catch(e){}
+const usd = n => "$" + n.toLocaleString("en-US");
+function costQuote(days){
+  const m = Math.ceil(days/30), yrs = Math.ceil(m/12);
+  const labs = costOpt.labs ? Math.min(m*COST.labsPrice.mo, yrs*COST.labsPrice.yr) : 0;
+  const rows = COST.plans.map(p => { const qty = p.unit==="mo" ? m : yrs, sub = qty*p.per, voucher = (p.inc||costOpt.have) ? 0 : COST.v;
+    return {p, qty, sub, voucher, labs, total:sub+voucher+labs, off:p.student && !costOpt.student}; });
+  return {m, rows, best: rows.filter(r => !r.p.over && !r.off).sort((a,b) => a.total-b.total)[0]};
+}
+const costQty = r => r.qty + (r.p.unit==="mo" ? (r.qty===1?" month":" months") : (r.qty===1?" year":" years"));
+function renderCost(){
+  if(costMode!==state.mode){ costMode = state.mode; costView = null; }  // a new timeline drops any comparison
+  /* one line under the timeline (its own span, so calling this again replaces it) */
+  const note = document.getElementById("endNote");
+  let cl = note.querySelector(".cl");
+  if(!cl){ cl = document.createElement("span"); cl.className = "cl"; note.appendChild(cl); }
+  const b = costQuote(MODES[state.mode].days).best;
+  cl.innerHTML = !b ? "" : '  ·  About <b>'+usd(b.total)+'</b>: '+(b.p.unit==="mo" ? costQty(b)+" of "+b.p.n.replace(" monthly","")+" ("+usd(b.sub)+")"+(b.voucher ? " + "+usd(b.voucher)+" voucher" : "") : b.p.n+", voucher included")+
+    (b.labs?" + Labs":"")+'. <a href="#" data-goto="cost">Compare plans &rarr;</a>';
+  /* the tab: one bar per plan; its timeline buttons only compare, they never change the plan */
+  const el = document.getElementById("costMount"); if(!el) return;
+  const mine = MODES[state.mode].days, d = costView || mine, q = costQuote(d);
+  const max = Math.max(...q.rows.filter(r => !r.p.over).map(r => r.total), 1);
+  el.innerHTML = '<div class="cmp"><div class="ctop"><div><div class="ttl">What your plan costs</div><div class="sub2">'+d+' days &asymp; '+q.m+(q.m===1?' month':' months')+' of access'+(d!==mine ? " &middot; just comparing, your plan is "+mine+" days" : "")+'</div></div>'+
+    '<span class="cseg">'+Object.keys(MODES).map(k => { const x = MODES[k].days; return '<button type="button" data-cd="'+x+'"'+(x===d?' class="on"':'')+'>'+x+'-day'+(x===mine?'<i>yours</i>':'')+'</button>'; }).join("")+'</span></div>'+
+    q.rows.map(r => '<div class="br'+(r===q.best?' best':'')+(r.p.over||r.off?' dim':'')+'"><div class="n"><b>'+r.p.n+'</b><small>'+(r===q.best?'<span class="pick">Cheapest</span> &middot; ':'')+costQty(r)+(r.p.inc?", voucher included":"")+(r.p.student?" &middot; Needs a student email":"")+(r.p.over?" &middot; more than the "+COST.code+" needs":"")+'</small></div>'+
+      '<div class="trk" aria-hidden="true"><i class="a" style="width:'+Math.min(100,r.sub/max*100)+'%"></i><i class="v" style="width:'+(r.voucher/max*100)+'%"></i><i class="x" style="width:'+(r.labs/max*100)+'%"></i></div><div class="tot">'+usd(r.total)+'</div></div>').join("")+
+    '<div class="ckey"><span><i class="sw a"></i>Subscription</span><span><i class="sw v"></i>Exam voucher</span><span><i class="sw x"></i>HTB Labs</span><span class="sp"></span>'+
+    (COST.plans.some(p => p.student)?'<label><input type="checkbox" data-co="student"'+(costOpt.student?' checked':'')+'> I have a student email</label>':'')+
+    '<label><input type="checkbox" data-co="labs"'+(costOpt.labs?' checked':'')+'> Add HTB Labs VIP+'+(COST.labs?' for the '+COST.labs:'')+'</label><label><input type="checkbox" data-co="have"'+(costOpt.have?' checked':'')+'> I have a voucher</label></div></div>';
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-goto]");
+  if(g){ e.preventDefault(); costView = null;
+    document.querySelector('.tab[data-tab="'+g.dataset.goto+'"]').click(); renderCost();
+    document.querySelector(".tabs").scrollIntoView({behavior:"smooth", block:"start"}); return; }
+  const c = e.target.closest("[data-cd]");
+  if(c){ costView = +c.dataset.cd; renderCost(); }
+});
+document.addEventListener("change", e => {
+  const i = e.target.closest("[data-co]"); if(!i) return;
+  costOpt[i.dataset.co] = i.checked;
+  try{ localStorage.setItem(COST_KEY, JSON.stringify(costOpt)); }catch(x){}
+  renderCost();
+});
+
 function init(){
   load();
   renderResources();

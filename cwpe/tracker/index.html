@@ -245,6 +245,41 @@
   .cost .pr i{font:500 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);font-style:normal}
   .cost tr.dim td{opacity:.7}
   .cost .yr{display:none;font-weight:700}
+  /* What It Costs: one bar per plan for a timeline */
+  .cmp{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:6px 0 14px}
+  .cmp .ctop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .cmp .ttl{font:700 15px "Chakra Petch",sans-serif;color:var(--txt)}
+  .cmp .sub2{font-size:12.5px;color:var(--faint)}
+  .cseg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .cseg button{background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:6px 11px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .cseg button:last-child{border-right:0}
+  .cseg button.on{background:var(--green);color:#fff}
+  .cseg button i{font-style:normal;font-size:10px;opacity:.8;margin-left:4px}
+  .br{display:grid;grid-template-columns:190px minmax(0,1fr) 84px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+  .br .n b{display:block;font-size:14px;color:var(--txt)}
+  .br .n small{font-size:11.5px;color:var(--faint)}
+  .br .n .pick{font:700 10.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;color:var(--green);text-transform:uppercase}
+  .br .trk{height:20px;background:var(--card);border-radius:5px;overflow:hidden;display:flex}
+  .br .trk i{display:block;height:100%;transition:width .3s}
+  .br .a,.ckey .sw.a{background:var(--green)}
+  .br .v,.ckey .sw.v{background:color-mix(in srgb,var(--green) 45%,var(--bg))}
+  .br .x,.ckey .sw.x{background:#3a4a66}
+  .br .tot{font:700 16px "IBM Plex Mono",ui-monospace,monospace;text-align:right;color:var(--txt)}
+  .br.best .tot{color:var(--green)}
+  .br.dim{opacity:.45}
+  .ckey{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--faint);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .ckey .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .ckey .sp{flex:1}
+  .ckey label{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--muted);font-size:12.5px}
+  .ckey input{accent-color:var(--green);margin:0}
+  .endnote .cl a{color:var(--green);text-decoration:none;white-space:nowrap}
+  .endnote .cl a:hover{text-decoration:underline}
+  .endnote .cl b{color:var(--txt)}
+  @media (prefers-reduced-motion:reduce){.br .trk i{transition:none}}
+  @media (max-width:640px){.tabs{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+    .tabs.end{-webkit-mask-image:none;mask-image:none}.tab{flex:0 0 auto;white-space:nowrap;padding-left:12px;padding-right:12px}
+    .br{grid-template-columns:1fr 74px;gap:6px 10px}.br .trk{grid-column:1/-1;grid-row:2}
+    .cseg{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent)}}
   .callout{background:rgba(255,180,84,.1);border:1px solid rgba(255,180,84,.3);
     border-radius:8px;padding:11px 14px;font-size:13px;color:var(--amber);margin:10px 0}
 
@@ -373,17 +408,17 @@
   .pb-none{color:var(--faint);font-size:13px;padding:8px 10px}
   .pb [hidden]{display:none!important}
   .pb-rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
-  .pb-rh{display:grid;grid-template-columns:18px 30px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .pb-rh{display:grid;grid-template-columns:18px 44px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
   .pb-rh:hover{background:var(--card)}
   .pb-cv{color:var(--faint);font-size:12px;transition:transform .15s;display:inline-block}
   [aria-expanded="true"]>.pb-cv{transform:rotate(90deg);color:var(--pb-link)}
-  .pb-rn{font:700 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--pb-link)}
+  .pb-rn{font:700 26px/1 "Chakra Petch",sans-serif;letter-spacing:-.02em;color:var(--pb-link)}
   .pb-rt{font:700 19px/1.2 "Chakra Petch",sans-serif;display:block}
   .pb-rs{font-size:13px;color:var(--faint);display:block;margin-top:1px}
   .pb-mbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
   .pb-rc{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-align:right;white-space:nowrap}
   .pb-rg.full .pb-rc{color:var(--pb-link)}
-  .pb-goal{margin:0;padding:10px 16px 10px 76px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
+  .pb-goal{margin:0;padding:10px 16px 10px 90px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
   .pb-bx{border-bottom:1px solid var(--card)}
   .pb-bx:last-child{border-bottom:0}
   .pb-bh{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px 10px 46px;cursor:pointer}
@@ -526,6 +561,7 @@
     <button class="tab active" data-tab="plan">Study Plan</button>
     <button class="tab" data-tab="practice">Practice Boxes</button>
     <button class="tab" data-tab="resources">Resource Library</button>
+    <button class="tab" data-tab="cost">What It Costs</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
 
@@ -559,19 +595,7 @@
       <p>You also submit a <strong>commercial-grade report</strong> within <strong>7 days</strong> of entering the exam, in English, as a PDF or ZIP of 20 MB or less, based on HTB's template. An instructor grades both the points and the report. You get <strong>2 attempts per voucher</strong>, and the free retake has to start within 14 days of your feedback. Results arrive within 20 business days.</p>
 
       <h3>What it costs</h3>
-      <p>You pay for two things: access to the modules, and the exam voucher. The CWPE voucher is <strong>$350</strong> on its own, and the path needs modules up to <strong>Tier III</strong>, which the Student and Silver plans don't include.</p>
-      <table class="cost">
-        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
-        <tr><td><strong>Gold monthly</strong></td><td class="pr">$95<i>/month</i></td><td>Up to Tier III</td><td>Buy separately, $350</td></tr>
-        <tr><td><strong>Gold Annual</strong></td><td class="pr">$1,400<i>/year</i></td><td>Up to Tier III</td><td>Included, plus a CJCA voucher</td></tr>
-      </table>
-      <p>HTB Labs is optional extra practice outside the Academy, billed separately. You don't need it for this exam.</p>
-      <table class="cost labs">
-        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
-        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
-        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
-      </table>
-      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
+      <p>Plan prices, the voucher, and what your timeline costs are on the <a href="#" data-goto="cost">What It Costs</a> tab.</p>
 
       <h3>The 10 modules in order</h3>
       <ul>
@@ -606,6 +630,27 @@
 
       <p style="font-size:12px;color:var(--faint);margin-top:14px">This is an independent study aid and is not affiliated with or endorsed by Hack The Box. Always confirm current module counts, exam format, and pricing on the official HTB Academy site.</p>
       <p style="font-size:12px;color:var(--faint);margin-top:6px">Built on and inspired by mattrfield's <a href="https://github.com/mattrfield/coae-study-tracker">coae-study-tracker</a>.</p>
+    </div>
+  </div>
+
+  <!-- What It Costs -->
+  <div id="tab-cost" class="hidden">
+    <div class="about">
+      <h3>What it costs</h3>
+      <p>You pay for two things: access to the modules, and the exam voucher. The CWPE voucher is <strong>$350</strong> on its own, and the path needs modules up to <strong>Tier III</strong>, which the Student and Silver plans don't include.</p>
+      <div id="costMount"></div>
+      <table class="cost">
+        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
+        <tr><td><strong>Gold monthly</strong></td><td class="pr">$95<i>/month</i></td><td>Up to Tier III</td><td>Buy separately, $350</td></tr>
+        <tr><td><strong>Gold Annual</strong></td><td class="pr">$1,400<i>/year</i></td><td>Up to Tier III</td><td>Included, plus a CJCA voucher</td></tr>
+      </table>
+      <p>HTB Labs is optional extra practice outside the Academy, billed separately. You don't need it for this exam.</p>
+      <table class="cost labs">
+        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
+        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
+        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
+      </table>
+      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
     </div>
   </div>
 
@@ -2403,6 +2448,7 @@ const MODES = {
   }
 };
 const MODS_DONE = {"mods": [["wi-fi-penetration-testing-basics", "Wi-Fi Penetration Testing Basics", 16], ["attacking-wi-fi-protected-setup-wps", "Attacking Wi-Fi Protected Setup (WPS)", 13], ["wired-equivalent-privacy-wep-attacks", "Wired Equivalent Privacy (WEP) Attacks", 13], ["attacking-wpawpa2-wi-fi-networks", "Attacking WPA/WPA2 Wi-Fi Networks", 15], ["wi-fi-evil-twin-attacks", "Wi-Fi Evil Twin Attacks", 16], ["attacking-wpa3-wi-fi-networks", "Attacking WPA3 Wi-Fi Networks", 16], ["bypassing-wi-fi-captive-portals", "Bypassing Wi-Fi Captive Portals", 17], ["wi-fi-password-cracking-techniques", "Wi-Fi Password Cracking Techniques", 16], ["wi-fi-penetration-testing-tools-and-techniques", "Wi-Fi Penetration Testing Tools and Techniques", 30], ["attacking-corporate-wi-fi-networks", "Attacking Corporate Wi-Fi Networks", 18]], "taskMod": {"3-0": "wi-fi-penetration-testing-basics", "3-1": "wi-fi-penetration-testing-basics", "4-0": "wi-fi-penetration-testing-basics", "5-0": "wi-fi-penetration-testing-basics", "6-0": "wi-fi-penetration-testing-basics", "7-0": "wi-fi-penetration-testing-basics", "8-0": "wi-fi-penetration-testing-basics", "8-1": "wi-fi-penetration-testing-basics", "11-0": "attacking-wi-fi-protected-setup-wps", "11-1": "attacking-wi-fi-protected-setup-wps", "12-0": "attacking-wi-fi-protected-setup-wps", "13-0": "attacking-wi-fi-protected-setup-wps", "14-0": "attacking-wi-fi-protected-setup-wps", "15-0": "attacking-wi-fi-protected-setup-wps", "16-0": "attacking-wi-fi-protected-setup-wps", "16-1": "attacking-wi-fi-protected-setup-wps", "17-0": "wired-equivalent-privacy-wep-attacks", "17-1": "wired-equivalent-privacy-wep-attacks", "18-0": "wired-equivalent-privacy-wep-attacks", "19-0": "wired-equivalent-privacy-wep-attacks", "20-0": "wired-equivalent-privacy-wep-attacks", "21-0": "wired-equivalent-privacy-wep-attacks", "22-0": "wired-equivalent-privacy-wep-attacks", "22-1": "wired-equivalent-privacy-wep-attacks", "25-0": "attacking-wpawpa2-wi-fi-networks", "25-1": "attacking-wpawpa2-wi-fi-networks", "26-0": "attacking-wpawpa2-wi-fi-networks", "27-0": "attacking-wpawpa2-wi-fi-networks", "28-0": "attacking-wpawpa2-wi-fi-networks", "29-0": "attacking-wpawpa2-wi-fi-networks", "30-0": "attacking-wpawpa2-wi-fi-networks", "31-0": "attacking-wpawpa2-wi-fi-networks", "32-0": "attacking-wpawpa2-wi-fi-networks", "33-0": "attacking-wpawpa2-wi-fi-networks", "34-0": "attacking-wpawpa2-wi-fi-networks", "35-0": "attacking-wpawpa2-wi-fi-networks", "35-1": "attacking-wpawpa2-wi-fi-networks", "36-0": "wi-fi-evil-twin-attacks", "36-1": "wi-fi-evil-twin-attacks", "37-0": "wi-fi-evil-twin-attacks", "38-0": "wi-fi-evil-twin-attacks", "39-0": "wi-fi-evil-twin-attacks", "40-0": "wi-fi-evil-twin-attacks", "41-0": "wi-fi-evil-twin-attacks", "42-0": "wi-fi-evil-twin-attacks", "43-0": "wi-fi-evil-twin-attacks", "44-0": "wi-fi-evil-twin-attacks", "45-0": "wi-fi-evil-twin-attacks", "46-0": "wi-fi-evil-twin-attacks", "46-1": "wi-fi-evil-twin-attacks", "49-0": "attacking-wpa3-wi-fi-networks", "49-1": "attacking-wpa3-wi-fi-networks", "50-0": "attacking-wpa3-wi-fi-networks", "51-0": "attacking-wpa3-wi-fi-networks", "52-0": "attacking-wpa3-wi-fi-networks", "53-0": "attacking-wpa3-wi-fi-networks", "54-0": "attacking-wpa3-wi-fi-networks", "55-0": "attacking-wpa3-wi-fi-networks", "56-0": "attacking-wpa3-wi-fi-networks", "57-0": "attacking-wpa3-wi-fi-networks", "58-0": "attacking-wpa3-wi-fi-networks", "59-0": "attacking-wpa3-wi-fi-networks", "59-1": "attacking-wpa3-wi-fi-networks", "60-0": "bypassing-wi-fi-captive-portals", "60-1": "bypassing-wi-fi-captive-portals", "61-0": "bypassing-wi-fi-captive-portals", "62-0": "bypassing-wi-fi-captive-portals", "63-0": "bypassing-wi-fi-captive-portals", "64-0": "bypassing-wi-fi-captive-portals", "65-0": "bypassing-wi-fi-captive-portals", "66-0": "bypassing-wi-fi-captive-portals", "67-0": "bypassing-wi-fi-captive-portals", "68-0": "bypassing-wi-fi-captive-portals", "69-0": "bypassing-wi-fi-captive-portals", "70-0": "bypassing-wi-fi-captive-portals", "70-1": "bypassing-wi-fi-captive-portals", "73-0": "wi-fi-password-cracking-techniques", "73-1": "wi-fi-password-cracking-techniques", "74-0": "wi-fi-password-cracking-techniques", "75-0": "wi-fi-password-cracking-techniques", "76-0": "wi-fi-password-cracking-techniques", "77-0": "wi-fi-password-cracking-techniques", "78-0": "wi-fi-password-cracking-techniques", "78-1": "wi-fi-password-cracking-techniques", "79-0": "wi-fi-penetration-testing-tools-and-techniques", "79-1": "wi-fi-penetration-testing-tools-and-techniques", "80-0": "wi-fi-penetration-testing-tools-and-techniques", "81-0": "wi-fi-penetration-testing-tools-and-techniques", "82-0": "wi-fi-penetration-testing-tools-and-techniques", "83-0": "wi-fi-penetration-testing-tools-and-techniques", "84-0": "wi-fi-penetration-testing-tools-and-techniques", "85-0": "wi-fi-penetration-testing-tools-and-techniques", "86-0": "wi-fi-penetration-testing-tools-and-techniques", "87-0": "wi-fi-penetration-testing-tools-and-techniques", "88-0": "wi-fi-penetration-testing-tools-and-techniques", "89-0": "wi-fi-penetration-testing-tools-and-techniques", "90-0": "wi-fi-penetration-testing-tools-and-techniques", "91-0": "wi-fi-penetration-testing-tools-and-techniques", "92-0": "wi-fi-penetration-testing-tools-and-techniques", "93-0": "wi-fi-penetration-testing-tools-and-techniques", "94-0": "wi-fi-penetration-testing-tools-and-techniques", "95-0": "wi-fi-penetration-testing-tools-and-techniques", "96-0": "wi-fi-penetration-testing-tools-and-techniques", "97-0": "wi-fi-penetration-testing-tools-and-techniques", "98-0": "wi-fi-penetration-testing-tools-and-techniques", "98-1": "wi-fi-penetration-testing-tools-and-techniques", "101-0": "attacking-corporate-wi-fi-networks", "101-1": "attacking-corporate-wi-fi-networks", "102-0": "attacking-corporate-wi-fi-networks", "103-0": "attacking-corporate-wi-fi-networks", "104-0": "attacking-corporate-wi-fi-networks", "105-0": "attacking-corporate-wi-fi-networks", "106-0": "attacking-corporate-wi-fi-networks", "107-0": "attacking-corporate-wi-fi-networks", "108-0": "attacking-corporate-wi-fi-networks", "109-0": "attacking-corporate-wi-fi-networks", "110-0": "attacking-corporate-wi-fi-networks", "111-0": "attacking-corporate-wi-fi-networks", "111-1": "attacking-corporate-wi-fi-networks"}, "quick": [], "acc": {}, "badge": {}};
+const COST = {"code": "CWPE", "v": 350, "labs": "", "plans": [{"k": "gold", "n": "Gold monthly", "per": 95, "unit": "mo", "inc": false, "student": false, "over": false}, {"k": "gold_y", "n": "Gold Annual", "per": 1400, "unit": "yr", "inc": true, "student": false, "over": false}], "labsPrice": {"mo": 25, "yr": 223}};
 const WEEK_RAMP = ["#f9bda5", "#f05a1e"];
 let DAYS = [];   // display days for the currently selected mode
 
@@ -2804,11 +2850,17 @@ document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     tb.classList.add("active");
+    const row = tb.parentNode, tr = row.getBoundingClientRect(), br = tb.getBoundingClientRect();  // phones: the tab row scrolls sideways; bring this tab into it (row only, never the page)
+    if(br.left < tr.left || br.right > tr.right) row.scrollLeft += br.left - tr.left - (tr.width - br.width) / 2;
     document.querySelectorAll(".tab").forEach(x=>{
       document.getElementById("tab-"+x.dataset.tab).classList.toggle("hidden", x!==tb);
     });
   });
 });
+
+/* phones: drop the right-edge fade once the tab row is scrolled to its end */
+(function(){ const t = document.querySelector(".tabs"); const f = () => t.classList.toggle("end", t.scrollLeft + t.clientWidth >= t.scrollWidth - 2);
+  t.addEventListener("scroll", f, {passive:true}); addEventListener("resize", f); f(); })();
 
 /* ---------- Controls ---------- */
 document.getElementById("startDate").addEventListener("change",e=>{
@@ -2911,7 +2963,58 @@ function renderAll(){
   document.getElementById("planWarn").hidden = !(state.plan!==PLAN_SIG && Object.keys(state.done).length);
   renderDashboard();
   renderPlan();
+  renderCost();
 }
+
+/* ---------- What It Costs: plan days -> months of Academy access + voucher ---------- */
+const COST_KEY = "cwpe_cost_v1";
+let costOpt = {student:false, labs:false, have:false}, costView = null, costMode = null;  // costView: a timeline being compared, null = yours
+try{ Object.assign(costOpt, JSON.parse(localStorage.getItem(COST_KEY)) || {}); }catch(e){}
+const usd = n => "$" + n.toLocaleString("en-US");
+function costQuote(days){
+  const m = Math.ceil(days/30), yrs = Math.ceil(m/12);
+  const labs = costOpt.labs ? Math.min(m*COST.labsPrice.mo, yrs*COST.labsPrice.yr) : 0;
+  const rows = COST.plans.map(p => { const qty = p.unit==="mo" ? m : yrs, sub = qty*p.per, voucher = (p.inc||costOpt.have) ? 0 : COST.v;
+    return {p, qty, sub, voucher, labs, total:sub+voucher+labs, off:p.student && !costOpt.student}; });
+  return {m, rows, best: rows.filter(r => !r.p.over && !r.off).sort((a,b) => a.total-b.total)[0]};
+}
+const costQty = r => r.qty + (r.p.unit==="mo" ? (r.qty===1?" month":" months") : (r.qty===1?" year":" years"));
+function renderCost(){
+  if(costMode!==state.mode){ costMode = state.mode; costView = null; }  // a new timeline drops any comparison
+  /* one line under the timeline (its own span, so calling this again replaces it) */
+  const note = document.getElementById("endNote");
+  let cl = note.querySelector(".cl");
+  if(!cl){ cl = document.createElement("span"); cl.className = "cl"; note.appendChild(cl); }
+  const b = costQuote(MODES[state.mode].days).best;
+  cl.innerHTML = !b ? "" : '  ·  About <b>'+usd(b.total)+'</b>: '+(b.p.unit==="mo" ? costQty(b)+" of "+b.p.n.replace(" monthly","")+" ("+usd(b.sub)+")"+(b.voucher ? " + "+usd(b.voucher)+" voucher" : "") : b.p.n+", voucher included")+
+    (b.labs?" + Labs":"")+'. <a href="#" data-goto="cost">Compare plans &rarr;</a>';
+  /* the tab: one bar per plan; its timeline buttons only compare, they never change the plan */
+  const el = document.getElementById("costMount"); if(!el) return;
+  const mine = MODES[state.mode].days, d = costView || mine, q = costQuote(d);
+  const max = Math.max(...q.rows.filter(r => !r.p.over).map(r => r.total), 1);
+  el.innerHTML = '<div class="cmp"><div class="ctop"><div><div class="ttl">What your plan costs</div><div class="sub2">'+d+' days &asymp; '+q.m+(q.m===1?' month':' months')+' of access'+(d!==mine ? " &middot; just comparing, your plan is "+mine+" days" : "")+'</div></div>'+
+    '<span class="cseg">'+Object.keys(MODES).map(k => { const x = MODES[k].days; return '<button type="button" data-cd="'+x+'"'+(x===d?' class="on"':'')+'>'+x+'-day'+(x===mine?'<i>yours</i>':'')+'</button>'; }).join("")+'</span></div>'+
+    q.rows.map(r => '<div class="br'+(r===q.best?' best':'')+(r.p.over||r.off?' dim':'')+'"><div class="n"><b>'+r.p.n+'</b><small>'+(r===q.best?'<span class="pick">Cheapest</span> &middot; ':'')+costQty(r)+(r.p.inc?", voucher included":"")+(r.p.student?" &middot; Needs a student email":"")+(r.p.over?" &middot; more than the "+COST.code+" needs":"")+'</small></div>'+
+      '<div class="trk" aria-hidden="true"><i class="a" style="width:'+Math.min(100,r.sub/max*100)+'%"></i><i class="v" style="width:'+(r.voucher/max*100)+'%"></i><i class="x" style="width:'+(r.labs/max*100)+'%"></i></div><div class="tot">'+usd(r.total)+'</div></div>').join("")+
+    '<div class="ckey"><span><i class="sw a"></i>Subscription</span><span><i class="sw v"></i>Exam voucher</span><span><i class="sw x"></i>HTB Labs</span><span class="sp"></span>'+
+    (COST.plans.some(p => p.student)?'<label><input type="checkbox" data-co="student"'+(costOpt.student?' checked':'')+'> I have a student email</label>':'')+
+    '<label><input type="checkbox" data-co="labs"'+(costOpt.labs?' checked':'')+'> Add HTB Labs VIP+'+(COST.labs?' for the '+COST.labs:'')+'</label><label><input type="checkbox" data-co="have"'+(costOpt.have?' checked':'')+'> I have a voucher</label></div></div>';
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-goto]");
+  if(g){ e.preventDefault(); costView = null;
+    document.querySelector('.tab[data-tab="'+g.dataset.goto+'"]').click(); renderCost();
+    document.querySelector(".tabs").scrollIntoView({behavior:"smooth", block:"start"}); return; }
+  const c = e.target.closest("[data-cd]");
+  if(c){ costView = +c.dataset.cd; renderCost(); }
+});
+document.addEventListener("change", e => {
+  const i = e.target.closest("[data-co]"); if(!i) return;
+  costOpt[i.dataset.co] = i.checked;
+  try{ localStorage.setItem(COST_KEY, JSON.stringify(costOpt)); }catch(x){}
+  renderCost();
+});
+
 function init(){
   load();
   renderResources();

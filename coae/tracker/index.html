@@ -245,6 +245,41 @@
   .cost .pr i{font:500 11px "IBM Plex Mono",ui-monospace,monospace;color:var(--faint);font-style:normal}
   .cost tr.dim td{opacity:.7}
   .cost .yr{display:none;font-weight:700}
+  /* What It Costs: one bar per plan for a timeline */
+  .cmp{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:6px 0 14px}
+  .cmp .ctop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .cmp .ttl{font:700 15px "Chakra Petch",sans-serif;color:var(--txt)}
+  .cmp .sub2{font-size:12.5px;color:var(--faint)}
+  .cseg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .cseg button{background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:6px 11px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .cseg button:last-child{border-right:0}
+  .cseg button.on{background:var(--green);color:#0d1320}
+  .cseg button i{font-style:normal;font-size:10px;opacity:.8;margin-left:4px}
+  .br{display:grid;grid-template-columns:190px minmax(0,1fr) 84px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+  .br .n b{display:block;font-size:14px;color:var(--txt)}
+  .br .n small{font-size:11.5px;color:var(--faint)}
+  .br .n .pick{font:700 10.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;color:var(--green);text-transform:uppercase}
+  .br .trk{height:20px;background:var(--card);border-radius:5px;overflow:hidden;display:flex}
+  .br .trk i{display:block;height:100%;transition:width .3s}
+  .br .a,.ckey .sw.a{background:var(--green)}
+  .br .v,.ckey .sw.v{background:color-mix(in srgb,var(--green) 45%,var(--bg))}
+  .br .x,.ckey .sw.x{background:#3a4a66}
+  .br .tot{font:700 16px "IBM Plex Mono",ui-monospace,monospace;text-align:right;color:var(--txt)}
+  .br.best .tot{color:var(--green)}
+  .br.dim{opacity:.45}
+  .ckey{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--faint);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .ckey .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .ckey .sp{flex:1}
+  .ckey label{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--muted);font-size:12.5px}
+  .ckey input{accent-color:var(--green);margin:0}
+  .endnote .cl a{color:var(--green);text-decoration:none;white-space:nowrap}
+  .endnote .cl a:hover{text-decoration:underline}
+  .endnote .cl b{color:var(--txt)}
+  @media (prefers-reduced-motion:reduce){.br .trk i{transition:none}}
+  @media (max-width:640px){.tabs{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+    .tabs.end{-webkit-mask-image:none;mask-image:none}.tab{flex:0 0 auto;white-space:nowrap;padding-left:12px;padding-right:12px}
+    .br{grid-template-columns:1fr 74px;gap:6px 10px}.br .trk{grid-column:1/-1;grid-row:2}
+    .cseg{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent)}}
   .callout{background:rgba(255,180,84,.1);border:1px solid rgba(255,180,84,.3);
     border-radius:8px;padding:11px 14px;font-size:13px;color:var(--amber);margin:10px 0}
 
@@ -373,17 +408,17 @@
   .pb-none{color:var(--faint);font-size:13px;padding:8px 10px}
   .pb [hidden]{display:none!important}
   .pb-rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
-  .pb-rh{display:grid;grid-template-columns:18px 30px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .pb-rh{display:grid;grid-template-columns:18px 44px minmax(0,1fr) 130px 52px;gap:12px;align-items:center;width:100%;padding:14px 16px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
   .pb-rh:hover{background:var(--card)}
   .pb-cv{color:var(--faint);font-size:12px;transition:transform .15s;display:inline-block}
   [aria-expanded="true"]>.pb-cv{transform:rotate(90deg);color:var(--pb-link)}
-  .pb-rn{font:700 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--pb-link)}
+  .pb-rn{font:700 26px/1 "Chakra Petch",sans-serif;letter-spacing:-.02em;color:var(--pb-link)}
   .pb-rt{font:700 19px/1.2 "Chakra Petch",sans-serif;display:block}
   .pb-rs{font-size:13px;color:var(--faint);display:block;margin-top:1px}
   .pb-mbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
   .pb-rc{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-align:right;white-space:nowrap}
   .pb-rg.full .pb-rc{color:var(--pb-link)}
-  .pb-goal{margin:0;padding:10px 16px 10px 76px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
+  .pb-goal{margin:0;padding:10px 16px 10px 90px;font-size:13px;color:var(--faint);border-top:1px solid var(--line);border-bottom:1px solid var(--card)}
   .pb-bx{border-bottom:1px solid var(--card)}
   .pb-bx:last-child{border-bottom:0}
   .pb-bh{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px 10px 46px;cursor:pointer}
@@ -526,6 +561,7 @@
     <button class="tab active" data-tab="plan">Study Plan</button>
     <button class="tab" data-tab="practice">Practice Boxes</button>
     <button class="tab" data-tab="resources">Resource Library</button>
+    <button class="tab" data-tab="cost">What It Costs</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
 
@@ -559,21 +595,7 @@
       <p>HTB recommends the <strong>Silver Annual</strong> subscription, which includes the full path plus an exam voucher. You get a <strong>second attempt</strong> only if you submitted a report on the first, and results with feedback arrive within 20 business days.</p>
 
       <h3>What it costs</h3>
-      <p>You pay for two things: access to the modules, and the exam voucher. The COAE voucher is <strong>$210</strong> on its own, and the path needs modules up to <strong>Tier II</strong>.</p>
-      <table class="cost">
-        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
-        <tr><td><strong>Student</strong><span>Needs a Student Email</span></td><td class="pr">$10<i>/month</i></td><td>Up to Tier II</td><td>Buy separately, $210</td></tr>
-        <tr><td><strong>Silver monthly</strong></td><td class="pr">$30<i>/month</i></td><td>Up to Tier II</td><td>Buy separately, $210</td></tr>
-        <tr><td><strong>Silver Annual</strong></td><td class="pr">$550<i>/year</i></td><td>Up to Tier II</td><td>Included, plus a CJCA voucher</td></tr>
-        <tr class="dim"><td><strong>Gold Annual</strong><span>More Than the COAE Needs</span></td><td class="pr">$1,400<i>/year</i></td><td>Up to Tier III</td><td>Included, plus a CJCA voucher</td></tr>
-      </table>
-      <p>The practice machines and challenges in this tracker are optional. They are on HTB Labs, which is billed separately from the Academy.</p>
-      <table class="cost labs">
-        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
-        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
-        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
-      </table>
-      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
+      <p>Plan prices, the voucher, and what your timeline costs are on the <a href="#" data-goto="cost">What It Costs</a> tab.</p>
 
       <h3>The 12 modules in order</h3>
       <ul>
@@ -607,6 +629,29 @@
 
       <p style="font-size:12px;color:var(--faint);margin-top:14px">This is an independent study aid and is not affiliated with or endorsed by Hack The Box. Always confirm current module counts, exam format, and pricing on the official HTB Academy site.</p>
       <p style="font-size:12px;color:var(--faint);margin-top:6px">Forked from mattrfield's <a href="https://github.com/mattrfield/coae-study-tracker">coae-study-tracker</a>.</p>
+    </div>
+  </div>
+
+  <!-- What It Costs -->
+  <div id="tab-cost" class="hidden">
+    <div class="about">
+      <h3>What it costs</h3>
+      <p>You pay for two things: access to the modules, and the exam voucher. The COAE voucher is <strong>$210</strong> on its own, and the path needs modules up to <strong>Tier II</strong>.</p>
+      <div id="costMount"></div>
+      <table class="cost">
+        <tr><th>Plan</th><th>Price</th><th>Modules</th><th>Exam voucher</th></tr>
+        <tr><td><strong>Student</strong><span>Needs a Student Email</span></td><td class="pr">$10<i>/month</i></td><td>Up to Tier II</td><td>Buy separately, $210</td></tr>
+        <tr><td><strong>Silver monthly</strong></td><td class="pr">$30<i>/month</i></td><td>Up to Tier II</td><td>Buy separately, $210</td></tr>
+        <tr><td><strong>Silver Annual</strong></td><td class="pr">$550<i>/year</i></td><td>Up to Tier II</td><td>Included, plus a CJCA voucher</td></tr>
+        <tr class="dim"><td><strong>Gold Annual</strong><span>More Than the COAE Needs</span></td><td class="pr">$1,400<i>/year</i></td><td>Up to Tier III</td><td>Included, plus a CJCA voucher</td></tr>
+      </table>
+      <p>The practice machines and challenges in this tracker are optional. They are on HTB Labs, which is billed separately from the Academy.</p>
+      <table class="cost labs">
+        <tr><th>Labs plan</th><th>Monthly</th><th>Yearly</th><th>What it opens</th></tr>
+        <tr><td><strong>VIP+</strong><span>Optional</span></td><td class="pr">$25<i>/month</i><b class="yr">$223<i>/year</i></b></td><td class="pr">$223<i>/year</i></td><td>Retired machines, challenges and Sherlocks</td></tr>
+        <tr><td><strong>HTB PRO</strong><span>Optional</span></td><td class="pr">$49<i>/month</i><b class="yr">$490<i>/year</i></b></td><td class="pr">$490<i>/year</i></td><td>Everything in VIP+, plus 10 Pro Labs</td></tr>
+      </table>
+      <p class="fine">Academy prices from October 12, 2026 and Labs prices from October 2, 2026, in USD before tax. Plans change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy</a> and <a href="https://help.hackthebox.com/en/articles/7257535-htb-labs-subscriptions" target="_blank" rel="noopener">Labs</a> subscription pages before you buy.</p>
     </div>
   </div>
 
@@ -2909,6 +2954,7 @@ const MODES = {
   }
 };
 const MODS_DONE = {"mods": [["fundamentals-of-ai", "Fundamentals of AI", 24], ["applications-of-ai-in-infosec", "Applications of AI in InfoSec", 25], ["introduction-to-red-teaming-ai", "Introduction to Red Teaming AI", 11], ["prompt-injection-attacks", "Prompt Injection Attacks", 12], ["llm-output-attacks", "LLM Output Attacks", 14], ["ai-data-attacks", "AI Data Attacks", 25], ["attacking-ai---application-and-system", "Attacking AI - Application and System", 14], ["ai-evasion---foundations", "AI Evasion - Foundations", 12], ["ai-evasion---first-order-attacks", "AI Evasion - First-Order Attacks", 23], ["ai-evasion---sparsity-attacks", "AI Evasion - Sparsity Attacks", 28], ["ai-privacy", "AI Privacy", 21], ["ai-defense", "AI Defense", 21]], "taskMod": {"8-0": "fundamentals-of-ai", "8-1": "fundamentals-of-ai", "9-0": "fundamentals-of-ai", "10-0": "fundamentals-of-ai", "11-0": "fundamentals-of-ai", "12-0": "fundamentals-of-ai", "15-0": "fundamentals-of-ai", "16-0": "fundamentals-of-ai", "17-0": "fundamentals-of-ai", "17-1": "fundamentals-of-ai", "18-0": "applications-of-ai-in-infosec", "18-2": "applications-of-ai-in-infosec", "19-0": "applications-of-ai-in-infosec", "20-0": "applications-of-ai-in-infosec", "22-0": "applications-of-ai-in-infosec", "23-0": "applications-of-ai-in-infosec", "24-0": "applications-of-ai-in-infosec", "25-0": "applications-of-ai-in-infosec", "26-0": "applications-of-ai-in-infosec", "27-0": "applications-of-ai-in-infosec", "29-0": "introduction-to-red-teaming-ai", "29-1": "introduction-to-red-teaming-ai", "30-0": "introduction-to-red-teaming-ai", "31-0": "introduction-to-red-teaming-ai", "32-0": "introduction-to-red-teaming-ai", "36-0": "prompt-injection-attacks", "36-1": "prompt-injection-attacks", "37-0": "prompt-injection-attacks", "38-0": "prompt-injection-attacks", "39-0": "prompt-injection-attacks", "40-0": "prompt-injection-attacks", "41-0": "prompt-injection-attacks", "42-0": "prompt-injection-attacks", "42-1": "prompt-injection-attacks", "44-0": "llm-output-attacks", "44-1": "llm-output-attacks", "45-0": "llm-output-attacks", "46-0": "llm-output-attacks", "47-0": "llm-output-attacks", "48-0": "llm-output-attacks", "49-0": "llm-output-attacks", "50-0": "llm-output-attacks", "50-1": "llm-output-attacks", "53-0": "ai-data-attacks", "53-1": "ai-data-attacks", "54-0": "ai-data-attacks", "55-0": "ai-data-attacks", "56-0": "ai-data-attacks", "57-0": "ai-data-attacks", "58-0": "ai-data-attacks", "59-0": "ai-data-attacks", "60-0": "ai-data-attacks", "61-0": "ai-data-attacks", "62-0": "ai-data-attacks", "63-0": "ai-data-attacks", "64-0": "ai-data-attacks", "65-0": "ai-data-attacks", "66-0": "ai-data-attacks", "67-0": "ai-data-attacks", "68-0": "ai-data-attacks", "69-0": "ai-data-attacks", "70-0": "ai-data-attacks", "72-0": "attacking-ai---application-and-system", "72-1": "attacking-ai---application-and-system", "73-0": "attacking-ai---application-and-system", "74-0": "attacking-ai---application-and-system", "75-0": "attacking-ai---application-and-system", "76-0": "attacking-ai---application-and-system", "77-0": "attacking-ai---application-and-system", "78-0": "attacking-ai---application-and-system", "79-0": "ai-evasion---foundations", "79-1": "ai-evasion---foundations", "80-0": "ai-evasion---foundations", "82-0": "ai-evasion---foundations", "83-0": "ai-evasion---foundations", "84-0": "ai-evasion---foundations", "85-0": "ai-evasion---foundations", "86-0": "ai-evasion---foundations", "87-0": "ai-evasion---foundations", "88-0": "ai-evasion---first-order-attacks", "88-1": "ai-evasion---first-order-attacks", "89-0": "ai-evasion---first-order-attacks", "90-0": "ai-evasion---first-order-attacks", "91-0": "ai-evasion---first-order-attacks", "92-0": "ai-evasion---first-order-attacks", "93-0": "ai-evasion---first-order-attacks", "95-0": "ai-evasion---first-order-attacks", "96-0": "ai-evasion---first-order-attacks", "97-0": "ai-evasion---first-order-attacks", "98-0": "ai-evasion---first-order-attacks", "99-0": "ai-evasion---first-order-attacks", "100-0": "ai-evasion---sparsity-attacks", "100-1": "ai-evasion---sparsity-attacks", "101-0": "ai-evasion---sparsity-attacks", "102-0": "ai-evasion---sparsity-attacks", "103-0": "ai-evasion---sparsity-attacks", "104-0": "ai-evasion---sparsity-attacks", "105-0": "ai-evasion---sparsity-attacks", "106-0": "ai-evasion---sparsity-attacks", "107-0": "ai-evasion---sparsity-attacks", "108-0": "ai-evasion---sparsity-attacks", "110-0": "ai-evasion---sparsity-attacks", "111-0": "ai-evasion---sparsity-attacks", "112-0": "ai-evasion---sparsity-attacks", "113-0": "ai-evasion---sparsity-attacks", "114-0": "ai-evasion---sparsity-attacks", "115-0": "ai-evasion---sparsity-attacks", "116-0": "ai-evasion---sparsity-attacks", "117-0": "ai-privacy", "117-1": "ai-privacy", "118-0": "ai-privacy", "119-0": "ai-privacy", "120-0": "ai-privacy", "121-0": "ai-privacy", "122-0": "ai-privacy", "123-0": "ai-privacy", "124-0": "ai-privacy", "125-0": "ai-privacy", "126-0": "ai-privacy", "127-0": "ai-privacy", "128-0": "ai-defense", "128-1": "ai-defense", "129-0": "ai-defense", "130-0": "ai-defense", "131-0": "ai-defense", "132-0": "ai-defense", "133-0": "ai-defense", "134-0": "ai-defense", "135-0": "ai-defense", "136-0": "ai-defense", "137-0": "ai-defense", "138-0": "ai-defense"}, "quick": [], "acc": {}, "badge": {}};
+const COST = {"code": "COAE", "v": 210, "labs": "practice machines and challenges", "plans": [{"k": "student", "n": "Student", "per": 10, "unit": "mo", "inc": false, "student": true, "over": false}, {"k": "silver", "n": "Silver monthly", "per": 30, "unit": "mo", "inc": false, "student": false, "over": false}, {"k": "silver_y", "n": "Silver Annual", "per": 550, "unit": "yr", "inc": true, "student": false, "over": false}, {"k": "gold_y", "n": "Gold Annual", "per": 1400, "unit": "yr", "inc": true, "student": false, "over": true}], "labsPrice": {"mo": 25, "yr": 223}};
 const WEEK_RAMP = ["#d8d4f7", "#9d94ea"];
 let DAYS = [];   // display days for the currently selected mode
 
@@ -3310,11 +3356,17 @@ document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     tb.classList.add("active");
+    const row = tb.parentNode, tr = row.getBoundingClientRect(), br = tb.getBoundingClientRect();  // phones: the tab row scrolls sideways; bring this tab into it (row only, never the page)
+    if(br.left < tr.left || br.right > tr.right) row.scrollLeft += br.left - tr.left - (tr.width - br.width) / 2;
     document.querySelectorAll(".tab").forEach(x=>{
       document.getElementById("tab-"+x.dataset.tab).classList.toggle("hidden", x!==tb);
     });
   });
 });
+
+/* phones: drop the right-edge fade once the tab row is scrolled to its end */
+(function(){ const t = document.querySelector(".tabs"); const f = () => t.classList.toggle("end", t.scrollLeft + t.clientWidth >= t.scrollWidth - 2);
+  t.addEventListener("scroll", f, {passive:true}); addEventListener("resize", f); f(); })();
 
 /* ---------- Controls ---------- */
 document.getElementById("startDate").addEventListener("change",e=>{
@@ -3417,7 +3469,58 @@ function renderAll(){
   document.getElementById("planWarn").hidden = !(state.plan!==PLAN_SIG && Object.keys(state.done).length);
   renderDashboard();
   renderPlan();
+  renderCost();
 }
+
+/* ---------- What It Costs: plan days -> months of Academy access + voucher ---------- */
+const COST_KEY = "coae_cost_v1";
+let costOpt = {student:false, labs:false, have:false}, costView = null, costMode = null;  // costView: a timeline being compared, null = yours
+try{ Object.assign(costOpt, JSON.parse(localStorage.getItem(COST_KEY)) || {}); }catch(e){}
+const usd = n => "$" + n.toLocaleString("en-US");
+function costQuote(days){
+  const m = Math.ceil(days/30), yrs = Math.ceil(m/12);
+  const labs = costOpt.labs ? Math.min(m*COST.labsPrice.mo, yrs*COST.labsPrice.yr) : 0;
+  const rows = COST.plans.map(p => { const qty = p.unit==="mo" ? m : yrs, sub = qty*p.per, voucher = (p.inc||costOpt.have) ? 0 : COST.v;
+    return {p, qty, sub, voucher, labs, total:sub+voucher+labs, off:p.student && !costOpt.student}; });
+  return {m, rows, best: rows.filter(r => !r.p.over && !r.off).sort((a,b) => a.total-b.total)[0]};
+}
+const costQty = r => r.qty + (r.p.unit==="mo" ? (r.qty===1?" month":" months") : (r.qty===1?" year":" years"));
+function renderCost(){
+  if(costMode!==state.mode){ costMode = state.mode; costView = null; }  // a new timeline drops any comparison
+  /* one line under the timeline (its own span, so calling this again replaces it) */
+  const note = document.getElementById("endNote");
+  let cl = note.querySelector(".cl");
+  if(!cl){ cl = document.createElement("span"); cl.className = "cl"; note.appendChild(cl); }
+  const b = costQuote(MODES[state.mode].days).best;
+  cl.innerHTML = !b ? "" : '  ·  About <b>'+usd(b.total)+'</b>: '+(b.p.unit==="mo" ? costQty(b)+" of "+b.p.n.replace(" monthly","")+" ("+usd(b.sub)+")"+(b.voucher ? " + "+usd(b.voucher)+" voucher" : "") : b.p.n+", voucher included")+
+    (b.labs?" + Labs":"")+'. <a href="#" data-goto="cost">Compare plans &rarr;</a>';
+  /* the tab: one bar per plan; its timeline buttons only compare, they never change the plan */
+  const el = document.getElementById("costMount"); if(!el) return;
+  const mine = MODES[state.mode].days, d = costView || mine, q = costQuote(d);
+  const max = Math.max(...q.rows.filter(r => !r.p.over).map(r => r.total), 1);
+  el.innerHTML = '<div class="cmp"><div class="ctop"><div><div class="ttl">What your plan costs</div><div class="sub2">'+d+' days &asymp; '+q.m+(q.m===1?' month':' months')+' of access'+(d!==mine ? " &middot; just comparing, your plan is "+mine+" days" : "")+'</div></div>'+
+    '<span class="cseg">'+Object.keys(MODES).map(k => { const x = MODES[k].days; return '<button type="button" data-cd="'+x+'"'+(x===d?' class="on"':'')+'>'+x+'-day'+(x===mine?'<i>yours</i>':'')+'</button>'; }).join("")+'</span></div>'+
+    q.rows.map(r => '<div class="br'+(r===q.best?' best':'')+(r.p.over||r.off?' dim':'')+'"><div class="n"><b>'+r.p.n+'</b><small>'+(r===q.best?'<span class="pick">Cheapest</span> &middot; ':'')+costQty(r)+(r.p.inc?", voucher included":"")+(r.p.student?" &middot; Needs a student email":"")+(r.p.over?" &middot; more than the "+COST.code+" needs":"")+'</small></div>'+
+      '<div class="trk" aria-hidden="true"><i class="a" style="width:'+Math.min(100,r.sub/max*100)+'%"></i><i class="v" style="width:'+(r.voucher/max*100)+'%"></i><i class="x" style="width:'+(r.labs/max*100)+'%"></i></div><div class="tot">'+usd(r.total)+'</div></div>').join("")+
+    '<div class="ckey"><span><i class="sw a"></i>Subscription</span><span><i class="sw v"></i>Exam voucher</span><span><i class="sw x"></i>HTB Labs</span><span class="sp"></span>'+
+    (COST.plans.some(p => p.student)?'<label><input type="checkbox" data-co="student"'+(costOpt.student?' checked':'')+'> I have a student email</label>':'')+
+    '<label><input type="checkbox" data-co="labs"'+(costOpt.labs?' checked':'')+'> Add HTB Labs VIP+'+(COST.labs?' for the '+COST.labs:'')+'</label><label><input type="checkbox" data-co="have"'+(costOpt.have?' checked':'')+'> I have a voucher</label></div></div>';
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-goto]");
+  if(g){ e.preventDefault(); costView = null;
+    document.querySelector('.tab[data-tab="'+g.dataset.goto+'"]').click(); renderCost();
+    document.querySelector(".tabs").scrollIntoView({behavior:"smooth", block:"start"}); return; }
+  const c = e.target.closest("[data-cd]");
+  if(c){ costView = +c.dataset.cd; renderCost(); }
+});
+document.addEventListener("change", e => {
+  const i = e.target.closest("[data-co]"); if(!i) return;
+  costOpt[i.dataset.co] = i.checked;
+  try{ localStorage.setItem(COST_KEY, JSON.stringify(costOpt)); }catch(x){}
+  renderCost();
+});
+
 function init(){
   load();
   renderResources();
