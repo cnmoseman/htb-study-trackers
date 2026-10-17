@@ -1,8 +1,8 @@
 # Study Trackers
 
-![Pick a cert. Get the kit.](assets/share/home-v3.png)
+![Pick a cert. Get the kit.](assets/share/home-v4.png)
 
-Study trackers, Obsidian prep vaults and practice boxes for Hack The Box certifications. Each cert gets three things: a day-by-day study plan you check off as you go, a ready-made Obsidian vault for your notes, and a list of HTB Labs boxes to practice on.
+Study trackers, Obsidian prep vaults, practice boxes and resources for Hack The Box certifications. Each cert gets four things: a day-by-day study plan you check off as you go, a ready-made Obsidian vault for your notes, a list of HTB Labs boxes to practice on, and a page with every study resource in one place.
 
 **Open the site: https://cnmoseman.github.io/htb-study-trackers/**
 
