@@ -17,8 +17,8 @@ body:
     id: where
     attributes:
       label: Where should it go
-      description: Prep vaults only list command and payload cheat sheets. HTB Labs boxes go in Practice boxes. Everything else goes in the tracker's resource library.
-      options: [Study tracker (resource library), Practice boxes, Prep vault (command sources), Not sure]
+      description: Prep vaults only list command and payload cheat sheets. HTB Labs boxes go in Practice boxes. Everything else goes in the tracker's Resources tab.
+      options: [Study tracker (resources), Practice boxes, Prep vault (command sources), Not sure]
     validations:
       required: true
   - type: dropdown

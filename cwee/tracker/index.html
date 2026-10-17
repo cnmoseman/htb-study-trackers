@@ -560,7 +560,7 @@
   <div class="tabs">
     <button class="tab active" data-tab="plan">Study Plan</button>
     <button class="tab" data-tab="practice">Practice Boxes</button>
-    <button class="tab" data-tab="resources">Resource Library</button>
+    <button class="tab" data-tab="resources">Resources</button>
     <button class="tab" data-tab="cost">What It Costs</button>
     <button class="tab" data-tab="about">About the Cert</button>
   </div>
@@ -616,7 +616,7 @@
         <li><strong>Give the report real time.</strong> It's raw Markdown with working exploits, patches, and a changelog, and reviewers spent 12 to 20 hours on it, so start it while you exploit. (d415k, Gabriel Vásquez)</li>
         <li><strong>Watch for rabbit holes.</strong> Some paths exist only to waste time. Triage by likelihood, set up debugging early, and take breaks. (Khaled Nassar, Filip Kecman)</li>
       </ul>
-      <p>The full list of tips is at the bottom of the <strong>Resource Library</strong> tab.</p>
+      <p>The full list of tips is at the bottom of the <strong>Resources</strong> tab.</p>
 
       <h3>How to use this tracker</h3>
       <ul>
@@ -3539,7 +3539,7 @@ function renderResources(){
   });
   const sug = document.createElement("div");
   sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CWEE&amp;where=Study+tracker+%28resource+library%29&amp;title=%5BResource%5D+%5BCWEE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CWEE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCWEE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
+  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CWEE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCWEE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CWEE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCWEE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
   wrap.appendChild(sug);
 }
 

@@ -32,7 +32,7 @@ The trackers all work the same way, whichever cert you pick.
 - You choose one of five timelines, for about 50, 40, 30, 20, or 10 hours of study a week. The hours come from HTB's own module estimates, and your checkmarks carry over if you switch.
 - The dashboard shows your overall progress, your streak, which phase you're in, and whether you're ahead of or behind pace.
 - Every day has a notes box for commands, credentials, and anything you want to come back to.
-- The resource library links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
+- The Resources tab links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
 - If you've already finished some modules on HTB Academy, tick them under **Already done some modules?** and the tracker checks off their study tasks.
 - Export and Import let you back up your progress or move it to another device.
 - The site's home page shows a progress ring on each tracker you've started, so you can pick up where you left off.
