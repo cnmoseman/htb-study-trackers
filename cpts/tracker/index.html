@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,103 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#c38df7;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#fff}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +376,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -581,7 +661,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">122 <small>Links &middot; 9 Sections &middot; 38 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cpts/resources/" target="_blank" rel="noopener">CPTS Resources</a>. HTB Academy's path is all you need to pass the CPTS. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>122</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CPTS, one for each part of your prep. The ones from the tracker's list are starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 122 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CPTS&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCPTS%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CPTS&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCPTS%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -4016,681 +4117,916 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#a34ff2",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#a34ff2",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Penetration Testing Specialist (CPTS)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Penetration Tester Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/penetration-tester",
-        "note": "28 modules · 495 sections · Medium"
+        "note": "28 modules · 495 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report submission, results"
+        "note": "Official exam rules: attempts, report submission, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Retired boxes & Pro Labs for practice"
+        "note": "Retired boxes & Pro Labs for practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Official CPTS prep track (HTB Labs)",
         "u": "https://app.hackthebox.com/tracks/76",
-        "note": "HTB's own set of Labs boxes picked for this cert"
+        "note": "HTB's own set of Labs boxes picked for this cert",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#a34ff2",
     "note": "Work through these 28 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Penetration Testing Process",
         "u": "https://academy.hackthebox.com/course/preview/penetration-testing-process",
-        "note": "15 sections · Fundamental"
+        "note": "15 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Getting Started",
         "u": "https://academy.hackthebox.com/course/preview/getting-started",
-        "note": "23 sections · Fundamental"
+        "note": "23 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Network Enumeration with Nmap",
         "u": "https://academy.hackthebox.com/course/preview/network-enumeration-with-nmap",
-        "note": "12 sections · Easy"
+        "note": "12 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Footprinting",
         "u": "https://academy.hackthebox.com/course/preview/footprinting",
-        "note": "21 sections · Medium"
+        "note": "21 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · Information Gathering - Web Edition",
         "u": "https://academy.hackthebox.com/course/preview/information-gathering---web-edition",
-        "note": "19 sections · Easy"
+        "note": "19 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · Vulnerability Assessment",
         "u": "https://academy.hackthebox.com/course/preview/vulnerability-assessment",
-        "note": "17 sections · Easy"
+        "note": "17 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · File Transfers",
         "u": "https://academy.hackthebox.com/course/preview/file-transfers",
-        "note": "10 sections · Medium"
+        "note": "10 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · Shells & Payloads",
         "u": "https://academy.hackthebox.com/course/preview/shells--payloads",
-        "note": "17 sections · Medium"
+        "note": "17 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · Using the Metasploit Framework",
         "u": "https://academy.hackthebox.com/course/preview/using-the-metasploit-framework",
-        "note": "15 sections · Easy"
+        "note": "15 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · Password Attacks",
         "u": "https://academy.hackthebox.com/course/preview/password-attacks",
-        "note": "26 sections · Medium"
+        "note": "26 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · Attacking Common Services",
         "u": "https://academy.hackthebox.com/course/preview/attacking-common-services",
-        "note": "19 sections · Medium"
+        "note": "19 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · Pivoting, Tunneling, and Port Forwarding",
         "u": "https://academy.hackthebox.com/course/preview/pivoting-tunneling-and-port-forwarding",
-        "note": "18 sections · Medium"
+        "note": "18 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "13 · Active Directory Enumeration & Attacks",
         "u": "https://academy.hackthebox.com/course/preview/active-directory-enumeration--attacks",
-        "note": "36 sections · Medium"
+        "note": "36 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "14 · Using Web Proxies",
         "u": "https://academy.hackthebox.com/course/preview/using-web-proxies",
-        "note": "15 sections · Easy"
+        "note": "15 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "15 · Attacking Web Applications with Ffuf",
         "u": "https://academy.hackthebox.com/course/preview/attacking-web-applications-with-ffuf",
-        "note": "13 sections · Easy"
+        "note": "13 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "16 · Login Brute Forcing",
         "u": "https://academy.hackthebox.com/course/preview/login-brute-forcing",
-        "note": "13 sections · Easy"
+        "note": "13 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "17 · SQL Injection Fundamentals",
         "u": "https://academy.hackthebox.com/course/preview/sql-injection-fundamentals",
-        "note": "17 sections · Medium"
+        "note": "17 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "18 · SQLMap Essentials",
         "u": "https://academy.hackthebox.com/course/preview/sqlmap-essentials",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "19 · Cross-Site Scripting (XSS)",
         "u": "https://academy.hackthebox.com/course/preview/cross-site-scripting-xss",
-        "note": "10 sections · Easy"
+        "note": "10 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "20 · File Inclusion",
         "u": "https://academy.hackthebox.com/course/preview/file-inclusion",
-        "note": "11 sections · Medium"
+        "note": "11 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "21 · File Upload Attacks",
         "u": "https://academy.hackthebox.com/course/preview/file-upload-attacks",
-        "note": "11 sections · Medium"
+        "note": "11 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "22 · Command Injections",
         "u": "https://academy.hackthebox.com/course/preview/command-injections",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "23 · Web Attacks",
         "u": "https://academy.hackthebox.com/course/preview/web-attacks",
-        "note": "18 sections · Medium"
+        "note": "18 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "24 · Attacking Common Applications",
         "u": "https://academy.hackthebox.com/course/preview/attacking-common-applications",
-        "note": "33 sections · Medium"
+        "note": "33 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "25 · Linux Privilege Escalation",
         "u": "https://academy.hackthebox.com/course/preview/linux-privilege-escalation",
-        "note": "28 sections · Easy"
+        "note": "28 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "26 · Windows Privilege Escalation",
         "u": "https://academy.hackthebox.com/course/preview/windows-privilege-escalation",
-        "note": "33 sections · Medium"
+        "note": "33 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "27 · Documentation & Reporting",
         "u": "https://academy.hackthebox.com/course/preview/documentation--reporting",
-        "note": "8 sections · Easy"
+        "note": "8 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "28 · Attacking Enterprise Networks",
         "u": "https://academy.hackthebox.com/course/preview/attacking-enterprise-networks",
-        "note": "14 sections · Medium"
+        "note": "14 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#a34ff2",
     "note": "Video series and exam debriefs to watch alongside the modules.",
     "items": [
       {
         "n": "Unofficial CPTS Prep (playlist)",
         "u": "https://youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5",
-        "note": "Full CPTS prep video series"
+        "note": "Full CPTS prep video series",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Road to CPTS (Cyber Ryan, playlist)",
         "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-",
-        "note": "8 videos: his study plan, note-taking, building methodologies, practice resources, SysReptor report setup, report writing, and his post-exam review"
+        "note": "8 videos: his study plan, note-taking, building methodologies, practice resources, SysReptor report setup, report writing, and his post-exam review",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box CPTS playlist (0x3 Security)",
         "u": "https://youtube.com/playlist?list=PLF947ZK4vUoJRueFGUqa6jGEmo9wIT732",
-        "note": "CPTS-focused video series"
+        "note": "CPTS-focused video series",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "15 Tips That Got Me Through HTB CPTS (BRM)",
         "u": "https://youtu.be/h53sRfcsVIo",
-        "note": "Practical exam tips"
+        "note": "Practical exam tips",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "PASSING THE CPTS!!!!! (TheHuskeyHacker)",
         "u": "https://www.youtube.com/watch?v=yYIR1yX-Y8c",
-        "note": "Exam pass experience"
+        "note": "Exam pass experience",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CPTS Journey: Mission Accomplished (Kenny Strawn)",
         "u": "https://www.youtube.com/watch?v=cVq79wfdnvI",
-        "note": "CPTS prep vlog series"
+        "note": "CPTS prep vlog series",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB CPTS Review (OvergrownCarrot1)",
         "u": "https://www.youtube.com/watch?v=gCtPwmQTYLc",
-        "note": "Path & exam review"
+        "note": "Path & exam review",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Is the CPTS REALLY Worth It? (Clint & Si)",
         "u": "https://www.youtube.com/watch?v=Bx6TMRQZWbQ",
-        "note": "Cert value discussion"
+        "note": "Cert value discussion",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "How to get CPTS in 2026 (SchlopShow)",
         "u": "https://www.youtube.com/watch?v=czGXFB5xnPw&t=132s",
-        "note": "Up-to-date path & exam walkthrough"
+        "note": "Up-to-date path & exam walkthrough",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB's CPTS Certification in 5 Minutes (duskb1t)",
         "u": "https://www.youtube.com/watch?v=yliMmUBDC90",
-        "note": "Quick cert overview"
+        "note": "Quick cert overview",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "How To Pass The HackTheBox CPTS Exam (InfoSec Pat)",
         "u": "https://www.youtube.com/watch?v=IIspkal-8Q8&t=389s",
-        "note": "Experience, tips and tricks review"
+        "note": "Experience, tips and tricks review",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CPTS Review + Tips (CryptoCat)",
         "u": "https://www.youtube.com/watch?v=UN5fTQtlKCc",
-        "note": "Path & exam review"
+        "note": "Path & exam review",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "My Guide to HTB's CPTS Course/Exam (bmdyy)",
         "u": "https://youtu.be/dRW1Gxmu__Q",
-        "note": "Full course & exam guide"
+        "note": "Full course & exam guide",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CPTS Certification Review (2025): How I Got a Cybersecurity Job (BRM)",
         "u": "https://www.youtube.com/watch?v=83Qst4Zrhe4",
-        "note": "Study hours, cost, HTB time estimates, and landing a job after the cert"
+        "note": "Study hours, cost, HTB time estimates, and landing a job after the cert",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Πώς να Περάσεις το CPTS του HackTheBox | Greek Edition (0x0Trace)",
         "u": "https://www.youtube.com/watch?v=9acS_M43nac",
-        "note": "Full CPTS guide from a recent passer, in Greek only (no English subtitles or dub)"
+        "note": "Full CPTS guide from a recent passer, in Greek only (no English subtitles or dub)",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "I failed the Hack The Box CPTS (0x3 Security)",
         "u": "https://www.youtube.com/watch?v=lsyL6AVk7R4",
-        "note": "Honest look at a failed first attempt and the plan for the retake"
+        "note": "Honest look at a failed first attempt and the plan for the retake",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box CPTS Exam Review (0x3 Security)",
         "u": "https://www.youtube.com/watch?v=4_r5Rz4vy9g",
-        "note": "Pass review after the retake: prep, exam-day tips and common pitfalls"
+        "note": "Pass review after the retake: prep, exam-day tips and common pitfalls",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "My CPTS Certification Experience with Hack The Box (Clint & Si)",
         "u": "https://www.youtube.com/watch?v=rqlUajy6c50",
-        "note": "Exam review from the channel behind the \"is CPTS worth it\" video"
+        "note": "Exam review from the channel behind the \"is CPTS worth it\" video",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "I Tried The HackTheBox Certified Pentester Exam (John Hammond)",
         "u": "https://www.youtube.com/watch?v=2CAZqpkalgI",
-        "note": "Walkthrough of his exam timeline and tips; sponsored by HTB, predates the 2025 rework"
+        "note": "Walkthrough of his exam timeline and tips; sponsored by HTB, predates the 2025 rework",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "The Road to CPTS: Exam and Certification Insights (Hack The Box Uganda)",
         "u": "https://www.youtube.com/watch?v=JYbkytqu3Es",
-        "note": "90-minute HTB community meetup on prep strategy, exam structure and common challenges"
+        "note": "90-minute HTB community meetup on prep strategy, exam structure and common challenges",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#a34ff2",
     "note": "First-hand pass reviews. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
         "n": "Perfect 100/100 First Try (Divyesh Bhesaniya)",
         "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde",
-        "note": "14/14 flags in about 5.5 days and a 189-page report; full 9-month prep breakdown"
+        "note": "14/14 flags in about 5.5 days and a 189-page report; full 9-month prep breakdown",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "Road to HTB CPTS (BRM)",
         "u": "https://www.brunorochamoura.com/posts/road-to-cpts/",
-        "note": "Detailed prep roadmap"
+        "note": "Detailed prep roadmap",
+        "k": "Web",
+        "d": "brunorochamoura.com"
       },
       {
         "n": "CPTS Tips (BRM)",
         "u": "https://www.brunorochamoura.com/posts/cpts-tips/",
-        "note": "Concise exam tips"
+        "note": "Concise exam tips",
+        "k": "Web",
+        "d": "brunorochamoura.com"
       },
       {
         "n": "Passed First Try (RadiantSec)",
         "u": "https://radiantsec.io/blog/htb-cpts-review/",
-        "note": "Day-by-day exam breakdown"
+        "note": "Day-by-day exam breakdown",
+        "k": "Web",
+        "d": "radiantsec.io"
       },
       {
         "n": "CPTS Review (r3zz)",
         "u": "https://r3zz.io/posts/cpts-review/",
-        "note": "Exam experience"
+        "note": "Exam experience",
+        "k": "Web",
+        "d": "r3zz.io"
       },
       {
         "n": "CPTS Review (Acaard)",
         "u": "https://acaard-castle.gitbook.io/acaard/random-but-useful/cpts-review",
-        "note": "All 14 flags in 5 days"
+        "note": "All 14 flags in 5 days",
+        "k": "Web",
+        "d": "acaard-castle.gitbook.io"
       },
       {
         "n": "CPTS (Cesar Guillen)",
         "u": "https://cesar-guillen.github.io/posts/CPTS/",
-        "note": "Failed then passed; real gotchas"
+        "note": "Failed then passed; real gotchas",
+        "k": "Web",
+        "d": "cesar-guillen.github.io"
       },
       {
         "n": "10-Day Practical Plan (CertCrush)",
         "u": "https://www.certcrush.app/blog/how-to-pass-htb-cpts-2026-study-plan-10-day-practical",
-        "note": "Exam-week study plan"
+        "note": "Exam-week study plan",
+        "k": "Web",
+        "d": "certcrush.app"
       },
       {
         "n": "100% (14/14 flags) (Sabastiaz)",
         "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628",
-        "note": "Perfect-score journey"
+        "note": "Perfect-score journey",
+        "k": "Web",
+        "d": "sabastiaz.medium.com"
       },
       {
         "n": "CPTS Review (viv4ldi)",
         "u": "https://yusufsaka007.github.io/certs/htb-cpts-review/",
-        "note": "Prep, tooling and exam advice"
+        "note": "Prep, tooling and exam advice",
+        "k": "Web",
+        "d": "yusufsaka007.github.io"
       },
       {
         "n": "OSCP & CPTS From Scratch (Scotsec)",
         "u": "https://scotsec.github.io/posts/Progress/",
-        "note": "No IT background to 14/14 flags in 6.5 days and a 200+ page report"
+        "note": "No IT background to 14/14 flags in 6.5 days and a 200+ page report",
+        "k": "Web",
+        "d": "scotsec.github.io"
       },
       {
         "n": "14/14 While Working Full Time (Vladyslav Borodavka)",
         "u": "https://www.linkedin.com/pulse/experience-passing-htb-cpts-certification-vladyslav-borodavka-qylve/",
-        "note": "Flag-by-flag exam timeline, report section walkthrough and a $328 cost breakdown"
+        "note": "Flag-by-flag exam timeline, report section walkthrough and a $328 cost breakdown",
+        "k": "Web",
+        "d": "linkedin.com"
       },
       {
         "n": "CPTS Review 2025 (Oliver Felix Giovanardi)",
         "u": "https://blog.deephacking.tech/en/posts/htb-cpts-review/",
-        "note": "Passed May 2025; cost, exam structure, key modules and report advice"
+        "note": "Passed May 2025; cost, exam structure, key modules and report advice",
+        "k": "Web",
+        "d": "blog.deephacking.tech"
       },
       {
         "n": "CPTS Lessons Learned as My First Cert (Loup De Trez)",
         "u": "https://ballpoint.fr/en/blog/lessons-learned-first-certification-cpts-hackthebox",
-        "note": "Beginner's view: note structure, study pace, exam setup with Exegol and SysReptor"
+        "note": "Beginner's view: note structure, study pace, exam setup with Exegol and SysReptor",
+        "k": "Web",
+        "d": "ballpoint.fr"
       },
       {
         "n": "HTB CPTS Review: A Pentester's Perspective (Watercourse Security)",
         "u": "https://www.wcsecurity.org/posts/cpts-review/",
-        "note": "Working pentester's take on the path, exam, and value vs OSCP and PNPT"
+        "note": "Working pentester's take on the path, exam, and value vs OSCP and PNPT",
+        "k": "Web",
+        "d": "wcsecurity.org"
       },
       {
         "n": "HTB CPTS Review 2026 (Charles-Thibault Sanchez)",
         "u": "https://medium.com/@charlesthibaultsanc/htb-cpts-review-2026-849d2e1b9b27",
-        "note": "2026 review of the learning path and exam"
+        "note": "2026 review of the learning path and exam",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "Passing the CPTS exam when your skills aren't the problem (Henk Wichers)",
         "u": "https://henkwww.github.io/blog/2026/05/cpts-when-skills-arent-the-problem/",
-        "note": "Failed the first attempt, then 14/14 on the retake; focus on reporting and nerves"
+        "note": "Failed the first attempt, then 14/14 on the retake; focus on reporting and nerves",
+        "k": "Web",
+        "d": "henkwww.github.io"
       },
       {
         "n": "HTB CPTS Review (Chicken0248)",
         "u": "https://chicken0248.fyi/reviews/cpts/",
-        "note": "May 2026 pass with 14/14 flags from a blue team background, with prep roadmap and tool tips"
+        "note": "May 2026 pass with 14/14 flags from a blue team background, with prep roadmap and tool tips",
+        "k": "Web",
+        "d": "chicken0248.fyi"
       },
       {
         "n": "How I passed CPTS in 2026 (Vladimir Evsikov)",
         "u": "https://habr.com/en/articles/1007400",
-        "note": "(Russian) Failed, then passed in Feb 2026"
+        "note": "(Russian) Failed, then passed in Feb 2026",
+        "k": "Web",
+        "d": "habr.com"
       },
       {
         "n": "CPTS and Improving Your Methodology (an00b)",
         "u": "https://notateamserver.xyz/blog/cpts-review/",
-        "note": "14/14 review focused on building a repeatable methodology and documenting as you go"
+        "note": "14/14 review focused on building a repeatable methodology and documenting as you go",
+        "k": "Web",
+        "d": "notateamserver.xyz"
       },
       {
         "n": "How I Passed the CPTS Exam (After 3 Attempts) (AstHnk0)",
         "u": "https://medium.com/@AstHnk0/how-i-passed-the-cpts-exam-after-3-attempts-cbd26d3dc0f8",
-        "note": "Pass on the third attempt; useful for anyone facing a retake"
+        "note": "Pass on the third attempt; useful for anyone facing a retake",
+        "k": "Web",
+        "d": "medium.com"
       }
     ]
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#a34ff2",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
         "n": "guerrii/CPTS-Cheatsheet",
         "u": "https://github.com/guerrii/CPTS-Cheatsheet",
-        "note": "Best per-module cheatsheet, built for exam use"
+        "note": "Best per-module cheatsheet, built for exam use",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "mattchow36/CPTS",
         "u": "https://github.com/mattchow36/CPTS",
-        "note": "Full AEN + AD attack-chain walkthroughs"
+        "note": "Full AEN + AD attack-chain walkthroughs",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "InnocentSADO/CPTS-Prep",
         "u": "https://github.com/InnocentSADO/CPTS-Prep",
-        "note": "Obsidian vault: notes, techniques, exam prep"
+        "note": "Obsidian vault: notes, techniques, exam prep",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "col-1002/HTB-CPTS",
         "u": "https://github.com/col-1002/HTB-CPTS",
-        "note": "Passed 2nd try; honest gotchas plus scripts"
+        "note": "Passed 2nd try; honest gotchas plus scripts",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "jaypatel-sec/HTB-Academy-CPTS-Path",
         "u": "https://github.com/jaypatel-sec/HTB-Academy-CPTS-Path",
-        "note": "All 28 modules documented, completion checklist"
+        "note": "All 28 modules documented, completion checklist",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "ShortGiant13/HTB-CPTS-Notes",
         "u": "https://github.com/ShortGiant13/HTB-CPTS-Notes",
-        "note": "Concise exam notes + cheatsheet"
+        "note": "Concise exam notes + cheatsheet",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Divyesh's CPTS Cheatsheet (GitBook)",
         "u": "https://divyeshs-organization-1.gitbook.io/cpts-cheatsheet",
-        "note": "Condensed commands and methodology from a 100/100 pass"
+        "note": "Condensed commands and methodology from a 100/100 pass",
+        "k": "Web",
+        "d": "divyeshs-organization-1.gitbook.io"
       },
       {
         "n": "zagnox/CPTS-cheatsheet",
         "u": "https://github.com/zagnox/CPTS-cheatsheet",
-        "note": "Most-starred CPTS command cheatsheet: nmap, services, passwords, AD and more"
+        "note": "Most-starred CPTS command cheatsheet: nmap, services, passwords, AD and more",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "kabaneridev/pt-notes (CPTS-PREP)",
         "u": "https://github.com/kabaneridev/pt-notes/tree/main/CPTS-PREP",
-        "note": "Per-module notes and commands for the whole path, from footprinting to AD and pivoting"
+        "note": "Per-module notes and commands for the whole path, from footprinting to AD and pivoting",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "0x1ceKing/HTB-Certified-Penetration-Testing-Specialist",
         "u": "https://github.com/0x1ceKing/HTB-Certified-Penetration-Testing-Specialist",
-        "note": "Per-module cheatsheets through Web Attacks, plus notes on the first 10 modules"
+        "note": "Per-module cheatsheets through Web Attacks, plus notes on the first 10 modules",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "dollarboysushil/oscp-cpts-notes",
         "u": "https://github.com/dollarboysushil/oscp-cpts-notes",
-        "note": "Full CPTS notes from a passer, also readable as a GitBook"
+        "note": "Full CPTS notes from a passer, also readable as a GitBook",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "sachinn403/HTB-CPTS-Notes",
         "u": "https://github.com/sachinn403/HTB-CPTS-Notes",
-        "note": "GitBook-style notes for the whole path, organized by attack phase, plus an exam tips page"
+        "note": "GitBook-style notes for the whole path, organized by attack phase, plus an exam tips page",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Muhabzz/CPTS-Arabic-Explanation",
         "u": "https://github.com/Muhabzz/CPTS-Arabic-Explanation",
-        "note": "(Arabic) Module-by-module explanations of the path"
+        "note": "(Arabic) Module-by-module explanations of the path",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#a34ff2",
     "note": "The report is a hard pass/fail gate, so practice the deliverable, not just the attacks.",
     "items": [
       {
         "n": "Syslifters/HackTheBox-Reporting",
         "u": "https://github.com/Syslifters/HackTheBox-Reporting",
-        "note": "Official SysReptor CPTS report template"
+        "note": "Official SysReptor CPTS report template",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Sample HTB CPTS Report (PDF)",
         "u": "https://docs.sysreptor.com/assets/reports/HTB-CPTS-Report.pdf",
-        "note": "SysReptor's example CPTS report showing the expected structure & depth"
+        "note": "SysReptor's example CPTS report showing the expected structure & depth",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "SysReptor (reporting platform)",
         "u": "https://github.com/Syslifters/sysreptor",
-        "note": "Self-hostable; used by most passers"
+        "note": "Self-hostable; used by most passers",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "CPTS Report Writing Guide (dollarboysushil)",
         "u": "https://dollarboysushil.com/posts/cpts-report-writing-guide/",
-        "note": "SysReptor walkthrough for the CPTS report"
+        "note": "SysReptor walkthrough for the CPTS report",
+        "k": "Web",
+        "d": "dollarboysushil.com"
       },
       {
         "n": "HTB CPTS Reporting: The Easy Way (BRM)",
         "u": "https://www.brunorochamoura.com/posts/cpts-report/",
-        "note": "Write the report as you hack: milestones that tell you which SysReptor section to fill in"
+        "note": "Write the report as you hack: milestones that tell you which SysReptor section to fill in",
+        "k": "Web",
+        "d": "brunorochamoura.com"
       },
       {
         "n": "w1j0y/penetration-testing-handbook",
         "u": "https://github.com/w1j0y/penetration-testing-handbook",
-        "note": "CPTS-specific reporting section"
+        "note": "CPTS-specific reporting section",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "blue-pho3nix/pentesting_templates_obsidian",
         "u": "https://github.com/blue-pho3nix/pentesting_templates_obsidian",
-        "note": "Obsidian Templater templates for per-service enumeration and attack notes"
+        "note": "Obsidian Templater templates for per-service enumeration and attack notes",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "N1NJ10/Offsec-Practice-Labs",
         "u": "https://github.com/N1NJ10/Offsec-Practice-Labs",
-        "note": "Curated practice machines by skill area for CPTS, OSCP and eCPPT, mostly free"
+        "note": "Curated practice machines by skill area for CPTS, OSCP and eCPPT, mostly free",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#a34ff2",
     "note": "Be fluent with these before the exam.",
     "items": [
       {
         "n": "Nmap",
         "u": "https://nmap.org/book/man.html",
-        "note": "Network scanning & enumeration"
+        "note": "Network scanning & enumeration",
+        "k": "Web",
+        "d": "nmap.org"
       },
       {
         "n": "ffuf",
         "u": "https://github.com/ffuf/ffuf",
-        "note": "Web fuzzing"
+        "note": "Web fuzzing",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Ligolo-ng",
         "u": "https://github.com/nicocha30/ligolo-ng",
-        "note": "Preferred pivoting/tunneling tool"
+        "note": "Preferred pivoting/tunneling tool",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "chisel",
         "u": "https://github.com/jpillora/chisel",
-        "note": "Backup tunneling tool for when Ligolo-ng won't cooperate"
+        "note": "Backup tunneling tool for when Ligolo-ng won't cooperate",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Penelope",
         "u": "https://github.com/brightio/penelope",
-        "note": "Shell handler: auto-upgrades to a full TTY, handles multiple sessions, uploads and downloads"
+        "note": "Shell handler: auto-upgrades to a full TTY, handles multiple sessions, uploads and downloads",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "BloodHound",
         "u": "https://github.com/SpecterOps/BloodHound",
-        "note": "AD attack-path analysis"
+        "note": "AD attack-path analysis",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "NetExec (nxc)",
         "u": "https://github.com/Pennyw0rth/NetExec",
-        "note": "Network exec / lateral movement (ex-CrackMapExec)"
+        "note": "Network exec / lateral movement (ex-CrackMapExec)",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Impacket",
         "u": "https://github.com/fortra/impacket",
-        "note": "secretsdump, GetUserSPNs, psexec, etc."
+        "note": "secretsdump, GetUserSPNs, psexec, etc.",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Evil-WinRM",
         "u": "https://github.com/Hackplayers/evil-winrm",
-        "note": "WinRM shell"
+        "note": "WinRM shell",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PEASS-ng (LinPEAS/WinPEAS)",
         "u": "https://github.com/peass-ng/PEASS-ng",
-        "note": "Privilege-escalation enumeration"
+        "note": "Privilege-escalation enumeration",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SQLMap",
         "u": "https://github.com/sqlmapproject/sqlmap",
-        "note": "Automated SQL injection"
+        "note": "Automated SQL injection",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Metasploit Framework",
         "u": "https://github.com/rapid7/metasploit-framework",
-        "note": "Exploitation framework"
+        "note": "Exploitation framework",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Responder",
         "u": "https://github.com/lgandx/Responder",
-        "note": "LLMNR/NBT-NS poisoning"
+        "note": "LLMNR/NBT-NS poisoning",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "kerbrute",
         "u": "https://github.com/ropnop/kerbrute",
-        "note": "Kerberos user enum & spraying"
+        "note": "Kerberos user enum & spraying",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "bloodyAD",
         "u": "https://github.com/CravateRouge/bloodyAD",
-        "note": "AD privilege escalation via directory changes"
+        "note": "AD privilege escalation via directory changes",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PowerView.py",
         "u": "https://github.com/aniqfakhrul/powerview.py",
-        "note": "Python port of PowerView for AD enumeration & abuse"
+        "note": "Python port of PowerView for AD enumeration & abuse",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "RustHound-CE",
         "u": "https://github.com/g0h4n/RustHound-CE",
-        "note": "Fast cross-platform BloodHound CE collector (Rust)"
+        "note": "Fast cross-platform BloodHound CE collector (Rust)",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "blue-pho3nix/ade",
         "u": "https://github.com/blue-pho3nix/ade",
-        "note": "Automates first-pass AD recon: users, roasting, shares, BloodHound collection"
+        "note": "Automates first-pass AD recon: users, roasting, shares, BloodHound collection",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "AD & Methodology References",
-    "color": "#a34ff2",
     "note": "Deeper references for the AD-heavy exam.",
     "items": [
       {
         "n": "infosecn1nja/AD-Attack-Defense",
         "u": "https://github.com/infosecn1nja/AD-Attack-Defense",
-        "note": "AD kill-chain reference"
+        "note": "AD kill-chain reference",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "momenbasel/htb-writeups",
         "u": "https://github.com/momenbasel/htb-writeups",
-        "note": "500+ machines, knowledge graph"
+        "note": "500+ machines, knowledge graph",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "abhaygupta-sec/Offensive-Security-Methodology",
         "u": "https://github.com/abhaygupta-sec/Offensive-Security-Methodology",
-        "note": "Structured recon→AD→privesc→reporting"
+        "note": "Structured recon→AD→privesc→reporting",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "0xnullptr1/CPTS-notes",
         "u": "https://github.com/0xnullptr1/CPTS-notes",
-        "note": "Methodology checklists (AD, privesc)"
+        "note": "Methodology checklists (AD, privesc)",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "HTB Academy: Using CrackMapExec",
         "u": "https://academy.hackthebox.com/module/details/84",
-        "note": "Optional paid module (500 cubes); a useful CrackMapExec deep-dive if you have spare cubes"
+        "note": "Optional paid module (500 cubes); a useful CrackMapExec deep-dive if you have spare cubes",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "imjustBuck/CPTS-Checklists",
         "u": "https://github.com/imjustBuck/CPTS-Checklists",
-        "note": "Phase checklists from the exam: external, pivoting, creds, privesc, reporting"
+        "note": "Phase checklists from the exam: external, pivoting, creds, privesc, reporting",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#a34ff2",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
+    "layout": "tips",
     "items": [
       {
         "n": "Build a personal enumeration checklist for every common port and service",
@@ -4844,10 +5180,177 @@ const RESOURCES = [
         "n": "Skip RustScan on the exam, since its speed overwhelms the HTB VPN",
         "note": "Chicken0248"
       }
-    ],
-    "layout": "tips"
+    ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Penetration Testing Specialist (CPTS)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Exam review",
+    "n": "Perfect 100/100 First Try (Divyesh Bhesaniya)",
+    "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde",
+    "note": "14/14 flags in about 5.5 days and a 189-page report; full 9-month prep breakdown",
+    "k": "Web",
+    "d": "medium.com",
+    "sec": "Exam Reviews & Write-ups"
+  },
+  {
+    "slot": "Report",
+    "n": "HTB CPTS Reporting: The Easy Way (BRM)",
+    "u": "https://www.brunorochamoura.com/posts/cpts-report/",
+    "note": "Write the report as you hack: milestones that tell you which SysReptor section to fill in",
+    "k": "Web",
+    "d": "brunorochamoura.com",
+    "sec": "Reporting & Exam Prep"
+  },
+  {
+    "slot": "Notes",
+    "n": "guerrii/CPTS-Cheatsheet",
+    "u": "https://github.com/guerrii/CPTS-Cheatsheet",
+    "note": "Best per-module cheatsheet, built for exam use",
+    "k": "GitHub",
+    "d": "github.com",
+    "sec": "Community Notes & Walkthroughs"
+  },
+  {
+    "slot": "Video",
+    "n": "The Road to CPTS is Over (Cyber Ryan)",
+    "u": "https://www.youtube.com/watch?v=bLuGnhmT97I",
+    "note": "His post-exam review: the 10-day exam, last-minute tips, and what he'd do differently",
+    "k": "Video",
+    "d": "youtube.com",
+    "sec": ""
+  }
+];
+(function () {
+const RL = { code: "CPTS", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "CPTS", "path": {"name": "Penetration Tester Path", "url": "https://academy.hackthebox.com/path/preview/penetration-tester"}, "mods": ["Penetration Testing Process", "Getting Started", "Network Enumeration with Nmap", "Footprinting", "Information Gathering - Web Edition", "Vulnerability Assessment", "File Transfers", "Shells & Payloads", "Using the Metasploit Framework", "Password Attacks", "Attacking Common Services", "Pivoting, Tunneling, and Port Forwarding", "Active Directory Enumeration & Attacks", "Using Web Proxies", "Attacking Web Applications with Ffuf", "Login Brute Forcing", "SQL Injection Fundamentals", "SQLMap Essentials", "Cross-Site Scripting (XSS)", "File Inclusion", "File Upload Attacks", "Command Injections", "Web Attacks", "Attacking Common Applications", "Linux Privilege Escalation", "Windows Privilege Escalation", "Documentation & Reporting", "Attacking Enterprise Networks"], "groups": [["Foundations & Process", [1, 2]], ["Recon & Enumeration", [3, 4, 5, 6]], ["Exploitation Fundamentals", [7, 8, 9]], ["Credential & Service Attacks", [10, 11]], ["Pivoting & Active Directory", [12, 13]], ["Web Application Attacks", [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]], ["Privilege Escalation", [25, 26]], ["Reporting & Exam Prep", [27, 28]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Foundations", "sub": "Enumeration, Common Services, First Shells", "goal": "Scan, footprint services (FTP, NFS, Redis, SMB), use public exploits and Metasploit, catch shells, crack the first hashes, basic Linux/Windows privesc.", "items": [{"id": "postman", "n": "Postman", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Postman", "tech": "Unauthenticated Redis writes an SSH key, crack an encrypted SSH key, Webmin CVE as root.", "mods": [3, 4, 11, 24, 25], "ippsec": "https://www.youtube.com/watch?v=jJnHET1o8ZQ", "oxdf": "https://0xdf.gitlab.io/2020/03/14/htb-postman.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "delivery", "n": "Delivery", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Delivery", "tech": "Helpdesk ticket email trick into Mattermost, creds in chat, crack root hash with hashcat rules.", "mods": [5, 10, 24, 25], "ippsec": "https://www.youtube.com/watch?v=gbs43E71mFM", "oxdf": "https://0xdf.gitlab.io/2021/05/22/htb-delivery.html", "src": [{"k": "ippsec", "n": 6, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "remote", "n": "Remote", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Remote", "tech": "NFS share leaks a CMS hash, Umbraco authenticated RCE, TeamViewer stored creds from registry.", "mods": [4, 10, 11, 24, 26], "ippsec": "https://www.youtube.com/watch?v=iyYqgseKUPM", "oxdf": "https://0xdf.gitlab.io/2020/09/05/htb-remote.html", "src": [{"k": "ippsec", "n": 7, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "access", "n": "Access", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Access", "tech": "Anonymous FTP loot, Access DB and Outlook mail for creds, telnet, saved admin creds (runas).", "mods": [3, 4, 10, 11, 26], "ippsec": "https://www.youtube.com/watch?v=Rr6Oxrj2IjU", "oxdf": "https://0xdf.gitlab.io/2019/03/02/htb-access.html", "src": [{"k": "ippsec", "n": 8, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "driver", "n": "Driver", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Driver", "tech": "Printer upload page takes an SCF file to capture and crack NTLMv2, WinRM, printer driver or PrintNightmare privesc (Metasploit option).", "mods": [8, 9, 10, 21, 26], "ippsec": "https://www.youtube.com/watch?v=N2ahkarb-zI", "oxdf": "https://0xdf.gitlab.io/2022/02/26/htb-driver.html", "src": [{"k": "ippsec", "n": 10, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}]}, {"name": "Web Attacks", "sub": "The Core Vulnerability Classes", "goal": "One box per web module: proxies, fuzzing/vhosts, SQLi and SQLMap, XSS, LFI, uploads, command injection, IDOR/XXE.", "items": [{"id": "trick", "n": "Trick", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Trick", "tech": "DNS zone transfer and vhost fuzzing, SQLi auth bypass and file read (sqlmap), LFI to mail/log poisoning, fail2ban privesc.", "mods": [3, 4, 5, 15, 17, 20, 25], "ippsec": "https://www.youtube.com/watch?v=ai98umjeO8M", "oxdf": "https://0xdf.gitlab.io/2022/10/29/htb-trick.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "ippsec", "n": 11, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "soccer", "n": "Soccer", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Soccer", "tech": "Subdomain fuzzing, file-manager default creds and webshell upload, blind SQLi over websocket with sqlmap, doas/dstat plugin privesc.", "mods": [5, 15, 18, 21, 25], "ippsec": "https://www.youtube.com/watch?v=V_CkT7xyiCc", "oxdf": "https://0xdf.gitlab.io/2023/06/10/htb-soccer.html", "src": [{"k": "ippsec", "n": 3, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "metatwo", "n": "MetaTwo", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/MetaTwo", "tech": "WordPress plugin unauthenticated SQLi, XXE in media upload reads config, FTP creds, crack PGP key of a password manager.", "mods": [10, 17, 18, 23, 24], "ippsec": "https://www.youtube.com/watch?v=Alx5KQWq7ZM", "oxdf": "https://0xdf.gitlab.io/2023/04/29/htb-metatwo.html", "src": [{"k": "ippsec", "n": 9, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "shoppy", "n": "Shoppy", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Shoppy", "tech": "NoSQL injection login bypass and user dump, crack hash, creds in Mattermost, docker group privesc.", "mods": [10, 15, 17, 25], "ippsec": "https://www.youtube.com/watch?v=AJc53DUdt1M", "oxdf": "https://0xdf.gitlab.io/2023/01/14/htb-shoppy.html", "src": [{"k": "ippsec", "n": 12, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "code", "n": "Code", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Code", "tech": "Python code-editor deny-list bypass to RCE, crack MD5 from SQLite, sudo backup script path traversal", "mods": [10, 22, 25], "ippsec": "https://www.youtube.com/watch?v=-qGAM0Mt2V0", "oxdf": "https://0xdf.gitlab.io/2025/08/02/htb-code.html", "src": [{"k": "review", "w": "RadiantSec", "u": "https://radiantsec.io/blog/htb-cpts-review/"}]}, {"id": "mango", "n": "Mango", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Mango", "tech": "TLS cert reveals vhost, MongoDB NoSQL auth bypass and regex password extraction, password reuse, SUID jjs", "mods": [3, 5, 10, 25], "ippsec": "https://www.youtube.com/watch?v=NO_lsfhQK_s", "oxdf": "https://0xdf.gitlab.io/2020/04/18/htb-mango.html", "src": [{"k": "review", "w": "duskb1t", "u": "https://www.youtube.com/watch?v=yliMmUBDC90"}]}]}, {"name": "Web Chains & Common Applications", "sub": "", "goal": "Longer web chains on Medium/Hard boxes: CMS/app abuse (WordPress, Tomcat, Gogs), source review, brute forcing, file read to RCE.", "items": [{"id": "craft", "n": "Craft", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Craft", "tech": "Creds and API source in Gogs, code-exec bug in the API (container), repo SSH key, Vault-issued SSH to root.", "mods": [10, 14, 24, 25], "ippsec": "https://www.youtube.com/watch?v=3znkLWakuUA", "oxdf": "https://0xdf.gitlab.io/2020/01/04/htb-craft.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "union", "n": "Union", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Union", "tech": "Filtered UNION SQLi for file read and creds, command injection via X-Forwarded-For header, sudo.", "mods": [14, 17, 22, 25], "ippsec": "https://www.youtube.com/watch?v=z5pdizHDvt8", "oxdf": "https://0xdf.gitlab.io/2021/11/22/htb-union.html", "src": [{"k": "ippsec", "n": 2, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "agile", "n": "Agile", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Agile", "tech": "File read plus Flask debug PIN to RCE, DB creds, Chrome remote-debug creds, sudoedit CVE privesc.", "mods": [10, 14, 20, 25], "ippsec": "https://www.youtube.com/watch?v=ob-CwobmkKk", "oxdf": "https://0xdf.gitlab.io/2023/08/05/htb-agile.html", "src": [{"k": "ippsec", "n": 15, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "logforge", "n": "LogForge", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/LogForge", "tech": "Path-normalization bypass to Tomcat manager, Log4Shell foothold, Log4j leak from an internal FTP service.", "mods": [6, 8, 15, 24], "ippsec": "https://www.youtube.com/watch?v=XG14EstTgQ4", "oxdf": "https://0xdf.gitlab.io/2021/12/29/htb-logforge.html", "src": [{"k": "ippsec", "n": 17, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "monitored", "n": "Monitored", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Monitored", "tech": "UDP SNMP enum leaks creds, Nagios XI API token abuse, authenticated SQLi, sudo script privesc", "mods": [3, 4, 15, 18, 24, 25], "ippsec": "https://www.youtube.com/watch?v=Ulb2rm2qbJY", "oxdf": "https://0xdf.gitlab.io/2024/05/11/htb-monitored.html", "src": [{"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "snoopy", "n": "Snoopy", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Snoopy", "tech": "Traversal file read leaks BIND keys, DNS update hijacks password resets, Mattermost slash command to SSH honeypot, git and ClamAV CVEs.", "mods": [4, 5, 20, 22, 25], "ippsec": "https://www.youtube.com/watch?v=6tn30O0SjVQ", "oxdf": "https://0xdf.gitlab.io/2023/09/23/htb-snoopy.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "pressed", "n": "Pressed", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pressed", "tech": "WordPress with 2FA: XML-RPC abuse to edit a post into a webshell, no outbound traffic so tools/exploits move through the webshell, PwnKit.", "mods": [7, 8, 24, 25], "ippsec": "https://www.youtube.com/watch?v=p8mIdm93mfw", "oxdf": "https://0xdf.gitlab.io/2022/02/03/htb-pressed.html", "src": [{"k": "ippsec", "n": 16, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}]}, {"name": "Windows Foothold & Privilege Escalation", "sub": "", "goal": "Windows-specific web footholds and local privesc: token privileges, stored creds, KeePass, LAPS.", "items": [{"id": "jeeves", "n": "Jeeves", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Jeeves", "tech": "Unauthenticated Jenkins script console RCE, crack KeePass DB, pass-the-hash, alternate data stream flag.", "mods": [8, 10, 24, 26], "ippsec": "https://www.youtube.com/watch?v=EKGBskG8APc", "oxdf": "https://0xdf.gitlab.io/2022/04/14/htb-jeeves.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "pov", "n": "Pov", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pov", "tech": "File read leaks ASP.NET machine keys, ViewState deserialization RCE, PowerShell credential, SeDebugPrivilege (Metasploit or script).", "mods": [8, 9, 20, 26], "ippsec": "https://www.youtube.com/watch?v=84xCsHvkxYE", "oxdf": "https://0xdf.gitlab.io/2024/06/08/htb-pov.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "media", "n": "Media", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Media", "tech": "Video upload triggers an NTLMv2 leak to crack, junction point to land a webshell, FullPowers plus potato to SYSTEM.", "mods": [10, 21, 26], "ippsec": null, "oxdf": "https://0xdf.gitlab.io/2025/09/04/htb-media.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}]}, {"id": "streamio", "n": "StreamIO", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/StreamIO", "tech": "Subdomain fuzzing, MSSQL-backed SQLi, hidden debug param LFI/RFI to RCE, Firefox saved creds, read LAPS password.", "mods": [11, 13, 15, 17, 20], "ippsec": "https://www.youtube.com/watch?v=qKcUKlwoGw8", "oxdf": "https://0xdf.gitlab.io/2022/09/17/htb-streamio.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}]}, {"name": "Active Directory", "sub": "", "goal": "Easy-to-Hard AD: SMB/LDAP/RPC enumeration, AS-REP and Kerberoasting, BloodHound ACL chains, DCSync, ADCS, delegation.", "items": [{"id": "fluffy", "n": "Fluffy", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Fluffy", "tech": "Assume breach: library-ms file coerces NTLMv2, GenericWrite on service accounts (shadow creds), ADCS ESC16.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=KvUC7bakm-E", "oxdf": "https://0xdf.gitlab.io/2025/09/20/htb-fluffy.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "forest", "n": "Forest", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Forest", "tech": "RPC user enum, AS-REP roasting, WinRM, group rights to grant DCSync.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=H9FcE_FMZio", "oxdf": "https://0xdf.gitlab.io/2020/03/21/htb-forest.html", "src": [{"k": "ippsec", "n": 1, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}]}, {"id": "active", "n": "Active", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Active", "tech": "SMB share with GPP password, Kerberoasting the administrator.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=jUc1J31DNdw", "oxdf": "https://0xdf.gitlab.io/2018/12/08/htb-active.html", "src": [{"k": "ippsec", "n": 4, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "tombwatcher", "n": "TombWatcher", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/TombWatcher", "tech": "Assume breach BloodHound chain (targeted Kerberoast, gMSA, ForceChangePassword, shadow creds), AD Recycle Bin, ADCS ESC15.", "mods": [10, 13], "ippsec": "https://www.youtube.com/watch?v=um8b-TN76bY", "oxdf": "https://0xdf.gitlab.io/2025/10/11/htb-tombwatcher.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "vulncicada", "n": "VulnCicada", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/VulnCicada", "tech": "NFS share images leak a password, ADCS ESC8 via coercion and certificate relay, dump domain hashes.", "mods": [4, 11, 13], "ippsec": null, "oxdf": "https://0xdf.gitlab.io/2025/07/03/htb-vulncicada.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}]}, {"id": "voleur", "n": "Voleur", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Voleur", "tech": "Assume breach: creds in Excel, restore a deleted user, DPAPI secrets, SSH into a WSL instance, registry hive backups to admin hash.", "mods": [10, 12, 13], "ippsec": "https://www.youtube.com/watch?v=G7FOSfZMC1I", "oxdf": "https://0xdf.gitlab.io/2025/11/01/htb-voleur.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "administrator", "n": "Administrator", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Administrator", "tech": "Assume breach: BloodHound password-reset chain, Password Safe file cracked, targeted Kerberoast, DCSync.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=Miam4nw9pmE", "oxdf": "https://0xdf.gitlab.io/2025/04/19/htb-administrator.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "ippsec", "n": 5, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "authority", "n": "Authority", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Authority", "tech": "Ansible vault secrets on SMB cracked, PWM config mode leaks LDAP creds, ADCS ESC1 via an added computer.", "mods": [10, 11, 13], "ippsec": "https://www.youtube.com/watch?v=7AF5riqLy-8", "oxdf": "https://0xdf.gitlab.io/2023/12/09/htb-authority.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "manager", "n": "Manager", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Manager", "tech": "RID cycling, username=password spray, MSSQL xp_dirtree file listing, web backup creds, ADCS ESC7.", "mods": [10, 11, 13, 16], "ippsec": "https://www.youtube.com/watch?v=lT2Tv0m4k7M", "oxdf": "https://0xdf.gitlab.io/2024/03/16/htb-manager.html", "src": [{"k": "ippsec", "n": 13, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "redelegate", "n": "Redelegate", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Redelegate", "tech": "Anonymous FTP with KeePass DB, MSSQL user enum, password spray, helpdesk password reset, constrained delegation via SeEnableDelegationPrivilege.", "mods": [10, 11, 13], "ippsec": null, "oxdf": "https://0xdf.gitlab.io/2025/07/17/htb-redelegate.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "blackfield", "n": "Blackfield", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Blackfield", "tech": "AS-REP roast, BloodHound password reset over RPC, lsass dump on a share, Backup Operators to ntds.dit.", "mods": [10, 13, 26], "ippsec": "https://www.youtube.com/watch?v=IfCysW0Od8w", "oxdf": "https://0xdf.gitlab.io/2020/10/03/htb-blackfield.html", "src": [{"k": "ippsec", "n": 19, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}]}, {"id": "vintage", "n": "Vintage", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Vintage", "tech": "Pre-Windows 2000 computer password, gMSA read, targeted Kerberoast and spray, DPAPI creds, delegation abuse.", "mods": [10, 13], "ippsec": "https://www.youtube.com/watch?v=-JM--KfVhpA", "oxdf": "https://0xdf.gitlab.io/2025/04/26/htb-vintage.html", "src": [{"k": "ippsec", "n": 20, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}]}]}, {"name": "Pivoting & Full Chains", "sub": "", "goal": "Multi-host or multi-stage boxes: Linux VM inside Windows, tunneling, web-to-AD chains. Closest single boxes to the exam's network feel.", "items": [{"id": "outdated", "n": "Outdated", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Outdated", "tech": "Follina via emailed link, shadow credentials lateral move, WSUS malicious update to SYSTEM.", "mods": [4, 13, 26, 28], "ippsec": "https://www.youtube.com/watch?v=TR132R1h3Ds", "oxdf": "https://0xdf.gitlab.io/2022/12/10/htb-outdated.html", "src": [{"k": "ippsec", "n": 14, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "hospital", "n": "Hospital", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Hospital", "tech": "Upload filter bypass to webshell in a Linux VM, kernel exploit, cracked hash reused on Windows and webmail, Ghostscript file sent by email, several privesc paths.", "mods": [10, 21, 25, 26, 28], "ippsec": "https://www.youtube.com/watch?v=E8h0qWsBz6c", "oxdf": "https://0xdf.gitlab.io/2024/04/13/htb-hospital.html", "src": [{"k": "ippsec", "n": 18, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}, {"id": "ghost", "n": "Ghost", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Ghost", "tech": "LDAP injection and password brute force, file read in custom code, API command injection in a container, SSH ControlMaster hop, ADFS/golden SAML, cross-domain trust abuse.", "mods": [12, 13, 16, 20, 22, 28], "ippsec": "https://www.youtube.com/watch?v=4dEmocjKnZg", "oxdf": "https://0xdf.gitlab.io/2025/04/05/htb-ghost.html", "src": [{"k": "track", "u": "https://roadmap.hackthebox.com/changelog/htb-certified-penetration-testing-specialist-cpts-preparation-track"}]}, {"id": "reddish", "n": "Reddish", "type": "machine", "os": "Linux", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Reddish", "tech": "Node-RED to a container shell, then tunnel through several container networks with minimal tooling (Redis, rsync abuse).", "mods": [7, 8, 12, 25, 28], "ippsec": "https://www.youtube.com/watch?v=Yp4oxoQIBAM", "oxdf": "https://0xdf.gitlab.io/2019/01/26/htb-reddish.html", "src": [{"k": "ippsec", "n": 21, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}]}, {"id": "sekhmet", "n": "Sekhmet", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Sekhmet", "tech": "Node deserialization behind a WAF into a Linux VM, ZipCrypto known-plaintext, Kerberos-only AD, command injection via an AD attribute, proxychains tunneling.", "mods": [10, 12, 13, 22, 28], "ippsec": "https://www.youtube.com/watch?v=vsgPsMZx59w", "oxdf": "https://0xdf.gitlab.io/2023/04/01/htb-sekhmet.html", "src": [{"k": "ippsec", "n": 22, "u": "https://www.youtube.com/playlist?list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"}]}]}, {"name": "Final Boss", "sub": "Pro Labs", "goal": "Multi-machine networks that need pivoting, chained creds and reporting. Dante and Zephyr are the ones reviewers name most; two call Offshore overkill for CPTS.", "items": [{"id": "dante", "n": "Dante", "type": "prolab", "os": "Pro Lab", "diff": "Beginner", "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-i", "tech": "Multi-subnet network: enumeration, exploit modification, pivoting, lateral movement, Linux and Windows privesc", "mods": [3, 7, 8, 9, 12, 25, 26], "ippsec": null, "oxdf": null, "src": [{"k": "review", "w": "Divyesh Bhesaniya", "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde"}, {"k": "review", "w": "RadiantSec", "u": "https://radiantsec.io/blog/htb-cpts-review/"}, {"k": "review", "w": "r3zz", "u": "https://r3zz.io/posts/cpts-review/"}, {"k": "review", "w": "CertCrush", "u": "https://www.certcrush.app/blog/how-to-pass-htb-cpts-2026-study-plan-10-day-practical"}, {"k": "review", "w": "Sabastiaz", "u": "https://sabastiaz.medium.com/my-journey-through-certified-penetration-testing-specialist-cpts-100-5ec4b0d2a628"}, {"k": "review", "w": "ScotSec", "u": "https://scotsec.github.io/posts/Progress/"}, {"k": "review", "w": "Ballpoint", "u": "https://ballpoint.fr/en/blog/lessons-learned-first-certification-cpts-hackthebox"}, {"k": "review", "w": "Charles-Thibault Sanchez", "u": "https://medium.com/@charlesthibaultsanc/htb-cpts-review-2026-849d2e1b9b27"}, {"k": "review", "w": "notateamserver", "u": "https://notateamserver.xyz/blog/cpts-review/"}, {"k": "review", "w": "Nikita Astashenko", "u": "https://medium.com/@AstHnk0/how-i-passed-the-cpts-exam-after-3-attempts-cbd26d3dc0f8"}, {"k": "review", "w": "0x0Trace", "u": "https://www.youtube.com/watch?v=9acS_M43nac"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "0x3 Security", "u": "https://youtube.com/playlist?list=PLF947ZK4vUoJRueFGUqa6jGEmo9wIT732"}, {"k": "review", "w": "TheHuskeyHacker", "u": "https://www.youtube.com/watch?v=yYIR1yX-Y8c"}, {"k": "review", "w": "Clint & Si", "u": "https://www.youtube.com/watch?v=Bx6TMRQZWbQ"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}, {"k": "review", "w": "duskb1t", "u": "https://www.youtube.com/watch?v=yliMmUBDC90"}, {"k": "review", "w": "InfoSec Pat", "u": "https://www.youtube.com/watch?v=IIspkal-8Q8"}]}, {"id": "zephyr", "n": "Zephyr", "type": "prolab", "os": "Pro Lab", "diff": "Intermediate", "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-ii", "tech": "Red team AD sim: AD enumeration and abuse, relay attacks, trust-boundary pivoting, SQL attacks, cracking", "mods": [10, 12, 13, 17], "ippsec": null, "oxdf": null, "src": [{"k": "review", "w": "Divyesh Bhesaniya", "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde"}, {"k": "review", "w": "RadiantSec", "u": "https://radiantsec.io/blog/htb-cpts-review/"}, {"k": "review", "w": "r3zz", "u": "https://r3zz.io/posts/cpts-review/"}, {"k": "review", "w": "CertCrush", "u": "https://www.certcrush.app/blog/how-to-pass-htb-cpts-2026-study-plan-10-day-practical"}, {"k": "review", "w": "yusufsaka007 / viv4ldi", "u": "https://yusufsaka007.github.io/certs/htb-cpts-review/"}, {"k": "review", "w": "Ballpoint", "u": "https://ballpoint.fr/en/blog/lessons-learned-first-certification-cpts-hackthebox"}, {"k": "review", "w": "Charles-Thibault Sanchez", "u": "https://medium.com/@charlesthibaultsanc/htb-cpts-review-2026-849d2e1b9b27"}, {"k": "review", "w": "notateamserver", "u": "https://notateamserver.xyz/blog/cpts-review/"}, {"k": "review", "w": "Nikita Astashenko", "u": "https://medium.com/@AstHnk0/how-i-passed-the-cpts-exam-after-3-attempts-cbd26d3dc0f8"}, {"k": "review", "w": "0x0Trace", "u": "https://www.youtube.com/watch?v=9acS_M43nac"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}, {"k": "review", "w": "InfoSec Pat", "u": "https://www.youtube.com/watch?v=IIspkal-8Q8"}]}, {"id": "offshore", "n": "Offshore", "type": "prolab", "os": "Pro Lab", "diff": "Intermediate", "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-ii", "tech": "Enterprise AD across domain trusts: web footholds, lateral movement, local privesc, evading endpoint protection", "mods": [12, 13, 26, 28], "ippsec": "", "oxdf": "", "src": [{"k": "review", "w": "Divyesh Bhesaniya", "u": "https://medium.com/@divyesh.bhesaniya007/how-i-passed-the-htb-cpts-with-a-perfect-100-100-on-my-first-attempt-736226738cde"}, {"k": "review", "w": "Cyber Ryan", "u": "https://youtube.com/playlist?list=PLsaIWaZ2IOipb5B3EFJkPmoLsf1colwT-"}, {"k": "review", "w": "Clint & Si", "u": "https://www.youtube.com/watch?v=Bx6TMRQZWbQ"}, {"k": "review", "w": "SchlopShow", "u": "https://www.youtube.com/watch?v=czGXFB5xnPw"}, {"k": "review", "w": "InfoSec Pat", "u": "https://www.youtube.com/watch?v=IIspkal-8Q8"}]}]}]};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "cpts_practice_v1";
@@ -5410,41 +5913,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CPTS&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCPTS%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CPTS&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCPTS%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -5620,7 +6088,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();

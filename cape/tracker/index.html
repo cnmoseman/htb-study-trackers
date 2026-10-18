@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,103 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#ed7cce;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#fff}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +376,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -581,7 +661,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">80 <small>Links &middot; 9 Sections &middot; 27 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cape/resources/" target="_blank" rel="noopener">CAPE Resources</a>. HTB Academy's path is all you need to pass the CAPE. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>80</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CAPE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 80 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CAPE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCAPE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CAPE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCAPE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -2934,472 +3035,622 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#e436b4",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#e436b4",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Active Directory Pentesting Expert (CAPE)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-active-directory-pentesting-expert",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Active Directory Penetration Tester Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/active-directory-penetration-tester",
-        "note": "15 modules · 253 sections · Hard"
+        "note": "15 modules · 253 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report submission, results"
+        "note": "Official exam rules: attempts, report submission, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Retired boxes and Pro Labs for exam practice"
+        "note": "Retired boxes and Pro Labs for exam practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Official CAPE prep track (HTB Labs)",
         "u": "https://app.hackthebox.com/tracks/96",
-        "note": "HTB's own set of Labs boxes picked for this cert"
+        "note": "HTB's own set of Labs boxes picked for this cert",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "HTB CAPE exam explained (HTB blog)",
         "u": "https://www.hackthebox.com/blog/htb-cape-exam-explained-pentest-job-role-path-certification",
-        "note": "Official overview of the path, exam, and 90-point bar"
+        "note": "Official overview of the path, exam, and 90-point bar",
+        "k": "Official",
+        "d": "hackthebox.com"
       },
       {
         "n": "Master Active Directory security with HTB CAPE (Hack The Box)",
         "u": "https://www.hackthebox.com/blog/htb-cape-announcement",
-        "note": "Official launch announcement covering the path, exam and audience"
+        "note": "Official launch announcement covering the path, exam and audience",
+        "k": "Official",
+        "d": "hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#e436b4",
     "note": "Work through these 15 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Active Directory Enumeration & Attacks",
         "u": "https://academy.hackthebox.com/course/preview/active-directory-enumeration--attacks",
-        "note": "36 sections · Medium"
+        "note": "36 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Active Directory LDAP",
         "u": "https://academy.hackthebox.com/course/preview/active-directory-ldap",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Active Directory PowerView",
         "u": "https://academy.hackthebox.com/course/preview/active-directory-powerview",
-        "note": "9 sections · Medium"
+        "note": "9 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Active Directory BloodHound",
         "u": "https://academy.hackthebox.com/course/preview/active-directory-bloodhound",
-        "note": "14 sections · Medium"
+        "note": "14 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · Windows Lateral Movement",
         "u": "https://academy.hackthebox.com/course/preview/windows-lateral-movement",
-        "note": "14 sections · Medium"
+        "note": "14 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · Using CrackMapExec",
         "u": "https://academy.hackthebox.com/course/preview/using-crackmapexec",
-        "note": "27 sections · Medium"
+        "note": "27 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · Kerberos Attacks",
         "u": "https://academy.hackthebox.com/course/preview/kerberos-attacks",
-        "note": "23 sections · Hard"
+        "note": "23 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · DACL Attacks I",
         "u": "https://academy.hackthebox.com/course/preview/dacl-attacks-i",
-        "note": "7 sections · Hard"
+        "note": "7 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · DACL Attacks II",
         "u": "https://academy.hackthebox.com/course/preview/dacl-attacks-ii",
-        "note": "9 sections · Hard"
+        "note": "9 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · NTLM Relay Attacks",
         "u": "https://academy.hackthebox.com/course/preview/ntlm-relay-attacks",
-        "note": "10 sections · Hard"
+        "note": "10 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · ADCS Attacks",
         "u": "https://academy.hackthebox.com/course/preview/adcs-attacks",
-        "note": "19 sections · Hard"
+        "note": "19 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · Active Directory Trust Attacks",
         "u": "https://academy.hackthebox.com/course/preview/active-directory-trust-attacks",
-        "note": "21 sections · Hard"
+        "note": "21 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "13 · Intro to C2 Operations with Sliver",
         "u": "https://academy.hackthebox.com/course/preview/intro-to-c2-operations-with-sliver",
-        "note": "19 sections · Hard"
+        "note": "19 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "14 · Introduction to Windows Evasion Techniques",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-windows-evasion-techniques",
-        "note": "14 sections · Hard"
+        "note": "14 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "15 · MSSQL, Exchange, and SCCM Attacks",
         "u": "https://academy.hackthebox.com/course/preview/mssql-exchange-and-sccm-attacks",
-        "note": "19 sections · Hard"
+        "note": "19 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#e436b4",
     "note": "Watch a couple before you start to set expectations. They're reviews and interviews, and none of them teach the course.",
     "items": [
       {
         "n": "How to get CAPE with Rian Friedt (SchlopShow)",
         "u": "https://www.youtube.com/watch?v=qaFsGyllMJ4",
-        "note": "Interview on who it's for, lab difficulty, ADCS, AV evasion, and C2"
+        "note": "Interview on who it's for, lab difficulty, ADCS, AV evasion, and C2",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "How To Pass The Hack The Box CAPE Exam (InfoSec Pat)",
         "u": "https://www.youtube.com/watch?v=YZ8rI_9LTAI",
-        "note": "His exam experience with prep advice and tips"
+        "note": "His exam experience with prep advice and tips",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box CAPE Pathway Completed (0x3 Security)",
         "u": "https://www.youtube.com/watch?v=odTxmk3GgPI",
-        "note": "Finishing the path and planning for the exam"
+        "note": "Finishing the path and planning for the exam",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB Stories: Unpacking CAPE and AD Exploitation (Hack The Box)",
         "u": "https://www.youtube.com/watch?v=YxKWEVKJw5s",
-        "note": "Official AMA with the people who built CAPE"
+        "note": "Official AMA with the people who built CAPE",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "I Passed HTB CAPE: Full Study Plan & Honest Review (Cyber Mage)",
         "u": "https://www.youtube.com/watch?v=OxoKkRgoGqk",
-        "note": "Prerequisites, a study roadmap, and reporting tips"
+        "note": "Prerequisites, a study roadmap, and reporting tips",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Mission Accomplished, Part 2 (Kenny Strawn)",
         "u": "https://www.youtube.com/watch?v=EBrUAHmiE_8",
-        "note": "What he took from the AD Pentester path and CAPE"
+        "note": "What he took from the AD Pentester path and CAPE",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB CAPE | Certified Active Directory Pentesting Expert (Hack The Box)",
         "u": "https://www.youtube.com/watch?v=1aIOoL19k_E",
-        "note": "Official HTB overview of the CAPE cert and what it tests"
+        "note": "Official HTB overview of the CAPE cert and what it tests",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CAPE Certification Explained: AD Pentesting Overview (0xH3xSec)",
         "u": "https://www.youtube.com/watch?v=6XQacJvwFMI",
-        "note": "44-minute community talk: modules, exam structure, study resources, prep tips and Q&A"
+        "note": "44-minute community talk: modules, exam structure, study resources, prep tips and Q&A",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#e436b4",
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
         "n": "HTB CAPE Review (Lorenzo Meacci)",
         "u": "https://lorenzomeacci.com/htb-cape-review",
-        "note": "10 of 10 flags in under 5 days, with PowerView and dacledit when BloodHound fails"
+        "note": "10 of 10 flags in under 5 days, with PowerView and dacledit when BloodHound fails",
+        "k": "Web",
+        "d": "lorenzomeacci.com"
       },
       {
         "n": "HTB CAPE Exam Review (Jason Ampoloquio)",
         "u": "https://thekeym4ker.github.io/hive/blog/cape",
-        "note": "The course material is enough if you enumerate thoroughly"
+        "note": "The course material is enough if you enumerate thoroughly",
+        "k": "Web",
+        "d": "thekeym4ker.github.io"
       },
       {
         "n": "The CAPE Experience (gatari)",
         "u": "https://gatari.dev/posts/cape-experience/",
-        "note": "10 of 10 in 2.5 days; a marathon, so take breaks and fix VPN latency"
+        "note": "10 of 10 in 2.5 days; a marathon, so take breaks and fix VPN latency",
+        "k": "Web",
+        "d": "gatari.dev"
       },
       {
         "n": "My Review on HTB CAPE (h4r0r)",
         "u": "https://almounah.github.io/posts/cape-review/",
-        "note": "Brutally hard with no spray and pray, so start on a Friday"
+        "note": "Brutally hard with no spray and pray, so start on a Friday",
+        "k": "Web",
+        "d": "almounah.github.io"
       },
       {
         "n": "HTB CAPE: How to Pass (0xhav0c)",
         "u": "https://secybr.com/posts/htb-certified-active-directory-pentesting-expert-cape-review/",
-        "note": "Failed then passed the retake; start the report on day one"
+        "note": "Failed then passed the retake; start the report on day one",
+        "k": "Web",
+        "d": "secybr.com"
       },
       {
         "n": "HTB CAPE Exam Experience, Full Walkthrough (LazyHackers)",
         "u": "https://lazyhackers.in/article/htb-cape-exam-experience-full-walkthrough",
-        "note": "Day-one recon, template the report, and drill Ligolo-ng"
+        "note": "Day-one recon, template the report, and drill Ligolo-ng",
+        "k": "Web",
+        "d": "lazyhackers.in"
       },
       {
         "n": "HTB Academy CAPE Review (MANESEC)",
         "u": "https://manesec.github.io/2025/04/23/2025/37-hackthebox-academy-cape/",
-        "note": "The hardest AD cert he'd faced, with a CPTS to Pro Labs runway"
+        "note": "The hardest AD cert he'd faced, with a CPTS to Pro Labs runway",
+        "k": "Web",
+        "d": "manesec.github.io"
       },
       {
         "n": "OSEP & CAPE From Scratch (Scotsec)",
         "u": "https://scotsec.github.io/posts/ProgressTwo/",
-        "note": "CAPE practical in about 3 days plus 3 of reporting, compared with OSEP; know your C2 well"
+        "note": "CAPE practical in about 3 days plus 3 of reporting, compared with OSEP; know your C2 well",
+        "k": "Web",
+        "d": "scotsec.github.io"
       },
       {
         "n": "HTB CAPE Exam Review (jellibean)",
         "u": "https://jellibean.me/certifications/cape-exam-review/",
-        "note": "Spoiler-free review on pivoting, Kerberos and reporting tradecraft"
+        "note": "Spoiler-free review on pivoting, Kerberos and reporting tradecraft",
+        "k": "Web",
+        "d": "jellibean.me"
       },
       {
         "n": "I Survived HTB CAPE as an Incident Responder: Honest Review (Chayanin Khawsanit)",
         "u": "https://chayanin-mews.medium.com/i-survived-htb-cape-as-an-incident-responder-heres-my-honest-review-2026-df57e01f3c83",
-        "note": "A blue-teamer's take on tackling an offensive AD exam"
+        "note": "A blue-teamer's take on tackling an offensive AD exam",
+        "k": "Web",
+        "d": "chayanin-mews.medium.com"
       },
       {
         "n": "HTB CAPE Experience and Review: 10 Days, 290 Pages, One Brutal AD Exam (Alejandro Perez)",
         "u": "https://medium.com/@4le26x/htb-cape-experience-and-review-10-days-290-pages-and-one-brutal-ad-exam-a1beca50f3df",
-        "note": "Detailed account of the ten days and a 290-page report"
+        "note": "Detailed account of the ten days and a 290-page report",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "CAPE Technical Review and Exam Breakdown (610s)",
         "u": "https://medium.com/@610s10/certified-active-directory-pentesting-expert-cape-technical-review-exam-breakdown-htb-cape-9121a0659ae7",
-        "note": "Technical breakdown of the path and exam from a first-blood earner"
+        "note": "Technical breakdown of the path and exam from a first-blood earner",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "CAPE Review (PatxaSec)",
         "u": "https://patxasec.github.io/blog.html?file=Articulos%2Fcape.md",
-        "note": "Honest review on mindset, stamina and reporting"
+        "note": "Honest review on mindset, stamina and reporting",
+        "k": "Web",
+        "d": "patxasec.github.io"
       },
       {
         "n": "My Journey Through HTB CAPE (Sabastiaz)",
         "u": "https://sabastiaz.lol/blog/cape.html",
-        "note": "Pass with 10/10 flags: path, cube costs, enumeration lessons and report prep"
+        "note": "Pass with 10/10 flags: path, cube costs, enumeration lessons and report prep",
+        "k": "Web",
+        "d": "sabastiaz.lol"
       },
       {
         "n": "Academy AD Penetration Tester Path Review (Red Team Training Reviews)",
         "u": "https://www.redteamtrainingreviews.com/hackthebox/htb-cape.html",
-        "note": "Module-by-module path review plus an honest account of a failed first attempt"
+        "note": "Module-by-module path review plus an honest account of a failed first attempt",
+        "k": "Web",
+        "d": "redteamtrainingreviews.com"
       },
       {
         "n": "HTB 'CAPE' Review (0xs4m)",
         "u": "https://medium.com/@0xs4m/htb-cape-review-9e333dc4740e",
-        "note": "Pass review of the exam and the 15-module path, with advice on per-module cheat sheets"
+        "note": "Pass review of the exam and the 15-module path, with advice on per-module cheat sheets",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "HackTheBox CAPE Certification Review (Filip Wozniak)",
         "u": "https://medium.com/@filip.bartosz.wozniak/hackthebox-cape-certification-700737050cd6",
-        "note": "First-hand CAPE certification review on Medium"
+        "note": "First-hand CAPE certification review on Medium",
+        "k": "Web",
+        "d": "medium.com"
       }
     ]
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#e436b4",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
         "n": "S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet",
         "u": "https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet",
-        "note": "Broad AD enumeration and attack cheat sheet that maps to the path"
+        "note": "Broad AD enumeration and attack cheat sheet that maps to the path",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Squ1shification/CAPE-Notes",
         "u": "https://github.com/Squ1shification/CAPE-Notes",
-        "note": "CAPE quick-reference cheatsheet across the exact path topics"
+        "note": "CAPE quick-reference cheatsheet across the exact path topics",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "nirajkharel/AD-Pentesting-Notes",
         "u": "https://github.com/nirajkharel/AD-Pentesting-Notes",
-        "note": "General AD pentest notes: Kerberos and credential attacks"
+        "note": "General AD pentest notes: Kerberos and credential attacks",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "CAPE Preparation Guide (VegeLasagne)",
         "u": "https://thepastamentor.github.io/cape-prep-guide.html",
-        "note": "Tooling, time management, and an AD practice list of boxes, chains, and mini Pro Labs"
+        "note": "Tooling, time management, and an AD practice list of boxes, chains, and mini Pro Labs",
+        "k": "Web",
+        "d": "thepastamentor.github.io"
       },
       {
         "n": "How to Pass the HTB CAPE Exam in 2026: AD Study Plan (Owen Gallagher)",
         "u": "https://www.certcrush.app/blog/how-to-pass-htb-cape-2026-study-plan-active-directory",
-        "note": "Ten-week study plan plus a day-by-day exam pacing guide"
+        "note": "Ten-week study plan plus a day-by-day exam pacing guide",
+        "k": "Web",
+        "d": "certcrush.app"
       },
       {
         "n": "GOAD Write-up Series (Mayfly)",
         "u": "https://mayfly277.github.io/categories/goad/",
-        "note": "14-part GOAD walkthrough: relay, ADCS, MSSQL, delegation, ACLs, trusts"
+        "note": "14-part GOAD walkthrough: relay, ADCS, MSSQL, delegation, ACLs, trusts",
+        "k": "Web",
+        "d": "mayfly277.github.io"
       }
     ]
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#e436b4",
     "note": "The report is graded alongside the points, so practice the deliverable, not just the attacks.",
     "items": [
       {
         "n": "HTB CAPE Report Template (PDF)",
         "u": "https://docs.sysreptor.com/assets/reports/HTB-CAPE-Report.pdf",
-        "note": "SysReptor CAPE template with a full AD compromise walkthrough"
+        "note": "SysReptor CAPE template with a full AD compromise walkthrough",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "Syslifters/HackTheBox-Reporting",
         "u": "https://github.com/Syslifters/HackTheBox-Reporting",
-        "note": "SysReptor templates, including HTB CAPE"
+        "note": "SysReptor templates, including HTB CAPE",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SysReptor (reporting platform)",
         "u": "https://github.com/Syslifters/sysreptor",
-        "note": "Self-hosted or cloud report writing"
+        "note": "Self-hosted or cloud report writing",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#e436b4",
     "note": "Be comfortable with these before the exam.",
     "items": [
       {
         "n": "BloodHound",
         "u": "https://github.com/SpecterOps/BloodHound",
-        "note": "AD attack path mapping"
+        "note": "AD attack path mapping",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PowerSploit (PowerView)",
         "u": "https://github.com/PowerShellMafia/PowerSploit",
-        "note": "PowerShell AD enumeration"
+        "note": "PowerShell AD enumeration",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Impacket",
         "u": "https://github.com/fortra/impacket",
-        "note": "Python classes for AD network protocols"
+        "note": "Python classes for AD network protocols",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "NetExec",
         "u": "https://github.com/Pennyw0rth/NetExec",
-        "note": "Network enumeration, the CrackMapExec successor"
+        "note": "Network enumeration, the CrackMapExec successor",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Rubeus",
         "u": "https://github.com/GhostPack/Rubeus",
-        "note": "Kerberos ticket toolkit"
+        "note": "Kerberos ticket toolkit",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Certipy",
         "u": "https://github.com/ly4k/Certipy",
-        "note": "ADCS enumeration and abuse"
+        "note": "ADCS enumeration and abuse",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Kerbrute",
         "u": "https://github.com/ropnop/kerbrute",
-        "note": "Kerberos user enumeration and pre-auth checks"
+        "note": "Kerberos user enumeration and pre-auth checks",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Ligolo-ng",
         "u": "https://github.com/nicocha30/ligolo-ng",
-        "note": "Tunneling and multi-hop pivoting"
+        "note": "Tunneling and multi-hop pivoting",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Sliver",
         "u": "https://github.com/BishopFox/sliver",
-        "note": "The C2 framework used in the path"
+        "note": "The C2 framework used in the path",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "mimikatz",
         "u": "https://github.com/gentilkiwi/mimikatz",
-        "note": "Credential and ticket handling on Windows"
+        "note": "Credential and ticket handling on Windows",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "bloodyAD",
         "u": "https://github.com/CravateRouge/bloodyAD",
-        "note": "AD privilege escalation over LDAP; reads and edits DACLs and attributes"
+        "note": "AD privilege escalation over LDAP; reads and edits DACLs and attributes",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "powerview.py",
         "u": "https://github.com/aniqfakhrul/powerview.py",
-        "note": "PowerView in Python, run from your Linux box"
+        "note": "PowerView in Python, run from your Linux box",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "AdaptixC2",
         "u": "https://github.com/Adaptix-Framework/AdaptixC2",
-        "note": "Open-source C2 framework, an alternative to Sliver"
+        "note": "Open-source C2 framework, an alternative to Sliver",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "AD & Methodology References",
-    "color": "#e436b4",
     "note": "Background and reference beyond the path.",
     "items": [
       {
         "n": "The Hacker Recipes",
         "u": "https://www.thehacker.recipes/",
-        "note": "Concise reference for each AD attack"
+        "note": "Concise reference for each AD attack",
+        "k": "Web",
+        "d": "thehacker.recipes"
       },
       {
         "n": "MITRE ATT&CK Enterprise",
         "u": "https://attack.mitre.org/",
-        "note": "Map each technique to a tactic"
+        "note": "Map each technique to a tactic",
+        "k": "Web",
+        "d": "attack.mitre.org"
       },
       {
         "n": "ADSecurity.org",
         "u": "https://adsecurity.org/",
-        "note": "In-depth AD attack and defense articles"
+        "note": "In-depth AD attack and defense articles",
+        "k": "Web",
+        "d": "adsecurity.org"
       },
       {
         "n": "Pluralsight free trial (10 days)",
         "u": "https://www.pluralsight.com/individuals/pricing/free-trial",
-        "note": "Sign up for 10 days of free access, then take the Windows 11 Internals path below"
+        "note": "Sign up for 10 days of free access, then take the Windows 11 Internals path below",
+        "k": "Web",
+        "d": "pluralsight.com"
       },
       {
         "n": "Windows 11 Internals path (Pluralsight)",
         "u": "https://www.pluralsight.com/paths/windows-11-internals",
-        "note": "Pavel Yosifovich's course series on how Windows works under the hood"
+        "note": "Pavel Yosifovich's course series on how Windows works under the hood",
+        "k": "Web",
+        "d": "pluralsight.com"
       },
       {
         "n": "TrainSec Windows Internals courses (Paid)",
         "u": "https://trainsec.net/courses/windows-internals-bundle/",
-        "note": "Pavel Yosifovich's own paid Windows internals training"
+        "note": "Pavel Yosifovich's own paid Windows internals training",
+        "k": "Web",
+        "d": "trainsec.net"
       },
       {
         "n": "harmj0y's Blog",
         "u": "https://blog.harmj0y.net/",
-        "note": "Deep dives on Kerberos, DACL abuse, trusts and PowerView from its author"
+        "note": "Deep dives on Kerberos, DACL abuse, trusts and PowerView from its author",
+        "k": "Web",
+        "d": "blog.harmj0y.net"
       },
       {
         "n": "Orange Cyberdefense AD Mindmap",
         "u": "https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg",
-        "note": "Visual map of AD attack paths, from no credentials to domain admin"
+        "note": "Visual map of AD attack paths, from no credentials to domain admin",
+        "k": "Web",
+        "d": "orange-cyberdefense.github.io"
       }
     ]
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#e436b4",
-    "layout": "tips",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
+    "layout": "tips",
     "items": [
       {
         "n": "Treat the exam as part of your learning process",
@@ -3512,6 +3763,174 @@ const RESOURCES = [
     ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Active Directory Pentesting Expert (CAPE)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-active-directory-pentesting-expert",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Exam review",
+    "n": "HTB CAPE Experience and Review: 10 Days, 290 Pages, One Brutal AD Exam (Alejandro Perez)",
+    "u": "https://medium.com/@4le26x/htb-cape-experience-and-review-10-days-290-pages-and-one-brutal-ad-exam-a1beca50f3df",
+    "note": "Detailed account of the ten days and a 290-page report",
+    "k": "Web",
+    "d": "medium.com",
+    "sec": "Exam Reviews & Write-ups"
+  },
+  {
+    "slot": "Report",
+    "n": "HTB CAPE Exam Experience, Full Walkthrough (LazyHackers)",
+    "u": "https://lazyhackers.in/article/htb-cape-exam-experience-full-walkthrough",
+    "note": "Day-one recon, template the report, and drill Ligolo-ng",
+    "k": "Web",
+    "d": "lazyhackers.in",
+    "sec": "Exam Reviews & Write-ups"
+  },
+  {
+    "slot": "Notes",
+    "n": "Squ1shification/CAPE-Notes",
+    "u": "https://github.com/Squ1shification/CAPE-Notes",
+    "note": "CAPE quick-reference cheatsheet across the exact path topics",
+    "k": "GitHub",
+    "d": "github.com",
+    "sec": "Community Notes & Walkthroughs"
+  },
+  {
+    "slot": "Video",
+    "n": "I Passed HTB CAPE: Full Study Plan & Honest Review (Cyber Mage)",
+    "u": "https://www.youtube.com/watch?v=OxoKkRgoGqk",
+    "note": "Prerequisites, a study roadmap, and reporting tips",
+    "k": "Video",
+    "d": "youtube.com",
+    "sec": "Video Series & Reviews"
+  }
+];
+(function () {
+const RL = { code: "CAPE", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "CAPE", "path": {"name": "Active Directory Penetration Tester Path", "url": "https://academy.hackthebox.com/path/preview/active-directory-penetration-tester"}, "mods": ["Active Directory Enumeration & Attacks", "Active Directory LDAP", "Active Directory PowerView", "Active Directory BloodHound", "Windows Lateral Movement", "Using CrackMapExec", "Kerberos Attacks", "DACL Attacks I", "DACL Attacks II", "NTLM Relay Attacks", "ADCS Attacks", "Active Directory Trust Attacks", "Intro to C2 Operations with Sliver", "Introduction to Windows Evasion Techniques", "MSSQL, Exchange, and SCCM Attacks"], "groups": [["Enumeration & Recon", [1, 2, 3, 4]], ["Lateral Movement & Tooling", [5, 6]], ["Kerberos & DACL Attacks", [7, 8, 9]], ["NTLM Relay & ADCS", [10, 11]], ["Domain Trust Attacks", [12]], ["C2 & Evasion", [13, 14]], ["App & Service Attacks", [15]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Domain Foundations", "sub": "Enumeration, Spraying, First Creds", "goal": "Enumerate a domain over RPC, LDAP and SMB and turn weak passwords into a first foothold.", "items": [{"id": "cicada", "n": "Cicada", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Cicada", "tech": "Default password spray, creds in LDAP descriptions, Backup Operators.", "mods": [1, 2, 6], "ippsec": "https://www.youtube.com/watch?v=21Z_byocGhI", "oxdf": "https://0xdf.gitlab.io/2025/02/15/htb-cicada.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}]}, {"name": "ACL Abuse Chains", "sub": "BloodHound Paths, DACLs, GPOs", "goal": "Follow BloodHound edges through password resets, group rights and GPO control to Domain Admin.", "items": [{"id": "certified", "n": "Certified", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Certified", "tech": "Assume breach: WriteOwner and GenericAll chain into an ADCS ESC9 path.", "mods": [4, 8, 11], "ippsec": "https://www.youtube.com/watch?v=edW9sOyAS9Q", "oxdf": "https://0xdf.gitlab.io/2025/03/15/htb-certified.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://almounah.github.io/posts/cape-review/", "w": "h4r0r"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "babytwo", "n": "BabyTwo", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/BabyTwo", "tech": "Weak passwords, SYSVOL logon-script poisoning, then GPO abuse.", "mods": [8, 9], "oxdf": "https://0xdf.gitlab.io/2025/09/26/htb-babytwo.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://almounah.github.io/posts/cape-review/", "w": "h4r0r"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "voleur", "n": "Voleur", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Voleur", "tech": "Assume breach: deleted-user recovery, DPAPI creds, pivot through WSL.", "mods": [4, 5, 8], "ippsec": "https://www.youtube.com/watch?v=G7FOSfZMC1I", "oxdf": "https://0xdf.gitlab.io/2025/11/01/htb-voleur.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "puppy", "n": "Puppy", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Puppy", "tech": "GenericWrite and GenericAll chain, KeePass crack, DPAPI creds.", "mods": [4, 8], "ippsec": "https://www.youtube.com/watch?v=QZQ-IjsI5Qk", "oxdf": "https://0xdf.gitlab.io/2025/09/27/htb-puppy.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "blackfield", "n": "Blackfield", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Blackfield", "tech": "AS-REP roast, password reset over RPC, memory dump creds, backup privileges.", "mods": [1, 4, 7, 8], "ippsec": "https://www.youtube.com/watch?v=IfCysW0Od8w", "oxdf": "https://0xdf.gitlab.io/2020/10/03/htb-blackfield.html", "src": [{"k": "review", "u": "https://medium.com/@610s10/certified-active-directory-pentesting-expert-cape-technical-review-exam-breakdown-htb-cape-9121a0659ae7", "w": "610s"}]}]}, {"name": "Certificates, SQL and Exchange", "sub": "ADCS ESC Paths, MSSQL, Mail", "goal": "Spot and abuse certificate template and MSSQL misconfigurations as part of a longer chain.", "items": [{"id": "escape", "n": "Escape", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Escape", "tech": "MSSQL hash capture, creds in logs, then an ADCS ESC1 template.", "mods": [10, 11, 15], "ippsec": "https://www.youtube.com/watch?v=PS2duvVcjws", "oxdf": "https://0xdf.gitlab.io/2023/06/17/htb-escape.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://medium.com/@610s10/certified-active-directory-pentesting-expert-cape-technical-review-exam-breakdown-htb-cape-9121a0659ae7", "w": "610s"}]}, {"id": "authority", "n": "Authority", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Authority", "tech": "Creds from Ansible files, LDAP credential capture, then ESC1 via an added computer.", "mods": [2, 11], "ippsec": "https://www.youtube.com/watch?v=7AF5riqLy-8", "oxdf": "https://0xdf.gitlab.io/2023/12/09/htb-authority.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://medium.com/@610s10/certified-active-directory-pentesting-expert-cape-technical-review-exam-breakdown-htb-cape-9121a0659ae7", "w": "610s"}]}, {"id": "manager", "n": "Manager", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Manager", "tech": "RID cycling and spray, MSSQL file read, then ADCS ESC7.", "mods": [1, 11, 15], "ippsec": "https://www.youtube.com/watch?v=lT2Tv0m4k7M", "oxdf": "https://0xdf.gitlab.io/2024/03/16/htb-manager.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://medium.com/@610s10/certified-active-directory-pentesting-expert-cape-technical-review-exam-breakdown-htb-cape-9121a0659ae7", "w": "610s"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "overwatch", "n": "Overwatch", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Overwatch", "tech": ".NET reversing for SQL creds, AD DNS record abuse, linked-server credential capture.", "mods": [10, 15], "ippsec": "https://www.youtube.com/watch?v=zOK_EzOyMN0", "oxdf": "https://0xdf.gitlab.io/2026/05/09/htb-overwatch.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "tombwatcher", "n": "TombWatcher", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/TombWatcher", "tech": "Long BloodHound chain, AD Recycle Bin recovery, then ADCS ESC15.", "mods": [4, 8, 9, 11], "ippsec": "https://www.youtube.com/watch?v=um8b-TN76bY", "oxdf": "https://0xdf.gitlab.io/2025/10/11/htb-tombwatcher.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "certificate", "n": "Certificate", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Certificate", "tech": "Web foothold, Kerberos hash from a capture file, then ADCS abuse.", "mods": [7, 11], "ippsec": "https://www.youtube.com/watch?v=-4c5QcW3r4Q", "oxdf": "https://0xdf.gitlab.io/2025/10/04/htb-certificate.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "fluffy", "n": "Fluffy", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Fluffy", "tech": "Assume breach: hash capture, GenericWrite on service accounts, then ADCS ESC16.", "mods": [4, 8, 10, 11], "ippsec": "https://www.youtube.com/watch?v=KvUC7bakm-E", "oxdf": "https://0xdf.gitlab.io/2025/09/20/htb-fluffy.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "signed", "n": "Signed", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Signed", "tech": "MSSQL coercion, silver ticket for sysadmin, several privilege escalation paths.", "mods": [7, 10, 15], "ippsec": "https://www.youtube.com/watch?v=d7FCnR6YS_E", "oxdf": "https://0xdf.gitlab.io/2026/02/07/htb-signed.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "eighteen", "n": "Eighteen", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Eighteen", "tech": "MSSQL impersonation, password spray, then BadSuccessor dMSA abuse.", "mods": [8, 15], "oxdf": "https://0xdf.gitlab.io/2026/04/11/htb-eighteen.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "scepter", "n": "Scepter", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Scepter", "tech": "Certificates from an NFS share, password reset, two ESC14 variants, DCSync.", "mods": [8, 11], "ippsec": "https://www.youtube.com/watch?v=EEMNIIEzq24", "oxdf": "https://0xdf.gitlab.io/2025/07/19/htb-scepter.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "escapetwo", "n": "EscapeTwo", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/EscapeTwo", "tech": "MSSQL foothold, WriteOwner on a service account, then ADCS ESC4.", "mods": [8, 11, 15], "ippsec": "https://www.youtube.com/watch?v=fE6BYs4P1t4", "oxdf": "https://0xdf.gitlab.io/2025/05/24/htb-escapetwo.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "breach", "n": "Breach", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Breach", "tech": "Hash capture from a writable share, Kerberoast, MSSQL silver ticket.", "mods": [7, 10, 15], "oxdf": "https://0xdf.gitlab.io/2026/02/10/htb-breach.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "sendai", "n": "Sendai", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Sendai", "tech": "Spray, ACL hops to a gMSA, then ADCS ESC4 or an MSSQL path.", "mods": [4, 8, 11, 15], "oxdf": "https://0xdf.gitlab.io/2025/08/28/htb-sendai.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}]}, {"name": "Kerberos, Delegation and Relay", "sub": "Delegation, Coercion, Kerberos-Only", "goal": "Abuse delegation settings, coerced authentication and Kerberos-only domains without falling back on NTLM.", "items": [{"id": "vintage", "n": "Vintage", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Vintage", "tech": "Legacy computer account and gMSA read, targeted Kerberoast, DPAPI, then delegation abuse.", "mods": [4, 7, 8, 9], "ippsec": "https://www.youtube.com/watch?v=-JM--KfVhpA", "oxdf": "https://0xdf.gitlab.io/2025/04/26/htb-vintage.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://almounah.github.io/posts/cape-review/", "w": "h4r0r"}]}, {"id": "delegate", "n": "Delegate", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Delegate", "tech": "Leaked creds on a share, targeted Kerberoast, then unconstrained delegation to DCSync.", "mods": [7, 8, 10], "oxdf": "https://0xdf.gitlab.io/2025/09/12/htb-delegate.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://almounah.github.io/posts/cape-review/", "w": "h4r0r"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "pirate", "n": "Pirate", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pirate", "tech": "Legacy computer accounts and gMSA read, relay into RBCD, then delegation abuse.", "mods": [7, 8, 10], "ippsec": "https://www.youtube.com/watch?v=-ZWuvykS-QA", "oxdf": "https://0xdf.gitlab.io/2026/09/05/htb-pirate.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "rustykey", "n": "RustyKey", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/RustyKey", "tech": "Assume breach: Timeroasting, group and password-reset rights, then further AD abuse.", "mods": [4, 7, 8], "ippsec": "https://www.youtube.com/watch?v=vkbIVr4_ZdE", "oxdf": "https://0xdf.gitlab.io/2025/11/08/htb-rustykey.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "redelegate", "n": "Redelegate", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Redelegate", "tech": "KeePass and MSSQL, spray, password reset, then constrained delegation setup.", "mods": [7, 8, 15], "oxdf": "https://0xdf.gitlab.io/2025/07/17/htb-redelegate.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}]}, {"name": "Forests and Insane Chains", "sub": "Trusts, Long Multi-Step Boxes", "goal": "Chain many techniques across trusts and hardened hosts the way the exam does.", "items": [{"id": "rebound", "n": "Rebound", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Rebound", "tech": "Roasting, ACL abuse, cross-session relay, gMSA, then constrained delegation and RBCD.", "mods": [4, 7, 8, 10], "ippsec": "https://www.youtube.com/watch?v=oUIoH4yBT3k", "oxdf": "https://0xdf.gitlab.io/2024/03/30/htb-rebound.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "review", "u": "https://almounah.github.io/posts/cape-review/", "w": "h4r0r"}]}, {"id": "garfield", "n": "Garfield", "type": "machine", "os": "Windows", "diff": "Hard", "access": "Free", "url": "https://app.hackthebox.com/machines/Garfield", "tech": "Active Hard AD box involving a read-only domain controller; details unverified while active.", "mods": [4, 7, 8], "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "darkzero", "n": "DarkZero", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/DarkZero", "tech": "Two forests: MSSQL linked server across the trust, then several escalation paths.", "mods": [12, 15, 10], "ippsec": "https://www.youtube.com/watch?v=fXPWoLwG3mU", "oxdf": "https://0xdf.gitlab.io/2026/04/04/htb-darkzero.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}, {"k": "tracker-existing", "w": "Earlier CAPE tracker list"}]}, {"id": "absolute", "n": "Absolute", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Absolute", "tech": "AS-REP roast, Kerberos-only auth, group ACL abuse and shadow credentials.", "mods": [2, 7, 8], "ippsec": "https://www.youtube.com/watch?v=rfAmMQV_wss", "oxdf": "https://0xdf.gitlab.io/2023/05/27/htb-absolute.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "sekhmet", "n": "Sekhmet", "type": "machine", "os": "Windows", "diff": "Insane", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Sekhmet", "tech": "Linux VM joined to AD, heavy Kerberos work, then a Windows pivot.", "mods": [5, 7], "ippsec": "https://www.youtube.com/watch?v=vsgPsMZx59w", "oxdf": "https://0xdf.gitlab.io/2023/04/01/htb-sekhmet.html", "src": [{"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}]}, {"name": "Pro Labs", "sub": "Multi-Host Networks, Pivoting, C2", "goal": "Run a full multi-subnet AD engagement with pivoting, evasion and a C2.", "items": [{"id": "zephyr", "n": "Zephyr", "type": "prolab", "os": null, "diff": null, "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-ii", "tech": "Red team AD network: relay, delegation, trusts and SQL.", "mods": [1, 7, 10, 12, 15], "src": [{"k": "review", "u": "https://lorenzomeacci.com/htb-cape-review", "w": "Lorenzo Meacci"}, {"k": "review", "u": "https://lazyhackers.in/article/htb-cape-exam-experience-full-walkthrough", "w": "LazyHackers"}, {"k": "review", "u": "https://www.youtube.com/watch?v=qaFsGyllMJ4", "w": "SchlopShow (guest Rian Friedt)"}, {"k": "review", "u": "https://medium.com/@filip.bartosz.wozniak/hackthebox-cape-certification-700737050cd6", "w": "Filip Wozniak"}]}, {"id": "offshore", "n": "Offshore", "type": "prolab", "os": null, "diff": null, "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-ii", "tech": "Enterprise AD across domain trusts with multiple segments to pivot through.", "mods": [1, 5, 12, 14], "src": [{"k": "review", "u": "https://lazyhackers.in/article/htb-cape-exam-experience-full-walkthrough", "w": "LazyHackers"}, {"k": "review", "u": "https://www.youtube.com/watch?v=qaFsGyllMJ4", "w": "SchlopShow (host)"}, {"k": "review", "u": "https://medium.com/@filip.bartosz.wozniak/hackthebox-cape-certification-700737050cd6", "w": "Filip Wozniak"}, {"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "rastalabs", "n": "RastaLabs", "type": "prolab", "os": null, "diff": null, "access": "HTB PRO", "url": "https://app.hackthebox.com/prolabs", "tech": "Realistic Windows enterprise with an AV evasion focus.", "mods": [5, 13, 14], "src": [{"k": "review", "u": "https://lazyhackers.in/article/htb-cape-exam-experience-full-walkthrough", "w": "LazyHackers"}, {"k": "review", "u": "https://www.youtube.com/watch?v=qaFsGyllMJ4", "w": "SchlopShow (host)"}, {"k": "review", "u": "https://www.redteamtrainingreviews.com/hackthebox/htb-cape.html", "w": "Red Team Training Reviews"}]}, {"id": "ifrit", "n": "Ifrit", "type": "prolab", "os": null, "diff": null, "access": "HTB PRO", "url": "https://app.hackthebox.com/prolabs", "tech": "Covert red team lab: multi-forest movement, EDR bypass and relay.", "mods": [10, 12, 13, 14], "src": [{"k": "review", "u": "https://thekeym4ker.github.io/hive/blog/cape", "w": "Jason Ampoloquio"}, {"k": "review", "u": "https://thepastamentor.github.io/cape-prep-guide.html", "w": "VegeLasagne (CAPE Preparation Guide)"}]}, {"id": "dante", "n": "Dante", "type": "prolab", "os": null, "diff": null, "access": "HTB PRO", "url": "https://www.hackthebox.com/hacker/pro-labs/red-team-operator-i", "tech": "Beginner multi-subnet network, a pivoting warm-up.", "mods": [5], "src": [{"k": "review", "u": "https://lazyhackers.in/article/htb-cape-exam-experience-full-walkthrough", "w": "LazyHackers"}, {"k": "review", "u": "https://medium.com/@filip.bartosz.wozniak/hackthebox-cape-certification-700737050cd6", "w": "Filip Wozniak"}]}]}]};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "cape_practice_v1";
@@ -4074,41 +4493,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CAPE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCAPE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CAPE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCAPE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -4284,7 +4668,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();

@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,105 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#78baff;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#fff}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources .num,#tab-resources .sec.open>.sh .tri,#tab-resources .tg.open .tri{color:#ff8282}
+  #tab-resources .ltabs button[aria-selected=true]{border-bottom-color:var(--red)}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +378,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -585,7 +667,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">71 <small>Links &middot; 8 Sections &middot; 32 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cjca/resources/" target="_blank" rel="noopener">CJCA Resources</a>. HTB Academy's path is all you need to pass the CJCA. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>4</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>71</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CJCA, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 71 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CJCA&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCJCA%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CJCA&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCJCA%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -2119,419 +2222,553 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#2f95ff",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#ff3e3e",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Junior Cybersecurity Associate (CJCA)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-junior-cybersecurity-associate",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Junior Cybersecurity Analyst Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/junior-cybersecurity-analyst",
-        "note": "20 modules · 318 sections · Easy"
+        "note": "20 modules · 318 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report submission, results"
+        "note": "Official exam rules: attempts, report submission, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Retired Easy boxes for exam practice"
+        "note": "Retired Easy boxes for exam practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Official CJCA prep track (HTB Labs)",
         "u": "https://app.hackthebox.com/tracks/93",
-        "note": "HTB's own set of Labs boxes picked for this cert"
+        "note": "HTB's own set of Labs boxes picked for this cert",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Enigma (HTB Labs machine)",
         "u": "https://app.hackthebox.com/machines/Enigma",
-        "note": "Easy Linux box from Season 11 that leans on Footprinting: NFS, IMAP/POP3 and MySQL. Free while it's active, VIP once it retires"
+        "note": "Easy Linux box from Season 11 that leans on Footprinting: NFS, IMAP/POP3 and MySQL. Free while it's active, VIP once it retires",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "HTB blog: A jumpstart into cybersecurity with CJCA",
         "u": "https://www.hackthebox.com/blog/Start-cybersecurity-with-HTB-CJCA",
-        "note": "Launch post: what the cert covers and who it's for"
+        "note": "Launch post: what the cert covers and who it's for",
+        "k": "Official",
+        "d": "hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#2f95ff",
     "note": "Work through these 20 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Introduction to Information Security",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-information-security",
-        "note": "24 sections · Fundamental"
+        "note": "24 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Network Foundations",
         "u": "https://academy.hackthebox.com/course/preview/network-foundations",
-        "note": "12 sections · Fundamental"
+        "note": "12 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Introduction to Networking",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-networking",
-        "note": "21 sections · Fundamental"
+        "note": "21 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Linux Fundamentals",
         "u": "https://academy.hackthebox.com/course/preview/linux-fundamentals",
-        "note": "30 sections · Fundamental"
+        "note": "30 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · Introduction to Bash Scripting",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-bash-scripting",
-        "note": "10 sections · Easy"
+        "note": "10 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · Windows Fundamentals",
         "u": "https://academy.hackthebox.com/course/preview/windows-fundamentals",
-        "note": "15 sections · Fundamental"
+        "note": "15 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · Introduction to Windows Command Line",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-windows-command-line",
-        "note": "23 sections · Easy"
+        "note": "23 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · Web Requests",
         "u": "https://academy.hackthebox.com/course/preview/web-requests",
-        "note": "8 sections · Fundamental"
+        "note": "8 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · Introduction to Web Applications",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-web-applications",
-        "note": "17 sections · Fundamental"
+        "note": "17 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · Introduction to Penetration Testing",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-penetration-testing",
-        "note": "21 sections · Fundamental"
+        "note": "21 sections · Fundamental",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · Pentest in a Nutshell",
         "u": "https://academy.hackthebox.com/course/preview/pentest-in-a-nutshell",
-        "note": "24 sections · Easy"
+        "note": "24 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · Network Enumeration with Nmap",
         "u": "https://academy.hackthebox.com/course/preview/network-enumeration-with-nmap",
-        "note": "12 sections · Easy"
+        "note": "12 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "13 · Footprinting",
         "u": "https://academy.hackthebox.com/course/preview/footprinting",
-        "note": "21 sections · Medium"
+        "note": "21 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "14 · Hacking WordPress",
         "u": "https://academy.hackthebox.com/course/preview/hacking-wordpress",
-        "note": "16 sections · Easy"
+        "note": "16 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "15 · Using the Metasploit Framework",
         "u": "https://academy.hackthebox.com/course/preview/using-the-metasploit-framework",
-        "note": "15 sections · Easy"
+        "note": "15 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "16 · Intro to Network Traffic Analysis",
         "u": "https://academy.hackthebox.com/course/preview/intro-to-network-traffic-analysis",
-        "note": "15 sections · Medium"
+        "note": "15 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "17 · Incident Handling Process",
         "u": "https://academy.hackthebox.com/course/preview/incident-handling-process",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "18 · Windows Event Logs & Finding Evil",
         "u": "https://academy.hackthebox.com/course/preview/windows-event-logs--finding-evil",
-        "note": "6 sections · Medium"
+        "note": "6 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "19 · Security Monitoring & SIEM Fundamentals",
         "u": "https://academy.hackthebox.com/course/preview/security-monitoring--siem-fundamentals",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "20 · Introduction to Threat Hunting & Hunting With Elastic",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-threat-hunting--hunting-with-elastic",
-        "note": "6 sections · Medium"
+        "note": "6 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#ff3e3e",
     "note": "Watch a couple before you start to set expectations.",
     "items": [
       {
         "n": "hackthebox finally did it... (Mad Hat)",
         "u": "https://www.youtube.com/watch?v=8iJb3D_Fv70",
-        "note": "First look at the CJCA launch"
+        "note": "First look at the CJCA launch",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB CJCA: New Cert: Honest Thoughts! (stuffy24)",
         "u": "https://www.youtube.com/watch?v=5La415j7Wm8",
-        "note": "Honest take on whether it's worth it"
+        "note": "Honest take on whether it's worth it",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box Released a NEW Junior Cert?! (Tyler Ramsbey)",
         "u": "https://www.youtube.com/watch?v=p6x_iqb6qxI&t=457s",
-        "note": "CJCA review: red and blue coverage"
+        "note": "CJCA review: red and blue coverage",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "TRUTH about Hack The Box CJCA (UnixGuy)",
         "u": "https://youtu.be/K_-UF7cJpYo",
-        "note": "Detailed review: value, content, job market"
+        "note": "Detailed review: value, content, job market",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CJCA playlist (stuffy24)",
         "u": "https://youtube.com/playlist?list=PLrTDbBs5YRrEzT_FTzTjB2in7Vq_FJcHw",
-        "note": "Multi-part series on the path and exam"
+        "note": "Multi-part series on the path and exam",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB CDSA playlist (TemDaniels Academy)",
         "u": "https://youtube.com/playlist?list=PLLx--MP2YFHr8FTjSwIu100nQo0lvzkLZ",
-        "note": "CDSA-focused, but useful for the SIEM and event-log half"
+        "note": "CDSA-focused, but useful for the SIEM and event-log half",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Step One: The CJCA Certification with 21y4d & Cry0l1t3 (Hack The Box)",
         "u": "https://www.youtube.com/watch?v=HyXu4NM3BtU",
-        "note": "77-minute official HTB session on the cert and building foundations"
+        "note": "77-minute official HTB session on the cert and building foundations",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box Beginner Friendly Certification Training the CJCA (LTN Labs)",
         "u": "https://www.youtube.com/watch?v=tf5Doo2gXCg",
-        "note": "Intro to the cert and path, compared with Security+"
+        "note": "Intro to the cert and path, compared with Security+",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "THM SEC1 vs HTB CJCA vs CompTIA Security+ | 2026 Review (Motasem Hamdan)",
         "u": "https://www.youtube.com/watch?v=ryXhV1CfqZ8",
-        "note": "Compares CJCA with Security+ and TryHackMe SEC1 on cost, format and HR value"
+        "note": "Compares CJCA with Security+ and TryHackMe SEC1 on cost, format and HR value",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "1 year to become a cyber expert: my 1st certification, the CJCA (Lénaïck Sorimoutou)",
         "u": "https://www.youtube.com/watch?v=fshtpRqmM6Q",
-        "note": "(French w/ English Dub) CJCA pass review, is it worth it, and a mistake made on the report phase"
+        "note": "(French w/ English Dub) CJCA pass review, is it worth it, and a mistake made on the report phase",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CJCA: Prep Guide and Mistakes to Avoid (B4NGG)",
         "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw",
-        "note": "(Spanish) A pass review, the video version of the B4NGG blog post"
+        "note": "(Spanish) A pass review, the video version of the B4NGG blog post",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Complete CJCA Review + HTB Sherlock (Salta Cybersecurity Club)",
         "u": "https://www.youtube.com/watch?v=EvB3In3GN-E",
-        "note": "(Spanish) An 83-minute CJCA review paired with a Sherlock walkthrough"
+        "note": "(Spanish) An 83-minute CJCA review paired with a Sherlock walkthrough",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "The eJPT killer? First look at CJCA (xerosec)",
         "u": "https://www.youtube.com/watch?v=sPJn0hlBtBU",
-        "note": "(Spanish) A launch-week look at the syllabus, price and how it compares to eJPT"
+        "note": "(Spanish) A launch-week look at the syllabus, price and how it compares to eJPT",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#2f95ff",
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and the report bar.",
     "items": [
       {
         "n": "Your First Definitive Guide on HTB CJCA (Chicken0248)",
         "u": "https://chicken0248.fyi/reviews/cjca/",
-        "note": "~13h pentest and ~1 day SIEM; found the blue half tough"
+        "note": "~13h pentest and ~1 day SIEM; found the blue half tough",
+        "k": "Web",
+        "d": "chicken0248.fyi"
       },
       {
         "n": "My HackTheBox CJCA Exam Experience (Halil Kirazkaya)",
         "u": "https://halilkirazkaya.com/hackthebox-cjca-exam-experience/",
-        "note": "\"The report is not a formality; it is the exam itself\""
+        "note": "\"The report is not a formality; it is the exam itself\"",
+        "k": "Web",
+        "d": "halilkirazkaya.com"
       },
       {
         "n": "HTB Academy CJCA Review (MANESEC)",
         "u": "https://manesec.github.io/2025/10/05/2025/68-hackthebox-academy-cjca/",
-        "note": "Failed with a 60-page report, passed with a 111-page one"
+        "note": "Failed with a 60-page report, passed with a 111-page one",
+        "k": "Web",
+        "d": "manesec.github.io"
       },
       {
         "n": "I Passed HTB CJCA (Bob Theisen)",
         "u": "https://bob.ltneighbor.net/educational-walkthroughs-and-reviews/i-passed-htb-cjca",
-        "note": "Why beginners should consider it; ~8-12 focused hours"
+        "note": "Why beginners should consider it; ~8-12 focused hours",
+        "k": "Web",
+        "d": "bob.ltneighbor.net"
       },
       {
         "n": "Passing the HTB CJCA Exam (morimori-dev)",
         "u": "https://morimori-dev.github.io/en/posts/cjca-passed/",
-        "note": "OSCP holder's take; notes-first reporting in SysReptor"
+        "note": "OSCP holder's take; notes-first reporting in SysReptor",
+        "k": "Web",
+        "d": "morimori-dev.github.io"
       },
       {
         "n": "Passed CJCA with a Perfect Score (Laziz Ilyosov)",
         "u": "https://medium.com/@ilyosovlaziz/i-passed-the-cjca-exam-with-a-perfect-score-here-is-everything-you-need-to-know-538c4514fd45",
-        "note": "100/100: chain findings between hosts, practice reports"
+        "note": "100/100: chain findings between hosts, practice reports",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "CJCA: Here's everything I wish someone told me (Alpastx)",
         "u": "https://www.thepensieve.in/Blogs/cjca",
-        "note": "Passed; day-by-day 5-day timeline, SysReptor, and why blue team prep matters most"
+        "note": "Passed; day-by-day 5-day timeline, SysReptor, and why blue team prep matters most",
+        "k": "Web",
+        "d": "thepensieve.in"
       },
       {
         "n": "CJCA: Preparation, Tips, and Common Mistakes (B4NGG)",
         "u": "https://b4ngg.com/en/blog/cjca/",
-        "note": "Pass review with five common mistakes and a list of 17 retired practice boxes"
+        "note": "Pass review with five common mistakes and a list of 17 retired practice boxes",
+        "k": "Web",
+        "d": "b4ngg.com"
       }
     ]
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#ff3e3e",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
         "n": "N1NJ10/Offsec-Foundations-Labs",
         "u": "https://github.com/N1NJ10/Offsec-Foundations-Labs",
-        "note": "eJPT + CJCA machines and notes, incl. SIEM & event logs"
+        "note": "eJPT + CJCA machines and notes, incl. SIEM & event logs",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "sohankanna/CJCA-Study-Notes",
         "u": "https://github.com/sohankanna/CJCA-Study-Notes",
-        "note": "Notes & diagrams across the path modules"
+        "note": "Notes & diagrams across the path modules",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "mlain24-lab/CJCA_Notes",
         "u": "https://github.com/mlain24-lab/CJCA_Notes",
-        "note": "Module notes, cheat sheets & scripts"
+        "note": "Module notes, cheat sheets & scripts",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "GitHub topic: cjca",
         "u": "https://github.com/topics/cjca",
-        "note": "More community CJCA repos"
+        "note": "More community CJCA repos",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "What I Learned from HTB's Junior Cybersecurity Analyst Path (JerseyLogsIn)",
         "u": "https://medium.com/@JerseyLogsIn/what-i-learned-from-htbs-junior-cybersecurity-analyst-path-a1804592bb7d",
-        "note": "Takeaways from working through the Junior Cybersecurity Analyst path"
+        "note": "Takeaways from working through the Junior Cybersecurity Analyst path",
+        "k": "Web",
+        "d": "medium.com"
       }
     ]
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#2f95ff",
     "note": "The report decides the result, so practice the deliverable, not just the attacks.",
     "items": [
       {
         "n": "Sample HTB CJCA Report (PDF)",
         "u": "https://docs.sysreptor.com/assets/reports/HTB-CJCA-Report.pdf",
-        "note": "SysReptor's 19-page example CJCA report showing the expected structure & depth"
+        "note": "SysReptor's 19-page example CJCA report showing the expected structure & depth",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "Syslifters/HackTheBox-Reporting",
         "u": "https://github.com/Syslifters/HackTheBox-Reporting",
-        "note": "SysReptor templates, including HTB CJCA"
+        "note": "SysReptor templates, including HTB CJCA",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SysReptor (reporting platform)",
         "u": "https://github.com/Syslifters/sysreptor",
-        "note": "Self-hostable, or use SysReptor's HTB cloud offering"
+        "note": "Self-hostable, or use SysReptor's HTB cloud offering",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "ChickenLoner/Awesome-Splunk-and-Elastic-SIEM-Practice-Labs",
         "u": "https://github.com/ChickenLoner/Awesome-Splunk-and-Elastic-SIEM-Practice-Labs",
-        "note": "List of Splunk and Elastic SIEM labs across BTLO, CyberDefenders, THM and more"
+        "note": "List of Splunk and Elastic SIEM labs across BTLO, CyberDefenders, THM and more",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Structuring a CJCA-style report, with sample PDF (B4NGG)",
         "u": "https://b4ngg.com/en/blog/cja_reporte/",
-        "note": "Section-by-section CJCA report layout built on the retired GoodGames box, with a PDF"
+        "note": "Section-by-section CJCA report layout built on the retired GoodGames box, with a PDF",
+        "k": "Web",
+        "d": "b4ngg.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#ff3e3e",
     "note": "Be comfortable with these on both halves of the exam.",
     "items": [
       {
         "n": "Nmap",
         "u": "https://nmap.org/book/man.html",
-        "note": "Host, port & service discovery"
+        "note": "Host, port & service discovery",
+        "k": "Web",
+        "d": "nmap.org"
       },
       {
         "n": "WPScan",
         "u": "https://github.com/wpscanteam/wpscan",
-        "note": "WordPress enumeration"
+        "note": "WordPress enumeration",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Metasploit Framework",
         "u": "https://github.com/rapid7/metasploit-framework",
-        "note": "Exploitation, Meterpreter, msfvenom"
+        "note": "Exploitation, Meterpreter, msfvenom",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PEASS-ng (LinPEAS/WinPEAS)",
         "u": "https://github.com/peass-ng/PEASS-ng",
-        "note": "Privilege-escalation enumeration"
+        "note": "Privilege-escalation enumeration",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "GTFOBins",
         "u": "https://gtfobins.github.io/",
-        "note": "Linux binaries for privesc and shells"
+        "note": "Linux binaries for privesc and shells",
+        "k": "Web",
+        "d": "gtfobins.github.io"
       },
       {
         "n": "LOLBAS",
         "u": "https://lolbas-project.github.io/",
-        "note": "Windows living-off-the-land binaries"
+        "note": "Windows living-off-the-land binaries",
+        "k": "Web",
+        "d": "lolbas-project.github.io"
       },
       {
         "n": "Wireshark docs",
         "u": "https://www.wireshark.org/docs/",
-        "note": "Traffic analysis"
+        "note": "Traffic analysis",
+        "k": "Web",
+        "d": "wireshark.org"
       },
       {
         "n": "Kibana Query Language (KQL)",
         "u": "https://www.elastic.co/guide/en/kibana/current/kuery-query.html",
-        "note": "The query syntax you'll use in the SIEM"
+        "note": "The query syntax you'll use in the SIEM",
+        "k": "Web",
+        "d": "elastic.co"
       },
       {
         "n": "Sysmon",
         "u": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
-        "note": "Event IDs and config reference"
+        "note": "Event IDs and config reference",
+        "k": "Web",
+        "d": "learn.microsoft.com"
       },
       {
         "n": "MITRE ATT&CK",
         "u": "https://attack.mitre.org/",
-        "note": "Map alerts and findings to techniques"
+        "note": "Map alerts and findings to techniques",
+        "k": "Web",
+        "d": "attack.mitre.org"
       }
     ]
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#2f95ff",
     "note": "Pulled from the exam reviews above and the HTB Discord, grouped by source.",
+    "layout": "tips",
     "items": [
       {
         "n": "Treat the report as the exam, since flags alone don't pass you",
@@ -2661,10 +2898,168 @@ const RESOURCES = [
         "n": "After reading a writeup, re-solve the box without the guide",
         "note": "B4NGG"
       }
-    ],
-    "layout": "tips"
+    ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Junior Cybersecurity Associate (CJCA)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-junior-cybersecurity-associate",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Exam review",
+    "n": "CJCA: Here's everything I wish someone told me (Alpastx)",
+    "u": "https://www.thepensieve.in/Blogs/cjca",
+    "note": "Passed; day-by-day 5-day timeline, SysReptor, and why blue team prep matters most",
+    "k": "Web",
+    "d": "thepensieve.in",
+    "sec": "Exam Reviews & Write-ups"
+  },
+  {
+    "slot": "Report",
+    "n": "Structuring a CJCA-style report, with sample PDF (B4NGG)",
+    "u": "https://b4ngg.com/en/blog/cja_reporte/",
+    "note": "Section-by-section CJCA report layout built on the retired GoodGames box, with a PDF",
+    "k": "Web",
+    "d": "b4ngg.com",
+    "sec": "Reporting & Exam Prep"
+  },
+  {
+    "slot": "Video",
+    "n": "hackthebox finally did it... (Mad Hat)",
+    "u": "https://www.youtube.com/watch?v=8iJb3D_Fv70",
+    "note": "First look at the CJCA launch",
+    "k": "Video",
+    "d": "youtube.com",
+    "sec": "Video Series & Reviews"
+  }
+];
+(function () {
+const RL = { code: "CJCA", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "CJCA", "path": {"name": "Junior Cybersecurity Analyst Path", "url": "https://academy.hackthebox.com/path/preview/junior-cybersecurity-analyst"}, "mods": ["Introduction to Information Security", "Network Foundations", "Introduction to Networking", "Linux Fundamentals", "Introduction to Bash Scripting", "Windows Fundamentals", "Introduction to Windows Command Line", "Web Requests", "Introduction to Web Applications", "Introduction to Penetration Testing", "Pentest in a Nutshell", "Network Enumeration with Nmap", "Footprinting", "Hacking WordPress", "Using the Metasploit Framework", "Intro to Network Traffic Analysis", "Incident Handling Process", "Windows Event Logs & Finding Evil", "Security Monitoring & SIEM Fundamentals", "Introduction to Threat Hunting & Hunting With Elastic"], "groups": [["Security & Networking Foundations", [1, 2, 3]], ["Linux & Bash", [4, 5]], ["Windows & Command Line", [6, 7]], ["Web Fundamentals", [8, 9]], ["Pentest Process", [10, 11]], ["Enumeration & Exploitation", [12, 13, 14, 15]], ["Defensive: SOC & Detection", [16, 17, 18, 19, 20]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Warm-Up", "sub": "Guided Starting Point Boxes", "goal": "Get used to the VPN, nmap, and basic service access on guided Very Easy boxes before touching retired machines.", "items": [{"id": "starting-point", "n": "Starting Point (Tiers 0-2)", "type": "startingpoint", "os": "Linux/Windows", "diff": "Very Easy", "access": "Free", "url": "https://app.hackthebox.com/starting-point", "tech": "Guided boxes covering FTP, SMB, Telnet, Redis, basic web and simple privesc, with official walkthroughs.", "mods": [3, 4, 6, 10, 11, 12, 13], "src": [{"k": "review", "u": "https://www.thepensieve.in/Blogs/cjca", "w": "Alpastx (thepensieve.in)"}]}, {"id": "base", "n": "Base", "type": "startingpoint", "os": "Linux", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/starting-point", "tech": "Starting Point Tier 2: swap file leaks login code, PHP strcmp type-juggling bypass, file upload shell, config creds reused, sudo find to root.", "mods": [4, 8, 9, 11], "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}]}]}, {"name": "One Exploit To Root", "sub": "Public Exploits And Metasploit", "goal": "Find a vulnerable service version, match it to a public exploit or Metasploit module, and get a shell on both Linux and Windows.", "items": [{"id": "lame", "n": "Lame", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Lame", "tech": "Old Samba (usermap_script) gives a root shell directly; vsftpd backdoor is a rabbit hole.", "mods": [4, 10, 11, 12, 15], "oxdf": "https://0xdf.gitlab.io/2020/04/07/htb-lame.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}, {"k": "review", "u": "https://github.com/N1NJ10/Offsec-Foundations-Labs", "w": "N1NJ10/Offsec-Foundations-Labs (tracker-linked community repo)"}]}, {"id": "legacy", "n": "Legacy", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Legacy", "tech": "SMB on Windows XP, MS08-067 or MS17-010 with Metasploit or a public script for SYSTEM.", "mods": [6, 10, 11, 12, 15], "oxdf": "https://0xdf.gitlab.io/2019/02/21/htb-legacy.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "blue", "n": "Blue", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Blue", "tech": "Nmap SMB scripts flag MS17-010, EternalBlue straight to SYSTEM.", "mods": [6, 10, 11, 12, 15], "ippsec": "https://www.youtube.com/watch?v=YRsfX6DW10E", "oxdf": "https://0xdf.gitlab.io/2021/05/11/htb-blue.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "devel", "n": "Devel", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Devel", "tech": "Anonymous FTP write into the IIS web root, upload an aspx shell, kernel exploit to SYSTEM.", "mods": [6, 7, 11, 12, 13, 15], "ippsec": "https://www.youtube.com/watch?v=2LNyAbroZUk", "oxdf": "https://0xdf.gitlab.io/2019/03/05/htb-devel.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "optimum", "n": "Optimum", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Optimum", "tech": "HttpFileServer 2.3 RCE (CVE-2014-6287), then a missing-patch kernel exploit.", "mods": [6, 7, 10, 11, 12, 15], "ippsec": "https://www.youtube.com/watch?v=kWTnVBIpNsE", "oxdf": "https://0xdf.gitlab.io/2021/03/17/htb-optimum.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}]}, {"name": "Web Footholds", "sub": "Web Apps And First Privesc", "goal": "Turn a web bug or exposed file into a foothold, then escalate through sudo rights, capabilities or a writable script.", "items": [{"id": "cap", "n": "Cap", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Cap", "tech": "IDOR exposes another user's PCAP, FTP creds in the capture, Python with cap_setuid to root.", "mods": [4, 8, 9, 11, 13, 16], "ippsec": "https://www.youtube.com/watch?v=O_z6o2xuvlw", "oxdf": "https://0xdf.gitlab.io/2021/10/02/htb-cap.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "broker", "n": "Broker", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Broker", "tech": "Apache ActiveMQ deserialization RCE (CVE-2023-46604), sudo nginx abused to read or write as root.", "mods": [4, 10, 11, 12, 13], "ippsec": "https://www.youtube.com/watch?v=Ul9WmUY49oM", "oxdf": "https://0xdf.gitlab.io/2023/11/09/htb-broker.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}]}, {"name": "CMS And WordPress", "sub": "WordPress, Helpdesks And CMS Apps", "goal": "Enumerate CMS apps and plugins, pull creds from configs or default logins, and reuse them for SSH and root.", "items": [{"id": "blocky", "n": "Blocky", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Blocky", "tech": "WordPress site with a downloadable Java plugin holding DB creds, password reuse for SSH, full sudo.", "mods": [4, 9, 11, 14], "ippsec": "https://www.youtube.com/watch?v=C2O-rilXA6I", "oxdf": "https://0xdf.gitlab.io/2020/06/30/htb-blocky.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "backdoor", "n": "Backdoor", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Backdoor", "tech": "WordPress plugin LFI, read /proc to find gdbserver, gdbserver RCE, attach to a root screen session.", "mods": [4, 9, 11, 12, 14], "ippsec": "https://www.youtube.com/watch?v=4zrypJMVWpc", "oxdf": "https://0xdf.gitlab.io/2022/04/23/htb-backdoor.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "keeper", "n": "Keeper", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Keeper", "tech": "Request Tracker default login, creds in a user profile, KeePass memory dump (CVE-2023-32784) to a PuTTY root key.", "mods": [4, 9, 11], "ippsec": "https://www.youtube.com/watch?v=0AafRQIaWmQ", "oxdf": "https://0xdf.gitlab.io/2024/02/10/htb-keeper.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}]}, {"name": "Creds And Chains", "sub": "Credential Hunting And Multi-Step Paths", "goal": "Chain two or three findings (shares, mail, git history, internal services) the way the exam's hosts feed into each other.", "items": [{"id": "return", "n": "Return", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Return", "tech": "Printer admin panel sends LDAP creds to your listener, WinRM in, Server Operators abuse a service to SYSTEM.", "mods": [6, 7, 11, 12, 13], "oxdf": "https://0xdf.gitlab.io/2022/05/05/htb-return.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "bastion", "n": "Bastion", "type": "machine", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Bastion", "tech": "Open SMB share with VHD backups, mount and dump SAM hashes, decrypt mRemoteNG saved creds for admin.", "mods": [6, 7, 11, 12, 13], "ippsec": "https://www.youtube.com/watch?v=2j3FNp5pjQ4", "oxdf": "https://0xdf.gitlab.io/2019/09/07/htb-bastion.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cjca/", "w": "B4NGG (blog)"}, {"k": "review", "u": "https://www.youtube.com/watch?v=dJ4THv5_GPw", "w": "B4NGG (video description, same author)"}]}, {"id": "goodgames", "n": "GoodGames", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/GoodGames", "tech": "SQLi login bypass, dump and crack a hash, Flask SSTI into a Docker container, escape via the mounted home folder.", "mods": [4, 8, 9, 11], "oxdf": "https://0xdf.gitlab.io/2022/02/23/htb-goodgames.html", "src": [{"k": "review", "u": "https://b4ngg.com/en/blog/cja_reporte/", "w": "B4NGG (report guide)"}, {"k": "tracker-existing", "w": "Earlier CJCA tracker list"}]}]}]};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "cjca_practice_v1";
@@ -3227,41 +3622,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CJCA&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCJCA%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CJCA&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCJCA%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -3437,7 +3797,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();

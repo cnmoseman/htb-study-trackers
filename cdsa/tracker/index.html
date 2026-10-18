@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,103 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#59f1fd;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#0d1320}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +376,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -581,7 +661,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">79 <small>Links &middot; 9 Sections &middot; 30 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cdsa/resources/" target="_blank" rel="noopener">CDSA Resources</a>. HTB Academy's path is all you need to pass the CDSA. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>79</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CDSA, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 79 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDSA&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCDSA%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CDSA&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCDSA%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -2217,467 +2318,615 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#00eafc",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#00eafc",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Defensive Security Analyst (CDSA)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-defensive-security-analyst",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "SOC Analyst Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/soc-analyst",
-        "note": "15 modules · 167 sections · Medium"
+        "note": "15 modules · 167 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report submission, results"
+        "note": "Official exam rules: attempts, report submission, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Retired machines & challenges"
+        "note": "Retired machines & challenges",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Official CDSA prep track (HTB Labs)",
         "u": "https://app.hackthebox.com/tracks/79",
-        "note": "HTB's own set of Labs boxes picked for this cert"
+        "note": "HTB's own set of Labs boxes picked for this cert",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "HTB Sherlocks",
         "u": "https://app.hackthebox.com/sherlocks",
-        "note": "Defensive investigation labs for exam practice"
+        "note": "Defensive investigation labs for exam practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Launching HTB CDSA (HTB blog)",
         "u": "https://www.hackthebox.com/blog/defensive-security-analyst-certification",
-        "note": "Official launch post: exam format, report, and grading"
+        "note": "Official launch post: exam format, report, and grading",
+        "k": "Official",
+        "d": "hackthebox.com"
       },
       {
         "n": "HTB CDSA Preparation track (HTB changelog)",
         "u": "https://roadmap.hackthebox.com/changelog/htb-certified-defensive-security-analyst-cdsa-preparation-track",
-        "note": "Official 11-scenario Sherlock track built to prep for the CDSA exam"
+        "note": "Official 11-scenario Sherlock track built to prep for the CDSA exam",
+        "k": "Official",
+        "d": "roadmap.hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#00eafc",
     "note": "Work through these 15 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Incident Handling Process",
         "u": "https://academy.hackthebox.com/course/preview/incident-handling-process",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Security Monitoring & SIEM Fundamentals",
         "u": "https://academy.hackthebox.com/course/preview/security-monitoring--siem-fundamentals",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Windows Event Logs & Finding Evil",
         "u": "https://academy.hackthebox.com/course/preview/windows-event-logs--finding-evil",
-        "note": "6 sections · Medium"
+        "note": "6 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Introduction to Threat Hunting & Hunting With Elastic",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-threat-hunting--hunting-with-elastic",
-        "note": "6 sections · Medium"
+        "note": "6 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · Understanding Log Sources & Investigating with Splunk",
         "u": "https://academy.hackthebox.com/course/preview/understanding-log-sources--investigating-with-splunk",
-        "note": "6 sections · Medium"
+        "note": "6 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · Windows Attacks & Defense",
         "u": "https://academy.hackthebox.com/course/preview/windows-attacks--defense",
-        "note": "16 sections · Medium"
+        "note": "16 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · Intro to Network Traffic Analysis",
         "u": "https://academy.hackthebox.com/course/preview/intro-to-network-traffic-analysis",
-        "note": "15 sections · Medium"
+        "note": "15 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · Intermediate Network Traffic Analysis",
         "u": "https://academy.hackthebox.com/course/preview/intermediate-network-traffic-analysis",
-        "note": "18 sections · Easy"
+        "note": "18 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · Working with IDS/IPS",
         "u": "https://academy.hackthebox.com/course/preview/working-with-idsips",
-        "note": "11 sections · Medium"
+        "note": "11 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · Introduction to Malware Analysis",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-malware-analysis",
-        "note": "9 sections · Hard"
+        "note": "9 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · JavaScript Deobfuscation",
         "u": "https://academy.hackthebox.com/course/preview/javascript-deobfuscation",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · YARA & Sigma for SOC Analysts",
         "u": "https://academy.hackthebox.com/course/preview/yara--sigma-for-soc-analysts",
-        "note": "11 sections · Easy"
+        "note": "11 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "13 · Introduction to Digital Forensics",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-digital-forensics",
-        "note": "8 sections · Medium"
+        "note": "8 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "14 · Detecting Windows Attacks with Splunk",
         "u": "https://academy.hackthebox.com/course/preview/detecting-windows-attacks-with-splunk",
-        "note": "23 sections · Medium"
+        "note": "23 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "15 · Security Incident Reporting",
         "u": "https://academy.hackthebox.com/course/preview/security-incident-reporting",
-        "note": "5 sections · Easy"
+        "note": "5 sections · Easy",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#00eafc",
     "note": "Watch a couple before you start to set expectations. They're all exam reviews, and none of them teach the course.",
     "items": [
       {
         "n": "My Take on HTB CDSA Certification (MatthewNapier)",
         "u": "https://www.youtube.com/watch?v=Zcsl-NKwjRM",
-        "note": "His path through CDSA and his verdict"
+        "note": "His path through CDSA and his verdict",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "CDSA HackTheBox In-Depth Review | Is It worth it? (MyDFIR)",
         "u": "https://www.youtube.com/watch?v=I3QowdlF5n8",
-        "note": "In-depth look at whether it's worth the time and money"
+        "note": "In-depth look at whether it's worth the time and money",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "BEST SOC Analyst Certification | Hack The Box CDSA Certification Review (With Sandra)",
         "u": "https://www.youtube.com/watch?v=qBJtBHEAHPQ",
-        "note": "Sponsored review of CDSA as a SOC analyst cert"
+        "note": "Sponsored review of CDSA as a SOC analyst cert",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Practical Cyber Analyst Certification for Beginners (HackTheBox CDSA FULL Review) (UnixGuy | Cyber Security)",
         "u": "https://www.youtube.com/watch?v=KvCcbF8DROQ",
-        "note": "Prerequisites, pricing, and training details"
+        "note": "Prerequisites, pricing, and training details",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box CDSA Certification Review | Worth it for Cybersecurity & SOC Analysts? (CYBERWOX)",
         "u": "https://www.youtube.com/watch?v=k0FwW0E9LHQ",
-        "note": "Module walkthrough, who it's for, timeline, and cost"
+        "note": "Module walkthrough, who it's for, timeline, and cost",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB CDSA Fail v1 (0x3 Security)",
         "u": "https://www.youtube.com/watch?v=boNf5K8Ieuo",
-        "note": "A failed first attempt and the lessons from it"
+        "note": "A failed first attempt and the lessons from it",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "I Passed The Hack The Box CDSA (0x3 Security)",
         "u": "https://www.youtube.com/watch?v=W8lJFvTIJdg",
-        "note": "The follow-up: passing on the retake"
+        "note": "The follow-up: passing on the retake",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Become a Cyber Defender with Hack The Box CDSA (Cyber Studies)",
         "u": "https://www.youtube.com/watch?v=hTnoYxr15-U",
-        "note": "Short intro to the cert from its 2023 launch"
+        "note": "Short intro to the cert from its 2023 launch",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HackTheBox CDSA vs TryHackMe SAL1 | Review & Comparison (Motasem Hamdan)",
         "u": "https://www.youtube.com/watch?v=0fSkfcYVISM",
-        "note": "Side-by-side of CDSA and THM's SAL1 for people picking a first SOC cert"
+        "note": "Side-by-side of CDSA and THM's SAL1 for people picking a first SOC cert",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "The HARDEST Cybersecurity Cert I've Ever Taken | HTB CDSA (Cyber With Khalifa)",
         "u": "https://www.youtube.com/watch?v=1V1eJ83Z4Vs",
-        "note": "11-minute pass review: prep, what made it hard, tips and whether it was worth it"
+        "note": "11-minute pass review: prep, what made it hard, tips and whether it was worth it",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Hack The Box CDSA Pathway Completed (0x3 Security)",
         "u": "https://www.youtube.com/watch?v=MMeDaeY53fk",
-        "note": "Review of the SOC Analyst path structure, labs and tools after finishing it"
+        "note": "Review of the SOC Analyst path structure, labs and tools after finishing it",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#00eafc",
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
         "n": "Hack The Box Certified Defensive Security Analyst (HTB CDSA) review (Jeffrey Bencteux)",
         "u": "https://www.bencteux.fr/posts/htb_cdsa/",
-        "note": "19 of 20 flags in about 5 days, report template ready in advance"
+        "note": "19 of 20 flags in about 5 days, report template ready in advance",
+        "k": "Web",
+        "d": "bencteux.fr"
       },
       {
         "n": "Hack The Box CDSA Review (2026) (W4tson)",
         "u": "https://w47son.github.io/posts/htb-cdsa-review/",
-        "note": "Reporting was the hardest part, so capture everything live"
+        "note": "Reporting was the hardest part, so capture everything live",
+        "k": "Web",
+        "d": "w47son.github.io"
       },
       {
         "n": "HTB Certified Defensive Security Analyst certification review (Yazeed Allabadi)",
         "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/",
-        "note": "Heavy note-taking, Splunk BOTS, Sherlocks, and SysReptor"
+        "note": "Heavy note-taking, Splunk BOTS, Sherlocks, and SysReptor",
+        "k": "Web",
+        "d": "yazeedallabadi24.github.io"
       },
       {
         "n": "Experience of passing the HTB CDSA certification (Vladyslav Borodavka)",
         "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e",
-        "note": "20 of 20 flags and an 80-page report"
+        "note": "20 of 20 flags and an 80-page report",
+        "k": "Web",
+        "d": "linkedin.com"
       },
       {
         "n": "An interview with CDSA first blood winner, Jamie Dumas (HTB blog)",
         "u": "https://www.hackthebox.com/blog/CDSA-first-blood-interview-jamie-dumas",
-        "note": "Timeline from the start, module cheat sheets, Sherlock practice reports"
+        "note": "Timeline from the start, module cheat sheets, Sherlock practice reports",
+        "k": "Official",
+        "d": "hackthebox.com"
       },
       {
         "n": "CDSA (styrup)",
         "u": "https://nullpoint.ch/cybersecurity/cdsa/",
-        "note": "First-try pass with a 53-page report while working full time"
+        "note": "First-try pass with a 53-page report while working full time",
+        "k": "Web",
+        "d": "nullpoint.ch"
       },
       {
         "n": "HTB CDSA: From Zero to Hero (calculac0re)",
         "u": "https://calculac0re.net/posts/htb-cdsa-from-zero-to-hero/",
-        "note": "Path-to-exam write-up with the two-incident format"
+        "note": "Path-to-exam write-up with the two-incident format",
+        "k": "Web",
+        "d": "calculac0re.net"
       },
       {
         "n": "Cert Review: HackTheBox's Certified Defensive Security Analyst (Stellarnight)",
         "u": "https://stellarnight.io/cert-review-hacktheboxs-certified-defensive-security-analyst-cdsa/",
-        "note": "Module-by-module ratings and time estimates, plus a candid what-not-to-do exam story"
+        "note": "Module-by-module ratings and time estimates, plus a candid what-not-to-do exam story",
+        "k": "Web",
+        "d": "stellarnight.io"
       },
       {
         "n": "CDSA - HTB Certified Defensive Security Analyst Review 2023 (Harshil)",
         "u": "https://hhhharshil.hashnode.dev/cdsa-htb-certified-defense-security-analyst-review-2023",
-        "note": "One of the first two passes: course pros and cons, 5 of 7 days used, readiness check"
+        "note": "One of the first two passes: course pros and cons, 5 of 7 days used, readiness check",
+        "k": "Web",
+        "d": "hhhharshil.hashnode.dev"
       },
       {
         "n": "HackTheBox Certified Defensive Security Analyst (CDSA) Review (0xh4lpy)",
         "u": "https://0xh4lpy.medium.com/hackthebox-certified-defensive-security-analyst-cdsa-review-1f7a9e3a1817",
-        "note": "Exam review on Medium"
+        "note": "Exam review on Medium",
+        "k": "Web",
+        "d": "0xh4lpy.medium.com"
       },
       {
         "n": "HTB Certified Defensive Security Analyst (CDSA) Review 2025 (Sneh Bavarva)",
         "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3",
-        "note": "2025 exam review on Medium"
+        "note": "2025 exam review on Medium",
+        "k": "Web",
+        "d": "snehbavarva.medium.com"
       },
       {
         "n": "Passing HTB CDSA: My First Blue Team Cybersecurity Certification (Abraham Penarubia)",
         "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8",
-        "note": "Pass story from someone new to blue team"
+        "note": "Pass story from someone new to blue team",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "The Certified Defensive Security Analyst (CDSA) Exam (Andreas Renz)",
         "u": "https://encryptorium.medium.com/the-certified-defensive-security-analyst-cdsa-exam-1ff48b9e3a08",
-        "note": "Exam write-up on Medium"
+        "note": "Exam write-up on Medium",
+        "k": "Web",
+        "d": "encryptorium.medium.com"
       },
       {
         "n": "Hack The Box Certified Defensive Security Analyst (HTB CDSA) Review 2024 (whoami_alex)",
         "u": "https://whoamialex.com/htb-cdsa-review-2024/",
-        "note": "Pass review: 19/20 flags, report written from day one, notes on Sherlocks and Discord hints"
+        "note": "Pass review: 19/20 flags, report written from day one, notes on Sherlocks and Discord hints",
+        "k": "Web",
+        "d": "whoamialex.com"
       },
       {
         "n": "My feedback on CDSA certification (Mickael Dorigny)",
         "u": "https://www.it-connect.fr/cybersecurite-mon-retour-dexperience-sur-la-certification-cdsa-proposee-par-hack-the-box/",
-        "note": "(French) Detailed pass review from a pentester, with concrete prep and reporting advice"
+        "note": "(French) Detailed pass review from a pentester, with concrete prep and reporting advice",
+        "k": "Web",
+        "d": "it-connect.fr"
       },
       {
         "n": "Mastering CDSA by HTB (Hammaz)",
         "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986",
-        "note": "Early pass review from one of the first 100 CDSA holders"
+        "note": "Early pass review from one of the first 100 CDSA holders",
+        "k": "Web",
+        "d": "medium.com"
       }
     ]
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#00eafc",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
         "n": "Dimont-Gattsu/CDSA_NOTES",
         "u": "https://github.com/Dimont-Gattsu/CDSA_NOTES",
-        "note": "Exam reference notes across the path modules"
+        "note": "Exam reference notes across the path modules",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "tiagoflopes/CDSA_Notes",
         "u": "https://github.com/tiagoflopes/CDSA_Notes",
-        "note": "Obsidian notes for the first 10 modules"
+        "note": "Obsidian notes for the first 10 modules",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "9QIX/HTB-SOCAnalystPrerequisites",
         "u": "https://github.com/9QIX/HTB-SOCAnalystPrerequisites",
-        "note": "Notes for the optional SOC Analyst Prerequisites path"
+        "note": "Notes for the optional SOC Analyst Prerequisites path",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "oybek-turaev-cyber/htb-cdsa-exam-prep",
         "u": "https://github.com/oybek-turaev-cyber/htb-cdsa-exam-prep",
-        "note": "Path notes, Splunk BOTS hunt notes, and a digest of community exam advice"
+        "note": "Path notes, Splunk BOTS hunt notes, and a digest of community exam advice",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#00eafc",
     "note": "The report decides the result, so practice the deliverable, not just the investigation.",
     "items": [
       {
         "n": "HTB CDSA Report Template (PDF)",
         "u": "https://docs.sysreptor.com/assets/reports/HTB-CDSA-Report.pdf",
-        "note": "Blank CDSA template with the official exam objectives page"
+        "note": "Blank CDSA template with the official exam objectives page",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "Syslifters/HackTheBox-Reporting",
         "u": "https://github.com/Syslifters/HackTheBox-Reporting",
-        "note": "SysReptor templates, including HTB CDSA"
+        "note": "SysReptor templates, including HTB CDSA",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SysReptor (reporting platform)",
         "u": "https://github.com/Syslifters/sysreptor",
-        "note": "Self-hosted or cloud report writing"
+        "note": "Self-hosted or cloud report writing",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "bitbug0x55AA/Blue_Team_Hunting_Field_Notes",
         "u": "https://github.com/bitbug0x55AA/Blue_Team_Hunting_Field_Notes/blob/main/07_Reporting_Templates/7.5_Final_Incident_Report_Template.md",
-        "note": "Markdown incident report template aligned to HTB CDSA and NIST SP 800-61r3"
+        "note": "Markdown incident report template aligned to HTB CDSA and NIST SP 800-61r3",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#00eafc",
     "note": "Be comfortable with these before the exam.",
     "items": [
       {
         "n": "Splunk",
         "u": "https://www.splunk.com/",
-        "note": "SIEM for one of the exam incidents"
+        "note": "SIEM for one of the exam incidents",
+        "k": "Web",
+        "d": "splunk.com"
       },
       {
         "n": "Kibana (Elastic Stack)",
         "u": "https://www.elastic.co/kibana",
-        "note": "SIEM for the other incident"
+        "note": "SIEM for the other incident",
+        "k": "Web",
+        "d": "elastic.co"
       },
       {
         "n": "Sysmon",
         "u": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
-        "note": "Windows process, network & file logging"
+        "note": "Windows process, network & file logging",
+        "k": "Web",
+        "d": "learn.microsoft.com"
       },
       {
         "n": "Wireshark",
         "u": "https://www.wireshark.org/",
-        "note": "Packet analysis"
+        "note": "Packet analysis",
+        "k": "Web",
+        "d": "wireshark.org"
       },
       {
         "n": "tcpdump",
         "u": "https://www.tcpdump.org/",
-        "note": "Command-line capture & filtering"
+        "note": "Command-line capture & filtering",
+        "k": "Web",
+        "d": "tcpdump.org"
       },
       {
         "n": "Suricata",
         "u": "https://suricata.io/",
-        "note": "IDS/IPS & rule writing"
+        "note": "IDS/IPS & rule writing",
+        "k": "Web",
+        "d": "suricata.io"
       },
       {
         "n": "Snort",
         "u": "https://www.snort.org/",
-        "note": "IDS/IPS & rule writing"
+        "note": "IDS/IPS & rule writing",
+        "k": "Web",
+        "d": "snort.org"
       },
       {
         "n": "Zeek",
         "u": "https://zeek.org/",
-        "note": "Network logs for hunting"
+        "note": "Network logs for hunting",
+        "k": "Web",
+        "d": "zeek.org"
       },
       {
         "n": "Volatility 3",
         "u": "https://github.com/volatilityfoundation/volatility3",
-        "note": "Memory forensics"
+        "note": "Memory forensics",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Eric Zimmerman's tools",
         "u": "https://ericzimmerman.github.io/",
-        "note": "Artifact parsers & Timeline Explorer"
+        "note": "Artifact parsers & Timeline Explorer",
+        "k": "Web",
+        "d": "ericzimmerman.github.io"
       },
       {
         "n": "YARA",
         "u": "https://github.com/VirusTotal/yara",
-        "note": "Pattern rules for malware hunting"
+        "note": "Pattern rules for malware hunting",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Sigma",
         "u": "https://github.com/SigmaHQ/sigma",
-        "note": "Generic SIEM detection rules"
+        "note": "Generic SIEM detection rules",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Chainsaw",
         "u": "https://github.com/WithSecureLabs/chainsaw",
-        "note": "Fast Sigma hunting over event logs"
+        "note": "Fast Sigma hunting over event logs",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "CyberChef",
         "u": "https://gchq.github.io/CyberChef/",
-        "note": "Decoding & deobfuscation"
+        "note": "Decoding & deobfuscation",
+        "k": "Web",
+        "d": "gchq.github.io"
       },
       {
         "n": "kismatkunwar89/spl-threat-hunting-library",
         "u": "https://github.com/kismatkunwar89/spl-threat-hunting-library",
-        "note": "Reusable Splunk hunting queries by attacker phase, built during the CDSA path"
+        "note": "Reusable Splunk hunting queries by attacker phase, built during the CDSA path",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Frameworks & Practice Data",
-    "color": "#00eafc",
     "note": "Background and extra practice beyond the path.",
     "items": [
       {
         "n": "MITRE ATT&CK",
         "u": "https://attack.mitre.org/",
-        "note": "Map every finding to a technique"
+        "note": "Map every finding to a technique",
+        "k": "Web",
+        "d": "attack.mitre.org"
       },
       {
         "n": "NIST SP 800-61r3",
         "u": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
-        "note": "Incident response recommendations"
+        "note": "Incident response recommendations",
+        "k": "Web",
+        "d": "csrc.nist.gov"
       },
       {
         "n": "Splunk Boss of the SOC v3 (BOTS)",
         "u": "https://github.com/splunk/botsv3",
-        "note": "Practice dataset reviewers used for Splunk prep"
+        "note": "Practice dataset reviewers used for Splunk prep",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#00eafc",
-    "layout": "tips",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
+    "layout": "tips",
     "items": [
       {
         "n": "Focus on what happened in the incident, not just on the flags",
@@ -2802,6 +3051,174 @@ const RESOURCES = [
     ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Defensive Security Analyst (CDSA)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-defensive-security-analyst",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Exam review",
+    "n": "Experience of passing the HTB CDSA certification (Vladyslav Borodavka)",
+    "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e",
+    "note": "20 of 20 flags and an 80-page report",
+    "k": "Web",
+    "d": "linkedin.com",
+    "sec": "Exam Reviews & Write-ups"
+  },
+  {
+    "slot": "Report",
+    "n": "HTB CDSA Report Template (PDF)",
+    "u": "https://docs.sysreptor.com/assets/reports/HTB-CDSA-Report.pdf",
+    "note": "Blank CDSA template with the official exam objectives page",
+    "k": "Web",
+    "d": "docs.sysreptor.com",
+    "sec": "Reporting & Exam Prep"
+  },
+  {
+    "slot": "Notes",
+    "n": "oybek-turaev-cyber/htb-cdsa-exam-prep",
+    "u": "https://github.com/oybek-turaev-cyber/htb-cdsa-exam-prep",
+    "note": "Path notes, Splunk BOTS hunt notes, and a digest of community exam advice",
+    "k": "GitHub",
+    "d": "github.com",
+    "sec": "Community Notes & Walkthroughs"
+  },
+  {
+    "slot": "Video",
+    "n": "I Passed The Hack The Box CDSA (0x3 Security)",
+    "u": "https://www.youtube.com/watch?v=W8lJFvTIJdg",
+    "note": "The follow-up: passing on the retake",
+    "k": "Video",
+    "d": "youtube.com",
+    "sec": "Video Series & Reviews"
+  }
+];
+(function () {
+const RL = { code: "CDSA", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "CDSA", "path": {"name": "SOC Analyst Path", "url": "https://academy.hackthebox.com/path/preview/soc-analyst"}, "mods": ["Incident Handling Process", "Security Monitoring & SIEM Fundamentals", "Windows Event Logs & Finding Evil", "Introduction to Threat Hunting & Hunting With Elastic", "Understanding Log Sources & Investigating with Splunk", "Windows Attacks & Defense", "Intro to Network Traffic Analysis", "Intermediate Network Traffic Analysis", "Working with IDS/IPS", "Introduction to Malware Analysis", "JavaScript Deobfuscation", "YARA & Sigma for SOC Analysts", "Introduction to Digital Forensics", "Detecting Windows Attacks with Splunk", "Security Incident Reporting"], "groups": [["Incident Handling & SIEM", [1, 2]], ["Logs, Hunting & Splunk", [3, 4, 5]], ["Windows Attacks & Defense", [6]], ["Network Traffic & IDS", [7, 8, 9]], ["Malware & Detection Rules", [10, 11, 12]], ["Forensics & Splunk Detection", [13, 14]], ["Reporting & Exam Prep", [15]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "First Investigations", "sub": "Very Easy · Linux Logs, Sysmon, MFT", "goal": "Read auth.log, Sysmon and MFT artifacts, answer every question from the evidence, and build a simple timeline.", "items": [{"id": "brutus", "n": "Brutus", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Brutus", "tech": "Linux auth.log and wtmp from an SSH brute force on a Confluence server, then trace what the attacker did after login.", "mods": [1, 13], "oxdf": "https://0xdf.gitlab.io/2024/04/09/htb-sherlock-brutus.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8", "w": "Abraham Penarubia"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}, {"id": "unit42", "n": "Unit42", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Unit42", "tech": "Sysmon logs from an UltraVNC backdoor infection: process creation, file drops, DNS and network events by Event ID.", "mods": [3, 4, 13], "oxdf": "https://0xdf.gitlab.io/2024/04/11/htb-sherlock-unit42.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "web", "u": "https://nathan2.com/posts/elklocks/", "w": "nathan2 (CDSA candidate blog)"}]}, {"id": "bft", "n": "BFT", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/BFT", "tech": "Parse a raw $MFT with MFTECmd and Timeline Explorer to find a malicious download and its Zone.Identifier data.", "mods": [13], "oxdf": "https://0xdf.gitlab.io/2024/04/17/htb-sherlock-bft.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}]}, {"name": "AD Attack Detection", "sub": "Very Easy · Kerberoasting, AS-REP, NTLM Relay, NTDS", "goal": "Spot classic AD attacks in Security event logs and match each one to its Event IDs and ATT&CK technique.", "items": [{"id": "campfire-1", "n": "Campfire-1", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Campfire-1", "tech": "DC Security log and prefetch files showing PowerView and Rubeus used for Kerberoasting (Event ID 4769).", "mods": [3, 6, 13, 14], "oxdf": "https://0xdf.gitlab.io/2024/06/24/htb-sherlock-campfire-1.html", "src": [{"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}, {"id": "reaper", "n": "Reaper", "type": "sherlock", "os": "DFIR", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Reaper", "tech": "PCAP plus Security log of an LLMNR-poisoning NTLM relay where the logon IP and workstation name don't match.", "mods": [3, 6, 7, 14], "oxdf": "https://0xdf.gitlab.io/2024/08/22/htb-sherlock-reaper.html", "src": [{"k": "review", "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8", "w": "Abraham Penarubia"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}]}, {"name": "Network Traffic & IDS", "sub": "PCAPs, Suricata Alerts, Tunneling", "goal": "Use Wireshark and IDS alerts to find the attacker, the exploit and any exfiltration in packet captures.", "items": [{"id": "noxious", "n": "Noxious", "type": "sherlock", "os": "SOC", "diff": "Very Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Noxious", "tech": "PCAP of an LLMNR poisoning attack from a rogue device: find the attacker and victim, then crack the captured NTLMv2 hash.", "mods": [6, 7, 8], "oxdf": "https://0xdf.gitlab.io/2024/09/04/htb-sherlock-noxious.html", "src": [{"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://medium.com/@abrahampenarubia/passing-htb-cdsa-my-first-blue-team-cybersecurity-certification-5ca37b4bc5c8", "w": "Abraham Penarubia"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "review", "u": "https://www.it-connect.fr/cybersecurite-mon-retour-dexperience-sur-la-certification-cdsa-proposee-par-hack-the-box/", "w": "Mickael Dorigny (IT-Connect)"}]}, {"id": "meerkat", "n": "Meerkat", "type": "sherlock", "os": "SOC", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Meerkat", "tech": "Suricata alerts and a PCAP showing credential stuffing and a Bonitasoft CVE exploit against a business platform.", "mods": [7, 8, 9], "oxdf": "https://0xdf.gitlab.io/2024/04/23/htb-sherlock-meerkat.html", "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://snehbavarva.medium.com/htb-certified-defensive-security-analyst-cdsa-review-2025-e006f2647ca3", "w": "Sneh Bavarva"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}, {"id": "litter", "n": "Litter", "type": "sherlock", "os": "SOC", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Litter", "tech": "PCAP analysis to spot DNS tunneling and data exfiltration from a test host.", "mods": [7, 8], "src": [{"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}]}, {"name": "Host Forensics & Event Logs", "sub": "Easy · Windows Event Logs, Artifacts, Linux Triage", "goal": "Combine event logs, prefetch, databases and triage collections into one clear incident story.", "items": [{"id": "logjammer", "n": "Logjammer", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Logjammer", "tech": "Windows Security, System, Defender, Firewall and PowerShell logs: audit policy changes, scheduled tasks, tampering.", "mods": [3, 13], "oxdf": "https://0xdf.gitlab.io/2024/05/16/htb-sherlock-logjammer.html", "src": [{"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}, {"id": "tracer", "n": "Tracer", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Tracer", "tech": "Event logs, prefetch and $MFT from a workstation where PsExec was used for lateral movement.", "mods": [3, 6, 13], "oxdf": "https://0xdf.gitlab.io/2024/07/23/htb-sherlock-tracer.html", "src": [{"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}, {"id": "bumblebee", "n": "Bumblebee", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Bumblebee", "tech": "phpBB SQLite database and web access log showing a contractor stealing admin credentials.", "mods": [1, 13], "oxdf": "https://0xdf.gitlab.io/2024/05/22/htb-sherlock-bumblebee.html", "src": [{"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}, {"k": "review", "u": "https://www.it-connect.fr/cybersecurite-mon-retour-dexperience-sur-la-certification-cdsa-proposee-par-hack-the-box/", "w": "Mickael Dorigny (IT-Connect)"}, {"k": "web", "u": "https://www.hackthebox.com/blog/best-dfir-labs", "w": "HTB blog: Our top 5 DFIR labs for beginner analysts (ends with a CDSA pitch)"}]}]}, {"name": "Memory & Malware", "sub": "Easy · Volatility, Static Analysis, Ransomware", "goal": "Pull processes and C2 connections from memory images, and do basic static analysis of malware samples.", "items": [{"id": "rogueone", "n": "RogueOne", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/RogueOne", "tech": "Volatility 3 memory forensics to find a spoofed process and its C2 connection.", "mods": [10, 13], "src": [{"k": "review", "u": "https://medium.com/@hammazahmed40/mastering-cdsa-by-htb-f11e99403986", "w": "Hammaz"}, {"k": "review", "u": "https://yazeedallabadi24.github.io/posts/HTB_CDSA/", "w": "Yazeed Allabadi"}, {"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}, {"id": "recollection", "n": "Recollection", "type": "sherlock", "os": "DFIR", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Recollection", "tech": "Volatility memory analysis: obfuscated PowerShell (IEX aliasing), browser history and dropped files.", "mods": [13], "src": [{"k": "review", "u": "https://www.linkedin.com/pulse/experience-passing-htb-cdsa-certification-vladyslav-borodavka-qm61e", "w": "Vladyslav Borodavka"}]}]}]};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "cdsa_practice_v1";
@@ -3364,41 +3781,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDSA&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCDSA%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CDSA&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCDSA%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -3574,7 +3956,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();

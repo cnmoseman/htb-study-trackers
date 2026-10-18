@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,103 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#fdd659;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#0d1320}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +376,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -581,7 +661,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">68 <small>Links &middot; 10 Sections &middot; 22 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cwee/resources/" target="_blank" rel="noopener">CWEE Resources</a>. HTB Academy's path is all you need to pass the CWEE. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>4</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>68</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CWEE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 68 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CWEE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCWEE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CWEE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCWEE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -2441,419 +2542,544 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#fcc000",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#fcc000",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Web Exploitation Expert (CWEE)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-web-exploitation-expert",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Senior Web Penetration Tester Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/senior-web-penetration-tester",
-        "note": "15 modules · 245 sections · Hard"
+        "note": "15 modules · 245 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report format, results"
+        "note": "Official exam rules: attempts, report format, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Retired boxes for extra practice"
+        "note": "Retired boxes for extra practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Official CWEE prep track (HTB Labs)",
         "u": "https://app.hackthebox.com/tracks/84",
-        "note": "HTB's own set of Labs boxes picked for this cert"
+        "note": "HTB's own set of Labs boxes picked for this cert",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Introducing HTB CWEE (HTB blog)",
         "u": "https://www.hackthebox.com/blog/certified-web-exploitation-expert",
-        "note": "Official overview of the exam and report"
+        "note": "Official overview of the exam and report",
+        "k": "Official",
+        "d": "hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#fcc000",
     "note": "Work through these 15 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Injection Attacks",
         "u": "https://academy.hackthebox.com/course/preview/injection-attacks",
-        "note": "15 sections · Medium"
+        "note": "15 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Introduction to NoSQL Injection",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-nosql-injection",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Attacking Authentication Mechanisms",
         "u": "https://academy.hackthebox.com/course/preview/attacking-authentication-mechanisms",
-        "note": "20 sections · Medium"
+        "note": "20 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Advanced XSS and CSRF Exploitation",
         "u": "https://academy.hackthebox.com/course/preview/advanced-xss-and-csrf-exploitation",
-        "note": "17 sections · Medium"
+        "note": "17 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · HTTPs/TLS Attacks",
         "u": "https://academy.hackthebox.com/course/preview/httpstls-attacks",
-        "note": "15 sections · Medium"
+        "note": "15 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · Abusing HTTP Misconfigurations",
         "u": "https://academy.hackthebox.com/course/preview/abusing-http-misconfigurations",
-        "note": "20 sections · Hard"
+        "note": "20 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · HTTP Attacks",
         "u": "https://academy.hackthebox.com/course/preview/http-attacks",
-        "note": "18 sections · Hard"
+        "note": "18 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · Blind SQL Injection",
         "u": "https://academy.hackthebox.com/course/preview/blind-sql-injection",
-        "note": "16 sections · Hard"
+        "note": "16 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · Intro to Whitebox Pentesting",
         "u": "https://academy.hackthebox.com/course/preview/intro-to-whitebox-pentesting",
-        "note": "18 sections · Hard"
+        "note": "18 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · Modern Web Exploitation Techniques",
         "u": "https://academy.hackthebox.com/course/preview/modern-web-exploitation-techniques",
-        "note": "18 sections · Hard"
+        "note": "18 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · Introduction to Deserialization Attacks",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-deserialization-attacks",
-        "note": "15 sections · Hard"
+        "note": "15 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · Whitebox Attacks",
         "u": "https://academy.hackthebox.com/course/preview/whitebox-attacks",
-        "note": "15 sections · Hard"
+        "note": "15 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "13 · Advanced SQL Injections",
         "u": "https://academy.hackthebox.com/course/preview/advanced-sql-injections",
-        "note": "12 sections · Hard"
+        "note": "12 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "14 · Advanced Deserialization Attacks",
         "u": "https://academy.hackthebox.com/course/preview/advanced-deserialization-attacks",
-        "note": "13 sections · Hard"
+        "note": "13 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "15 · Parameter Logic Bugs",
         "u": "https://academy.hackthebox.com/course/preview/parameter-logic-bugs",
-        "note": "21 sections · Hard"
+        "note": "21 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#fcc000",
     "note": "Watch a couple before you start to set expectations.",
     "items": [
       {
         "n": "My HackTheBox CWEE Review (duskb1t)",
         "u": "https://www.youtube.com/watch?v=VphV4EqCbT0",
-        "note": "Short review: exam structure, buying it, and advice"
+        "note": "Short review: exam structure, buying it, and advice",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "I CWEE What You Did There: How to Become a Certified Web Exploitation Expert (Hack The Box)",
         "u": "https://www.youtube.com/watch?v=2NguKANqkA4",
-        "note": "Official HTB overview of the cert"
+        "note": "Official HTB overview of the cert",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Senior Web Penetration Tester: Is the CWEE a Good Class for You? (ConsoleCowboys)",
         "u": "https://www.youtube.com/watch?v=AEqw9VXNQ6A",
-        "note": "Who the CWEE class suits and what to expect"
+        "note": "Who the CWEE class suits and what to expect",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "An Overview of CWEE (21y4d)",
         "u": "https://www.youtube.com/watch?v=kMz53IRAKF0",
-        "note": "10-minute overview of the cert, the path, and the exam from HTB Academy's 21y4d"
+        "note": "10-minute overview of the cert, the path, and the exam from HTB Academy's 21y4d",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "So Hack The Box Made a Web Cert? (John Hammond)",
         "u": "https://www.youtube.com/watch?v=z-vSj9iuK_U",
-        "note": "Sponsored first look at the CWEE course and what the path feels like"
+        "note": "Sponsored first look at the CWEE course and what the path feels like",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Meetup: How to Get HTB CWEE Certified? (Fluid Attacks)",
         "u": "https://www.youtube.com/watch?v=pTnKeSemuGE",
-        "note": "(Spanish) 65-minute meetup where Cristian Vargas shares his CWEE strategy, tools, and advice"
+        "note": "(Spanish) 65-minute meetup where Cristian Vargas shares his CWEE strategy, tools, and advice",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HackTheBox Academy Three Certifications Review: CBBH, CPTS and CWEE (Yunolay)",
         "u": "https://www.youtube.com/watch?v=Ds0Gf5tgEVU",
-        "note": "5-minute review from someone who holds CBBH, CPTS, and CWEE"
+        "note": "5-minute review from someone who holds CBBH, CPTS, and CWEE",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#fcc000",
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and the report bar.",
     "items": [
       {
         "n": "Review of HTB's Most Challenging Web Security Certification (Khaled Nassar)",
         "u": "https://www.mindpatch.net/posts/cwee-review/",
-        "note": "Watch for rabbit holes, and write clean, working exploit chains"
+        "note": "Watch for rabbit holes, and write clean, working exploit chains",
+        "k": "Web",
+        "d": "mindpatch.net"
       },
       {
         "n": "My Hack The Box CWEE Review and Experience (Filip Kecman)",
         "u": "https://kecman.co/blog/htb-cwee-review-experience.html",
-        "note": "About 5 days exploiting and 4 on the report; set up debugging early"
+        "note": "About 5 days exploiting and 4 on the report; set up debugging early",
+        "k": "Web",
+        "d": "kecman.co"
       },
       {
         "n": "HTB Academy CWEE Review (Manesec)",
         "u": "https://manesec.github.io/2025/12/28/2025/81-hackthebox-CWEE-Review/",
-        "note": "Scored 100/100; the exam tests chaining bugs into long attack chains"
+        "note": "Scored 100/100; the exam tests chaining bugs into long attack chains",
+        "k": "Web",
+        "d": "manesec.github.io"
       },
       {
         "n": "My Review on HTB Certified Web Exploitation Expert (h4r0r)",
         "u": "https://almounah.github.io/posts/cwee-review/",
-        "note": "Passed with 5 of 6 flags; the course material is enough to pass"
+        "note": "Passed with 5 of 6 flags; the course material is enough to pass",
+        "k": "Web",
+        "d": "almounah.github.io"
       },
       {
         "n": "My HTB CWEE Journey (d415k)",
         "u": "https://medium.com/@d415k/my-cwee-journey-a4f4ee3b54db",
-        "note": "First to pass CWEE; a roughly 100-page report took about 20 hours"
+        "note": "First to pass CWEE; a roughly 100-page report took about 20 hours",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "My HTB Certified Web Exploitation Expert Journey (Yudistira Arya)",
         "u": "https://lordrukie.medium.com/my-htb-certified-web-exploitation-expert-cwee-journey-053ad2158404",
-        "note": "100/100 in 3 days; don't skip any module or the scripting sections"
+        "note": "100/100 in 3 days; don't skip any module or the scripting sections",
+        "k": "Web",
+        "d": "lordrukie.medium.com"
       },
       {
         "n": "OSWE vs CWEE: My Experience Passing Both (Gabriel Vásquez)",
         "u": "https://r00tbee.medium.com/oswe-vs-cwee-my-experience-passing-both-certifications-187fa0b642a4",
-        "note": "The report is Markdown with the code fix and a changelog"
+        "note": "The report is Markdown with the code fix and a changelog",
+        "k": "Web",
+        "d": "r00tbee.medium.com"
       },
       {
         "n": "HTB Certified Web Exploitation Expert in 2025 (Benjamen Lim)",
         "u": "https://westsideelectronics.com/htb-certified-web-exploitation-expert-cwee/",
-        "note": "Failed then passed the retake; build an enumeration playbook"
+        "note": "Failed then passed the retake; build an enumeration playbook",
+        "k": "Web",
+        "d": "westsideelectronics.com"
       },
       {
         "n": "My Experience Earning the Hack The Box CWEE Certification (Robert Lackey)",
         "u": "https://www.linkedin.com/pulse/my-experience-earning-hack-box-cwee-certification-robert-lackey-wrasc",
-        "note": "Passed with 90/100 in December 2025; last flags on day 8, report with SysReptor"
+        "note": "Passed with 90/100 in December 2025; last flags on day 8, report with SysReptor",
+        "k": "Web",
+        "d": "linkedin.com"
       },
       {
         "n": "How I Reignited My Passion for Cybersecurity and Obtained HTB CWEE (Lars Bo Frydenskov)",
         "u": "https://www.linkedin.com/pulse/how-i-reignited-my-passion-cybersecurity-obtained-htb-frydenskov-wgolf",
-        "note": "First-attempt pass after struggling hard on the second target"
+        "note": "First-attempt pass after struggling hard on the second target",
+        "k": "Web",
+        "d": "linkedin.com"
       },
       {
         "n": "CWEE or OSWE, Which One to Choose? (Cristian Vargas)",
         "u": "https://medium.com/@deeptester/cwee-or-oswe-which-one-choose-2987443a0e0a",
-        "note": "CWEE vs OSWE, how to get CWEE, and getting started in AppSec"
+        "note": "CWEE vs OSWE, how to get CWEE, and getting started in AppSec",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "CWEE Review: Caught in the Web (Mini Op)",
         "u": "https://medium.com/@theminiop/cwee-review-caught-in-the-web-3f5f4b07aa18",
-        "note": "Exam review; calls the exam a realistic simulation of a real engagement"
+        "note": "Exam review; calls the exam a realistic simulation of a real engagement",
+        "k": "Web",
+        "d": "medium.com"
       }
     ]
   },
   {
     "cat": "Community Notes & Walkthroughs",
-    "color": "#fcc000",
     "note": "Cross-reference when stuck. Use these to unblock yourself, not to shortcut the labs.",
     "items": [
       {
         "n": "kabaneridev/pt-notes (CWEE-PREP)",
         "u": "https://github.com/kabaneridev/pt-notes/tree/main/CWEE-PREP",
-        "note": "CWEE prep notes organized by module"
+        "note": "CWEE prep notes organized by module",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Frank3nSti3n/CWEE-Scripts",
         "u": "https://github.com/Frank3nSti3n/CWEE-Scripts",
-        "note": "Python scripts from the course: NoSQL, SSJS, JWT, LDAP, padding oracle, XPath"
+        "note": "Python scripts from the course: NoSQL, SSJS, JWT, LDAP, padding oracle, XPath",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "key1one8/Senior-Web-Penetration-Tester",
         "u": "https://github.com/key1one8/Senior-Web-Penetration-Tester",
-        "note": "PDF notes, one for each path module"
+        "note": "PDF notes, one for each path module",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Dimpyj1604/SWPT-Notes",
         "u": "https://github.com/Dimpyj1604/SWPT-Notes",
-        "note": "Technique writeups: JWT, .NET deser, request smuggling, NoSQL, prototype pollution"
+        "note": "Technique writeups: JWT, .NET deser, request smuggling, NoSQL, prototype pollution",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "ceortiz33/Web-Pentesting",
         "u": "https://github.com/ceortiz33/Web-Pentesting",
-        "note": "Payload and technique notes, one Markdown file for each of the 15 path modules"
+        "note": "Payload and technique notes, one Markdown file for each of the 15 path modules",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#fcc000",
     "note": "The report decides the result, so practice the deliverable, not just the attacks.",
     "items": [
       {
         "n": "SysReptor CWEE Demo Report (PDF)",
         "u": "https://docs.sysreptor.com/assets/reports/HTB-CWEE-Report.pdf",
-        "note": "Example CWEE report structure and finding format"
+        "note": "Example CWEE report structure and finding format",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "Syslifters/HackTheBox-Reporting",
         "u": "https://github.com/Syslifters/HackTheBox-Reporting",
-        "note": "SysReptor templates, including HTB CWEE"
+        "note": "SysReptor templates, including HTB CWEE",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SysReptor (reporting platform)",
         "u": "https://github.com/Syslifters/sysreptor",
-        "note": "Self-hostable, or use SysReptor's HTB cloud offering"
+        "note": "Self-hostable, or use SysReptor's HTB cloud offering",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "HTB Reporting with SysReptor",
         "u": "https://docs.sysreptor.com/htb-reporting-with-sysreptor",
-        "note": "Writing CWEE reports in Markdown"
+        "note": "Writing CWEE reports in Markdown",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#fcc000",
     "note": "Be comfortable with these before the exam.",
     "items": [
       {
         "n": "Burp Suite",
         "u": "https://portswigger.net/burp/documentation",
-        "note": "Proxy, Repeater, Intruder, extensions"
+        "note": "Proxy, Repeater, Intruder, extensions",
+        "k": "Web",
+        "d": "portswigger.net"
       },
       {
         "n": "ffuf",
         "u": "https://github.com/ffuf/ffuf",
-        "note": "Directory, parameter & vhost fuzzing"
+        "note": "Directory, parameter & vhost fuzzing",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "sqlmap",
         "u": "https://github.com/sqlmapproject/sqlmap",
-        "note": "Automated SQL injection"
+        "note": "Automated SQL injection",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "jwt_tool",
         "u": "https://github.com/ticarpi/jwt_tool",
-        "note": "JWT testing and attacks"
+        "note": "JWT testing and attacks",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "ysoserial.net",
         "u": "https://github.com/pwntester/ysoserial.net",
-        "note": ".NET deserialization gadget chains"
+        "note": ".NET deserialization gadget chains",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "phpggc",
         "u": "https://github.com/ambionics/phpggc",
-        "note": "PHP deserialization gadget chains"
+        "note": "PHP deserialization gadget chains",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "dnSpyEx",
         "u": "https://github.com/dnSpyEx/dnSpy",
-        "note": ".NET decompiler and debugger"
+        "note": ".NET decompiler and debugger",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SAML Raider",
         "u": "https://github.com/portswigger/saml-raider",
-        "note": "SAML testing in Burp"
+        "note": "SAML testing in Burp",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "SecLists",
         "u": "https://github.com/danielmiessler/SecLists",
-        "note": "Wordlists for fuzzing & brute forcing"
+        "note": "Wordlists for fuzzing & brute forcing",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PayloadsAllTheThings",
         "u": "https://github.com/swisskyrepo/PayloadsAllTheThings",
-        "note": "Payloads & bypasses by vulnerability"
+        "note": "Payloads & bypasses by vulnerability",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "goshs-labs/goshs",
         "u": "https://github.com/goshs-labs/goshs",
-        "note": "Single-binary file server with DNS/SMTP callbacks, SMB and NTLM capture"
+        "note": "Single-binary file server with DNS/SMTP callbacks, SMB and NTLM capture",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Web Security References",
-    "color": "#fcc000",
     "note": "Extra practice and background beyond the path.",
     "items": [
       {
         "n": "PortSwigger Web Security Academy",
         "u": "https://portswigger.net/web-security",
-        "note": "Free labs covering many CWEE topics"
+        "note": "Free labs covering many CWEE topics",
+        "k": "Web",
+        "d": "portswigger.net"
       },
       {
         "n": "OWASP Web Security Testing Guide",
         "u": "https://owasp.org/www-project-web-security-testing-guide/",
-        "note": "Methodology reference"
+        "note": "Methodology reference",
+        "k": "Web",
+        "d": "owasp.org"
       },
       {
         "n": "OWASP Cheat Sheet Series",
         "u": "https://cheatsheetseries.owasp.org/",
-        "note": "Prevention and testing cheat sheets"
+        "note": "Prevention and testing cheat sheets",
+        "k": "Web",
+        "d": "cheatsheetseries.owasp.org"
       }
     ]
   },
   {
     "cat": "White-Box Practice",
-    "color": "#fcc000",
     "note": "Code review practice outside the path. Built for OSWE, but the skills carry over directly.",
     "items": [
       {
         "n": "bmdyy/tudo",
         "u": "https://github.com/bmdyy/tudo",
-        "note": "Vulnerable PHP app to practice white-box auth bypass to RCE chains"
+        "note": "Vulnerable PHP app to practice white-box auth bypass to RCE chains",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "computer-engineer/WhiteboxPentest",
         "u": "https://github.com/computer-engineer/WhiteboxPentest",
-        "note": "Code review cheat sheet: methodologies, dangerous functions, DB logging, debugging"
+        "note": "Code review cheat sheet: methodologies, dangerous functions, DB logging, debugging",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#fcc000",
-    "layout": "tips",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
+    "layout": "tips",
     "items": [
       {
         "n": "Read all the available code, even what seems insignificant",
@@ -2946,6 +3172,165 @@ const RESOURCES = [
     ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Web Exploitation Expert (CWEE)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-web-exploitation-expert",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Report",
+    "n": "SysReptor CWEE Demo Report (PDF)",
+    "u": "https://docs.sysreptor.com/assets/reports/HTB-CWEE-Report.pdf",
+    "note": "Example CWEE report structure and finding format",
+    "k": "Web",
+    "d": "docs.sysreptor.com",
+    "sec": "Reporting & Exam Prep"
+  },
+  {
+    "slot": "Notes",
+    "n": "kabaneridev/pt-notes (CWEE-PREP)",
+    "u": "https://github.com/kabaneridev/pt-notes/tree/main/CWEE-PREP",
+    "note": "CWEE prep notes organized by module",
+    "k": "GitHub",
+    "d": "github.com",
+    "sec": "Community Notes & Walkthroughs"
+  },
+  {
+    "slot": "Video",
+    "n": "An Overview of CWEE (21y4d)",
+    "u": "https://www.youtube.com/watch?v=kMz53IRAKF0",
+    "note": "10-minute overview of the cert, the path, and the exam from HTB Academy's 21y4d",
+    "k": "Video",
+    "d": "youtube.com",
+    "sec": "Video Series & Reviews"
+  }
+];
+(function () {
+const RL = { code: "CWEE", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "CWEE", "path": {"name": "Senior Web Penetration Tester Path", "url": "https://academy.hackthebox.com/path/preview/senior-web-penetration-tester"}, "mods": ["Injection Attacks", "Introduction to NoSQL Injection", "Attacking Authentication Mechanisms", "Advanced XSS and CSRF Exploitation", "HTTPs/TLS Attacks", "Abusing HTTP Misconfigurations", "HTTP Attacks", "Blind SQL Injection", "Intro to Whitebox Pentesting", "Modern Web Exploitation Techniques", "Introduction to Deserialization Attacks", "Whitebox Attacks", "Advanced SQL Injections", "Advanced Deserialization Attacks", "Parameter Logic Bugs"], "groups": [["Injection & NoSQL", [1, 2]], ["Authentication Attacks", [3]], ["Client-Side & TLS", [4, 5]], ["HTTP Attacks", [6, 7]], ["Blind SQLi & Whitebox", [8, 9]], ["Modern & Deserialization", [10, 11, 12]], ["Advanced SQLi & Logic Bugs", [13, 14, 15]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Injection Warm-Ups", "sub": "XPath, NoSQL and SQL in Small Apps", "goal": "Spot and script basic injection bugs (XPath, MongoDB/CouchDB operators, UNION SQLi) in short, source-provided web challenges.", "items": [{"id": "e-tree", "n": "E.Tree", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/E.Tree", "tech": "XPath injection in an employee directory app; pull a hidden value out blind, character by character.", "mods": [1], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "wild-goose-hunt", "n": "Wild Goose Hunt", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Wild%20Goose%20Hunt", "tech": "MongoDB NoSQL injection in a login form; use regex operators to leak the admin password.", "mods": [2], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "lazy-ballot", "n": "Lazy Ballot", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Lazy%20Ballot", "tech": "CouchDB login query takes raw JSON, so operator injection ($ne) bypasses auth to reach the votes data.", "mods": [2], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "shoppy", "n": "Shoppy", "type": "machine", "os": "Linux", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Shoppy", "tech": "NoSQL injection login bypass on a shop admin panel, cracked hashes, then creds and Docker for root.", "mods": [2], "ippsec": "https://www.youtube.com/watch?v=AJc53DUdt1M", "oxdf": "https://0xdf.gitlab.io/2023/01/14/htb-shoppy.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "pentest-notes", "n": "Pentest Notes", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Pentest%20Notes", "tech": "UNION SQL injection in a notes app backed by an H2 database; enumerate the schema to reach the flag.", "mods": [13], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "dark-runes", "n": "Dark Runes", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Dark%20Runes", "tech": "Forge a signed admin cookie, then abuse a Markdown-to-PDF renderer (server-side XSS) to read local files.", "mods": [1, 3], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}]}, {"name": "Client-Side & Cache Attacks", "sub": "XSS, CSRF, Cache Poisoning, Admin Bots", "goal": "Turn XSS, CSRF and cache or proxy misconfigurations into actions run by an admin bot or another user.", "items": [{"id": "pumpkinspice", "n": "PumpkinSpice", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/PumpkinSpice", "tech": "Stored XSS fires in an admin bot, which then hits a localhost-only endpoint with command injection.", "mods": [4], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "felonious-forums", "n": "Felonious Forums", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Felonious%20Forums", "tech": "Self-XSS turned into a real attack with web cache poisoning to steal the admin's session (source provided).", "mods": [4, 6], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "cdnio", "n": "CDNio", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/CDNio", "tech": "Web cache poisoning against an Nginx cache in front of Flask: get the admin bot's API key cached and read it.", "mods": [6], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "secnotes", "n": "SecNotes", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/SecNotes", "tech": "CSRF via a contact form to change a user's password, second-order SQL injection, then SMB and WSL for admin.", "mods": [4, 8], "ippsec": "https://www.youtube.com/watch?v=PJXb2pK8K84", "oxdf": "https://0xdf.gitlab.io/2019/01/19/htb-secnotes.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "the-galactic-times", "n": "The Galactic Times", "type": "challenge", "os": null, "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/The%20Galactic%20Times", "tech": "XSS past a CSP that allows cdnjs, making the Puppeteer bot fetch a localhost-only page and send it back.", "mods": [4], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "dusty-alleys", "n": "Dusty Alleys", "type": "challenge", "os": null, "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Dusty%20Alleys", "tech": "Nginx reverse proxy with a hidden vhost; abuse an in-app request feature (SSRF) and Host handling to reach the secret.", "mods": [6], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}]}, {"name": "Auth, Crypto & Blind SQLi", "sub": "Cookie Forging, Padding Oracles, Blind SQLi", "goal": "Forge sessions, break encrypted cookies, and write your own blind extraction scripts that get past filters.", "items": [{"id": "noter", "n": "Noter", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Noter", "tech": "Crack the Flask session secret and forge a cookie, command injection in md-to-pdf, MySQL UDF for root.", "mods": [3], "ippsec": "https://www.youtube.com/watch?v=XvoMwz9J6_I", "oxdf": "https://0xdf.gitlab.io/2022/09/03/htb-noter.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "lazy", "n": "Lazy", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Lazy", "tech": "Padding oracle (or bit-flipping) on an encrypted auth cookie to become admin, then a PATH hijack for root.", "mods": [5], "ippsec": "https://www.youtube.com/watch?v=3VxZNflJqsw", "oxdf": "https://0xdf.gitlab.io/2020/07/29/htb-lazy.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "wafwaf", "n": "wafwaf", "type": "challenge", "os": null, "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/wafwaf", "tech": "Blind (time-based) SQL injection in a PHP notes app behind a custom WAF; script the extraction.", "mods": [8], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "book", "n": "Book", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Book", "tech": "SQL truncation to take over the admin account, XSS in a server-generated PDF to read files, logrotten for root.", "mods": [1, 4], "ippsec": "https://www.youtube.com/watch?v=RBtN5939m3g", "oxdf": "https://0xdf.gitlab.io/2020/07/11/htb-book.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "nextpath", "n": "NextPath", "type": "challenge", "os": null, "diff": "Medium", "access": "Free", "url": "https://app.hackthebox.com/challenges/NextPath", "tech": "Multi-line regex check plus double URL-encoding bypass a path traversal filter in a Next.js API to read files.", "mods": [7], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}]}, {"name": "Deserialization", "sub": "PHP, Python and .NET Object Attacks", "goal": "Find deserialization sinks in code and build working payloads for PHP, pickle and .NET (ViewState and JSON).", "items": [{"id": "pop-restaurant", "n": "POP Restaurant", "type": "challenge", "os": null, "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/POP%20Restaurant", "tech": "PHP object injection: build a POP gadget chain from the provided source for code execution.", "mods": [11], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "tenet", "n": "Tenet", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Tenet", "tech": "PHP deserialization found through a leaked backup source file, then a race condition in a sudo script for root.", "mods": [11, 12], "ippsec": "https://www.youtube.com/watch?v=LhdE7dXbTQw", "oxdf": "https://0xdf.gitlab.io/2021/06/12/htb-tenet.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "hacknet", "n": "HackNet", "type": "machine", "os": "Linux", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/HackNet", "tech": "Django SSTI through the username field to leak data, then a pickle deserialization in the file cache for root.", "mods": [11], "ippsec": "https://www.youtube.com/watch?v=QbAfkivQnW0", "oxdf": "https://0xdf.gitlab.io/2026/01/17/htb-hacknet.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "nexus-void", "n": "Nexus Void", "type": "challenge", "os": null, "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Nexus%20Void", "tech": "White-box C#/.NET web app with a deserialization flaw; build a gadget for code execution (details not verified).", "mods": [14], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "pov", "n": "Pov", "type": "machine", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Pov", "tech": "File read leaks the ASP.NET machine keys, then a ysoserial.net ViewState payload gives RCE; more Windows privesc after.", "mods": [14], "ippsec": "https://www.youtube.com/watch?v=84xCsHvkxYE", "oxdf": "https://0xdf.gitlab.io/2024/06/08/htb-pov.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}]}, {"name": "Hard Chains", "sub": "Long White-Box and Black-Box Chains", "goal": "Chain several bugs end to end on hard targets, the way the 10-day exam expects.", "items": [{"id": "interstellar", "n": "Interstellar", "type": "challenge", "os": null, "diff": "Medium", "access": "Free", "url": "https://app.hackthebox.com/challenges/Interstellar", "tech": "Newer web challenge the reviewer files under Modern Web Exploitation; forum hints mention SQL injection (chain not verified).", "mods": [10], "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "falafel", "n": "Falafel", "type": "machine", "os": "Linux", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Falafel", "tech": "Boolean blind SQL injection to dump hashes, PHP type juggling (magic hash) login, upload filename truncation for RCE.", "mods": [8, 12], "ippsec": "https://www.youtube.com/watch?v=CUbWpteTfio", "oxdf": "https://0xdf.gitlab.io/2018/06/23/htb-falafel.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}, {"id": "analysis", "n": "Analysis", "type": "machine", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Analysis", "tech": "LDAP injection to brute-force users and read a password from an AD description field, then a long Windows chain.", "mods": [1], "ippsec": "https://www.youtube.com/watch?v=9U7OFdri73g", "oxdf": "https://0xdf.gitlab.io/2024/06/01/htb-analysis.html", "src": [{"k": "review", "u": "https://almounah.github.io/posts/cwee-review/", "w": "h4r0r (almounah)"}]}]}]};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "cwee_practice_v1";
@@ -3508,41 +3893,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CWEE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCWEE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CWEE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCWEE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -3718,7 +4068,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();

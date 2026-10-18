@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,103 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#59f1fd;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#0d1320}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +376,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -581,7 +661,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">38 <small>Links &middot; 6 Sections &middot; 10 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cdep/resources/" target="_blank" rel="noopener">CDEP Resources</a>. HTB Academy's path is all you need to pass the CDEP. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>4</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>38</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CDEP, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 38 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDEP&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCDEP%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CDEP&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCDEP%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -3244,241 +3345,310 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#00eafc",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#00eafc",
     "note": "Start here. You have to finish the path 100% to unlock the exam. HTB hasn't published a CDEP sample report or report template yet.",
     "items": [
       {
         "n": "HTB Certified Detection Engineering Principal (CDEP)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-detection-engineering-principal",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Detection Engineer Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/detection-engineer",
-        "note": "13 modules · 250 sections · Hard"
+        "note": "13 modules · 250 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report submission, results"
+        "note": "Official exam rules: attempts, report submission, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Sherlocks and retired machines for extra practice"
+        "note": "Sherlocks and retired machines for extra practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Explore the new Introduction to Detection Engineering module (HTB changelog)",
         "u": "https://roadmap.hackthebox.com/changelog/explore-the-new-introduction-to-detection-engineering-module",
-        "note": "HTB's overview of the path's core module"
+        "note": "HTB's overview of the path's core module",
+        "k": "Official",
+        "d": "roadmap.hackthebox.com"
       },
       {
         "n": "Become an elite defender and master advanced threat detection with HTB CDEP (Hack The Box)",
         "u": "https://www.hackthebox.com/blog/become-an-elite-defender-and-master-advanced-threat-detection-with-htb-cdep",
-        "note": "Official launch post: exam format, prerequisites, path topics and how the voucher works"
+        "note": "Official launch post: exam format, prerequisites, path topics and how the voucher works",
+        "k": "Official",
+        "d": "hackthebox.com"
       },
       {
         "n": "Introducing the HTB Certified Detection Engineering Principal (HTB CDEP)",
         "u": "https://roadmap.hackthebox.com/changelog/introducing-the-htb-certified-detection-engineering-principal-htb-cdep",
-        "note": "Official changelog entry: 13-module path, 10-day exam, 2 attempts per voucher valid 1 year"
+        "note": "Official changelog entry: 13-module path, 10-day exam, 2 attempts per voucher valid 1 year",
+        "k": "Official",
+        "d": "roadmap.hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#00eafc",
     "note": "Work through these 13 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Detection & OpSec Cyber Range",
         "u": "https://academy.hackthebox.com/course/preview/detection--opsec-cyber-range",
-        "note": "9 sections · Medium"
+        "note": "9 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Introduction to Detection Engineering",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-detection-engineering",
-        "note": "29 sections · Medium"
+        "note": "29 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Introduction to Dynamic Analysis with WinDbg",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-dynamic-analysis-with-windbg",
-        "note": "15 sections · Hard"
+        "note": "15 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Process Injection Attacks and Detection",
         "u": "https://academy.hackthebox.com/course/preview/process-injection-attacks-and-detection",
-        "note": "31 sections · Hard"
+        "note": "31 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · Linux Process Injections & Detections",
         "u": "https://academy.hackthebox.com/course/preview/linux-process-injections--detections",
-        "note": "20 sections · Hard"
+        "note": "20 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · Windows Low Level Detectability",
         "u": "https://academy.hackthebox.com/course/preview/windows-low-level-detectability",
-        "note": "17 sections · Hard"
+        "note": "17 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · Detecting Access Token Manipulation Attacks",
         "u": "https://academy.hackthebox.com/course/preview/detecting-access-token-manipulation-attacks",
-        "note": "17 sections · Hard"
+        "note": "17 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · Windows API Monitoring and Hooking",
         "u": "https://academy.hackthebox.com/course/preview/windows-api-monitoring-and-hooking",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · Privilege Escalation Tradecraft Analysis",
         "u": "https://academy.hackthebox.com/course/preview/privilege-escalation-tradecraft-analysis",
-        "note": "24 sections · Hard"
+        "note": "24 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · Persistence Tradecraft Analysis",
         "u": "https://academy.hackthebox.com/course/preview/persistence-tradecraft-analysis",
-        "note": "18 sections · Hard"
+        "note": "18 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · WMI Tradecraft Analysis",
         "u": "https://academy.hackthebox.com/course/preview/wmi-tradecraft-analysis",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · Credential Access Tradecraft Analysis",
         "u": "https://academy.hackthebox.com/course/preview/credential-access-tradecraft-analysis",
-        "note": "21 sections · Hard"
+        "note": "21 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "13 · Windows Kernel Telemetry & Detection Techniques",
         "u": "https://academy.hackthebox.com/course/preview/windows-kernel-telemetry--detection-techniques",
-        "note": "25 sections · Hard"
+        "note": "25 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#00eafc",
     "note": "Tools the CDEP cert page and the path modules use.",
     "items": [
       {
         "n": "WinDbg (Debugging Tools for Windows)",
         "u": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/",
-        "note": "User and kernel debugging, TTD, scripting"
+        "note": "User and kernel debugging, TTD, scripting",
+        "k": "Web",
+        "d": "learn.microsoft.com"
       },
       {
         "n": "Ghidra",
         "u": "https://ghidra-sre.org/",
-        "note": "Disassembler and decompiler"
+        "note": "Disassembler and decompiler",
+        "k": "Web",
+        "d": "ghidra-sre.org"
       },
       {
         "n": "x64dbg",
         "u": "https://x64dbg.com/",
-        "note": "User-mode Windows debugger"
+        "note": "User-mode Windows debugger",
+        "k": "Web",
+        "d": "x64dbg.com"
       },
       {
         "n": "Sysmon",
         "u": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
-        "note": "Windows endpoint telemetry"
+        "note": "Windows endpoint telemetry",
+        "k": "Web",
+        "d": "learn.microsoft.com"
       },
       {
         "n": "Process Monitor",
         "u": "https://learn.microsoft.com/en-us/sysinternals/downloads/procmon",
-        "note": "Live file, registry and process activity"
+        "note": "Live file, registry and process activity",
+        "k": "Web",
+        "d": "learn.microsoft.com"
       },
       {
         "n": "Event Tracing for Windows (ETW)",
         "u": "https://learn.microsoft.com/en-us/windows/win32/etw/about-event-tracing",
-        "note": "Microsoft's ETW documentation"
+        "note": "Microsoft's ETW documentation",
+        "k": "Web",
+        "d": "learn.microsoft.com"
       },
       {
         "n": "Splunk Enterprise docs",
         "u": "https://help.splunk.com/en/splunk-enterprise",
-        "note": "SPL searches used across the path"
+        "note": "SPL searches used across the path",
+        "k": "Web",
+        "d": "help.splunk.com"
       },
       {
         "n": "Wazuh",
         "u": "https://wazuh.com/",
-        "note": "Open-source SIEM and XDR used in the Cyber Range"
+        "note": "Open-source SIEM and XDR used in the Cyber Range",
+        "k": "Web",
+        "d": "wazuh.com"
       },
       {
         "n": "YARA",
         "u": "https://virustotal.github.io/yara/",
-        "note": "Pattern matching for files and memory"
+        "note": "Pattern matching for files and memory",
+        "k": "Web",
+        "d": "virustotal.github.io"
       }
     ]
   },
   {
     "cat": "Community Projects",
-    "color": "#00eafc",
     "note": "Not from HTB. Open-source projects that cover the same ground as the path modules.",
     "items": [
       {
         "n": "Best EDR Of The Market V3 (Xacone)",
         "u": "https://xacone.github.io/BestEdrOfTheMarketV3.html",
-        "note": "Open-source kernel-mode EDR: callbacks, syscall interception, VAD checks, YARA"
+        "note": "Open-source kernel-mode EDR: callbacks, syscall interception, VAD checks, YARA",
+        "k": "Web",
+        "d": "xacone.github.io"
       }
     ]
   },
   {
     "cat": "Detection Frameworks",
-    "color": "#00eafc",
     "note": "The frameworks the Introduction to Detection Engineering module teaches.",
     "items": [
       {
         "n": "MITRE ATT&CK",
         "u": "https://attack.mitre.org/",
-        "note": "Adversary tactics and techniques"
+        "note": "Adversary tactics and techniques",
+        "k": "Web",
+        "d": "attack.mitre.org"
       },
       {
         "n": "ATT&CK Navigator",
         "u": "https://mitre-attack.github.io/attack-navigator/",
-        "note": "Map and layer technique coverage"
+        "note": "Map and layer technique coverage",
+        "k": "Web",
+        "d": "mitre-attack.github.io"
       },
       {
         "n": "MITRE CAR",
         "u": "https://car.mitre.org/",
-        "note": "Cyber Analytics Repository"
+        "note": "Cyber Analytics Repository",
+        "k": "Web",
+        "d": "car.mitre.org"
       },
       {
         "n": "MITRE D3FEND",
         "u": "https://d3fend.mitre.org/",
-        "note": "Defensive countermeasure knowledge graph"
+        "note": "Defensive countermeasure knowledge graph",
+        "k": "Web",
+        "d": "d3fend.mitre.org"
       },
       {
         "n": "Summiting the Pyramid",
         "u": "https://center-for-threat-informed-defense.github.io/summiting-the-pyramid/",
-        "note": "Scoring how robust a detection is"
+        "note": "Scoring how robust a detection is",
+        "k": "Web",
+        "d": "center-for-threat-informed-defense.github.io"
       }
     ]
   },
   {
     "cat": "HTB Exam Tips",
-    "color": "#00eafc",
-    "layout": "tips",
     "note": "Nobody has published a CDEP exam review yet, so these come straight from HTB's cert page and Help Center.",
+    "layout": "tips",
     "items": [
       {
         "n": "Finish 100% of the Detection Engineer path before booking",
@@ -3523,6 +3693,165 @@ const RESOURCES = [
     ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Detection Engineering Principal (CDEP)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-detection-engineering-principal",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Frameworks",
+    "n": "Summiting the Pyramid",
+    "u": "https://center-for-threat-informed-defense.github.io/summiting-the-pyramid/",
+    "note": "Scoring how robust a detection is",
+    "k": "Web",
+    "d": "center-for-threat-informed-defense.github.io",
+    "sec": "Detection Frameworks"
+  },
+  {
+    "slot": "Tools",
+    "n": "Event Tracing for Windows (ETW)",
+    "u": "https://learn.microsoft.com/en-us/windows/win32/etw/about-event-tracing",
+    "note": "Microsoft's ETW documentation",
+    "k": "Web",
+    "d": "learn.microsoft.com",
+    "sec": "Tooling & References"
+  },
+  {
+    "slot": "Hands-on",
+    "n": "Best EDR Of The Market V3 (Xacone)",
+    "u": "https://xacone.github.io/BestEdrOfTheMarketV3.html",
+    "note": "Open-source kernel-mode EDR: callbacks, syscall interception, VAD checks, YARA",
+    "k": "Web",
+    "d": "xacone.github.io",
+    "sec": "Community Projects"
+  }
+];
+(function () {
+const RL = { code: "CDEP", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "CDEP", "path": {"name": "Detection Engineer Path", "url": "https://academy.hackthebox.com/path/preview/detection-engineer"}, "mods": ["Detection & OpSec Cyber Range", "Introduction to Detection Engineering", "Introduction to Dynamic Analysis with WinDbg", "Process Injection Attacks and Detection", "Linux Process Injections & Detections", "Windows Low Level Detectability", "Detecting Access Token Manipulation Attacks", "Windows API Monitoring and Hooking", "Privilege Escalation Tradecraft Analysis", "Persistence Tradecraft Analysis", "WMI Tradecraft Analysis", "Credential Access Tradecraft Analysis", "Windows Kernel Telemetry & Detection Techniques"], "groups": [["Foundations & Telemetry", [1, 2]], ["Debugging & Injection", [3, 4, 5]], ["Windows Internals & Hooking", [6, 7, 8]], ["Tradecraft Analysis", [9, 10, 11, 12]], ["Kernel Telemetry", [13]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Telemetry Foundations", "sub": "Know What Each Log Records", "goal": "Learn what Windows event logs and Sysmon actually capture. Every detection you write starts from knowing your telemetry.", "items": [{"id": "logjammer", "n": "Logjammer", "type": "Sherlock", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Logjammer", "tech": "Read an intrusion through the core Windows logs: Security, System, Defender, Firewall and PowerShell, plus scheduled tasks and audit-policy changes.", "mods": [1, 2, 10], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}, {"id": "unit42", "n": "Unit42", "type": "Sherlock", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Unit42", "tech": "Detect an UltraVNC backdoor campaign from Sysmon logs, the primary telemetry detections are built on.", "mods": [1, 2], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}]}, {"name": "Behaviour to ATT&CK", "sub": "Map What You See to a Technique", "goal": "Turn observed malware behaviour into MITRE ATT&CK techniques. This mapping is the core of a CDEP detection write-up.", "items": [{"id": "heartbreaker-continuum", "n": "Heartbreaker-Continuum", "type": "Sherlock", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Heartbreaker-Continuum", "tech": "Static analysis with PEStudio and Ghidra, then map the malware's behaviour to MITRE ATT&CK techniques.", "mods": [2], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}]}, {"name": "Detect a Named Technique", "sub": "One Technique, Its Telemetry, Its Detection", "goal": "Pick one attacker technique and build the detection from the exact events it emits. Repeat until writing a rule per technique feels routine.", "items": [{"id": "campfire-1", "n": "Campfire-1", "type": "Sherlock", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Campfire-1", "tech": "Detect Kerberoasting from Event ID 4769, with PowerView and Rubeus traces to anchor the rule.", "mods": [2, 12], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}, {"id": "campfire-2", "n": "Campfire-2", "type": "Sherlock", "os": "Windows", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Campfire-2", "tech": "Detect AS-REP Roasting through event-log analysis of the compromised accounts.", "mods": [2, 12], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}, {"id": "reaper", "n": "Reaper", "type": "Sherlock", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Reaper", "tech": "Detect NTLM relay and LLMNR poisoning from the Security log.", "mods": [2, 12], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}, {"id": "tracer", "n": "Tracer", "type": "Sherlock", "os": "Windows", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks/Tracer", "tech": "Detect PsExec lateral movement from the service binaries it drops, named pipes and Sysmon data.", "mods": [2, 8], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}]}, {"name": "Full Attack Chain", "sub": "Detect Every Stage End to End", "goal": "Detect a whole intrusion from initial access to exfiltration and correlate host and memory telemetry, the way the CDEP exam expects.", "items": [{"id": "optinseltrace", "n": "OpTinselTrace (1-5)", "type": "Sherlock series", "os": "Windows", "diff": "Hard", "access": "VIP+", "url": "https://app.hackthebox.com/sherlocks", "tech": "A five-part APT chain: initial access, lateral movement, persistence, C2 and exfiltration, correlating memory (Volatility3) with event logs (Chainsaw).", "mods": [2, 4, 9, 10, 12], "src": [{"k": "review", "w": "momenbasel Sherlock index", "u": "https://github.com/momenbasel/htb-writeups/blob/main/sherlocks/README.md"}]}]}], "caveat": "These are my best guesses. HTB has published no official practice list for the CDEP yet, so unlike the other certs these Sherlocks are chosen by how well they match the path, not from an official track or reviews by people who passed. Sherlocks are investigation labs, so the way to use them is to study the telemetry a technique leaves, then work out the detection you would build. The deepest path topics (process injection internals, ETW, API hooking, kernel callbacks, token manipulation) aren't covered by any Sherlock and stay in the modules."};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "cdep_practice_v1";
@@ -4085,41 +4414,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDEP&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCDEP%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CDEP&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCDEP%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -4295,7 +4589,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();
