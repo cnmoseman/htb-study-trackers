@@ -111,7 +111,7 @@
         <h2>Practice Boxes</h2>
         <p>Hands-on practice from HTB Labs, picked for the CAPE and ordered from easiest to hardest. Tick each one off as you go.</p>
         <ul><li>Picked from HTB's own prep material and reviews by people who passed</li><li>Each one tagged with the modules it practices, plus walkthrough links</li><li>Same progress here and in the tracker's Practice Boxes tab</li></ul>
-        <div class="acts"><a class="primary" href="./practice/">Open practice boxes &rarr;</a><span class="count" id="pbCount">36 boxes</span></div>
+        <div class="acts"><a class="primary" href="./practice/">Open practice boxes &rarr;</a><span class="count" id="pbCount">34 boxes</span></div>
       </div>
     </section>
     <section class="band rev">
@@ -142,7 +142,7 @@
     var el = document.getElementById("pbCount"); if (!el) return;
     var st; try { st = JSON.parse(localStorage.getItem("cape_practice_v1")); } catch (e) { return; }
     if (!st || !st.done || typeof st.done !== "object") return;
-    var ids = ["cicada", "certified", "babytwo", "voleur", "puppy", "blackfield", "escape", "authority", "manager", "overwatch", "tombwatcher", "certificate", "fluffy", "signed", "eighteen", "scepter", "escapetwo", "breach", "sendai", "vintage", "delegate", "pirate", "rustykey", "redelegate", "rebound", "garfield", "darkzero", "absolute", "sekhmet", "cybernetics", "zephyr", "offshore", "rastalabs", "ifrit", "dante", "aptlabs"], done = 0;  // current boxes only, like the practice page
+    var ids = ["cicada", "certified", "babytwo", "voleur", "puppy", "blackfield", "escape", "authority", "manager", "overwatch", "tombwatcher", "certificate", "fluffy", "signed", "eighteen", "scepter", "escapetwo", "breach", "sendai", "vintage", "delegate", "pirate", "rustykey", "redelegate", "rebound", "garfield", "darkzero", "absolute", "sekhmet", "zephyr", "offshore", "rastalabs", "ifrit", "dante"], done = 0;  // current boxes only, like the practice page
     for (var i = 0; i < ids.length; i++) if (st.done[ids[i]] === true) done++;
     if (done) el.textContent = done + " / " + ids.length + " done";
   })();
