@@ -49,6 +49,11 @@
   .a{padding:0 18px 16px 42px;font:400 16px/1.6 "Saira",sans-serif;color:var(--muted)}
   .a p{margin:0 0 .75em}.a p:last-child{margin-bottom:0}
   .a ul,.a ol{margin:0 0 .75em;padding-left:1.2em}.a li{margin:.25em 0}
+  .a .tw{overflow-x:auto;margin:0 0 .75em}
+  .a table{border-collapse:collapse;width:100%;font-size:.92em}
+  .a th,.a td{text-align:left;padding:.45em .7em;border-bottom:1px solid var(--line);white-space:nowrap}
+  .a th{font-family:"IBM Plex Mono",monospace;font-size:.78em;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:500}
+  @media (max-width:600px){.a th,.a td{white-space:normal;padding:.45em .4em}}
   .a strong{color:var(--text);font-weight:600}
   code{font:500 .88em "IBM Plex Mono",monospace;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--text)}
   pre{font:500 13px/1.5 "IBM Plex Mono",monospace;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;color:var(--text);margin:0 0 .75em}
@@ -258,6 +263,49 @@
         <div class="a">
           <p><strong>Cubes</strong> are the Academy's currency for unlocking modules one at a time. A <strong>subscription</strong> unlocks modules up to a tier every month instead. The exam is a separate purchase called a <strong>voucher</strong>, and some annual plans include one. Prices and plans change, so check HTB's own pricing page before you buy.</p>
           <p>How many attempts a voucher gives you, and how retakes work, varies by cert. Each tracker's About tab covers it.</p>
+        </div>
+      </details>
+
+      <details id="cert-cost">
+        <summary>How much does a cert cost?</summary>
+        <div class="a">
+          <p>You pay HTB for two things: the exam voucher, and a subscription that unlocks the path's modules. The subscription is usually the bigger part, because you pay it every month you study. Each cert needs a plan that reaches its tier:</p>
+          <div class="tw"><table>
+            <tr><th>Cert</th><th>Voucher</th><th>Modules up to</th><th>Plans that reach it</th></tr>
+            <tr><td>CJCA</td><td>$105</td><td>Tier II</td><td>Student, Silver, Gold, Platinum</td></tr>
+            <tr><td>CPTS, CWES, CDSA, COAE</td><td>$210</td><td>Tier II</td><td>Student, Silver, Gold, Platinum</td></tr>
+            <tr><td>CWEE, CAPE, CWPE</td><td>$350</td><td>Tier III</td><td>Gold, Platinum</td></tr>
+            <tr><td>CDEP</td><td>$450</td><td>Tier IV</td><td>Platinum</td></tr>
+          </table></div>
+          <p>Monthly plans are $10 (Student), $30 (Silver), $95 (Gold) and $125 (Platinum). The annual plans include an exam voucher. Every tracker has a <strong>What It Costs</strong> tab that adds it all up for your timeline and compares every plan, and so does each cert's Resources page.</p>
+          <p>Prices are from October 12, 2026, in USD before tax. They change, so check HTB's <a href="https://help.hackthebox.com/en/articles/13677074-academy-subscriptions" target="_blank" rel="noopener">Academy subscriptions</a> page before you buy.</p>
+        </div>
+      </details>
+
+      <details id="cheapest">
+        <summary>What's the cheapest way to get a cert?</summary>
+        <div class="a">
+          <p>Pay monthly, finish the path as fast as you can, and buy the voucher on its own when you're ready for the exam. Every month you cut saves a month of the plan.</p>
+          <ul>
+            <li><strong>Got a student email?</strong> The Student plan is $10 a month and reaches Tier II, so it covers the CJCA, CPTS, CWES, CDSA and COAE.</li>
+            <li><strong>Monthly beats annual</strong> unless you'd be paying monthly for about a year. An annual plan only makes sense if you need that long, or if you'll use the extra voucher it comes with.</li>
+            <li><strong>Pick the cheapest plan that reaches your cert's tier.</strong> Gold reaches Tier III, but you don't need it for a Tier II cert.</li>
+          </ul>
+          <p>The cheapest total for each cert, voucher included, at the fastest (about 50 hours a week) and slowest (about 10 hours a week) timelines:</p>
+          <div class="tw"><table>
+            <tr><th>Cert</th><th>50 h a week</th><th>10 h a week</th><th>On the Student plan</th></tr>
+            <tr><td>CJCA</td><td>$135</td><td>$255</td><td>$115 to $155</td></tr>
+            <tr><td>CPTS</td><td>$300</td><td>$540</td><td>$240 to $320</td></tr>
+            <tr><td>CWES</td><td>$240</td><td>$360</td><td>$220 to $260</td></tr>
+            <tr><td>CDSA</td><td>$240</td><td>$390</td><td>$220 to $270</td></tr>
+            <tr><td>COAE</td><td>$240</td><td>$360</td><td>$220 to $260</td></tr>
+            <tr><td>CWEE</td><td>$540</td><td>$920</td><td>Not available</td></tr>
+            <tr><td>CAPE</td><td>$540</td><td>$1,110</td><td>Not available</td></tr>
+            <tr><td>CWPE</td><td>$445</td><td>$730</td><td>Not available</td></tr>
+            <tr><td>CDEP</td><td>$825</td><td>$1,575</td><td>Not available</td></tr>
+          </table></div>
+          <p>These assume you finish on schedule and pass on the first voucher. Most people take longer than HTB's estimates, so budget a month or two extra. HTB Labs (VIP+ or HTB PRO) is optional and not included.</p>
+          <p>Work it out for your own timeline: <a href="../cjca/resources/#cost">CJCA</a> · <a href="../cpts/resources/#cost">CPTS</a> · <a href="../cwes/resources/#cost">CWES</a> · <a href="../cdsa/resources/#cost">CDSA</a> · <a href="../coae/resources/#cost">COAE</a> · <a href="../cwee/resources/#cost">CWEE</a> · <a href="../cape/resources/#cost">CAPE</a> · <a href="../cwpe/resources/#cost">CWPE</a> · <a href="../cdep/resources/#cost">CDEP</a></p>
         </div>
       </details>
 
