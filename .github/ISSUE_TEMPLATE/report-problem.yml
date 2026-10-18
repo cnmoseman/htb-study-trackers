@@ -14,7 +14,7 @@ body:
     id: where
     attributes:
       label: Where
-      options: [Study tracker, Practice boxes, Resources page, Prep vault, Cert page (tracker + vault), Landing page, FAQ, Other]
+      options: [Study tracker, Practice boxes, Resources page, Prep vault, Cert page, Landing page, FAQ, Other]
     validations:
       required: true
   - type: textarea
