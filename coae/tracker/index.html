@@ -37,8 +37,8 @@
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   /* Fonts: Chakra Petch = display, IBM Plex Mono = labels (match landing page) */
-  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.res-cat h3,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
-  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.tip-by,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  h1,.stat .num,.ring-pct,.wk-theme,.day-title,.about h3{font-family:"Chakra Petch",sans-serif;letter-spacing:-.01em}
+  .kicker,.ring-lbl,.stat .lbl,.chart-title,.wk-num,.day-badge,.chip,.wbar-lbl,.phase-pct{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
 
   /* Header */
@@ -211,22 +211,103 @@
   .has-note summary{color:var(--teal)}
   .notes-wrap .note-label{font-size:11px;color:var(--faint);margin-top:9px;font-weight:600;letter-spacing:.02em}
 
-  /* Resources */
-  .res-cat{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--bg2);padding:16px 18px}
-  .res-cat h3{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .res-cat .dot{width:9px;height:9px;border-radius:50%}
+  /* Resources: same styles as the Resources page (build_resources.lib_css), scoped to this tab */
+  #tab-resources{--link:#bfb9f1;--row:var(--card);--line2:color-mix(in srgb,var(--line) 55%,var(--bg2));--disp:"Chakra Petch",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  #tab-resources .panel{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  #tab-resources .big{font:700 26px var(--disp);font-variant-numeric:tabular-nums}
+  #tab-resources .big small{font:500 13px var(--mono);color:var(--muted)}
+  #tab-resources .note{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;color:var(--muted);font-size:14px;line-height:1.6}
+  /* tabs */
+  #tab-resources .ltabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .ltabs button{all:unset;cursor:pointer;padding:10px 14px;font:600 14.5px var(--disp);color:var(--faint);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  #tab-resources .ltabs button:hover{color:var(--txt)}
+  #tab-resources .ltabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .ltabs button[aria-selected=true]{color:var(--txt);border-bottom-color:var(--green)}
+  #tab-resources .ltabs b{font:600 11.5px var(--mono);color:var(--faint);margin-left:7px}
+  /* toolbar */
+  #tab-resources .tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  #tab-resources .tb .sp{flex:1}
+  #tab-resources .sw{position:relative;flex:0 1 280px;min-width:0}
+  #tab-resources .sw input{width:100%;font-weight:500;font-size:14px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:8px 34px 8px 12px;outline:0}
+  #tab-resources .sw input:focus{border-color:var(--green)}
+  #tab-resources .sw input::-webkit-search-cancel-button{display:none}
+  #tab-resources .sw kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  #tab-resources .sw button{display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--faint);font:600 16px var(--mono);cursor:pointer;padding:2px 6px}
+  #tab-resources .sw.has kbd{display:none}#tab-resources .sw.has button{display:block}
+  #tab-resources .seg{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:7px;overflow-x:auto;scrollbar-width:none}
+  #tab-resources .seg button{flex:0 0 auto;font-weight:600;font-size:13px;font-family:inherit;background:var(--card2);color:var(--muted);border:0;border-right:1px solid var(--line);padding:7px 12px;cursor:pointer}
+  #tab-resources .seg button:last-child{border-right:0}
+  #tab-resources .seg button:hover{color:var(--txt)}
+  #tab-resources .seg button[aria-pressed="true"]{background:var(--green);color:#0d1320}
+  #tab-resources .seg button i{font:600 10px var(--mono);font-style:normal;margin-left:6px;opacity:.75;text-transform:uppercase}
+  #tab-resources .btn{font-weight:500;font-size:13px;font-family:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer}
+  #tab-resources .btn:hover{border-color:var(--green)}
+  #tab-resources .res{font:600 12.5px var(--mono);color:var(--faint);margin:-4px 0 12px;min-height:1em}
+  /* sections */
+  #tab-resources .sec{background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  #tab-resources .sh{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:18px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 20px;cursor:pointer}
+  #tab-resources .sh:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:12px}
+  #tab-resources .sh:hover h2{color:var(--link)}
+  #tab-resources .tri{color:var(--faint);font-size:11px;transition:transform .15s}
+  #tab-resources .sec.open>.sh .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .num{font:700 26px/1 var(--disp);letter-spacing:-.02em;color:var(--link)}  /* same as the Practice Boxes rung numbers */
+  #tab-resources .sh h2{font:700 19px/1.25 var(--disp);transition:color .15s}
+  #tab-resources .sh .sub{font-size:13px;color:var(--faint);margin-top:2px}
+  #tab-resources .ct{font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  #tab-resources .sb{display:none;border-top:1px solid var(--line)}
+  #tab-resources .sec.open>.sb{display:block}
+  #tab-resources .row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 20px;border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .row:first-child{border-top:0}
+    #tab-resources .gl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #tab-resources .gl svg .f{fill:currentColor;stroke:none}
+  #tab-resources .row .dm{margin-top:3px}
+  #tab-resources .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tab-resources .kd{font:700 10.5px var(--mono);letter-spacing:.08em;color:var(--link);text-transform:uppercase}
+  #tab-resources .row a,#tab-resources .fav a{font:700 15px/1.3 var(--disp);color:var(--txt)}
+  #tab-resources .row a:hover,#tab-resources .fav a:hover{color:var(--link)}
+  #tab-resources .row a i,#tab-resources .fav a i{font-style:normal;font-size:11px;color:var(--faint);margin-left:4px}
+  #tab-resources .rn{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.45}
+  #tab-resources .dm{font:500 12px var(--mono);color:var(--faint);white-space:nowrap}
+  #tab-resources .fv{color:var(--link);font-size:12px;margin-left:6px}
+  #tab-resources mark{background:color-mix(in srgb,var(--green) 38%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+  /* tips: second-level dropdown per reviewer */
+  #tab-resources .tg{border-top:1px solid var(--line2);background:var(--row)}
+  #tab-resources .tg:first-child{border-top:0}
+  #tab-resources .tgh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 20px 11px 60px;display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:baseline}
+  #tab-resources .tgh:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+  #tab-resources .tgh b{font:700 15px var(--disp)}
+  #tab-resources .tgh:hover b{color:var(--link)}
+  #tab-resources .tgh .c{font:500 12px var(--mono);color:var(--faint)}
+  #tab-resources .tg .tri{font-size:10px}
+  #tab-resources .tg.open .tri{transform:rotate(90deg);color:var(--link)}
+  #tab-resources .tg ul{display:none;padding:0 20px 13px 96px;gap:6px}
+  #tab-resources .tg.open ul{display:grid}
+  #tab-resources .tg li{font-size:14px;color:var(--muted);line-height:1.5}
+  #tab-resources .tg li::marker{color:var(--link)}
+  #tab-resources .empty{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px 20px;text-align:center;color:var(--muted)}
+  #tab-resources .empty .btn{margin-top:12px}
+  /* favorites */
+  #tab-resources .favnote{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.55}
+  #tab-resources .fav{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 14px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  #tab-resources .row .gl,#tab-resources .fav .gl{display:grid;place-items:center;width:30px;height:30px;color:var(--link)}
+  #tab-resources .fav .meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  #tab-resources .fav .sec2{font-size:12.5px;color:var(--faint)}
+  #tab-resources .fav a{display:inline-block;font-size:17px;margin-top:3px}
+  #tab-resources .fav .rn{font-size:13.5px}
+  #tab-resources .fav .dm{align-self:start;margin-top:3px}
+  #tab-resources a{color:var(--link)}
+  #tab-resources a:hover{text-decoration:none}
+  #tab-resources .btn{transition:none}#tab-resources .btn:hover{color:var(--txt)}
+  @media (max-width:700px){
+    #tab-resources .sw{flex:1 1 100%}#tab-resources .tb .sp{display:none}
+    #tab-resources .sh{grid-template-columns:14px minmax(0,1fr) auto;padding:14px}#tab-resources .num{display:none}
+    #tab-resources .row{grid-template-columns:26px minmax(0,1fr);gap:10px;padding:11px 14px}#tab-resources .row .gl,#tab-resources .fav .gl{width:26px;height:26px}
+    #tab-resources .row .dm,#tab-resources .fav .dm{display:none}
+    #tab-resources .tgh{padding-left:34px;padding-right:14px}#tab-resources .tg ul{padding-left:70px;padding-right:14px}
+    #tab-resources .fav{grid-template-columns:26px minmax(0,1fr);gap:4px 10px;padding:14px}
+    #tab-resources .ltabs button{padding:10px}
+  }
   .res-suggest{margin:18px 0 4px;text-align:center;font-size:13px;color:var(--faint)}
-  .res-cat .cat-note{font-size:12px;color:var(--faint);margin-bottom:10px}
-  .res-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .res-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
-  .res-item a,.res-item .rtitle{font-size:13.5px;font-weight:600}
-  .res-item a{color:#9fef00}
-  .res-item .rnote{font-size:11.5px;color:var(--faint);margin-top:2px}
-  .tip-group{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px}
-  .tip-by{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-  .tip-list{margin:0;padding-left:18px}
-  .tip-list li{font-size:13.5px;line-height:1.55;color:var(--txt);margin:4px 0}
-  .tip-list li::marker{color:var(--green)}
 
   /* About */
   .about{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:22px 24px}
@@ -295,7 +376,6 @@
     .modebtn{flex:1;white-space:nowrap;padding-left:4px;padding-right:4px}
     .dash{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .res-list{grid-template-columns:1fr}
     .phase-row{grid-template-columns:110px 1fr 38px}
     .cost th:nth-child(3),.cost td:nth-child(3){display:none}
     .cost .yr{display:block}
@@ -581,7 +661,28 @@
   <div id="tab-practice" class="hidden"></div>
 
   <!-- Resources -->
-  <div id="tab-resources" class="hidden"></div>
+  <div id="tab-resources" class="hidden">
+  <div class="panel">
+    <div class="big">95 <small>Links &middot; 13 Sections &middot; 31 Tips</small></div>
+    <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/coae/resources/" target="_blank" rel="noopener">COAE Resources</a>. HTB Academy's path is all you need to pass the COAE. These help you study it, compare notes with people who passed, and get the report right.</p>
+  </div>
+  <div class="ltabs" role="tablist">
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>95</b></button>
+  </div>
+  <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the COAE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
+  <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
+    <div class="tb">
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 95 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="seg" id="kf" role="group" aria-label="Type"></div>
+      <span class="sp"></span>
+      <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div id="list"></div>
+  </div>
+    <div class="res-suggest">Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=COAE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCOAE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=COAE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCOAE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.</div>
+  </div>
 
   <!-- About -->
   <div id="tab-about" class="hidden">
@@ -2062,574 +2163,751 @@ const CURRICULUM = [
 const RESOURCES = [
   {
     "cat": "Community",
-    "color": "#9d94ea",
     "note": "Ask questions, compare notes, and keep up with other people working toward the cert.",
     "items": [
       {
         "n": "Hack The Box Discord",
         "u": "https://discord.gg/hackthebox",
-        "note": "Official HTB community server"
+        "note": "Official HTB community server",
+        "k": "Community",
+        "d": "discord.gg"
       },
       {
         "n": "r/hackthebox",
         "u": "https://www.reddit.com/r/hackthebox/",
-        "note": "HTB subreddit for help & discussion"
+        "note": "HTB subreddit for help & discussion",
+        "k": "Community",
+        "d": "reddit.com"
       }
     ]
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "color": "#9d94ea",
     "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Offensive AI Expert (COAE)",
         "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert",
-        "note": "Official certification page"
+        "note": "Official certification page",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "AI Red Teamer Job-Role Path",
         "u": "https://academy.hackthebox.com/path/preview/ai-red-teamer",
-        "note": "12 modules · 230 sections · Hard"
+        "note": "12 modules · 230 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "Help Center: Academy Certifications",
         "u": "https://help.hackthebox.com/en/articles/12741732-academy-certifications",
-        "note": "Official exam rules: attempts, report submission, results"
+        "note": "Official exam rules: attempts, report submission, results",
+        "k": "Official",
+        "d": "help.hackthebox.com"
       },
       {
         "n": "HTB Academy",
         "u": "https://academy.hackthebox.com/",
-        "note": "Subscription & dashboard"
+        "note": "Subscription & dashboard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "HTB Labs",
         "u": "https://app.hackthebox.com/",
-        "note": "Extra hands-on practice"
+        "note": "Extra hands-on practice",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "AI and ML Exploitation track (HTB Labs)",
         "u": "https://app.hackthebox.com/tracks/62",
-        "note": "HTB's AI/ML hacking track. Not COAE-specific, but it covers the same ground"
+        "note": "HTB's AI/ML hacking track. Not COAE-specific, but it covers the same ground",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Be the human element in AI hacking with HTB COAE",
         "u": "https://www.hackthebox.com/blog/HTB-COAE-Announcement",
-        "note": "Official launch post: 7-day practical exam, scope and how to get a voucher"
+        "note": "Official launch post: 7-day practical exam, scope and how to get a voucher",
+        "k": "Official",
+        "d": "hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB Academy Modules (in study order)",
-    "color": "#9d94ea",
     "note": "Work through these 12 in sequence. The plan follows this order.",
     "items": [
       {
         "n": "1 · Fundamentals of AI",
         "u": "https://academy.hackthebox.com/course/preview/fundamentals-of-ai",
-        "note": "24 sections · Medium"
+        "note": "24 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "2 · Applications of AI in InfoSec",
         "u": "https://academy.hackthebox.com/course/preview/applications-of-ai-in-infosec",
-        "note": "25 sections · Medium"
+        "note": "25 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "3 · Introduction to Red Teaming AI",
         "u": "https://academy.hackthebox.com/course/preview/introduction-to-red-teaming-ai",
-        "note": "11 sections · Medium"
+        "note": "11 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "4 · Prompt Injection Attacks",
         "u": "https://academy.hackthebox.com/course/preview/prompt-injection-attacks",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "5 · LLM Output Attacks",
         "u": "https://academy.hackthebox.com/course/preview/llm-output-attacks",
-        "note": "14 sections · Medium"
+        "note": "14 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "6 · AI Data Attacks",
         "u": "https://academy.hackthebox.com/course/preview/ai-data-attacks",
-        "note": "25 sections · Hard"
+        "note": "25 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "7 · Attacking AI - Application and System",
         "u": "https://academy.hackthebox.com/course/preview/attacking-ai---application-and-system",
-        "note": "14 sections · Medium"
+        "note": "14 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "8 · AI Evasion - Foundations",
         "u": "https://academy.hackthebox.com/course/preview/ai-evasion---foundations",
-        "note": "12 sections · Medium"
+        "note": "12 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "9 · AI Evasion - First-Order Attacks",
         "u": "https://academy.hackthebox.com/course/preview/ai-evasion---first-order-attacks",
-        "note": "23 sections · Hard"
+        "note": "23 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "10 · AI Evasion - Sparsity Attacks",
         "u": "https://academy.hackthebox.com/course/preview/ai-evasion---sparsity-attacks",
-        "note": "28 sections · Hard"
+        "note": "28 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "11 · AI Privacy",
         "u": "https://academy.hackthebox.com/course/preview/ai-privacy",
-        "note": "21 sections · Medium"
+        "note": "21 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       },
       {
         "n": "12 · AI Defense",
         "u": "https://academy.hackthebox.com/course/preview/ai-defense",
-        "note": "21 sections · Medium"
+        "note": "21 sections · Medium",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
       }
     ]
   },
   {
     "cat": "HTB AI Labs: Boxes & Challenges",
-    "color": "#9d94ea",
     "note": "AI-themed boxes and challenges to practice the path. Each is marked Free or VIP+.",
     "items": [
       {
         "n": "External Affairs (VIP+)",
         "u": "https://app.hackthebox.com/challenges/External%20Affairs?tab=play_challenge",
-        "note": "Challenge"
+        "note": "Challenge",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "TrynaSob Ransomware (VIP+)",
         "u": "https://app.hackthebox.com/challenges/TrynaSob%20Ransomware?tab=play_challenge",
-        "note": "Challenge"
+        "note": "Challenge",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Loyalty Survey (VIP+)",
         "u": "https://app.hackthebox.com/challenges/Loyalty%20Survey?tab=play_challenge",
-        "note": "Challenge"
+        "note": "Challenge",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Prometheon (Free)",
         "u": "https://app.hackthebox.com/challenges/Prometheon?tab=play_challenge",
-        "note": "Challenge"
+        "note": "Challenge",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Power Supply (VIP+)",
         "u": "https://app.hackthebox.com/challenges/Power%20Supply?tab=play_challenge",
-        "note": "Challenge"
+        "note": "Challenge",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "SmartHire (Free)",
         "u": "https://app.hackthebox.com/machines/SmartHire",
-        "note": "Machine"
+        "note": "Machine",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "Artificial (VIP+)",
         "u": "https://app.hackthebox.com/machines/Artificial",
-        "note": "Machine"
+        "note": "Machine",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       },
       {
         "n": "DevHub (Free)",
         "u": "https://app.hackthebox.com/machines/DevHub",
-        "note": "Machine"
+        "note": "Machine",
+        "k": "Official",
+        "d": "app.hackthebox.com"
       }
     ]
   },
   {
     "cat": "Video Series & Reviews",
-    "color": "#9d94ea",
     "note": "Video reviews of the path and exam. Watch one before you start to set expectations.",
     "items": [
       {
         "n": "Mission Accomplished, Part 3 (Kenny Strawn)",
         "u": "https://youtu.be/BzKlWRgbaNU",
-        "note": "COAE review with tips & tricks, from FGSM to JSMA"
+        "note": "COAE review with tips & tricks, from FGSM to JSMA",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "Passing COAE: HTB's offensive AI certification explained (0trc)",
         "u": "https://youtu.be/ZWe20hrHVro",
-        "note": "Exam pass experience & what the cert covers"
+        "note": "Exam pass experience & what the cert covers",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "COAE Review + Dicas (Security Hat)",
         "u": "https://www.youtube.com/watch?v=sVBE6_tqc_k",
-        "note": "(Portuguese) First-attempt pass review: cost, the path, how the 7-day exam and report work, and whether it's worth it"
+        "note": "(Portuguese) First-attempt pass review: cost, the path, how the 7-day exam and report work, and whether it's worth it",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "HTB COAE: Introducing the new standard for AI Red Teaming (Hack The Box)",
         "u": "https://www.youtube.com/watch?v=kT2M5RAwdC4",
-        "note": "Official launch video for the COAE"
+        "note": "Official launch video for the COAE",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "OSAI & HTB COAE Prep: Prompt Injection + AI Agent Hijacking (Motasem Hamdan)",
         "u": "https://www.youtube.com/watch?v=cT4sxdm3dyk",
-        "note": "Walks through two HTB AI challenges: direct prompt injection and hijacking an agent's tool call"
+        "note": "Walks through two HTB AI challenges: direct prompt injection and hijacking an agent's tool call",
+        "k": "Video",
+        "d": "youtube.com"
       },
       {
         "n": "The truth about AI attack vectors | Learn with HTB (Hack The Box)",
         "u": "https://www.youtube.com/watch?v=TomKISo9Or8",
-        "note": "Official HTB explainer on model poisoning, data poisoning and model inversion"
+        "note": "Official HTB explainer on model poisoning, data poisoning and model inversion",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "Exam Reviews & Write-ups",
-    "color": "#9d94ea",
     "note": "First-hand accounts of the path and exam. Read a few to calibrate difficulty and pacing.",
     "items": [
       {
         "n": "COAE Training Grounds (0xsaboten)",
         "u": "https://0xsaboten.github.io/posts/coae-training-grounds/",
-        "note": "Curated prep guide from a first-attempt pass: modules, challenges & machines"
+        "note": "Curated prep guide from a first-attempt pass: modules, challenges & machines",
+        "k": "Web",
+        "d": "0xsaboten.github.io"
       },
       {
         "n": "AI Red Teamer path notes (Jacob Krell)",
         "u": "https://jacobkrell.com/writeups/learning-resources/hack-the-box-academy-ai-red-teamer",
-        "note": "Study notes on the path"
+        "note": "Study notes on the path",
+        "k": "Web",
+        "d": "jacobkrell.com"
       },
       {
         "n": "COAE Review (dragkob)",
         "u": "https://www.dragkob.com/articles/coae-review/",
-        "note": "Path & exam review"
+        "note": "Path & exam review",
+        "k": "Web",
+        "d": "dragkob.com"
       },
       {
         "n": "Passing the COAE Exam (ByteBreach)",
         "u": "https://bytebreach.com/posts/2026/passing-the-certified-offensive-ai-expert-exam/",
-        "note": "Exam experience & tips"
+        "note": "Exam experience & tips",
+        "k": "Web",
+        "d": "bytebreach.com"
       },
       {
         "n": "COAE Review (Dušan Jevtić)",
         "u": "https://dusanjevtic.com/blog/coae-review",
-        "note": "Path & exam review"
+        "note": "Path & exam review",
+        "k": "Web",
+        "d": "dusanjevtic.com"
       },
       {
         "n": "HTB COAE Review (Julián Gómez)",
         "u": "https://juliangr.com/blog/certification-review-htb-coae/",
-        "note": "Pass review: exam mixes an AI app, an MCP part and separate ML challenges"
+        "note": "Pass review: exam mixes an AI app, an MCP part and separate ML challenges",
+        "k": "Web",
+        "d": "juliangr.com"
       },
       {
         "n": "I Took HTB's AI Red Teamer Path. Here's What I Think. (Pete McKernan)",
         "u": "https://itsbroken.ai/htb-ai-red-teamer-review/",
-        "note": "Module-by-module path review from a red team operator, with COAE prep advice"
+        "note": "Module-by-module path review from a red team operator, with COAE prep advice",
+        "k": "Web",
+        "d": "itsbroken.ai"
       },
       {
         "n": "HTB COAE Review: My Experience (Alejandro Perez)",
         "u": "https://medium.com/@4le26x/htb-coae-review-my-experience-with-the-certified-offensive-ai-expert-73062f953e07",
-        "note": "Medium review of the COAE path and exam"
+        "note": "Medium review of the COAE path and exam",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "My Journey to the HTB COAE (Jesus P Romero)",
         "u": "https://medium.com/@pwnVader/my-journey-to-the-htb-certified-offensive-ai-expert-coae-632574036eac",
-        "note": "Medium write-up of one candidate's path to the COAE"
+        "note": "Medium write-up of one candidate's path to the COAE",
+        "k": "Web",
+        "d": "medium.com"
       },
       {
         "n": "Retex: HTB Certified Offensive AI Expert (Elliot Belt)",
         "u": "https://felixbillieres.github.io/posts/htb-coae-offensive-ai-expert-retex/",
-        "note": "Pass review from a pentester: the math behind evasion attacks, prep routine, OSAI contrast"
+        "note": "Pass review from a pentester: the math behind evasion attacks, prep routine, OSAI contrast",
+        "k": "Web",
+        "d": "felixbillieres.github.io"
       },
       {
         "n": "HTB COAE pass log (William Lin)",
         "u": "https://blog.whale-tw.com/2026/08/13/htb-coae/",
-        "note": "(Chinese) Pass review: prep time, exam format, grading wait, report advice"
+        "note": "(Chinese) Pass review: prep time, exam format, grading wait, report advice",
+        "k": "Web",
+        "d": "blog.whale-tw.com"
       },
       {
         "n": "HackTheBox COAE Review (0trc)",
         "u": "https://0trccccc.medium.com/hackthebox-coae-review-9a85076dc899",
-        "note": "Written COAE review from the author of the Passing COAE video"
+        "note": "Written COAE review from the author of the Passing COAE video",
+        "k": "Web",
+        "d": "0trccccc.medium.com"
       },
       {
         "n": "AI Red Teamer by HackTheBox review (Diego Fidalgo)",
         "u": "https://ch3ngo.github.io/posts/ai_red_teaming_htb/",
-        "note": "Module-by-module ratings of all 12 path modules, cube cost, and a Dockerfile for local labs"
+        "note": "Module-by-module ratings of all 12 path modules, cube cost, and a Dockerfile for local labs",
+        "k": "Web",
+        "d": "ch3ngo.github.io"
       }
     ]
   },
   {
     "cat": "Practice Playgrounds & Events",
-    "color": "#9d94ea",
     "note": "Sharpen prompt-injection instincts and meet the AI security community.",
     "items": [
       {
         "n": "Lakera Gandalf",
         "u": "https://gandalf.lakera.ai/",
-        "note": "Prompt injection challenge game"
+        "note": "Prompt injection challenge game",
+        "k": "Web",
+        "d": "gandalf.lakera.ai"
       },
       {
         "n": "HackAPrompt",
         "u": "https://www.hackaprompt.com/",
-        "note": "Prompt hacking competition & playground"
+        "note": "Prompt hacking competition & playground",
+        "k": "Web",
+        "d": "hackaprompt.com"
       },
       {
         "n": "AI Village (DEF CON)",
         "u": "https://aivillage.org/",
-        "note": "Community, talks, and CTFs"
+        "note": "Community, talks, and CTFs",
+        "k": "Web",
+        "d": "aivillage.org"
       },
       {
         "n": "microsoft/AI-Red-Teaming-Playground-Labs",
         "u": "https://github.com/microsoft/AI-Red-Teaming-Playground-Labs",
-        "note": "12 self-hosted labs: direct and indirect prompt injection, metaprompt leaks, Crescendo"
+        "note": "12 self-hosted labs: direct and indirect prompt injection, metaprompt leaks, Crescendo",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "harishsg993010/damn-vulnerable-MCP-server",
         "u": "https://github.com/harishsg993010/damn-vulnerable-MCP-server",
-        "note": "10 deliberately vulnerable MCP challenges: tool poisoning, rug pulls, excess permissions"
+        "note": "10 deliberately vulnerable MCP challenges: tool poisoning, rug pulls, excess permissions",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PortSwigger Web LLM attacks",
         "u": "https://portswigger.net/web-security/llm-attacks",
-        "note": "Free labs on LLM API abuse, indirect prompt injection and insecure output handling"
+        "note": "Free labs on LLM API abuse, indirect prompt injection and insecure output handling",
+        "k": "Web",
+        "d": "portswigger.net"
       },
       {
         "n": "LongWayHomie/COAE-Forge",
         "u": "https://github.com/LongWayHomie/COAE-Forge",
-        "note": "Local Docker playground for evasion, poisoning, privacy and extraction attacks on your own models"
+        "note": "Local Docker playground for evasion, poisoning, privacy and extraction attacks on your own models",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Reporting & Exam Prep",
-    "color": "#9d94ea",
     "note": "The exam is scored on a commercial-grade report, so practice the deliverable, not just the attacks.",
     "items": [
       {
         "n": "HTB Reporting with SysReptor",
         "u": "https://docs.sysreptor.com/htb-reporting-with-sysreptor",
-        "note": "Reporting tool with ready-made HTB templates"
+        "note": "Reporting tool with ready-made HTB templates",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "Sample HTB COAE Report (PDF)",
         "u": "https://docs.sysreptor.com/assets/reports/HTB-COAE-Report.pdf",
-        "note": "Example commercial-grade COAE engagement report"
+        "note": "Example commercial-grade COAE engagement report",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       },
       {
         "n": "CPTS Report Writing Guide (SysReptor)",
         "u": "https://dollarboysushil.com/posts/cpts-report-writing-guide/",
-        "note": "Written for CPTS, but the report-writing approach and SysReptor walkthrough apply to COAE"
+        "note": "Written for CPTS, but the report-writing approach and SysReptor walkthrough apply to COAE",
+        "k": "Web",
+        "d": "dollarboysushil.com"
       }
     ]
   },
   {
     "cat": "Tooling & References",
-    "color": "#9d94ea",
     "note": "Hands-on tooling for practice and your mock engagement.",
     "items": [
       {
         "n": "garak",
         "u": "https://github.com/NVIDIA/garak",
-        "note": "LLM vulnerability scanner"
+        "note": "LLM vulnerability scanner",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Adversarial Robustness Toolbox (ART)",
         "u": "https://github.com/Trusted-AI/adversarial-robustness-toolbox",
-        "note": "Evasion, poisoning, extraction"
+        "note": "Evasion, poisoning, extraction",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Microsoft PyRIT",
         "u": "https://github.com/Azure/PyRIT",
-        "note": "Generative AI red-teaming toolkit"
+        "note": "Generative AI red-teaming toolkit",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Foolbox",
         "u": "https://github.com/bethgelab/foolbox",
-        "note": "Adversarial attacks library"
+        "note": "Adversarial attacks library",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "CleverHans",
         "u": "https://github.com/cleverhans-lab/cleverhans",
-        "note": "Adversarial example benchmarks"
+        "note": "Adversarial example benchmarks",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "promptfoo",
         "u": "https://github.com/promptfoo/promptfoo",
-        "note": "LLM testing & red teaming"
+        "note": "LLM testing & red teaming",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Microsoft Counterfit",
         "u": "https://github.com/Azure/counterfit",
-        "note": "Automation for AI security testing"
+        "note": "Automation for AI security testing",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "Embrace The Red (Johann Rehberger)",
         "u": "https://embracethered.com/blog/",
-        "note": "Research blog on real LLM app exploits: prompt injection, data exfiltration, agent attacks"
+        "note": "Research blog on real LLM app exploits: prompt injection, data exfiltration, agent attacks",
+        "k": "Web",
+        "d": "embracethered.com"
       },
       {
         "n": "Breaking Deep Neural Networks with Adversarial Attacks (Paras Dahal)",
         "u": "https://www.parasdahal.com/adversarial-attack",
-        "note": "From-scratch FGSM, JSMA and one-pixel attacks with math and code"
+        "note": "From-scratch FGSM, JSMA and one-pixel attacks with math and code",
+        "k": "Web",
+        "d": "parasdahal.com"
       }
     ]
   },
   {
     "cat": "Cheat Sheets & Payloads",
-    "color": "#9d94ea",
     "note": "Pull ready-to-use payloads and commands from these during your mock engagement and the exam.",
     "items": [
       {
         "n": "mavhezha/htb-ai-red-teamer",
         "u": "https://github.com/mavhezha/htb-ai-red-teamer",
-        "note": "Per-module notes and scripts for all 12 COAE modules, from prompt injection to evasion and privacy"
+        "note": "Per-module notes and scripts for all 12 COAE modules, from prompt injection to evasion and privacy",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "p0wn4j/HTB-COAE-Mess",
         "u": "https://github.com/p0wn4j/HTB-COAE-Mess",
-        "note": "Small COAE prep repo"
+        "note": "Small COAE prep repo",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "PayloadsAllTheThings: Prompt Injection",
         "u": "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Prompt%20Injection",
-        "note": "Big prompt-injection payload table: direct and indirect injection, jailbreaks, RCE/XSS/SQLi via output, encoding bypasses"
+        "note": "Big prompt-injection payload table: direct and indirect injection, jailbreaks, RCE/XSS/SQLi via output, encoding bypasses",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "mik0w/pallms",
         "u": "https://github.com/mik0w/pallms",
-        "note": "Payloads for attacking LLMs, in plaintext lists"
+        "note": "Payloads for attacking LLMs, in plaintext lists",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "nukIeer/AI-Prompt-Injection-Cheatsheet",
         "u": "https://github.com/nukIeer/AI-Prompt-Injection-Cheatsheet",
-        "note": "Single-page prompt injection and jailbreak cheat sheet (some entries unverified)"
+        "note": "Single-page prompt injection and jailbreak cheat sheet (some entries unverified)",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "HackTricks: AI Prompt Injection",
         "u": "https://hacktricks.wiki/en/AI/AI-Prompts.html",
-        "note": "HackTricks AI page with injection and jailbreak techniques"
+        "note": "HackTricks AI page with injection and jailbreak techniques",
+        "k": "Web",
+        "d": "hacktricks.wiki"
       },
       {
         "n": "invariantlabs-ai/mcp-injection-experiments",
         "u": "https://github.com/invariantlabs-ai/mcp-injection-experiments",
-        "note": "Code snippets reproducing MCP tool-poisoning attacks, from the lab that named the attack"
+        "note": "Code snippets reproducing MCP tool-poisoning attacks, from the lab that named the attack",
+        "k": "GitHub",
+        "d": "github.com"
       },
       {
         "n": "ab-ha-y/htb-certified-offensive-ai-expert",
         "u": "https://github.com/ab-ha-y/htb-certified-offensive-ai-expert",
-        "note": "Beginner-friendly notes for all 12 modules with analogies, ASCII diagrams and worked examples"
+        "note": "Beginner-friendly notes for all 12 modules with analogies, ASCII diagrams and worked examples",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
   {
     "cat": "Frameworks & Standards",
-    "color": "#9d94ea",
     "note": "The mental models behind the path. Reference them throughout.",
     "items": [
       {
         "n": "OWASP Top 10 for LLM Applications",
         "u": "https://genai.owasp.org/llm-top-10/",
-        "note": "The canonical LLM risk list"
+        "note": "The canonical LLM risk list",
+        "k": "Web",
+        "d": "genai.owasp.org"
       },
       {
         "n": "MITRE ATLAS",
         "u": "https://atlas.mitre.org/",
-        "note": "Adversarial threat landscape for AI systems"
+        "note": "Adversarial threat landscape for AI systems",
+        "k": "Web",
+        "d": "atlas.mitre.org"
       },
       {
         "n": "Google Secure AI Framework (SAIF)",
         "u": "https://saif.google/",
-        "note": "The path is aligned to this"
+        "note": "The path is aligned to this",
+        "k": "Web",
+        "d": "saif.google"
       },
       {
         "n": "NIST AI Risk Management Framework",
         "u": "https://www.nist.gov/itl/ai-risk-management-framework",
-        "note": "Governance & risk context"
+        "note": "Governance & risk context",
+        "k": "Web",
+        "d": "nist.gov"
       },
       {
         "n": "OWASP ML Security Top 10",
         "u": "https://owasp.org/www-project-machine-learning-security-top-10/",
-        "note": "Classic ML attack categories"
+        "note": "Classic ML attack categories",
+        "k": "Web",
+        "d": "owasp.org"
       },
       {
         "n": "OWASP Top 10 for Agentic Applications (2026)",
         "u": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
-        "note": "OWASP risk list for tool-using AI agents, ASI01 to ASI10"
+        "note": "OWASP risk list for tool-using AI agents, ASI01 to ASI10",
+        "k": "Web",
+        "d": "genai.owasp.org"
       }
     ]
   },
   {
     "cat": "Foundations: Python & ML",
-    "color": "#9d94ea",
     "note": "Supplementary free material for the foundations weeks.",
     "items": [
       {
         "n": "Neural Networks (3Blue1Brown)",
         "u": "https://www.3blue1brown.com/topics/neural-networks",
-        "note": "Best visual intuition for NNs"
+        "note": "Best visual intuition for NNs",
+        "k": "Web",
+        "d": "3blue1brown.com"
       },
       {
         "n": "Practical Deep Learning (fast.ai)",
         "u": "https://course.fast.ai/",
-        "note": "Free hands-on ML course"
+        "note": "Free hands-on ML course",
+        "k": "Web",
+        "d": "course.fast.ai"
       },
       {
         "n": "scikit-learn documentation",
         "u": "https://scikit-learn.org/stable/",
-        "note": "User guide & examples"
+        "note": "User guide & examples",
+        "k": "Web",
+        "d": "scikit-learn.org"
       },
       {
         "n": "PyTorch tutorials",
         "u": "https://pytorch.org/tutorials/",
-        "note": "Official getting-started series"
+        "note": "Official getting-started series",
+        "k": "Web",
+        "d": "pytorch.org"
       },
       {
         "n": "Kaggle Learn",
         "u": "https://www.kaggle.com/learn",
-        "note": "Short free micro-courses"
+        "note": "Short free micro-courses",
+        "k": "Web",
+        "d": "kaggle.com"
       },
       {
         "n": "Miniconda",
         "u": "https://docs.conda.io/projects/miniconda/",
-        "note": "Environment manager for your lab"
+        "note": "Environment manager for your lab",
+        "k": "Web",
+        "d": "docs.conda.io"
       }
     ]
   },
   {
     "cat": "Key Research Papers",
-    "color": "#9d94ea",
     "note": "The primary sources behind the evasion modules.",
     "items": [
       {
         "n": "Explaining and Harnessing Adversarial Examples (FGSM)",
         "u": "https://arxiv.org/abs/1412.6572",
-        "note": "Goodfellow et al., 2014"
+        "note": "Goodfellow et al., 2014",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "Deep Learning Models Resistant to Adversarial Attacks (PGD)",
         "u": "https://arxiv.org/abs/1706.06083",
-        "note": "Madry et al., 2017"
+        "note": "Madry et al., 2017",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "Towards Evaluating the Robustness of Neural Networks (C&W)",
         "u": "https://arxiv.org/abs/1608.04644",
-        "note": "Carlini & Wagner, 2016"
+        "note": "Carlini & Wagner, 2016",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "One Pixel Attack for Fooling Deep Neural Networks",
         "u": "https://arxiv.org/abs/1710.08864",
-        "note": "Su et al., 2017"
+        "note": "Su et al., 2017",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "DeepFool: A Simple and Accurate Method to Fool Deep Neural Networks",
         "u": "https://arxiv.org/abs/1511.04599",
-        "note": "Moosavi-Dezfooli et al., 2015"
+        "note": "Moosavi-Dezfooli et al., 2015",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "The Limitations of Deep Learning in Adversarial Settings (JSMA)",
         "u": "https://arxiv.org/abs/1511.07528",
-        "note": "Papernot et al., 2015"
+        "note": "Papernot et al., 2015",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "EAD: Elastic-Net Attacks to Deep Neural Networks",
         "u": "https://arxiv.org/abs/1709.04114",
-        "note": "Chen et al., 2017"
+        "note": "Chen et al., 2017",
+        "k": "Web",
+        "d": "arxiv.org"
       },
       {
         "n": "Not What You've Signed Up For: Indirect Prompt Injection",
         "u": "https://arxiv.org/abs/2302.12173",
-        "note": "Greshake et al., 2023"
+        "note": "Greshake et al., 2023",
+        "k": "Web",
+        "d": "arxiv.org"
       }
     ]
   },
   {
     "cat": "Tips & Tricks from People Who Passed",
-    "color": "#9d94ea",
     "note": "Pulled from the exam reviews above, grouped by reviewer.",
+    "layout": "tips",
     "items": [
       {
         "n": "Complete every AI Red Teamer module; that alone is enough to be exam-ready",
@@ -2755,10 +3033,177 @@ const RESOURCES = [
         "n": "Plan how you'll use the seven exam days before the window opens",
         "note": "Elliot Belt"
       }
-    ],
-    "layout": "tips"
+    ]
   }
 ];
+const RES_FAV = [
+  {
+    "slot": "Start here",
+    "n": "HTB Certified Offensive AI Expert (COAE)",
+    "u": "https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert",
+    "note": "Official certification page",
+    "k": "Official",
+    "d": "academy.hackthebox.com",
+    "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Exam review",
+    "n": "COAE Review (dragkob)",
+    "u": "https://www.dragkob.com/articles/coae-review/",
+    "note": "Path & exam review",
+    "k": "Web",
+    "d": "dragkob.com",
+    "sec": "Exam Reviews & Write-ups"
+  },
+  {
+    "slot": "Report",
+    "n": "Sample HTB COAE Report (PDF)",
+    "u": "https://docs.sysreptor.com/assets/reports/HTB-COAE-Report.pdf",
+    "note": "Example commercial-grade COAE engagement report",
+    "k": "Web",
+    "d": "docs.sysreptor.com",
+    "sec": "Reporting & Exam Prep"
+  },
+  {
+    "slot": "Notes",
+    "n": "ab-ha-y/htb-certified-offensive-ai-expert",
+    "u": "https://github.com/ab-ha-y/htb-certified-offensive-ai-expert",
+    "note": "Beginner-friendly notes for all 12 modules with analogies, ASCII diagrams and worked examples",
+    "k": "GitHub",
+    "d": "github.com",
+    "sec": "Cheat Sheets & Payloads"
+  },
+  {
+    "slot": "Video",
+    "n": "Mission Accomplished, Part 3 (Kenny Strawn)",
+    "u": "https://youtu.be/BzKlWRgbaNU",
+    "note": "COAE review with tips & tricks, from FGSM to JSMA",
+    "k": "Video",
+    "d": "youtube.com",
+    "sec": "Video Series & Reviews"
+  }
+];
+(function () {
+const RL = { code: "COAE", res: RESOURCES, fav: RES_FAV };
+/* Favorites + All Resources, on the Resources page and in the tracker's Resources tab. Needs RL (data) from the builder;
+   the page adds resources-cost.js. Both run inside one function, so these names don't clash with the tracker's. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const KINDS = ["Official", "Video", "GitHub", "Web", "Community"];
+/* line glyph per link type, shown in place of a type label on each row (Official = the HTB cube) */
+const GLYPH = {
+  Video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg>',
+  GitHub: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg>',
+  Web: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.5l3.5 3.5v14.9H6z"/><path d="M14.5 2.8v3.5H18M9 11h6M9 14.5h6M9 18h3.5"/></svg>',
+  Official: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12v9.5M12 12 3.5 7.25M12 12l8.5-4.75"/></svg>',
+  Community: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.8V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>'
+};
+const SECS = RL.res.map((s, i) => ({ ...s, i, tips: s.layout === "tips" }));
+const OPEN_KEY = RL.code + "_resources_open", TAB_KEY = RL.code + "_resources_tab";
+let kf = "All", openTips = new Set();
+/* open sections are saved by name, so adding or reordering sections doesn't open the wrong ones */
+const saved = store.get(OPEN_KEY);
+let open = new Set(Array.isArray(saved) ? SECS.filter(s => saved.includes(s.cat)).map(s => s.i) : [SECS.findIndex(s => /^Official/.test(s.cat))]);
+const saveOpen = () => store.set(OPEN_KEY, SECS.filter(s => open.has(s.i)).map(s => s.cat));
+const TABS = ["fav", "all", "cost"].filter(k => $("tab_" + k));  // tab order; the tracker has no cost tab (it has its own)
+let tab = TABS.includes(store.get(TAB_KEY)) ? store.get(TAB_KEY) : "fav";
+const HASH_TAB = RL.page && { "#favorites": "fav", "#all": "all", "#cost": "cost" }[location.hash];  // deep links, e.g. from the FAQ
+if (HASH_TAB) tab = HASH_TAB;
+if (tab === "fav" && !RL.fav.length) tab = "all";
+const FAVU = new Set(RL.fav.map(f => f.u));
+
+function hl(s, q) {  // split the raw text on matches, then escape each piece
+  s = String(s == null ? "" : s);
+  if (!q) return esc(s);
+  return s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "i")).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
+function setTab(t, save = true) {  // a deep link opens its tab without replacing the saved one
+  tab = t;
+  if (save) { store.set(TAB_KEY, t); if (HASH_TAB) history.replaceState(null, "", location.pathname + location.search); }
+  TABS.forEach(k => { $("tab_" + k).setAttribute("aria-selected", k === t); $("tab_" + k).tabIndex = k === t ? 0 : -1; $("pane_" + k).hidden = k !== t; });
+  if (t === "cost") renderCost();
+}
+TABS.forEach(k => $("tab_" + k).addEventListener("click", () => setTab(k)));
+/* arrow keys move between tabs; only the selected tab is in the Tab order */
+$("tab_fav").parentNode.addEventListener("keydown", e => {
+  const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (!d) return;
+  e.preventDefault(); const k = TABS[(TABS.indexOf(tab) + d + TABS.length) % TABS.length]; setTab(k); $("tab_" + k).focus();
+});
+
+/* ---------- all resources ---------- */
+function render() {
+  const q = $("q").value.trim(), ql = q.toLowerCase(), filtering = !!q || kf !== "All";
+  let h = "", hits = 0;
+  SECS.forEach(s => {
+    let body = "", n = 0;
+    if (s.tips) {
+      if (kf !== "All") return;
+      const g = {};
+      s.items.forEach(t => { if (!ql || (t.n + " " + t.note).toLowerCase().includes(ql)) (g[t.note] = g[t.note] || []).push(t.n); });
+      Object.keys(g).forEach(by => {
+        n += g[by].length;
+        const id = s.i + ":" + by, isOpen = !!q || openTips.has(id);
+        body += '<div class="tg' + (isOpen ? " open" : "") + '"><button class="tgh" data-t="' + esc(id) + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><b>' + hl(by, q) + '</b><span class="c">' + plural(g[by].length, "Tip") + "</span></button><ul>" +
+          g[by].map(t => "<li>" + hl(t, q) + "</li>").join("") + "</ul></div>";
+      });
+    } else {
+      s.items.forEach(it => {
+        if (kf !== "All" && it.k !== kf) return;
+        if (ql && !(it.n + " " + it.note + " " + it.d).toLowerCase().includes(ql)) return;
+        n++;
+        body += '<div class="row"><span class="gl" title="' + it.k + '">' + (GLYPH[it.k] || GLYPH.Web) + '<span class="sr">' + it.k + '</span></span><div style="min-width:0"><a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + hl(it.n, q) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a>' +
+          (FAVU.has(it.u) ? '<span class="fv" title="Favorite">&#9733;&#xFE0E;</span>' : "") + '<div class="rn">' + hl(it.note, q) + '</div></div><span class="dm">' + hl(it.d, q) + "</span></div>";
+      });
+    }
+    if (!n) return;
+    hits += n;
+    const isOpen = filtering || open.has(s.i);
+    h += '<section class="sec' + (isOpen ? " open" : "") + '"><button class="sh" data-i="' + s.i + '" aria-expanded="' + isOpen + '"><span class="tri">&#9654;&#xFE0E;</span><span class="num">' + String(s.i + 1).padStart(2, "0") +
+      '</span><div style="min-width:0"><h2>' + esc(s.cat.replace(/ \(.*\)$/, "")) + '</h2><div class="sub">' + plural(s.items.length, s.tips ? "Tip" : "Link") + " &middot; " + esc(s.note) + '</div></div><span class="ct">' + (filtering ? n + " / " : "") + s.items.length + '</span></button><div class="sb">' + body + "</div></section>";
+  });
+  $("list").innerHTML = h || '<div class="empty">Nothing matches ' + (q ? "&ldquo;" + esc(q) + "&rdquo;" : "") + (kf !== "All" ? " in " + kf : "") + '.<br><button class="btn" id="reset">Clear search and filters</button></div>';
+  $("res").textContent = filtering && hits ? plural(hits, "match").replace("matchs", "matches") + " · sections with matches are open" : "";
+}
+function clearQ() { $("q").value = ""; $("sw").classList.remove("has"); }
+$("list").addEventListener("click", e => {
+  if (e.target.id === "reset") { clearQ(); kf = "All"; [...$("kf").children].forEach(b => b.setAttribute("aria-pressed", b.textContent === "All")); render(); return; }
+  const t = e.target.closest(".tgh");
+  if (t) { const id = t.dataset.t, g = t.parentNode; g.classList.toggle("open"); const o = g.classList.contains("open"); o ? openTips.add(id) : openTips.delete(id); t.setAttribute("aria-expanded", o); return; }
+  const b = e.target.closest(".sh"); if (!b) return;
+  const sec = b.parentNode, i = +b.dataset.i;
+  sec.classList.toggle("open");
+  const o = sec.classList.contains("open");
+  b.setAttribute("aria-expanded", o);
+  if ($("q").value.trim() || kf !== "All") return;  // filtered view opens matches itself; don't save it
+  o ? open.add(i) : open.delete(i);
+  saveOpen();
+});
+$("q").addEventListener("input", () => { $("sw").classList.toggle("has", !!$("q").value); render(); });
+$("q").addEventListener("keydown", e => { if (e.key === "Escape") { clearQ(); render(); } });
+$("clr").addEventListener("click", () => { clearQ(); render(); $("q").focus(); });
+$("kf").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; kf = b.textContent; [...$("kf").children].forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("ex").addEventListener("click", () => { SECS.forEach(s => open.add(s.i)); saveOpen(); render(); });
+$("co").addEventListener("click", () => { open.clear(); openTips.clear(); saveOpen(); render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && $("tab_fav").getClientRects().length && !document.querySelector("dialog[open]") && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); if (tab !== "all") setTab("all"); $("q").focus(); }
+});
+const present = KINDS.filter(k => SECS.some(s => !s.tips && s.items.some(it => it.k === k)));
+$("kf").innerHTML = ["All"].concat(present).map(k => '<button aria-pressed="' + (k === "All") + '">' + k + "</button>").join("");
+
+/* ---------- favorites (picked by the site owner, built into the page) ---------- */
+$("favs").innerHTML = RL.fav.length ? RL.fav.map(f =>
+  '<div class="fav"><span class="gl" title="' + f.k + '">' + (GLYPH[f.k] || GLYPH.Web) + '<span class="sr">' + f.k + '</span></span><div style="min-width:0"><div class="meta"><span class="kd">' + esc(f.slot) + '</span><span class="sec2">' + esc(f.sec || f.k) + "</span></div>" +
+  '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.n) + '<i aria-hidden="true">&#8599;&#xFE0E;</i></a><div class="rn">' + esc(f.note) + '</div></div><span class="dm">' + esc(f.d) + "</span></div>").join("")
+  : '<div class="empty">No favorites picked for the ' + esc(RL.code) + " yet.</div>";
+setTab(tab, false);
+/* build the list the first time the tab opens, not on every tracker load */
+document.querySelector('.tab[data-tab="resources"]').addEventListener("click", render, { once: true });
+})();
 const PRACTICE = {"code": "COAE", "path": {"name": "AI Red Teamer Path", "url": "https://academy.hackthebox.com/path/preview/ai-red-teamer"}, "mods": ["Fundamentals of AI", "Applications of AI in InfoSec", "Introduction to Red Teaming AI", "Prompt Injection Attacks", "LLM Output Attacks", "AI Data Attacks", "Attacking AI - Application and System", "AI Evasion - Foundations", "AI Evasion - First-Order Attacks", "AI Evasion - Sparsity Attacks", "AI Privacy", "AI Defense"], "groups": [["AI/ML Core", [1, 2]], ["LLM Attacks", [3, 4, 5]], ["Data & System Attacks", [6, 7]], ["Adversarial Evasion", [8, 9, 10]], ["Privacy & Defense", [11, 12]]], "issues": "https://github.com/cnmoseman/htb-study-trackers/issues/new", "rungs": [{"name": "Prompt Injection Basics", "sub": "Single-Chatbot Tricks", "goal": "Get a chatbot or AI screener to break its own rules with direct and indirect prompt injection.", "items": [{"id": "trynasob-ransomware", "n": "TrynaSob Ransomware", "type": "challenge", "os": "AI · Challenge", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/TrynaSob%20Ransomware?tab=play_challenge", "tech": "Talk a ransomware gang's support chatbot into leaking the promo code that unlocks a free decryption key.", "mods": [3, 4], "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}, {"id": "external-affairs", "n": "External Affairs", "type": "challenge", "os": "AI · Challenge", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/External%20Affairs?tab=play_challenge", "tech": "Hide instructions in a travel request so the ministry's AI screener replies \"granted\" instead of \"denied\".", "mods": [3, 4], "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "review", "u": "https://www.dragkob.com/articles/coae-review/", "w": "dragkob"}, {"k": "review", "u": "https://www.youtube.com/watch?v=cT4sxdm3dyk", "w": "Motasem Hamdan (video)"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}]}, {"name": "Agents And Leaky Output", "sub": "Tool Calls, Data Disclosure", "goal": "Push an LLM app into calling its tools with your values and leaking data it should keep back.", "items": [{"id": "loyalty-survey", "n": "Loyalty Survey", "type": "challenge", "os": "AI · Challenge", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Loyalty%20Survey?tab=play_challenge", "tech": "Hijack a survey-grading AI agent so it calls its update_citizen_score tool with your citizen ID and a perfect score.", "mods": [4, 5, 7], "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "review", "u": "https://www.dragkob.com/articles/coae-review/", "w": "dragkob"}, {"k": "review", "u": "https://www.youtube.com/watch?v=cT4sxdm3dyk", "w": "Motasem Hamdan (video)"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}, {"id": "power-supply", "n": "Power Supply", "type": "challenge", "os": "AI · Challenge", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/challenges/Power%20Supply?tab=play_challenge", "tech": "Get a dashboard's AI assistant to leak sensitive data, including the chief minister's password.", "mods": [4, 5], "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "review", "u": "https://www.dragkob.com/articles/coae-review/", "w": "dragkob"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}]}, {"name": "Layered Guardrails", "sub": "Multi-Level Jailbreaks", "goal": "Beat defences that get stricter at each level, where one payload won't carry you through.", "items": [{"id": "prometheon", "n": "Prometheon", "type": "challenge", "os": "AI · Challenge", "diff": "Medium", "access": "Free", "url": "https://app.hackthebox.com/challenges/Prometheon?tab=play_challenge", "tech": "Five levels of a password-guarding AI, each with tougher guardrails to talk your way past.", "mods": [3, 4], "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "review", "u": "https://www.dragkob.com/articles/coae-review/", "w": "dragkob"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}]}, {"name": "AI-Themed Machines", "sub": "ML Supply Chain, MCP", "goal": "Root full Linux boxes through malicious model files, MLOps platforms and MCP servers, the same mix of AI and classic web/privesc the exam uses.", "items": [{"id": "artificial", "n": "Artificial", "type": "machine", "os": "Linux · AI", "diff": "Easy", "access": "VIP+", "url": "https://app.hackthebox.com/machines/Artificial", "tech": "Upload a malicious TensorFlow .h5 model for code execution, crack database hashes, then abuse a local Backrest service for root.", "mods": [6, 7], "ippsec": "https://www.youtube.com/watch?v=uGgnWQaG-bA", "oxdf": "https://0xdf.gitlab.io/2025/10/25/htb-artificial.html", "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}, {"id": "smarthire", "n": "SmartHire", "type": "machine", "os": "Linux · AI", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/SmartHire", "tech": "Log into MLflow with default creds, overwrite a pickled resume-scoring model for a shell, then hijack the Python path in a sudo script.", "mods": [6, 7], "ippsec": "https://www.youtube.com/watch?v=BGWdTqr2Vls", "oxdf": "https://0xdf.gitlab.io/2026/09/26/htb-smarthire.html", "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "review", "u": "https://www.dragkob.com/articles/coae-review/", "w": "dragkob"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}, {"id": "devhub", "n": "DevHub", "type": "machine", "os": "Linux · AI", "diff": "Medium", "access": "VIP+", "url": "https://app.hackthebox.com/machines/DevHub", "tech": "Get RCE through an exposed MCPJam inspector, pivot with a leaked Jupyter token, then call a hidden tool on a root MCP server to dump an SSH key.", "mods": [7], "ippsec": "https://www.youtube.com/watch?v=XRqQjK345zo", "oxdf": "https://0xdf.gitlab.io/2026/10/10/htb-devhub.html", "src": [{"k": "review", "u": "https://0xsaboten.github.io/posts/coae-training-grounds/", "w": "0xsaboten (COAE Training Grounds)"}, {"k": "tracker-existing", "w": "Earlier COAE tracker list"}]}]}]};
 /* ---------- Practice Boxes (shared by the tracker tab and the standalone page) ---------- */
 const PRACTICE_KEY = "coae_practice_v1";
@@ -3321,41 +3766,6 @@ function updateWeekHeader(w){
   week.querySelector(".wk-pct").textContent = p+"%";
 }
 
-/* ---------- Render: resources ---------- */
-function renderResources(){
-  const wrap = document.getElementById("tab-resources");
-  wrap.innerHTML = "";
-  RESOURCES.forEach(c=>{
-    const box = document.createElement("div");
-    box.className = "res-cat";
-    let items = '<div class="res-list">';
-    if(c.layout==="tips"){
-      /* tips: one bulleted list per reviewer */
-      const groups = {};
-      c.items.forEach(it=>{ (groups[it.note] = groups[it.note] || []).push(it.n); });
-      Object.keys(groups).forEach(by=>{
-        items += '<div class="tip-group"><div class="tip-by">'+esc(by)+'</div><ul class="tip-list">'+
-          groups[by].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
-      });
-    } else {
-      c.items.forEach(it=>{
-        items += '<div class="res-item">'+
-          (it.u ? '<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.n)+'</a>' : '<span class="rtitle">'+esc(it.n)+'</span>')+
-          '<div class="rnote">'+esc(it.note)+'</div></div>';
-      });
-    }
-    items += '</div>';
-    box.innerHTML =
-      '<h3><span class="dot" style="background:'+c.color+'"></span>'+esc(c.cat)+'</h3>'+
-      '<div class="cat-note">'+esc(c.note)+'</div>'+ items;
-    wrap.appendChild(box);
-  });
-  const sug = document.createElement("div");
-  sug.className = "res-suggest";
-  sug.innerHTML = 'Know a write-up, video, or box that should be here? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=COAE&amp;where=Study+tracker+%28resources%29&amp;title=%5BResource%5D+%5BCOAE%5D+" target="_blank" rel="noopener">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=COAE&amp;where=Study+tracker&amp;title=%5BProblem%5D+%5BCOAE%5D+" target="_blank" rel="noopener">report a problem</a> on GitHub.';
-  wrap.appendChild(sug);
-}
-
 /* ---------- Tabs ---------- */
 document.querySelectorAll(".tab").forEach(tb=>{
   tb.addEventListener("click",()=>{
@@ -3531,7 +3941,6 @@ document.addEventListener("change", e => {
 
 function init(){
   load();
-  renderResources();
   renderAll();
 }
 init();
