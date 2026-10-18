@@ -12,13 +12,13 @@
 <link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:title" content="Study Trackers FAQ">
-<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers, vaults, practice boxes and resources pages work, what the HTB terms mean, and how to set up notes, a field manual and your report.">
+<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers, vaults, practice boxes and resources pages work, what the HTB terms mean, and how to set up your notes, methodology and report.">
 <meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/faq-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="New here? Start with this. A beginner FAQ for the HTB study trackers, shown with the cert badges.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers, vaults, practice boxes and resources pages work, HTB terms, Obsidian notes, field manuals, cheat sheets and reporting.">
+<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers, vaults, practice boxes and resources pages work, HTB terms, Obsidian notes, building a methodology and reporting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Saira:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -367,7 +367,7 @@
           <ol>
             <li>Download it from <a href="https://obsidian.md">obsidian.md</a> and install it.</li>
             <li>Choose <strong>Create new vault</strong>. A vault is just the folder your notes live in. Name it after the cert, like <code>CJCA</code>.</li>
-            <li>Make a few folders: <code>Modules</code> (one note per module), <code>Field Manual</code> (see below), <code>Screenshots</code>, and <code>Exam</code>.</li>
+            <li>Make a few folders: <code>Modules</code> (one note per module), <code>Methodology</code> (see below), <code>Screenshots</code>, and <code>Exam</code>.</li>
             <li>In <strong>Settings &rarr; Files and links</strong>, set the default location for new attachments to your <code>Screenshots</code> folder. Now screenshots you paste land there instead of cluttering everything.</li>
             <li>Start your first module note. Headings start with <code>#</code>, and commands go in code blocks between two lines of three backticks (<code>```</code>), so they stay copyable.</li>
           </ol>
@@ -377,24 +377,16 @@
       </details>
 
       <details>
-        <summary>What is a cheat sheet?</summary>
+        <summary>What is a methodology?</summary>
         <div class="a">
-          <p>A short list of commands for a topic with a line on what each does. Most HTB Academy modules come with an official cheat sheet: look for the <strong>Cheat Sheet</strong> button above the module's table of contents, which opens it as a PDF. The trackers remind you to save each one when you finish a module, and to merge them with your own notes before the exam.</p>
-          <p>To see what a finished one looks like, <a href="https://github.com/zagnox/CPTS-cheatsheet">zagnox/CPTS-cheatsheet</a> is a popular community cheat sheet that covers nmap, common services, passwords and more. It's built for the CPTS, but a lot of it applies to entry-level certs too. Each prep vault's Home page links the community cheat sheets for its own cert.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>What is a field manual?</summary>
-        <div class="a">
-          <p>A field manual is your personal playbook, organized by <em>what you're trying to do</em>, not by which module taught it. Module notes follow the course. A field manual answers the question you'll actually have mid-exam, like "I found an SMB share, now what?"</p>
+          <p>You keep two things while you study: <strong>notes</strong> and a <strong>methodology</strong>. Notes follow the course, one per module. Your methodology is your personal playbook, built from those notes but organized by <em>what you're trying to do</em>, not by which module taught it. It answers the question you'll actually have mid-exam, like "I found an SMB share, now what?"</p>
           <p>Each page covers one technique or service and has:</p>
           <ul>
             <li>A short explanation of when to use it.</li>
             <li>A table of the commands, with what each one does.</li>
             <li>What to look for in the output, plus the next step.</li>
           </ul>
-          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study by copying the commands that worked from your module notes into the right page. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module. The prep vaults leave their Methodology folder blank for this reason, so you can build it your own way.</p>
+          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study: when you finish a module, copy the commands that worked from your notes into the right page. Most HTB Academy modules also have a <strong>Cheat Sheet</strong> button above the table of contents, a PDF of the module's commands, which helps when you write your notes. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module. The prep vaults leave their Methodology folder blank for this reason, so you can build it your own way.</p>
           <p>If you use Obsidian, <a href="https://github.com/blue-pho3nix/pentesting_templates_obsidian">blue-pho3nix/pentesting_templates_obsidian</a> is a good template to start from. It's a set of Obsidian templates organized the same way, by phase and then one page per service or technique (it even has an SMB page). Its README walks you through setup: copy the templates into your vault, turn on the free Templater community plugin, and insert a template with <code>Alt+E</code>. It was built for CPTS and OSCP prep, so treat it as a structure to copy and fill with the commands you learn in your own path.</p>
         </div>
       </details>
