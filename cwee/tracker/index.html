@@ -663,17 +663,17 @@
   <!-- Resources -->
   <div id="tab-resources" class="hidden">
   <div class="panel">
-    <div class="big">68 <small>Links &middot; 10 Sections &middot; 22 Tips</small></div>
+    <div class="big">67 <small>Links &middot; 10 Sections &middot; 22 Tips</small></div>
     <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cwee/resources/" target="_blank" rel="noopener">CWEE Resources</a>. HTB Academy's path is all you need to pass the CWEE. These help you study it, compare notes with people who passed, and get the report right.</p>
   </div>
   <div class="ltabs" role="tablist">
-    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>4</b></button>
-    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>68</b></button>
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>67</b></button>
   </div>
   <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CWEE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
   <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
     <div class="tb">
-      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 68 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 67 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
       <div class="seg" id="kf" role="group" aria-label="Type"></div>
       <span class="sp"></span>
       <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
@@ -715,7 +715,7 @@
         <li><strong>Chain bugs into flags.</strong> The Academy teaches single techniques; the exam makes you chain three or four into one flag. (Manesec, Gabriel Vásquez)</li>
         <li><strong>Script your exploits.</strong> You write your own tooling here, so build and test scripts during the modules and don't skip the scripting sections. (Yudistira Arya, d415k)</li>
         <li><strong>Give the report real time.</strong> It's raw Markdown with working exploits, patches, and a changelog, and reviewers spent 12 to 20 hours on it, so start it while you exploit. (d415k, Gabriel Vásquez)</li>
-        <li><strong>Watch for rabbit holes.</strong> Some paths exist only to waste time. Triage by likelihood, set up debugging early, and take breaks. (Khaled Nassar, Filip Kecman)</li>
+        <li><strong>Watch for rabbit holes.</strong> Some paths exist only to waste time. Triage by likelihood, set up debugging early, and take breaks. (Filip Kecman)</li>
       </ul>
       <p>The full list of tips is at the bottom of the <strong>Resources</strong> tab.</p>
 
@@ -2786,13 +2786,6 @@ const RESOURCES = [
     "note": "First-hand exam write-ups. Read a few to calibrate difficulty and the report bar.",
     "items": [
       {
-        "n": "Review of HTB's Most Challenging Web Security Certification (Khaled Nassar)",
-        "u": "https://www.mindpatch.net/posts/cwee-review/",
-        "note": "Watch for rabbit holes, and write clean, working exploit chains",
-        "k": "Web",
-        "d": "mindpatch.net"
-      },
-      {
         "n": "My Hack The Box CWEE Review and Experience (Filip Kecman)",
         "u": "https://kecman.co/blog/htb-cwee-review-experience.html",
         "note": "About 5 days exploiting and 4 on the report; set up debugging early",
@@ -3102,7 +3095,7 @@ const RESOURCES = [
         "note": "Gabriel Vásquez"
       },
       {
-        "n": "Switch approaches instead of getting stuck on one path (also Filip Kecman, Khaled Nassar)",
+        "n": "Switch approaches instead of getting stuck on one path (also Filip Kecman)",
         "note": "Manesec"
       },
       {
@@ -3181,6 +3174,15 @@ const RES_FAV = [
     "k": "Official",
     "d": "academy.hackthebox.com",
     "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Exam review",
+    "n": "My HTB CWEE Journey (d415k)",
+    "u": "https://medium.com/@d415k/my-cwee-journey-a4f4ee3b54db",
+    "note": "First to pass CWEE; a roughly 100-page report took about 20 hours",
+    "k": "Web",
+    "d": "medium.com",
+    "sec": "Exam Reviews & Write-ups"
   },
   {
     "slot": "Report",
