@@ -34,6 +34,7 @@ Four parts:
 
 ## Command sources
 Get tested commands from these as you go:
+- [0bskuru5/HTB-Junior-Cybersecurity_Analyst-Notes](https://github.com/0bskuru5/HTB-Junior-Cybersecurity_Analyst-Notes)
 - [sohankanna/CJCA-Study-Notes](https://github.com/sohankanna/CJCA-Study-Notes)
 - [mlain24-lab/CJCA_Notes](https://github.com/mlain24-lab/CJCA_Notes)
 - Reporting: [SysReptor HTB-CJCA template](https://docs.sysreptor.com/assets/reports/HTB-CJCA-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting) + [[M17 - Incident Handling Process]]
