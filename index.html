@@ -65,7 +65,7 @@
   /* how to use: one card per tool */
   .hw{margin-top:clamp(40px,3vw,60px)}
   .hw h2{font:600 clamp(14px,1.1vw,21px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0 0 16px}
-  .hcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .hcs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
   .hc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;display:flex;flex-direction:column}
   .hc .k{font:600 clamp(12px,.8vw,15px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green)}
   .hc h3{font:600 clamp(19px,1.3vw,24px) "Chakra Petch",sans-serif;margin:4px 0 12px}
@@ -80,6 +80,7 @@
   .help strong{font:600 clamp(18px,1.2vw,22px) "Chakra Petch",sans-serif;color:var(--text);margin:4px 0 6px}
   .help .d{font:500 clamp(14px,1vw,17px)/1.5 "Saira",sans-serif;color:var(--muted);margin-bottom:12px}
   .help .go{margin-top:auto;font:600 clamp(14px,1vw,17px) "Saira",sans-serif;color:var(--green)}
+  @media (max-width:1200px){.hcs{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:900px){.hcs{grid-template-columns:1fr}}
   @media (max-width:700px){.help{grid-template-columns:1fr}}
 </style>
@@ -119,6 +120,7 @@
         <div class="hc"><span class="k">0x01</span><h3>Study Tracker</h3><ol><li>Open your cert's tracker.</li><li>Set a start date and a timeline.</li><li>Tick tasks off. Export a backup now and then.</li></ol><p>Use it here, or download the .html to run offline. The two keep separate progress.</p></div>
         <div class="hc"><span class="k">0x02</span><h3>Prep Vault</h3><ol><li>Install Obsidian. It's free.</li><li>Download your cert's vault and unzip it.</li><li>Open folder as vault, then start on Home.</li></ol><p>Download only. Once it's on your machine, it's yours to edit.</p></div>
         <div class="hc"><span class="k">0x03</span><h3>Practice Boxes</h3><ol><li>Open your cert's practice boxes.</li><li>Work from the easiest group down.</li><li>Tick each box off and write a mock report.</li></ol><p>Also a tab in the tracker. On the site, both share your progress.</p></div>
+        <div class="hc"><span class="k">0x04</span><h3>Resources</h3><ol><li>Open your cert's resources.</li><li>Start with Favorites, one pick for each part of your prep.</li><li>Search the full list or filter by videos, GitHub or write-ups.</li></ol><p>The same links as the tracker's Resources tab, plus what the cert costs.</p></div>
       </div>
       <div class="help">
         <a href="./faq/"><span class="k">FAQ</span><strong>New to Hack The Box?</strong><span class="d">HTB terms, setting up your machine, notes and report writing, in plain answers.</span><span class="go">Read the FAQ &rarr;</span></a>
