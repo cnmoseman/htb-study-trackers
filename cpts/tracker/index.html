@@ -350,7 +350,7 @@
   .br.dim{opacity:.45}
   .ckey{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--faint);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
   .ckey .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-  .ckey .sp{flex:1}
+  .ckey .ctog{margin-left:auto;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:flex-end}
   .ckey label{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--muted);font-size:12.5px}
   .ckey input{accent-color:var(--green);margin:0}
   .endnote .cl a{color:var(--green);text-decoration:none;white-space:nowrap}
@@ -6071,9 +6071,9 @@ function renderCost(){
     '<span class="cseg">'+Object.keys(MODES).map(k => { const x = MODES[k].days; return '<button type="button" data-cd="'+x+'"'+(x===d?' class="on"':'')+'>'+x+'-day'+(x===mine?'<i>yours</i>':'')+'</button>'; }).join("")+'</span></div>'+
     q.rows.map(r => '<div class="br'+(r===q.best?' best':'')+(r.p.over||r.off?' dim':'')+'"><div class="n"><b>'+r.p.n+'</b><small>'+(r===q.best?'<span class="pick">Cheapest</span> &middot; ':'')+costQty(r)+(r.p.inc?", voucher included":"")+(r.p.student?" &middot; Needs a student email":"")+(r.p.over?" &middot; more than the "+COST.code+" needs":"")+'</small></div>'+
       '<div class="trk" aria-hidden="true"><i class="a" style="width:'+Math.min(100,r.sub/max*100)+'%"></i><i class="v" style="width:'+(r.voucher/max*100)+'%"></i><i class="x" style="width:'+(r.labs/max*100)+'%"></i></div><div class="tot">'+usd(r.total)+'</div></div>').join("")+
-    '<div class="ckey"><span><i class="sw a"></i>Subscription</span><span><i class="sw v"></i>Exam voucher</span><span><i class="sw x"></i>HTB Labs</span><span class="sp"></span>'+
+    '<div class="ckey"><span><i class="sw a"></i>Subscription</span><span><i class="sw v"></i>Exam voucher</span><span><i class="sw x"></i>HTB Labs</span><div class="ctog">'+
     (COST.plans.some(p => p.student)?'<label><input type="checkbox" data-co="student"'+(costOpt.student?' checked':'')+'> I have a student email</label>':'')+
-    '<label><input type="checkbox" data-co="labs"'+(costOpt.labs?' checked':'')+'> Add HTB Labs VIP+'+(COST.labs?' for the '+COST.labs:'')+'</label><label><input type="checkbox" data-co="pro"'+(costOpt.pro?' checked':'')+'> Add HTB PRO for Pro Labs</label><label><input type="checkbox" data-co="have"'+(costOpt.have?' checked':'')+'> I have a voucher</label></div></div>';
+    '<label><input type="checkbox" data-co="labs"'+(costOpt.labs?' checked':'')+'> Add HTB Labs VIP+'+(COST.labs?' for the '+COST.labs:'')+'</label><label><input type="checkbox" data-co="pro"'+(costOpt.pro?' checked':'')+'> Add HTB PRO for Pro Labs</label><label><input type="checkbox" data-co="have"'+(costOpt.have?' checked':'')+'> I have a voucher</label></div></div></div>';
 }
 document.addEventListener("click", e => {
   const g = e.target.closest("[data-goto]");
