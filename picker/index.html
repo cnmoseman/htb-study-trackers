@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which HTB Cert Is Right for Me? · Study Trackers</title>
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#9fef00">
+<link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/picker/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/picker/">
+<meta property="og:title" content="Which HTB cert is right for me?">
+<meta property="og:description" content="Five quick questions. Get the Hack The Box cert that fits you, what to do after it, a study plan for your weekly hours and what it costs.">
+<meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/picker-v1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Which cert is right for me? The HTB cert picker, shown with the nine cert badges.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Answer five questions and get the Hack The Box certification that fits you, what to do after it, and a study plan to start today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Saira:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#141d2b;--panel:#1a2332;--line:#243044;--text:#eef1f8;--muted:#a4b1cd;--dim:#7c8aa5;--green:#9fef00;--ink:#0d1420;--sel:#1d2a1f}
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Saira",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--green)}a:hover{color:var(--text)}
+  button{font:inherit}
+  .hero{background:var(--green);color:var(--ink);padding:22px 40px 36px}
+  .hero .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em}
+  .hero .bar a{color:var(--ink);text-decoration:none}.hero .bar a:hover{text-decoration:underline}
+  .hero h1{font:700 clamp(40px,6.5vw,68px)/.95 "Chakra Petch",sans-serif;letter-spacing:-.045em;margin:40px 0 0;text-wrap:balance}
+  .hero p{font:400 17px/1.5 "Chakra Petch",sans-serif;margin:22px 0 0;max-width:620px}
+  .wrap{padding:32px 40px 0;max-width:1080px;margin:0 auto}
+  h2{font:600 15px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);margin:0 0 14px}
+
+  /* quiz: one step at a time */
+  .quiz{max-width:780px;margin:0 auto}
+  .prog{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .prog .lbl{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green);white-space:nowrap;min-width:9.5em}
+  .prog .track{display:block;flex:1;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+  .prog .fill{display:block;height:100%;width:0;background:var(--green);transition:width .3s ease}
+  .step{border:0;margin:0;padding:0;min-width:0;animation:in .25s ease}
+  @keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .step:focus{outline:none}
+  .step legend{padding:0;font:600 clamp(22px,2.6vw,28px)/1.25 "Chakra Petch",sans-serif;margin-bottom:6px;text-wrap:balance}
+  .step .hint{font:500 15px/1.5 "Saira",sans-serif;color:var(--dim);margin:0 0 16px}
+  .opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .opts.row{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+  .opt{position:relative}
+  .opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+  .opt span{display:flex;flex-direction:column;gap:3px;height:100%;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;font:600 16px/1.3 "Chakra Petch",sans-serif;color:var(--text);transition:border-color .15s ease,background .15s ease}
+  .opt small{font:500 13.5px/1.4 "Saira",sans-serif;color:var(--dim)}
+  .opt:hover span{border-color:#3a4c68}
+  .opt input:checked+span{border-color:var(--green);background:var(--sel)}
+  .opt input:checked+span small{color:var(--muted)}
+  .opt input:focus-visible+span{outline:2px solid var(--green);outline-offset:2px}
+  .opts.row .opt span{padding:10px 12px;font-size:14px}
+  .opts.badges .opt span{flex-direction:row;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:13px}
+  .opts.badges img{width:22px;height:22px;border-radius:50%}
+  .grp{font:600 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:22px 0 8px}
+  .grp:first-of-type{margin-top:0}
+  .grp span{text-transform:none;letter-spacing:0;font-family:"Saira",sans-serif;font-weight:500;color:var(--dim)}
+  .sg{font:500 12.5px "Saira",sans-serif;color:var(--dim);margin:10px 0 6px}
+  .grp+.sg{margin-top:0}
+  .nav{display:flex;align-items:center;gap:12px;margin-top:26px}
+  .nav .sp{flex:1}
+  .btn{display:inline-block;padding:11px 20px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:600 13px "IBM Plex Mono",monospace;letter-spacing:.05em;cursor:pointer;text-decoration:none}
+  .btn:hover,.btn:focus-visible{border-color:var(--green);color:var(--green)}
+  .btn.pri{background:var(--green);border-color:var(--green);color:var(--ink)}
+  .btn.pri:hover,.btn.pri:focus-visible{color:var(--ink);filter:brightness(1.08)}
+  .btn[disabled]{opacity:.35;cursor:default;pointer-events:none}
+  .link{all:unset;cursor:pointer;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--dim)}
+  .link:hover,.link:focus-visible{color:var(--green)}
+
+  /* results */
+  .answers{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px}
+  .answers .t{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--dim);margin-right:4px}
+  .chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font:500 13.5px "Saira",sans-serif;color:var(--muted)}
+  .chip b{font-weight:600;color:var(--text)}
+  .chip::after{content:"\270E";font-size:11px;color:var(--dim)}
+  .chip:hover,.chip:focus-visible{border-color:var(--green);color:var(--text)}
+  .res{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
+  .side{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card.top{--acc:var(--green);border-color:var(--acc);box-shadow:0 0 0 1px var(--acc) inset}
+  .k{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--acc,var(--green))}
+  .head{display:flex;gap:16px;align-items:center;margin:12px 0 16px}
+  .head img{width:76px;height:76px;border-radius:50%;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--acc);flex:none;background:var(--bg)}
+  .head .code{font:700 32px "IBM Plex Mono",monospace;color:var(--acc);line-height:1}
+  .head .name{font:500 14.5px/1.35 "Chakra Petch",sans-serif;color:var(--text);margin-top:5px}
+  .lede{font:600 18px/1.4 "Chakra Petch",sans-serif;color:var(--text);margin:0 0 10px;text-wrap:pretty}
+  .why{list-style:none;margin:0 0 16px;padding:0;font:500 15px/1.5 "Saira",sans-serif;color:var(--muted)}
+  .why li{position:relative;padding-left:1.3em;margin:.3em 0}
+  .why li::before{content:"+";position:absolute;left:0;font:700 14px "IBM Plex Mono",monospace;color:var(--acc)}
+  .why li.warn::before{content:"!";color:#ffb547}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 10px}
+  .facts div{background:var(--bg);padding:9px 12px}
+  .facts dt{font:600 10.5px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--dim)}
+  .facts dd{margin:2px 0 0;font:600 15px "Chakra Petch",sans-serif;color:var(--text);font-variant-numeric:tabular-nums}
+  p.cost{margin:0 0 18px;font:500 13.5px/1.5 "Saira",sans-serif;color:var(--muted)}
+  p.cost a{color:var(--acc)}
+  .go{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .go a{display:block;text-align:center;padding:10px 8px;border:1px solid var(--line);border-radius:9px;font:600 13px "IBM Plex Mono",monospace;letter-spacing:.04em;color:var(--text);text-decoration:none;background:var(--bg)}
+  .go a:hover,.go a:focus-visible{border-color:var(--acc);color:var(--acc)}
+  .go a.main{grid-column:1/-1;background:var(--acc);border-color:var(--acc);color:var(--ink);font-size:14px;padding:12px 8px}
+  .go a.main:hover{color:var(--ink);filter:brightness(1.08)}
+  .card.alt{padding:18px 20px}
+  .card.alt .head{margin:8px 0 8px}
+  .card.alt .head img{width:48px;height:48px}
+  .card.alt .head .code{font-size:22px}
+  .card.alt p{margin:0 0 10px;font:500 14px/1.5 "Saira",sans-serif;color:var(--muted)}
+  .card.alt .more{font:600 13px "IBM Plex Mono",monospace;color:var(--acc);text-decoration:none}
+  .acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .acts .ok{font:500 13px "Saira",sans-serif;color:var(--green)}
+  .empty{color:var(--muted);font:500 16px/1.6 "Saira",sans-serif}
+
+  /* compare table */
+  .cmp{margin-top:56px}
+  .cmp p{font:500 15px/1.55 "Saira",sans-serif;color:var(--muted);margin:0 0 14px;max-width:70ch}
+  .tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;font:500 14px "Saira",sans-serif;min-width:760px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+  tr:last-child td{border-bottom:0}
+  th{font:500 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);background:var(--panel)}
+  td{color:var(--muted);font-variant-numeric:tabular-nums}
+  td.c a{display:flex;align-items:center;gap:9px;font:700 14px "IBM Plex Mono",monospace;color:var(--acc);text-decoration:none}
+  td.c img{width:26px;height:26px;border-radius:50%}
+  tr.hit td{background:var(--sel)}
+  .tag{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.08em;padding:2px 6px;border-radius:4px;background:var(--green);color:var(--ink);margin-left:6px;white-space:nowrap}
+  .tag.two{background:var(--line);color:var(--text)}
+  .lv{display:inline-flex;align-items:flex-end;gap:2px;font:600 10.5px/11px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--muted)}
+  .lv i{width:3px;height:5px;border-radius:1px;background:#3a4a66}
+  .lv i:nth-child(2){height:8px}.lv i:nth-child(3){height:11px;margin-right:5px}
+  .lv.l1 i:first-child,.lv.l2 i:nth-child(-n+2),.lv.l3 i{background:var(--acc)}
+  .cmp p.note{font:500 13px/1.5 "Saira",sans-serif;color:var(--dim);margin:10px 0 0;max-width:none}  /* spans the table */
+
+  footer{margin-top:56px;padding:24px 0;border-top:1px solid var(--line);font:500 13px "Saira",sans-serif;color:var(--dim);text-align:center}
+  footer a{color:var(--muted)}footer a:hover{color:var(--green)}
+  @media (max-width:860px){.res{grid-template-columns:1fr}}
+  @media (max-width:560px){.hero,.wrap{padding-left:16px;padding-right:16px}.hero h1{margin-top:28px}.hero .bar{font-size:11px;letter-spacing:.04em}
+    .opts{grid-template-columns:1fr}.opts.row,.opts.badges{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:18px}.head .code{font-size:28px}.head img{width:64px;height:64px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<script>
+  /* page-view counter (GoatCounter, no cookies); live site only, never in downloaded copies */
+  if (location.hostname === "cnmoseman.github.io") {
+    var gc = document.createElement("script");
+    gc.async = true; gc.src = "https://cnmoseman.github.io/htb-study-trackers/assets/js/count.js";
+    gc.dataset.goatcounter = "https://cnmoseman.goatcounter.com/count";
+    document.head.appendChild(gc);
+  }
+</script>
+</head>
+<body>
+  <header class="hero">
+    <div class="bar"><a href="../">&larr; STUDY TRACKERS</a><span>CERT PICKER · 9 HTB CERTIFICATIONS</span></div>
+    <h1>Which cert is right for me?</h1>
+    <p>Five quick questions. You get the HTB cert that fits you best, what to do after it, and a study plan you can start today.</p>
+  </header>
+
+  <main class="wrap">
+    <form id="quiz" class="quiz" autocomplete="off">
+      <div class="prog" aria-live="polite"><span class="lbl" id="progLbl">QUESTION 1 OF 5</span><span class="track"><span class="fill" id="progFill"></span></span></div>
+
+      <fieldset class="step" tabindex="-1" data-step="level">
+        <legend>Where are you now?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="level" value="0" id="l-0"><span>New to security<small>Still learning Linux and networking. You start with CJCA</small></span></label>
+          <label class="opt"><input type="radio" name="level" value="1" id="l-1"><span>Know the basics<small>Comfortable on Linux, done a few Easy boxes</small></span></label>
+          <label class="opt"><input type="radio" name="level" value="2" id="l-2"><span>Some experience<small>Medium boxes, or you work in IT or security</small></span></label>
+          <label class="opt"><input type="radio" name="level" value="3" id="l-3"><span>Already certified<small>You hold a cert like OSCP, Security+ or an HTB one</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="certs" hidden>
+        <legend>Which certs do you have?</legend>
+        <p class="hint">Pick every cert you hold. We'll skip what you've covered and suggest what comes next.</p>
+        <div class="grp">HTB</div>
+        <div class="opts badges" id="owned"></div>
+        <div class="grp">Other hands-on certs</div>
+        <div id="ext"></div>
+        <div class="grp">Knowledge-based certs <span>(multiple-choice exams)</span></div>
+        <div id="know"></div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="focus" hidden>
+        <legend>What do you want to do?</legend>
+        <p class="hint">Pick the closest. You can change it later.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="focus" value="ad" id="f-ad"><span>Network &amp; AD pentesting<small>Break into company networks and Active Directory</small></span></label>
+          <label class="opt"><input type="radio" name="focus" value="web" id="f-web"><span>Web app testing<small>Find and exploit bugs in websites and APIs</small></span></label>
+          <label class="opt"><input type="radio" name="focus" value="soc" id="f-soc"><span>SOC &amp; incident response<small>Investigate alerts and attacks as a defender</small></span></label>
+          <label class="opt"><input type="radio" name="focus" value="det" id="f-det"><span>Detection engineering<small>Build the detections that catch attackers</small></span></label>
+          <label class="opt"><input type="radio" name="focus" value="wifi" id="f-wifi"><span>Wi-Fi pentesting<small>Attack wireless networks</small></span></label>
+          <label class="opt"><input type="radio" name="focus" value="ai" id="f-ai"><span>AI red teaming<small>Attack LLM apps and machine learning models</small></span></label>
+          <label class="opt"><input type="radio" name="focus" value="all" id="f-all"><span>Not sure yet<small>A bit of attack and defense to find out</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="exp_cwes" hidden>
+        <legend>Have you tested web apps before?</legend>
+        <p class="hint">HTB suggests CWES-level web skills before COAE, since most AI apps are attacked through the web.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="exp_cwes" value="yes" id="w-yes"><span>Yes, regularly<small>Injection, auth bugs and API testing feel familiar</small></span></label>
+          <label class="opt"><input type="radio" name="exp_cwes" value="some" id="w-some"><span>A little<small>Some web labs or boxes</small></span></label>
+          <label class="opt"><input type="radio" name="exp_cwes" value="no" id="w-no"><span>Not really<small>Web testing is new to me</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="exp_cdsa" hidden>
+        <legend>Have you done SOC or incident response work?</legend>
+        <p class="hint">HTB suggests CDSA before CDEP and treats the SOC Analyst path as assumed knowledge.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="exp_cdsa" value="yes" id="s-yes"><span>Yes<small>I've triaged alerts, hunted in a SIEM or handled incidents</small></span></label>
+          <label class="opt"><input type="radio" name="exp_cdsa" value="some" id="s-some"><span>A little<small>Some labs or Sherlocks</small></span></label>
+          <label class="opt"><input type="radio" name="exp_cdsa" value="no" id="s-no"><span>Not really<small>Defense is new to me</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="lean" hidden>
+        <legend>Which sounds more fun?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="lean" value="red" id="n-red"><span>Breaking into systems<small>Find the way in before an attacker does</small></span></label>
+          <label class="opt"><input type="radio" name="lean" value="blue" id="n-blue"><span>Catching the people who do<small>Spot the attack in the logs and stop it</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="code" hidden>
+        <legend>How comfortable are you with code?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="code" value="0" id="c-0"><span>Not yet<small>I haven't written code or scripts</small></span></label>
+          <label class="opt"><input type="radio" name="code" value="1" id="c-1"><span>A little<small>I can write small Python or Bash scripts</small></span></label>
+          <label class="opt"><input type="radio" name="code" value="2" id="c-2"><span>Comfortable<small>I write code, and I can read other people's source (C, JavaScript, PHP) to find bugs</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="hrs" hidden>
+        <legend>How many hours a week can you study?</legend>
+        <p class="hint">We use this for your study plan and cost estimate.</p>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="hrs" value="5" id="h-5"><span>About 5</span></label>
+          <label class="opt"><input type="radio" name="hrs" value="10" id="h-10"><span>About 10</span></label>
+          <label class="opt"><input type="radio" name="hrs" value="20" id="h-20"><span>About 20</span></label>
+          <label class="opt"><input type="radio" name="hrs" value="35" id="h-35"><span>30 or more</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" tabindex="-1" data-step="budget" hidden>
+        <legend>What's your budget?</legend>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="budget" value="0" id="b-0"><span>Keep it cheap<small>Lowest total cost</small></span></label>
+          <label class="opt"><input type="radio" name="budget" value="1" id="b-1"><span>Some room<small>Fine if it's worth it</small></span></label>
+          <label class="opt"><input type="radio" name="budget" value="2" id="b-2"><span>Not a concern<small>Work or school pays</small></span></label>
+        </div>
+      </fieldset>
+
+      <div class="nav">
+        <button type="button" class="btn" id="back">&larr; Back</button>
+        <span class="sp"></span>
+        <button type="button" class="link" id="skip">SKIP</button>
+        <button type="button" class="btn pri" id="next">Next &rarr;</button>
+      </div>
+    </form>
+
+    <section id="results" hidden aria-live="polite">
+      <div class="answers" id="answers"></div>
+      <div id="out"></div>
+    </section>
+
+    <section class="cmp">
+      <h2>ALL 9 CERTS SIDE BY SIDE</h2>
+      <p>Every HTB cert has the same shape: finish a job-role path on HTB Academy, then pass a multi-day practical exam and write a professional report. Here's how they differ.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Cert</th><th>What it's for</th><th>Level</th><th>Exam</th><th>Voucher</th><th>Modules need</th><th>Study time</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+      <p class="note">Study time is our tracker's estimate for the whole path. Your cost is the cheapest HTB Academy plan for the tracker timeline that fits your hours, plus the voucher, at HTB's prices from October 12, 2026 (USD, before tax). Each cert's Resources page has the full breakdown.</p>
+    </section>
+
+    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · <a href="../">All study trackers</a> · <a href="../faq/">FAQ</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=Cert+picker&amp;title=%5BProblem%5D+%5BPicker%5D+">Report a problem</a></footer>
+  </main>
+
+<script>
+var BASE = "../";
+var PAGE = "https://cnmoseman.github.io/htb-study-trackers/picker/";
+/* quiz copy per cert; name, color, level, voucher, tier, exam days, study hours, timelines and plan prices come from the configs (build_picker.py) */
+var C = [
+  {c:"cjca", min:0,
+   what:"Entry level, red and blue", exam:"5 machines + SIEM alerts",
+   alt:"Pick this first if you want a gentler start that covers both attack and defense."},
+  {c:"cpts", min:1,
+   what:"Network and AD pentesting", exam:"enterprise AD network",
+   alt:"Pick this if you want the broadest pentesting cert, covering networks, AD and web."},
+  {c:"cwes", min:1,
+   what:"Web app pentesting", exam:"several web apps",
+   alt:"Pick this if web apps interest you more than networks."},
+  {c:"cdsa", min:1,
+   what:"SOC analysis and incident response", exam:"2 incidents in Splunk + Elastic",
+   alt:"Pick this if you'd rather defend: SIEM work, logs and incident reports."},
+  {c:"cwee", min:2, pre:"cwes",
+   code:2, codeWhy:"CWEE has you read source code and write working exploits. Learn to read code in one language first.",
+   what:"Advanced web, source code review", exam:"black-box + white-box apps",
+   alt:"Pick this if you want the hardest web cert, with code review and exploit writing."},
+  {c:"cape", min:2, pre:"cpts",
+   what:"Advanced Active Directory attacks", exam:"multi-domain AD",
+   alt:"Pick this if you want to go deep on Active Directory after CPTS."},
+  {c:"cwpe", min:2,
+   what:"Wi-Fi pentesting", exam:"cloud wireless lab",
+   alt:"Pick this if wireless is your thing. No hardware needed, the lab is in the cloud."},
+  {c:"coae", min:2, pre:"cwes", soft:1,
+   code:1, codeWhy:"COAE's attacks on models are written in Python. Get comfortable scripting in Python first.",
+   what:"AI and LLM red teaming", exam:"AI-driven infrastructure",
+   alt:"Pick this if you want to attack AI apps and models."},
+  {c:"cdep", min:3, pre:"cdsa",
+   code:2, codeWhy:"HTB strongly recommends x86/64 assembly and C/C++ for CDEP.",
+   what:"Detection engineering", exam:"enterprise attack chain",
+   alt:"Pick this if you want to write and test the detections themselves. HTB suggests CDSA first."}
+];
+var DATA = {"cape":{"name":"Certified Active Directory Pentesting Expert","acc":"#e436b4","lv":3,"v":350,"tier":3,"days":10,"hrs":323,"modes":[[45,50],[55,41],[75,30],[115,20],[225,10]],"plans":[{"k":"gold","n":"Gold monthly","per":95,"unit":"mo","inc":false,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":false}]},"cdep":{"name":"Certified Detection Engineering Principal","acc":"#00eafc","lv":3,"v":450,"tier":4,"days":10,"hrs":634,"modes":[[90,49],[110,40],[145,31],[220,20],[270,16]],"plans":[{"k":"plat","n":"Platinum monthly","per":125,"unit":"mo","inc":false,"student":false,"over":false},{"k":"plat_y","n":"Platinum Annual","per":2000,"unit":"yr","inc":true,"student":false,"over":false}]},"cdsa":{"name":"Certified Defensive Security Analyst","acc":"#00eafc","lv":2,"v":210,"tier":2,"days":7,"hrs":223,"modes":[[30,52],[40,39],[50,31],[80,20],[155,10]],"plans":[{"k":"student","n":"Student","per":10,"unit":"mo","inc":false,"student":true,"over":false},{"k":"silver","n":"Silver monthly","per":30,"unit":"mo","inc":false,"student":false,"over":false},{"k":"silver_y","n":"Silver Annual","per":550,"unit":"yr","inc":true,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":true}]},"cjca":{"name":"Certified Junior Cybersecurity Associate","acc":"#2f95ff","lv":1,"v":105,"tier":2,"days":5,"hrs":185,"modes":[[25,52],[30,43],[45,29],[65,20],[130,10]],"plans":[{"k":"student","n":"Student","per":10,"unit":"mo","inc":false,"student":true,"over":false},{"k":"silver","n":"Silver monthly","per":30,"unit":"mo","inc":false,"student":false,"over":false},{"k":"silver_y","n":"Silver Annual","per":550,"unit":"yr","inc":true,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":true}]},"coae":{"name":"Certified Offensive AI Expert","acc":"#9d94ea","lv":3,"v":210,"tier":2,"days":7,"hrs":198,"modes":[[30,46],[35,40],[45,31],[70,20],[140,10]],"plans":[{"k":"student","n":"Student","per":10,"unit":"mo","inc":false,"student":true,"over":false},{"k":"silver","n":"Silver monthly","per":30,"unit":"mo","inc":false,"student":false,"over":false},{"k":"silver_y","n":"Silver Annual","per":550,"unit":"yr","inc":true,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":true}]},"cpts":{"name":"Certified Penetration Testing Specialist","acc":"#a34ff2","lv":2,"v":210,"tier":2,"days":10,"hrs":452,"modes":[[65,49],[80,40],[105,30],[160,20],[315,10]],"plans":[{"k":"student","n":"Student","per":10,"unit":"mo","inc":false,"student":true,"over":false},{"k":"silver","n":"Silver monthly","per":30,"unit":"mo","inc":false,"student":false,"over":false},{"k":"silver_y","n":"Silver Annual","per":550,"unit":"yr","inc":true,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":true}]},"cwee":{"name":"Certified Web Exploitation Expert","acc":"#fcc000","lv":3,"v":350,"tier":3,"days":10,"hrs":255,"modes":[[35,51],[45,40],[60,30],[90,20],[180,10]],"plans":[{"k":"gold","n":"Gold monthly","per":95,"unit":"mo","inc":false,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":false}]},"cwes":{"name":"Certified Web Exploitation Specialist","acc":"#ed635e","lv":2,"v":210,"tier":2,"days":7,"hrs":216,"modes":[[30,50],[40,38],[50,30],[75,20],[150,10]],"plans":[{"k":"student","n":"Student","per":10,"unit":"mo","inc":false,"student":true,"over":false},{"k":"silver","n":"Silver monthly","per":30,"unit":"mo","inc":false,"student":false,"over":false},{"k":"silver_y","n":"Silver Annual","per":550,"unit":"yr","inc":true,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":true}]},"cwpe":{"name":"Certified Wi-Fi Pentesting Expert","acc":"#f05a1e","lv":3,"v":350,"tier":3,"days":7,"hrs":175,"modes":[[25,49],[30,41],[40,31],[60,20],[120,10]],"plans":[{"k":"gold","n":"Gold monthly","per":95,"unit":"mo","inc":false,"student":false,"over":false},{"k":"gold_y","n":"Gold Annual","per":1400,"unit":"yr","inc":true,"student":false,"over":false}]}};
+C.forEach(function (x) { var d = DATA[x.c]; for (var k in d) x[k] = d[k]; });
+/* other vendors' hands-on certs, and the HTB cert each one covers */
+var EXT = [  /* [id, label, HTB cert it covers, group]; groups show in this order, easiest first */
+  ["ejpt","eJPT","cjca","Entry level"],["pjpt","PJPT","cjca","Entry level"],["pt1","THM PT1","cjca","Entry level"],
+  ["sal1","THM SAL1","cjca","Entry level"],["btl1","BTL1","cjca","Entry level"],["psaa","PSAA","cjca","Entry level"],["gsec","GSEC","cjca","Entry level"],
+  ["oscp","OSCP / OSCP+","cpts","Pentesting & red team"],["pnpt","PNPT","cpts","Pentesting & red team"],["ecppt","eCPPT","cpts","Pentesting & red team"],
+  ["gpen","GPEN","cpts","Pentesting & red team"],["crtp","CRTP","cpts","Pentesting & red team"],["crto","CRTO","cpts","Pentesting & red team"],
+  ["crte","CRTE","cape","Pentesting & red team"],["osep","OSEP","cape","Pentesting & red team"],
+  ["ewpt","eWPT","cwes","Web"],["ewptx","eWPTX","cwes","Web"],["oswa","OSWA","cwes","Web"],["bscp","BSCP","cwes","Web"],["oswe","OSWE","cwee","Web"],
+  ["oswp","OSWP","cwpe","Wi-Fi"],
+  ["ccd","CCD","cdsa","Blue team & DFIR"],["btl2","BTL2","cdsa","Blue team & DFIR"],["gcih","GCIH","cdsa","Blue team & DFIR"],
+  ["gcia","GCIA","cdsa","Blue team & DFIR"],["gcfe","GCFE","cdsa","Blue team & DFIR"],["gcfa","GCFA","cdsa","Blue team & DFIR"],
+  ["osda","OSDA","cdsa","Blue team & DFIR"],["osth","OSTH","cdsa","Blue team & DFIR"],["ecir","eCIR","cdsa","Blue team & DFIR"],["ecthp","eCTHP","cdsa","Blue team & DFIR"]];
+/* knowledge-based: theory only, so they never stand in for an HTB cert. [id, label, group] */
+var KNOW = [
+  ["aplus","A+","CompTIA"],["netplus","Network+","CompTIA"],["secplus","Security+","CompTIA"],["cysa","CySA+","CompTIA"],
+  ["pentestplus","PenTest+","CompTIA"],["casp","SecurityX (CASP+)","CompTIA"],
+  ["cc","CC","ISC2 & EC-Council"],["cissp","CISSP","ISC2 & EC-Council"],["ceh","CEH","ISC2 & EC-Council"],
+  ["ccna","CCNA","Vendor & other"],["sc200","SC-200","Vendor & other"],["splunk","Splunk Core User / Power User","Vendor & other"],["google","Google Cybersecurity","Vendor & other"]];
+var EXT_NAME = {}; EXT.concat(KNOW).forEach(function (e) { EXT_NAME[e[0]] = e[1]; });
+var EQUIV = {}; EXT.forEach(function (e) { (EQUIV[e[2]] = EQUIV[e[2]] || []).push(e[0]); });
+/* an expert-level cert also covers the cert it builds on (OSEP covers CPTS, OSWE covers CWES) */
+C.forEach(function (x) { if (x.pre && EQUIV[x.c]) EQUIV[x.pre] = (EQUIV[x.pre] || []).concat(EQUIV[x.c]); });
+function equiv(c, ext) { var m = (EQUIV[c] || []).filter(function (e) { return ext.indexOf(e) >= 0; }); return m.length ? EXT_NAME[m[0]] : null; }
+var FOCUS = {
+  ad:  {cpts:50, cape:50, cjca:20, cwes:10, cwpe:10},
+  web: {cwes:50, cwee:50, cpts:20, coae:10},
+  soc: {cdsa:50, cjca:25, cdep:40},  /* CDEP is the step up from CDSA */
+  det: {cdep:50, cdsa:40},
+  wifi:{cwpe:50, cpts:20, cjca:10},
+  ai:  {coae:50, cwes:25, cpts:10},  /* HTB suggests CWES before COAE */
+  all: {cjca:40, cpts:35, cdsa:30},
+  allred: {cjca:40, cpts:50, cwes:30, cape:30, cwee:20},
+  allblue: {cjca:40, cdsa:50, cdep:40}
+};
+var FOCUS_LABEL = {ad:"network and AD pentesting", web:"web app testing", soc:"SOC and incident response", det:"detection engineering",
+                   wifi:"Wi-Fi pentesting", ai:"AI red teaming", all:"trying a bit of everything",
+                   allred:"breaking into systems", allblue:"catching attackers"};
+var NEXT_AREA = {soc:"det", det:"ad", ad:"web", web:"ai", ai:"web", wifi:"ad", allred:"web", allblue:"allred"};  /* where to go once an area is done */
+var TIER_PLAN = {2:"Tier II (Silver or Student)", 3:"Tier III (Gold)", 4:"Tier IV (Platinum)"};
+var LV = ["", "EASY", "MEDIUM", "HARD"];
+
+function badge(c) { return BASE + "assets/badges/" + c + ".png"; }
+function val(n) { var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : null; }
+function checked(n) { return [].map.call(document.querySelectorAll('input[name="' + n + '"]:checked'), function (e) { return e.value; }); }
+
+/* cert chips, one sub-row per group */
+function chips(box, list, name, pfx, gi) {
+  var groups = [];
+  list.forEach(function (e) { if (groups.indexOf(e[gi]) < 0) groups.push(e[gi]); });
+  groups.forEach(function (g) {
+    var h = '<div class="sg">' + g + '</div><div class="opts row">';
+    list.filter(function (e) { return e[gi] === g; }).forEach(function (e) {
+      h += '<label class="opt"><input type="checkbox" name="' + name + '" value="' + e[0] + '" id="' + pfx + e[0] + '"><span>' + e[1] + '</span></label>';
+    });
+    box.insertAdjacentHTML("beforeend", h + "</div>");
+  });
+}
+chips(document.getElementById("ext"), EXT, "ext", "e-", 3);
+chips(document.getElementById("know"), KNOW, "know", "k-", 2);
+var own = document.getElementById("owned");
+C.forEach(function (x) {
+  own.insertAdjacentHTML("beforeend", '<label class="opt"><input type="checkbox" name="own" value="' + x.c + '" id="o-' + x.c +
+    '"><span><img src="' + badge(x.c) + '" alt="" width="22" height="22">' + x.c.toUpperCase() + '</span></label>');
+});
+
+/* an expert HTB cert covers the cert it builds on: holding CAPE means CPTS is done too */
+function expandOwned(owned) { return owned.concat(C.filter(function (x) { return owned.indexOf(x.c) >= 0 && x.pre && !x.soft; }).map(function (x) { return x.pre; })); }
+
+function score(focus, level, owned, budget, code, ext, know, exp) {
+  ext = ext || []; know = know || []; exp = exp || {};
+  owned = expandOwned(owned);
+  var adv = ext.filter(function (e) { return ["cpts","cape","cwes","cwee","cwpe","cdsa"].indexOf(EXT.filter(function (x) { return x[0] === e; })[0][2]) >= 0; });
+  var paperOnly = know.length && !ext.length && !owned.length;  /* knowledge certs alone: start hands-on at CJCA */
+  if (adv.length) level = 3;  /* a hands-on cert at CPTS level or above */
+  var out = [];
+  C.forEach(function (x) {
+    if (owned.indexOf(x.c) >= 0) return;
+    var s = FOCUS[focus][x.c] || 0, why = [];
+    var same = equiv(x.c, ext);
+    if (same) { s -= 60; why.push({w:"Your " + same + " already covers most of this."}); }
+    if (FOCUS[focus][x.c] >= 40) why.push("Fits what you want: " + FOCUS_LABEL[focus] + ".");
+    else if (s > 0) why.push("Builds skills that carry over to " + FOCUS_LABEL[focus] + ".");
+    var gap = x.min - level;
+    if (gap > 0) { s -= 25 * gap; why.push({w:"Aimed above where you are now. Expect a steep climb."}); }
+    else if (level <= x.min + 1) why.push("Starts at about your level.");
+    else s -= 10;  /* well below where you are */
+    if (x.c === "cjca") {
+      if (paperOnly) { s += 1000; why = ["Your " + EXT_NAME[know[0]] + " covers the theory. CJCA is where you prove it hands-on, and every other HTB cert builds on it.", "Covers both attack and defense, so you'll find out which side you like."]; }
+      else if (level === 0) { s += 1000; why = ["New to security? Start here. CJCA teaches the Linux, networking, web and SOC basics every other HTB cert assumes.", "Covers both attack and defense, so you'll find out which side you like."]; }
+      else if (level >= 2) s -= 30;
+      if (owned.some(function (c) { return c !== "cjca"; }) || adv.length) s -= 100;  /* holds a cert past CJCA */
+    }
+    if (x.pre) {
+      var eq = equiv(x.pre, ext), mine = FOCUS[focus][x.c] >= 40;  /* prerequisite bonuses only for certs in their area */
+      if (owned.indexOf(x.pre) >= 0) { if (mine) s += 15; why.push("You have " + x.pre.toUpperCase() + ", so this is the next step."); }
+      else if (eq) { if (mine) s += 15; why.push("Your " + eq + " covers the " + x.pre.toUpperCase() + " groundwork, so this is your next step."); }
+      else if (exp[x.pre] === "yes") { if (mine) s += 15; why.push("You have the " + (x.pre === "cwes" ? "web testing" : "SOC") + " experience HTB suggests before " + x.c.toUpperCase() + "."); }
+      else if (x.soft) { s -= 10; why.push({w:"HTB suggests " + x.pre.toUpperCase() + " first, since most of " + x.c.toUpperCase() + "'s attacks go through web apps."}); }
+      else if (level >= 3) { s -= 15; why.push({w:"HTB's path builds on " + x.pre.toUpperCase() + ". If this area is new to you, start there."}); }
+      else { s -= 30; why.push({w:"HTB's path builds on " + x.pre.toUpperCase() + ", so do that one first."}); }
+    }
+    /* not much experience in the suggested groundwork: start with that cert */
+    C.forEach(function (y) { if (y.pre === x.c && (exp[x.c] === "no" || exp[x.c] === "some") && FOCUS[focus][y.c] >= 40) { s += exp[x.c] === "no" ? 45 : 15; why.push("HTB suggests " + x.c.toUpperCase() + " before " + y.c.toUpperCase() + ". It builds the " + (x.c === "cwes" ? "web" : "SOC") + " skills " + y.c.toUpperCase() + " leans on."); } });
+    if (x.code && code !== null) {
+      if (code < x.code) { s -= 20 * (x.code - code); why.push({w:x.codeWhy}); }
+      else { s += 10; why.push(x.code === 2 ? "You're comfortable reading source code, which this cert leans on." : "You can write scripts, which this cert needs."); }
+    }
+    /* cheap budget: CDEP's Platinum tier is the priciest; do CDSA first unless they already have it */
+    if (budget === 0 && x.c === "cdep" && owned.indexOf("cdsa") < 0 && !equiv("cdsa", ext)) s -= 30;
+    if (budget === 0 && x.tier >= 3) { s -= x.tier === 4 ? 20 : 10; why.push({w:"One of the pricier certs: " + TIER_PLAN[x.tier] + " modules and a $" + x.v + " voucher."}); }
+    if (budget === 0 && x.tier === 2) why.push("One of the cheaper certs: Tier II modules and a $" + x.v + " voucher.");
+    if (know.length && x.c !== "cjca") why.push("Your " + EXT_NAME[know[0]] + " covers theory. This exam tests it hands-on.");
+    if (know.length && x.c === "cjca" && !paperOnly) why.push("Your " + EXT_NAME[know[0]] + " gives you a head start on the theory.");
+    out.push({x:x, s:s, why:why});
+  });
+  out.sort(function (a, b) { return b.s - a.s || a.x.min - b.x.min; });  /* ties: the easier cert first */
+  return out;
+}
+
+/* the fastest tracker timeline that fits the hours they have, else the slowest: [plan days, hrs/week] */
+function pace(x, h) {
+  var fit = x.modes.filter(function (m) { return m[1] <= h + 2; });  /* +2: the tracker's labels are rounded */
+  return fit.length ? fit[0] : x.modes[x.modes.length - 1];
+}
+/* cheapest Academy plan for that many days, plus the voucher (same math as the tracker's What It Costs tab) */
+function quote(x, days, student) {
+  var m = Math.ceil(days / 30), yrs = Math.ceil(m / 12), best = null;
+  x.plans.forEach(function (p) {
+    if (p.over || (p.student && !student)) return;
+    var q = p.unit === "mo" ? m : yrs, sub = q * p.per, v = p.inc ? 0 : x.v;
+    if (!best || sub + v < best.t) best = {p:p, q:q, sub:sub, v:v, t:sub + v};
+  });
+  return best;
+}
+function usd(n) { return "$" + n.toLocaleString("en-US"); }
+function costLine(b) {
+  var n = b.p.n.replace(" monthly", "");
+  return b.p.unit === "mo" ? b.q + (b.q === 1 ? " month" : " months") + " of " + n + " (" + usd(b.sub) + ")" + (b.v ? " + " + usd(b.v) + " voucher" : "")
+                           : n + " (" + usd(b.sub) + "), voucher included";
+}
+
+/* ---------- step flow ---------- */
+var STEPS = ["level", "certs", "focus", "exp_cwes", "exp_cdsa", "lean", "code", "hrs", "budget"];
+var MAIN = ["level", "focus", "code", "hrs", "budget"];  /* numbered questions; certs and lean are follow-ups */
+var SKIPPABLE = {certs:1, code:1, hrs:1, budget:1};
+var cur = "level", editing = false, last = null;
+/* the prerequisite follow-ups only ask about a cert they haven't already ticked (or covered with an equivalent) */
+function covered(c) { return val("level") === "3" && (expandOwned(checked("own")).indexOf(c) >= 0 || !!equiv(c, checked("ext"))); }
+function applies(s) {
+  if (s === "certs") return val("level") === "3";
+  if (s === "lean") return val("focus") === "all";
+  if (s === "exp_cwes") return val("focus") === "ai" && val("level") !== "0" && !covered("cwes");
+  if (s === "exp_cdsa") return val("focus") === "det" && val("level") !== "0" && !covered("cdsa");
+  return true;
+}
+function seq() { return STEPS.filter(applies); }
+function stepEl(s) { return document.querySelector('.step[data-step="' + s + '"]'); }
+function answered(s) { return s === "certs" || !!val(s); }
+
+function showStep(s) {
+  if (s !== cur) clearTimeout(last);
+  cur = s;
+  document.getElementById("quiz").hidden = false;
+  document.getElementById("results").hidden = true;
+  STEPS.forEach(function (n) { stepEl(n).hidden = n !== s; });
+  var sq = seq(), i = sq.indexOf(s), m = MAIN.indexOf(s);
+  document.getElementById("progLbl").textContent = m >= 0 ? "QUESTION " + (m + 1) + " OF " + MAIN.length : "FOLLOW-UP";
+  document.getElementById("progFill").style.width = Math.round(i / sq.length * 100) + "%";
+  document.getElementById("back").disabled = i === 0 && !editing;
+  document.getElementById("back").innerHTML = editing ? "&larr; Results" : "&larr; Back";
+  document.getElementById("skip").hidden = !SKIPPABLE[s] || s === "certs";
+  var nx = document.getElementById("next");
+  nx.hidden = !(s === "certs" || answered(s));
+  nx.innerHTML = editing && !followUp(s) ? "See my pick &rarr;" : i === sq.length - 1 ? "See my pick &rarr;" : "Next &rarr;";
+}
+function followUp(s) { var sq = seq(), n = sq[sq.indexOf(s) + 1]; return (s === "level" && n === "certs") || (s === "focus" && ["lean", "exp_cwes", "exp_cdsa"].indexOf(n) >= 0); }
+function advance() {
+  clearTimeout(last); save();
+  var sq = seq(), i = sq.indexOf(cur);
+  if ((editing && !followUp(cur)) || i === sq.length - 1) return showResults();
+  showStep(sq[i + 1]);
+  stepEl(cur).focus({preventScroll:true});  /* the question, not its first answer, so nothing looks preselected */
+}
+document.getElementById("next").onclick = advance;
+document.getElementById("skip").onclick = function () { stepEl(cur).querySelectorAll("input").forEach(function (e) { e.checked = false; }); advance(); };
+document.getElementById("back").onclick = function () {
+  clearTimeout(last);
+  var sq = seq(), i = sq.indexOf(cur);
+  if (editing) return showResults();
+  if (i <= 0) return;
+  showStep(sq[i - 1]);
+};
+/* tap or click a card: move on after a beat. Keyboard arrows only select; Enter or Next moves on */
+var pointerAt = 0, pointerOn = null;
+document.getElementById("quiz").addEventListener("pointerdown", function (e) { pointerAt = Date.now(); pointerOn = e.target.closest(".opt"); });
+document.getElementById("quiz").addEventListener("change", function (e) {
+  if (e.target.type !== "radio") { save(); return; }
+  showStep(cur);  /* shows Next now that the step is answered */
+  if (pointerOn && pointerOn.contains(e.target) && Date.now() - pointerAt < 1000) last = setTimeout(advance, 220);
+});
+document.getElementById("quiz").addEventListener("submit", function (e) { e.preventDefault(); if (answered(cur)) advance(); });
+
+/* ---------- results ---------- */
+function optLabel(n) { var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.nextElementSibling.firstChild.textContent.trim() : null; }
+function answers() {
+  var a = [];
+  a.push(["level", "Level", optLabel("level")]);
+  if (applies("certs")) {
+    var names = checked("own").map(function (c) { return c.toUpperCase(); }).concat(checked("ext").concat(checked("know")).map(function (c) { return EXT_NAME[c]; }));
+    a.push(["certs", "Certs", names.length ? (names.length > 3 ? names.slice(0, 3).join(", ") + " +" + (names.length - 3) : names.join(", ")) : "None ticked"]);
+  }
+  a.push(["focus", "Wants", optLabel("focus")]);
+  if (applies("lean") && val("lean")) a.push(["lean", "Prefers", optLabel("lean")]);
+  if (applies("exp_cwes") && val("exp_cwes")) a.push(["exp_cwes", "Web testing", optLabel("exp_cwes")]);
+  if (applies("exp_cdsa") && val("exp_cdsa")) a.push(["exp_cdsa", "SOC work", optLabel("exp_cdsa")]);
+  a.push(["code", "Code", optLabel("code") || "Skipped"]);
+  a.push(["hrs", "Hours", (optLabel("hrs") || "About 10") + "/week"]);
+  a.push(["budget", "Budget", optLabel("budget") || "Some room"]);
+  return a;
+}
+var copyText = "";
+function showResults(still) {
+  if (!val("level") || !val("focus")) return showStep(!val("level") ? "level" : "focus");
+  var gap = ["exp_cwes", "exp_cdsa"].filter(function (s) { return applies(s) && !val(s); })[0];
+  if (gap) return showStep(gap);  /* a follow-up that applies now but was never answered (e.g. saved before it existed) */
+  editing = true; save(true);
+  document.getElementById("quiz").hidden = true;
+  document.getElementById("results").hidden = false;
+  document.getElementById("answers").innerHTML = '<span class="t">YOUR ANSWERS</span>' + answers().map(function (a) {
+    return '<button type="button" class="chip" data-edit="' + a[0] + '" aria-label="Change ' + a[1] + '">' + a[1] + ': <b>' + a[2] + '</b></button>';
+  }).join("");
+  render();
+  if (!still) window.scrollTo({top: document.getElementById("results").getBoundingClientRect().top + window.scrollY - 16});
+}
+document.getElementById("answers").addEventListener("click", function (e) {
+  var b = e.target.closest(".chip"); if (b) showStep(b.dataset.edit);
+});
+
+function render() {
+  var focus = val("focus"), level = val("level"), lean = val("lean");
+  var certs = level === "3";
+  function picked(n) { return certs ? checked(n) : []; }
+  var ext = picked("ext"), know = picked("know"), owned = picked("own");
+  if (focus === "all" && lean) focus = "all" + lean;
+  var codeLv = val("code") === null ? null : +val("code");
+  var hrs = +(val("hrs") || 10), budget = val("budget") === null ? 1 : +val("budget");
+  var out = document.getElementById("out");
+  document.querySelectorAll("#rows tr").forEach(function (r) { r.classList.remove("hit"); var t = r.querySelector(".tag"); if (t) t.remove(); });
+  var exp = {cwes: applies("exp_cwes") ? val("exp_cwes") : null, cdsa: applies("exp_cdsa") ? val("exp_cdsa") : null};
+  var r = score(focus, +level, owned, budget, codeLv, ext, know, exp);
+  /* every HTB cert for their area is already held or covered: move on to the next area */
+  var held = expandOwned(owned);
+  function spent(f) { return Object.keys(FOCUS[f]).filter(function (c) { return FOCUS[f][c] >= 40 && c !== "cjca"; }).every(function (c) { return held.indexOf(c) >= 0 || equiv(c, ext); }); }
+  var fresh = null, seen = {};
+  while (spent(focus) && NEXT_AREA[focus] && !seen[focus]) { seen[focus] = 1; fresh = fresh || focus; focus = NEXT_AREA[focus]; }
+  if (fresh && spent(focus)) focus = ["ad", "web", "soc", "det", "wifi", "ai"].filter(function (f) { return !spent(f); })[0] || focus;  /* the walk looped */
+  if (fresh && spent(focus)) { out.innerHTML = '<div class="card empty">You already hold or cover the HTB certs in every area. Nothing left to pick, so go help someone on the HTB Discord.</div>'; return; }
+  if (fresh) r = score(focus, +level, owned, budget, codeLv, ext, know, exp);
+  if (!r.length) { out.innerHTML = '<div class="card empty">You have all nine. Nothing left to pick, so go help someone on the HTB Discord.</div>'; return; }
+  var a = r[0], x = a.x, code = x.c.toUpperCase();
+  /* second card: a prerequisite they skipped, else the cert this one leads to, else the runner-up */
+  var nx = null;
+  function ahead(o) { return o.x.min >= x.min && !equiv(o.x.c, ext); }  /* never point back at an easier or covered cert */
+  if (x.c === "cjca" && focus !== "all") nx = r.filter(function (o) { return o.x.c !== "cjca" && FOCUS[focus][o.x.c] >= 40 && ahead(o); }).sort(function (p, q) { return p.x.min - q.x.min; })[0];
+  else if (!(FOCUS[focus][x.c] >= 40)) nx = r.filter(function (o) { return FOCUS[focus][o.x.c] >= 40 && ahead(o); })[0];  /* a stepping stone: show the goal next */
+  else nx = r.filter(function (o) { return o.x.pre === x.c && FOCUS[focus][o.x.c] >= 40 && ahead(o); })[0];
+  var pre = x.pre && owned.indexOf(x.pre) < 0 && !equiv(x.pre, ext) && exp[x.pre] !== "yes" ? r.filter(function (o) { return o.x.c === x.pre; })[0] : null;
+  if (pre) nx = null;
+  var b = pre || nx || r[1];
+  var lbl = pre ? "OR START WITH" : nx ? "AFTER THAT" : "RUNNER-UP";
+  var pc = pace(x, hrs), q = quote(x, pc[0], false), qs = quote(x, pc[0], true);
+  if (fresh) a.why = ["You already hold the HTB certs for " + FOCUS_LABEL[fresh] + ", so here's a good next area: " + FOCUS_LABEL[focus] + "."].concat(a.why.filter(function (w) { return typeof w !== "string"; }));
+  var lede = a.why.filter(function (w) { return typeof w === "string"; })[0] || x.what + ".";
+  var why = a.why.filter(function (w) { return w !== lede; }).map(function (w) { return typeof w === "string" ? "<li>" + w + "</li>" : '<li class="warn">' + w.w + "</li>"; }).join("");
+  var h = '<div class="res"><div class="card top" style="--acc:' + x.acc + '"><span class="k">' + (fresh ? "NEW DIRECTION" : "BEST FIT") + '</span>' +
+    '<div class="head"><img src="' + badge(x.c) + '" alt="' + code + ' badge" width="76" height="76"><div><div class="code">' + code + '</div><div class="name">' + x.name + '</div></div></div>' +
+    '<p class="lede">' + lede + '</p>' + (why ? '<ul class="why">' + why + '</ul>' : '') +
+    '<dl class="facts"><div><dt>EXAM</dt><dd>' + x.days + ' days + report</dd></div><div><dt>MODULES NEED</dt><dd>' + TIER_PLAN[x.tier] + '</dd></div>' +
+    '<div><dt>YOUR PLAN</dt><dd>' + pc[0] + ' days at &asymp;' + pc[1] + ' hrs/week</dd></div><div><dt>COST AT THAT PACE</dt><dd>about ' + usd(q.t) + '</dd></div></dl>' +
+    '<p class="cost">' + costLine(q) + '.' + (qs && qs.t < q.t ? ' About ' + usd(qs.t) + ' with a student email.' : '') +
+    (pc === x.modes[x.modes.length - 1] && hrs + 2 < pc[1] ? ' The slowest plan assumes about ' + pc[1] + ' hrs/week, so expect it to run longer.' : '') +
+    ' <a href="' + BASE + x.c + '/resources/#cost">Compare plans</a></p>' +
+    '<div class="go"><a class="main" href="' + BASE + x.c + '/tracker/?days=' + pc[0] + '">Start the ' + pc[0] + '-day ' + code + ' plan &rarr;</a>' +
+    '<a href="' + BASE + x.c + '/">Study kit</a><a href="' + BASE + x.c + '/practice/">Practice boxes</a>' +
+    '<a href="' + BASE + 'vaults/' + x.c + '-prep-vault.zip">Prep vault (zip)</a><a href="' + BASE + x.c + '/resources/">Resources</a></div></div><div class="side">';
+  var yLine = "";
+  if (b) {
+    var y = b.x, yc = y.c.toUpperCase();
+    var yText = pre ? "Start here instead if you want the groundwork first. " + code + " builds on what " + yc + " teaches." : nx ? "Once you have " + code + ", " + yc + " is the next step for " + FOCUS_LABEL[focus] + "." : y.alt;
+    h += '<div class="card alt" style="--acc:' + y.acc + '"><span class="k">' + lbl + '</span>' +
+      '<div class="head"><img src="' + badge(y.c) + '" alt="' + yc + ' badge" width="48" height="48"><div><div class="code">' + yc + '</div><div class="name">' + y.name + '</div></div></div>' +
+      '<p>' + yText + '</p><a class="more" href="' + BASE + y.c + '/">Open the ' + yc + ' study kit &rarr;</a></div>';
+    yLine = "\n" + lbl.charAt(0) + lbl.slice(1).toLowerCase() + ": " + yc + " (" + y.name + ")";
+  }
+  h += '<div class="acts"><button type="button" class="btn" id="copy">Copy my results</button><button type="button" class="link" id="reset">START OVER</button><span class="ok" id="copied" hidden>Copied</span></div></div></div>';
+  out.innerHTML = h;
+  copyText = "My HTB cert pick: " + code + " (" + x.name + ")" + yLine + "\nPlan: " + pc[0] + " days at about " + pc[1] + " hrs/week, about " + usd(q.t) +
+             "\nFind yours: " + PAGE;
+  document.getElementById("copy").onclick = copyResults;
+  document.getElementById("reset").onclick = function () {
+    document.getElementById("quiz").reset(); editing = false;
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    showStep("level"); window.scrollTo({top:0});
+  };
+  [[x, "BEST FIT", ""], b ? [b.x, lbl, " two"] : null].forEach(function (p) {
+    if (!p) return;
+    var row = document.getElementById("r-" + p[0].c); row.classList.add("hit");
+    row.querySelector("td.c a").insertAdjacentHTML("beforeend", '<span class="tag' + p[2] + '">' + p[1] + "</span>");
+  });
+}
+function copyResults() {
+  var ok = document.getElementById("copied");
+  function done() { ok.hidden = false; setTimeout(function () { ok.hidden = true; }, 2000); }
+  function fallback() {
+    var t = document.createElement("textarea"); t.value = copyText; t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select();
+    try { if (document.execCommand("copy")) done(); } catch (e) {}
+    t.remove();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(copyText).then(done, fallback);
+  else fallback();
+}
+
+/* comparison table */
+var rows = document.getElementById("rows");
+C.forEach(function (x) {
+  var code = x.c.toUpperCase();
+  rows.insertAdjacentHTML("beforeend", '<tr id="r-' + x.c + '" style="--acc:' + x.acc + '"><td class="c"><a href="' + BASE + x.c + '/"><img src="' + badge(x.c) +
+    '" alt="" width="26" height="26">' + code + '</a></td><td>' + x.what + '</td><td><span class="lv l' + x.lv + '"><i></i><i></i><i></i>' + LV[x.lv] +
+    '</span></td><td>' + x.days + ' days · ' + x.exam + '</td><td>$' + x.v + '</td><td>' + TIER_PLAN[x.tier] + '</td><td>~' + x.hrs + ' hrs</td></tr>');
+});
+
+/* remember answers on this device; a finished quiz reopens on its results */
+var KEY = "cert_picker_v1";
+function save(finished) {
+  var d = {}; ["focus", "lean", "exp_cwes", "exp_cdsa", "level", "code", "hrs", "budget"].forEach(function (n) { d[n] = val(n); });
+  d.own = checked("own"); d.ext = checked("ext"); d.know = checked("know");
+  d.done = finished || editing;
+  try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+}
+var saved = null;
+try {
+  saved = JSON.parse(localStorage.getItem(KEY) || "null");
+  if (saved) {
+    ["focus", "lean", "exp_cwes", "exp_cdsa", "level", "code", "hrs", "budget"].forEach(function (n) { if (saved[n] !== null) { var e = document.querySelector('input[name="' + n + '"][value="' + saved[n] + '"]'); if (e) e.checked = true; } });
+    (saved.own || []).forEach(function (c) { var e = document.getElementById("o-" + c); if (e) e.checked = true; });
+    (saved.ext || []).forEach(function (c) { var e = document.getElementById("e-" + c); if (e) e.checked = true; });
+    (saved.know || []).forEach(function (c) { var e = document.getElementById("k-" + c); if (e) e.checked = true; });
+  }
+} catch (e) {}
+if (saved && saved.done && val("level") && val("focus")) showResults(true); else showStep("level");
+</script>
+</body>
+</html>

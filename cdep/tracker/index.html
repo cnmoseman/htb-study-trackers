@@ -4079,6 +4079,12 @@ function load(){
     state.startDate = t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
   }
   state.mode = MODES[state.mode] ? +state.mode : 90;
+  /* ?days=N (from the cert picker): open on that timeline, unless there's already progress to keep */
+  try{
+    const q = new URLSearchParams(location.search), d = +q.get("days");
+    if(MODES[d] && !Object.keys(state.done).length){ state.mode = d; save(); }
+    if(q.has("days")){ q.delete("days"); history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "") + location.hash); }
+  }catch(e){ /* ignore */ }
   if(!state.plan){  // first visit, or progress saved before plans were stamped
     state.plan = PLAN_SIG;
     if(Object.keys(state.done).length) save();

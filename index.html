@@ -73,7 +73,7 @@
   .hc li{counter-increment:s;position:relative;padding-left:1.6em}
   .hc li::before{content:counter(s) ".";position:absolute;left:0;font-family:"IBM Plex Mono",monospace;color:var(--green)}
   .hc p{margin:auto 0 0;padding-top:12px;border-top:1px solid var(--line);font:500 clamp(13px,.9vw,16px)/1.5 "Saira",sans-serif;color:var(--dim)}
-  .help{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .help{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
   .help a{display:flex;flex-direction:column;padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:border-color .2s ease}
   .help a:hover,.help a:focus-visible{border-color:var(--green)}
   .help .k{font:600 clamp(12px,.8vw,15px) "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--green)}
@@ -82,6 +82,7 @@
   .help .go{margin-top:auto;font:600 clamp(14px,1vw,17px) "Saira",sans-serif;color:var(--green)}
   @media (max-width:1200px){.hcs{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:900px){.hcs{grid-template-columns:1fr}}
+  @media (max-width:1100px){.help{grid-template-columns:1fr 1fr}.help a:first-child{grid-column:1/-1}}
   @media (max-width:700px){.help{grid-template-columns:1fr}}
 </style>
 <script>
@@ -123,12 +124,13 @@
         <div class="hc"><span class="k">0x04</span><h3>Resources</h3><ol><li>Open your cert's resources.</li><li>Start with Favorites, one pick for each part of your prep.</li><li>Search the full list or filter by videos, GitHub or write-ups.</li></ol><p>The same links as the tracker's Resources tab, plus what the cert costs.</p></div>
       </div>
       <div class="help">
+        <a href="./picker/"><span class="k">CERT PICKER</span><strong>Not sure which cert?</strong><span class="d">Answer five quick questions and get the cert that fits you, a study plan for your hours and what it costs.</span><span class="go">Find my cert &rarr;</span></a>
         <a href="./faq/"><span class="k">FAQ</span><strong>New to Hack The Box?</strong><span class="d">HTB terms, setting up your machine, notes and report writing, in plain answers.</span><span class="go">Read the FAQ &rarr;</span></a>
         <a href="./faq/#website-or-download"><span class="k">FAQ</span><strong>Website or download?</strong><span class="d">Use the tools on this site or keep an offline copy. Here's what changes and how your progress moves.</span><span class="go">Find out &rarr;</span></a>
       </div>
     </section>
 
-    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · Built on <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield/coae-study-tracker</a> · <a href="./faq/">FAQ</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=Landing+page&amp;title=%5BProblem%5D+">Report a problem</a></footer>
+    <footer>Independent study aids, not affiliated with or endorsed by Hack The Box · Built on <a href="https://github.com/mattrfield/coae-study-tracker">mattrfield/coae-study-tracker</a> · <a href="./picker/">Cert picker</a> · <a href="./faq/">FAQ</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> · <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=Landing+page&amp;title=%5BProblem%5D+">Report a problem</a></footer>
   </main>
 <script>
   /* saved progress on each tile (same-origin localStorage, set by the trackers) */
