@@ -6,6 +6,19 @@ Study trackers, Obsidian prep vaults, practice boxes and resources for Hack The 
 
 **Open the site: https://cnmoseman.github.io/htb-study-trackers/**
 
+## Not sure which cert?
+
+![The cert picker's results screen](assets/shots/picker-overview.webp)
+
+The [cert picker](https://cnmoseman.github.io/htb-study-trackers/picker/) asks five quick questions, one at a time: where you are now, what you want to do, how comfortable you are with code, how many hours a week you have, and your budget. A follow-up appears only when it matters, like which certs you already hold or whether you've tested web apps before.
+
+- You get the cert that fits you best and why, plus a second card: what to take after it, what to start with first, or a runner-up.
+- If you're new to security, it starts you on the CJCA.
+- It knows the main certs from other vendors. OSCP or PNPT count as CPTS-level, BSCP as CWES-level and GCIH as CDSA-level, so it points you past what they already cover. If knowledge certs like Security+ or CISSP are all you have, it starts you on the CJCA to prove the skills hands-on.
+- Your result shows the exam length, which subscription tier the modules need, the tracker timeline that fits your hours, and roughly what it costs at that pace.
+- The **Start the 160-day CPTS plan** button (the numbers match your result) opens the tracker on that timeline. Tap any answer on the results screen to change it, and **Copy my results** gives you a summary to paste anywhere.
+- The bottom of the page compares all nine certs side by side.
+
 ## The certs
 
 Each cert's page has its tracker, its prep vault, its practice boxes and its resources.
@@ -29,7 +42,7 @@ Each cert's page has its tracker, its prep vault, its practice boxes and its res
 The trackers all work the same way, whichever cert you pick.
 
 - Each one splits the cert's HTB Academy job-role path into days and follows the modules in order.
-- You choose one of five timelines, for about 50, 40, 30, 20, or 10 hours of study a week. The hours come from HTB's own module estimates, and your checkmarks carry over if you switch.
+- You choose one of five timelines, for about 50, 40, 30, 20, or 10 hours of study a week. The hours come from HTB's own module estimates, and your checkmarks carry over if you switch. If you come from the cert picker, the tracker opens on the timeline that fits your hours, unless you've already checked off a task in it.
 - The dashboard shows your overall progress, your streak, which phase you're in, and whether you're ahead of or behind pace.
 - Every day has a notes box for commands, credentials, and anything you want to come back to.
 - The Resources tab links the official cert and path pages, every module in order, video reviews, exam write-ups from people who passed, reporting templates, and the main tools.
@@ -76,7 +89,7 @@ Every cert also has a Resources page with every study resource in one place: the
 
 ## How to use
 
-Open the [site](https://cnmoseman.github.io/htb-study-trackers/) and pick your cert. Its page has the tracker, the prep vault, the practice boxes and the resources.
+Open the [site](https://cnmoseman.github.io/htb-study-trackers/) and pick your cert. Not sure which one? Take the [cert picker](https://cnmoseman.github.io/htb-study-trackers/picker/) first. Each cert's page has the tracker, the prep vault, the practice boxes and the resources.
 
 ### Study tracker
 
@@ -111,7 +124,7 @@ https://cnmoseman.github.io/htb-study-trackers/faq/
 
 ## Where your progress lives
 
-Your progress is saved in your browser, separately for each tracker, and it never leaves it. There's no account. Progress doesn't sync between devices, so use Export and Import to move it.
+Your progress is saved in your browser, separately for each tracker, and it never leaves it. There's no account. Progress doesn't sync between devices, so use Export and Import to move it. The cert picker also keeps your answers in your browser, and once you've finished it, it reopens on your results. It has nothing to export.
 
 ## Hosted or downloaded?
 
@@ -123,7 +136,7 @@ The practice boxes, and some tracker resources, point you to HTB Labs. Retired m
 
 ## Suggest a resource
 
-Found a write-up, video, or practice box that helped you, or a box that belongs on a cert's list? [Suggest it here](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml). Spotted a wrong module or a dead link? [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml). I read every submission before anything goes into a tracker, a prep vault or a practice list.
+Found a write-up, video, or practice box that helped you, or a box that belongs on a cert's list? [Suggest it here](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml). Spotted a wrong module, a dead link or an odd cert picker result? [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml). I read every submission before anything goes into a tracker, a prep vault or a practice list.
 
 ## Credits
 
