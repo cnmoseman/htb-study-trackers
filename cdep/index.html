@@ -145,7 +145,7 @@
     var el = document.getElementById("pbCount"); if (!el) return;
     var st; try { st = JSON.parse(localStorage.getItem("cdep_practice_v1")); } catch (e) { return; }
     if (!st || !st.done || typeof st.done !== "object") return;
-    var ids = ["logjammer", "unit42", "heartbreaker-continuum", "campfire-1", "campfire-2", "reaper", "tracer", "optinseltrace"], done = 0;  // current boxes only, like the practice page
+    var ids = ["unit42", "logjammer", "heartbreaker-continuum", "campfire-1", "reaper", "campfire-2", "tracer", "optinseltrace"], done = 0;  // current boxes only, like the practice page
     for (var i = 0; i < ids.length; i++) if (st.done[ids[i]] === true) done++;
     if (done) el.textContent = done + " / " + ids.length + " done";
   })();

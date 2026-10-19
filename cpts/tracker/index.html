@@ -5466,8 +5466,8 @@ const PB = (function(){
             '<span class="pb-meta">' + meta(i) + '</span></div>' +
             '<div class="pb-tech">' + esc(i.tech) + '</div></div>' +
             '<div class="pb-wq">' + (w.length ? w.map(x => x.replace(" video", "").replace(" write-up", "")).join("") : "") + '</div></div>' +
-            '<div class="pb-bd"><div><div class="pb-lb">Practices</div><ul class="pb-mods">' +
-            i.mods.map(m => '<li><b>M' + m + '</b> ' + esc(P.mods[m - 1]) + '</li>').join("") + '</ul></div>' +
+            '<div class="pb-bd"><div><div class="pb-lb">Practices</div>' + (i.mods.length ? '<ul class="pb-mods">' +
+            i.mods.map(m => '<li><b>M' + m + '</b> ' + esc(P.mods[m - 1]) + '</li>').join("") + '</ul>' : '<p><em class="pb-dim">Not known yet</em></p>') + '</div>' +
             '<div><div class="pb-lb">Walkthroughs</div><p>' + walkLine(i) + '</p>' +
             (picks(i).length ? '<div class="pb-lb">Picked by</div><p>' + picks(i).join(" &middot; ") + '</p>' : "") +
             (revs(i).length ? '<div class="pb-lb">Reviews</div><p>' + revLine(i) + '</p>' : "") + '</div></div></div>';

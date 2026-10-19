@@ -142,7 +142,7 @@
     var el = document.getElementById("pbCount"); if (!el) return;
     var st; try { st = JSON.parse(localStorage.getItem("cwes_practice_v1")); } catch (e) { return; }
     if (!st || !st.done || typeof st.done !== "object") return;
-    var ids = ["onlyhacks", "armaxis", "blackout-ops", "speednet", "soccer", "delivery", "shoppy", "bashed", "cap", "twomillion", "return", "trick", "reset", "bountyhunter", "cronos", "friendzone", "headless", "alert", "usage", "nineveh", "editorial", "imagery", "goodgames", "opensource", "forge", "shibboleth", "saturn", "broscience", "era", "monitorsthree", "instant", "union", "timing", "redcross", "node", "enterprise", "pollution", "altered"], done = 0;  // current boxes only, like the practice page
+    var ids = ["onlyhacks", "armaxis", "blackout-ops", "speednet", "soccer", "delivery", "shoppy", "bashed", "cap", "twomillion", "return", "trick", "reset", "bountyhunter", "friendzone", "headless", "alert", "usage", "cronos", "nineveh", "editorial", "goodgames", "opensource", "imagery", "forge", "shibboleth", "saturn", "broscience", "era", "monitorsthree", "instant", "union", "timing", "redcross", "node", "enterprise", "pollution", "altered"], done = 0;  // current boxes only, like the practice page
     for (var i = 0; i < ids.length; i++) if (st.done[ids[i]] === true) done++;
     if (done) el.textContent = done + " / " + ids.length + " done";
   })();
