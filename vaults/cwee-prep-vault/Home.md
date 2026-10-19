@@ -29,8 +29,9 @@ Four parts:
 1. Work through the course in order. As you finish each module, fill in its note.
 2. Build your methodology as you go. Rename each `Fill in` phase to a step in your own workflow, and add or delete phases as you need. New phases use `Templates/Methodology Phase`.
 3. Fill each phase with your own checklist, commands and decision points, and link back to the module notes with `[[...]]`.
-4. Each module note has one heading per Academy section. Use the **Outline** pane on the right to jump between them, and click the arrow by a heading to fold it.
-5. On exam day, start at [[00 - Exam (MOC)]] and work from your methodology. The exam notes are bookmarked on the left. `Ctrl+click` any `[[link]]` to open the note behind it.
+4. Keep one note per tool in `Notes/Tools` and one per technology in `Notes/Technologies`, made from `Templates/Tool` and `Templates/Technology`. [[Burp Suite]] and [[JWT]] are there to start you off. Link them from your module notes and phases so the commands you use most are one click away.
+5. Each module note has one heading per Academy section. Use the **Outline** pane on the right to jump between them, and click the arrow by a heading to fold it.
+6. On exam day, start at [[00 - Exam (MOC)]] and work from your methodology. The exam notes are bookmarked on the left. `Ctrl+click` any `[[link]]` to open the note behind it.
 
 ## Command sources
 Get tested commands from these as you go:

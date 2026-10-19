@@ -20,6 +20,10 @@ tags: [cwes, app]
 | --- | --- | --- | --- |
 | *e.g. test* | *e.g. (your own)* | *e.g. user* | *e.g. Self-registration* |
 
+## Next Up
+<!-- what to try next; tick it off or move it to Dead Ends -->
+- [ ] *e.g. Check how the search box handles special characters*
+
 ## Tests
 **Notes**
 - *e.g. Search box reflects input back into the page*

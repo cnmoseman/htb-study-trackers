@@ -25,6 +25,10 @@ tags: [cdsa, incident]
 ## Affected Systems & Data
 - *e.g. WS01, FS01 and the shared finance folder*
 
+## Next Up
+<!-- what to check next; tick it off as you go -->
+- [ ] *e.g. Check whether FS01 talked to any outside address*
+
 ## Evidence Sources & Analysis
 <!-- each detection step by step: data source, query, what it showed -->
 **Notes**

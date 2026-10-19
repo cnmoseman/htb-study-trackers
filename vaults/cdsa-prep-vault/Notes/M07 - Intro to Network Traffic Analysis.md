@@ -212,7 +212,7 @@ tags: [cdsa, module]
 - 
 
 ## Module Tools
-- *e.g. Tool name: what you used it for in this module*
+- *e.g. Splunk: what you used it for in this module* <!-- link it to its note in Notes/Tools -->
 
 ## Gotchas / Lessons Learned
 - *e.g. A mistake you made in a lab and what fixed it*

@@ -12,10 +12,20 @@ tags: [cape, target]
 > Status: todo, enumerating, foothold, root or done. Access: none, user or admin.
 > Creds go in [[04 - Credentials|Credentials]], flags in [[07 - Flags|Flags]], changes in [[08 - Cleanup|Cleanup]].
 
+## Access So Far
+<!-- every account you've had here, newest at the bottom -->
+| Account | Privilege | How you got it |
+| --- | --- | --- |
+| *e.g. web server user* | *e.g. low* | *e.g. Upload form, see Foothold* |
+
 ## Ports & Services
 | Port | Service | Version | Notes |
 | --- | --- | --- | --- |
 | *e.g. 80* | *e.g. HTTP* | *e.g. Apache 2.4* | *e.g. Login page and a file upload form* |
+
+## Next Up
+<!-- what to try next; tick it off or move it to Dead Ends -->
+- [ ] *e.g. Check what file types the upload form accepts*
 
 ## Enumeration
 **Notes**

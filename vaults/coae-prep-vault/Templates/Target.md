@@ -18,6 +18,10 @@ tags: [coae, target]
 | --- | --- | --- |
 | *e.g. Asked it to repeat its instructions* | *e.g. Refused* | *e.g. Blocked, try another angle* |
 
+## Next Up
+<!-- what to try next; tick it off or move it to Dead Ends -->
+- [ ] *e.g. Ask it to summarize a document you control*
+
 ## Tests
 **Notes**
 - *e.g. The model calls a tool with input taken from user text*
