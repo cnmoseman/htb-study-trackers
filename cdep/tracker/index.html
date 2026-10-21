@@ -663,17 +663,17 @@
   <!-- Resources -->
   <div id="tab-resources" class="hidden">
   <div class="panel">
-    <div class="big">38 <small>Links &middot; 6 Sections &middot; 10 Tips</small></div>
+    <div class="big">43 <small>Links &middot; 7 Sections &middot; 10 Tips</small></div>
     <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cdep/resources/" target="_blank" rel="noopener">CDEP Resources</a>. HTB Academy's path is all you need to pass the CDEP. These help you study it, compare notes with people who passed, and get the report right.</p>
   </div>
   <div class="ltabs" role="tablist">
-    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>4</b></button>
-    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>38</b></button>
+    <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>43</b></button>
   </div>
   <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CDEP, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
   <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
     <div class="tb">
-      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 38 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 43 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
       <div class="seg" id="kf" role="group" aria-label="Type"></div>
       <span class="sp"></span>
       <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
@@ -692,8 +692,8 @@
       <p>You earn it by completing the <strong>Detection Engineer Job-Role Path</strong> (<strong>13 modules, 250 sections</strong>, rated <strong>Hard</strong>) and then passing the exam. HTB estimates the path takes <strong>75 days</strong> (about <strong>600 hours</strong> at 8&nbsp;hrs/day), and you have to finish <strong>100% of it</strong> before the exam unlocks. HTB treats the SOC Analyst path as assumed knowledge, strongly recommends x86/64 assembly and C/C++, and suggests earning the CDSA first.</p>
 
       <h3>The exam</h3>
-      <p>The CDEP exam runs for <strong>10 days</strong> in a dedicated lab you can reset, and Pwnbox is enough. A letter of engagement sets the scope, and you investigate a realistic enterprise attack chain, submitting <strong>flags</strong> as you go. HTB has not published the exact pass mark.</p>
-      <p>You also upload a <strong>commercial-grade report</strong> in English within <strong>10 days</strong> of entering the exam, using the template HTB gives you in the exam (there's no public sample yet). It covers your investigation, the TTPs mapped to MITRE ATT&amp;CK, your evidence, and the detection logic you'd build along with its limits. An instructor grades both the points and the report. You get <strong>2 attempts per voucher</strong>, the free retake has to start within 14 days of your feedback, and results arrive within 20 business days.</p>
+      <p>The CDEP exam runs for <strong>10 days</strong> in a dedicated lab you can reset, and Pwnbox is enough. The breach is already contained. Your job is to build the detections that would have caught each stage, validate each one against the captured telemetry in Splunk (Sysmon, ETW, ETW-TI, Windows Security and Linux auditd), and submit the value each validated rule returns as a <strong>flag</strong>. HTB's template describes the example breach as five machines: a domain controller, three Windows workstations and a Linux build server. HTB has not published the exact pass mark.</p>
+      <p>You also upload a <strong>commercial-grade report</strong> in English within <strong>10 days</strong> of entering the exam, following <a href="https://docs.sysreptor.com/assets/reports/HTB-CDEP-Report.pdf">HTB's CDEP report template</a>. For each host it walks through every technique: how the behavior works, its ATT&amp;CK mapping, where its detections sit on the Summiting the Pyramid models, and validated SPL rules with their false positives and proof they fire. It ends with a cross-host storyline and an ATT&amp;CK Navigator layer. An instructor grades both the points and the report. You get <strong>2 attempts per voucher</strong>, the free retake has to start within 14 days of your feedback, and results arrive within 20 business days.</p>
 
       <h3>What it costs</h3>
       <p>Plan prices, the voucher, and what your timeline costs are on the <a href="#" data-goto="cost">What It Costs</a> tab.</p>
@@ -711,8 +711,8 @@
       <ul>
         <li><strong>Finish the whole path first.</strong> The exam unlocks only after 100% of the Detection Engineer path, and the path runs about 600 hours. (HTB)</li>
         <li><strong>Cover the prerequisites.</strong> HTB treats the SOC Analyst path as assumed knowledge, strongly recommends x86/64 assembly and C/C++, and suggests the CDSA first. (HTB)</li>
-        <li><strong>Map everything to ATT&amp;CK.</strong> The report has to show the TTPs you found across every attack phase, mapped to MITRE ATT&amp;CK. (HTB)</li>
-        <li><strong>Write detections, not just findings.</strong> For each stage, the report needs the detection logic you'd build and where that logic falls short. (HTB)</li>
+        <li><strong>Aim high on the pyramid.</strong> The report rates each detection High, Medium or Low coverage and favors behavior-based rules that survive a rebuild of the attacker's tooling. (HTB)</li>
+        <li><strong>Validate before you ship.</strong> Only rules proven to fire on the captured data count, and the value a validated rule returns is the flag. (HTB)</li>
         <li><strong>Always submit a first report.</strong> If you don't upload a report on your first attempt, you lose the free retake. (HTB)</li>
       </ul>
       <p>The full list of tips is at the bottom of the <strong>Resources</strong> tab.</p>
@@ -726,7 +726,7 @@
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
       </ul>
 
-      <div class="callout">CDEP launched in October 2026. Nobody has posted exam reviews or notes yet, and HTB hasn't published a sample report, so everything here comes from HTB itself. The path runs about 600 hours, close to three times the CWEE path, so pace yourself.</div>
+      <div class="callout">CDEP launched in October 2026. Nobody has posted exam reviews or notes yet, but HTB has published the report template, and this tracker and the vault follow it. The path runs about 600 hours, close to three times the CWEE path, so pace yourself.</div>
 
       <p style="font-size:12px;color:var(--faint);margin-top:14px">This is an independent study aid and is not affiliated with or endorsed by Hack The Box. Always confirm current module counts, exam format, and pricing on the official HTB Academy site.</p>
       <p style="font-size:12px;color:var(--faint);margin-top:6px">Built on and inspired by mattrfield's <a href="https://github.com/mattrfield/coae-study-tracker">coae-study-tracker</a>.</p>
@@ -850,8 +850,9 @@ const CURRICULUM = [
     "hrs": 1,
     "tasks": [
       "Read the HTB CDEP certification page and the Detection Engineer path overview",
-      "Understand the exam: 10 days investigating an enterprise attack chain, submitting flags plus a commercial-grade report with detection logic",
-      "Set your start date above and note a target exam window"
+      "Understand the exam: 10 days building and validating detections for a captured enterprise intrusion, with a flag for each validated rule, plus a commercial-grade report",
+      "Set your start date above and note a target exam window",
+      "Skim HTB's CDEP report template so you know the write-up each technique needs"
     ]
   },
   {
@@ -1220,7 +1221,7 @@ const CURRICULUM = [
     "hrs": 1.5,
     "tasks": [
       "Map the techniques from the Cyber Range module onto ATT&CK Navigator",
-      "For one technique, write a detection and list its blind spots and false positives"
+      "For one technique, write a detection, rate its coverage High, Medium or Low, and list its blind spots and false positives"
     ]
   },
   {
@@ -3215,8 +3216,8 @@ const CURRICULUM = [
     "type": "lab",
     "hrs": 1.5,
     "tasks": [
-      "Pick your reporting tool. HTB gives you the CDEP report template in the exam and hasn't published a sample yet",
-      "Outline the sections HTB asks for: investigation steps, ATT&CK-mapped TTPs, evidence, detection logic and limitations"
+      "Open HTB's CDEP report template and copy its section list into your report tool",
+      "Note what each technique needs: detection objective, behavioral breakdown, tool and artifact analysis, Summiting the Pyramid tables, ATT&CK detection guidance and validated SPL rules"
     ]
   },
   {
@@ -3225,18 +3226,18 @@ const CURRICULUM = [
     "type": "lab",
     "hrs": 2,
     "tasks": [
-      "Write a full report on one solved skills assessment, with evidence for each step",
-      "Map every step to MITRE ATT&CK and give each detection its logic and blind spots"
+      "Write the full technique section for one solved skills assessment, following HTB's template",
+      "Prove each SPL rule fires on the true positive, and show its output as a screenshot or table"
     ]
   },
   {
     "d": 260,
-    "title": "Mock exam: investigation",
+    "title": "Mock exam: detections",
     "type": "lab",
     "hrs": 2.5,
     "tasks": [
-      "Run a timed investigation over two or three skills assessments as one attack chain",
-      "Keep notes on every query and finding as you go"
+      "Treat two or three skills assessments as one intrusion and build a detection for each stage",
+      "Validate each rule against the logs, and log its query, its output and the value it returns"
     ]
   },
   {
@@ -3245,8 +3246,8 @@ const CURRICULUM = [
     "type": "lab",
     "hrs": 2,
     "tasks": [
-      "Turn the mock notes into a complete report",
-      "Check that each finding has evidence, an ATT&CK mapping and a detection you could deploy"
+      "Turn the mock notes into a full report on HTB's template: techniques overview, per-host sections and a cross-host storyline",
+      "Check each technique has a coverage rating, an ATT&CK mapping, a validated rule and a spot in your ATT&CK Navigator layer"
     ]
   },
   {
@@ -3336,7 +3337,7 @@ const CURRICULUM = [
     "hrs": 1,
     "tasks": [
       "Confirm you've completed 100% of all 13 modules (required to unlock the exam)",
-      "Plan the 10 days: investigate the chain methodically, log every query, and keep the report going as you go"
+      "Plan the 10 days: build and validate a rule for each stage, log every query and its output, and keep the report going as you go"
     ],
     "milestone": "Exam-ready — schedule your CDEP exam"
   }
@@ -3365,7 +3366,7 @@ const RESOURCES = [
   },
   {
     "cat": "Official HTB: Cert & Path",
-    "note": "Start here. You have to finish the path 100% to unlock the exam. HTB hasn't published a CDEP sample report or report template yet.",
+    "note": "Start here. You have to finish the path 100% to unlock the exam.",
     "items": [
       {
         "n": "HTB Certified Detection Engineering Principal (CDEP)",
@@ -3517,6 +3518,47 @@ const RESOURCES = [
         "n": "13 · Windows Kernel Telemetry & Detection Techniques",
         "u": "https://academy.hackthebox.com/course/preview/windows-kernel-telemetry--detection-techniques",
         "note": "25 sections · Hard",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
+      }
+    ]
+  },
+  {
+    "cat": "Reporting & Exam Prep",
+    "note": "The report is graded alongside the flags, so practice the write-up, not just the detections.",
+    "items": [
+      {
+        "n": "HTB CDEP Report Template (PDF)",
+        "u": "https://docs.sysreptor.com/assets/reports/HTB-CDEP-Report.pdf",
+        "note": "HTB's official CDEP report template: every section and table your report needs",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
+      },
+      {
+        "n": "Syslifters/HackTheBox-Reporting",
+        "u": "https://github.com/Syslifters/HackTheBox-Reporting",
+        "note": "SysReptor templates, including HTB CDEP",
+        "k": "GitHub",
+        "d": "github.com"
+      },
+      {
+        "n": "SysReptor (reporting platform)",
+        "u": "https://github.com/Syslifters/sysreptor",
+        "note": "Self-hostable, or use SysReptor's HTB cloud offering",
+        "k": "GitHub",
+        "d": "github.com"
+      },
+      {
+        "n": "HTB Reporting with SysReptor",
+        "u": "https://docs.sysreptor.com/htb-reporting-with-sysreptor",
+        "note": "Free HTB cloud instance with the CDEP report design",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
+      },
+      {
+        "n": "Documentation & Reporting (HTB Academy)",
+        "u": "https://academy.hackthebox.com/course/preview/documentation--reporting",
+        "note": "Not in the path. It's built around the CPTS report, but the note-taking habits carry over",
         "k": "Official",
         "d": "academy.hackthebox.com"
       }
@@ -3702,6 +3744,15 @@ const RES_FAV = [
     "k": "Official",
     "d": "academy.hackthebox.com",
     "sec": "Official HTB: Cert & Path"
+  },
+  {
+    "slot": "Report",
+    "n": "HTB CDEP Report Template (PDF)",
+    "u": "https://docs.sysreptor.com/assets/reports/HTB-CDEP-Report.pdf",
+    "note": "HTB's official CDEP report template: every section and table your report needs",
+    "k": "Web",
+    "d": "docs.sysreptor.com",
+    "sec": "Reporting & Exam Prep"
   },
   {
     "slot": "Frameworks",
@@ -4025,7 +4076,7 @@ const PB = (function(){
 
 /* ---------- State ---------- */
 const STORE_KEY = "cdep_tracker_v2";
-const PLAN_SIG = "d9184bce5d";  // changes when days/tasks move, so saved checkmarks may shift
+const PLAN_SIG = "5eb3e4d5da";  // changes when days/tasks move, so saved checkmarks may shift
 let state = {startDate:"", done:{}, notes:{}, mode:90};
 
 /* Timeline modes: the same full curriculum, repackaged into 90 to 270 days. */

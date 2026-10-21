@@ -218,5 +218,5 @@ tags: [cdep, module]
 - *e.g. A mistake you made in a lab and what fixed it*
 
 ## Links
-- Methodology: [[00 - Investigation Flow (MOC)]]
+- Methodology: [[00 - Detection Flow (MOC)]]
 - Index: [[00 - Module Index (MOC)]]

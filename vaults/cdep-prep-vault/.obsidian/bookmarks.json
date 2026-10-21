@@ -7,12 +7,17 @@
     },
     {
       "type": "file",
-      "path": "Exam/03 - IOCs.md",
-      "title": "IOCs"
+      "path": "Exam/04 - Techniques.md",
+      "title": "Techniques"
     },
     {
       "type": "file",
-      "path": "Exam/05 - Flags.md",
+      "path": "Exam/05 - Detection Rules.md",
+      "title": "Detection Rules"
+    },
+    {
+      "type": "file",
+      "path": "Exam/07 - Flags.md",
       "title": "Flags"
     }
   ]

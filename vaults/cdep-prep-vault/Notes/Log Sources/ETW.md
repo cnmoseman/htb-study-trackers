@@ -22,7 +22,7 @@ tags: [cdep, log-source]
 - [ ] Time range it covers
 - [ ] Key event IDs or fields noted
 - [ ] Gaps and noise noted
-- [ ] Useful queries saved to [[04 - Detections|Detections]]
+- [ ] Useful queries saved to [[05 - Detection Rules|Detection Rules]]
 
 ## Red Flags
 <!-- things that usually mean a way forward -->

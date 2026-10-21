@@ -86,7 +86,7 @@
   </div></header>
   <main class="wrap">
     <p class="lead">Four free tools for the CDEP, from day one to the exam report. <b>Plan on the tracker, take your notes in the vault, practice on real boxes, and keep every study resource in one place.</b> All yours to keep.</p>
-    <p class="watch"><b>CDEP is brand new.</b> HTB hasn't published a sample report or report template for it yet, and nobody has posted exam reviews or notes. I'm watching for new CDEP resources and info, and I'll add them to the tracker and the vault as they come out. Know of something useful? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDEP&amp;where=Not+sure&amp;title=%5BResource%5D+%5BCDEP%5D+">Suggest it on GitHub &rarr;</a></p>
+    <p class="watch"><b>CDEP is brand new.</b> HTB has published its report template, and the tracker and vault follow it, but nobody has posted exam reviews or notes yet. I'm watching for new CDEP resources and info, and I'll add them to the tracker and the vault as they come out. Know of something useful? <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDEP&amp;where=Not+sure&amp;title=%5BResource%5D+%5BCDEP%5D+">Suggest it on GitHub &rarr;</a></p>
     <section class="band">
       <div class="shot"><img src="../assets/shots/cdep-tracker.webp" alt="The CDEP Study Tracker" width="1300" height="900" loading="lazy"></div>
       <div class="body">
@@ -102,7 +102,7 @@
         <div class="step">0x02 &middot; TAKE NOTES</div>
         <h2>Prep Vault</h2>
         <p>A ready-made Obsidian vault. The course notes, a methodology template and an exam-day workspace are already set up, so you can build your own workflow from day one.</p>
-        <ul><li>A note for each of the 13 modules, broken into one part per Academy section</li><li>The reporting module to practice with, until CDEP cheat sheets exist</li><li>Blank methodology phases you turn into your own workflow</li><li>An exam workspace laid out like the CDEP report</li></ul>
+        <ul><li>A note for each of the 13 modules, broken into one part per Academy section</li><li>HTB's CDEP report template and the reporting module, until CDEP cheat sheets exist</li><li>Blank methodology phases you turn into your own workflow</li><li>An exam workspace laid out like the CDEP report</li></ul>
         <div class="acts"><a class="primary" href="../vaults/cdep-prep-vault.zip" download>Download .zip</a><a class="ghost" href="https://github.com/cnmoseman/htb-study-trackers/tree/main/vaults/cdep-prep-vault">View files on GitHub</a></div>
       </div>
       <div class="shot fit" style="background:#121825"><img src="../assets/shots/cdep-vault.webp" alt="The CDEP Prep Vault open in Obsidian" width="1600" height="995" loading="lazy"></div>
@@ -121,9 +121,9 @@
       <div class="body">
         <div class="step">0x04 &middot; READ &amp; WATCH</div>
         <h2>Resources</h2>
-        <p>Every link from the CDEP tracker on one page: the official path and write-ups. Search it or browse by section.</p>
-        <ul><li>My top picks, one for each part of your prep</li><li>Search everything or filter by type: write-ups</li><li>What the CDEP costs on your timeline, plan by plan</li></ul>
-        <div class="acts"><a class="primary" href="./resources/">Open resources &rarr;</a><span class="count">38 links</span></div>
+        <p>Every link from the CDEP tracker on one page: the official path, write-ups and GitHub repos. Search it or browse by section.</p>
+        <ul><li>My top picks, one for each part of your prep</li><li>Search everything or filter by type: GitHub, write-ups</li><li>What the CDEP costs on your timeline, plan by plan</li></ul>
+        <div class="acts"><a class="primary" href="./resources/">Open resources &rarr;</a><span class="count">43 links</span></div>
       </div>
       <div class="shot art"><img src="../assets/shots/cdep-resources.webp" alt="CDEP resources" width="520" height="390" loading="lazy"></div>
     </section>
@@ -134,7 +134,7 @@
   (function () {
     var st; try { st = JSON.parse(localStorage.getItem("cdep_tracker_v2")); } catch (e) { return; }
     if (!st || !st.done || typeof st.done !== "object") return;
-    var total = 323, done = 0;
+    var total = 324, done = 0;
     for (var k in st.done) if (st.done[k] === true && /^\d+-\d+$/.test(k)) done++;
     if (!done) return;
     var b = document.getElementById("open");

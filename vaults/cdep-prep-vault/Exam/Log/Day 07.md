@@ -5,10 +5,10 @@ tags: [cdep, exam-log]
 ---
 
 ## Goals Today
-- [ ] *e.g. Confirm how the attacker got in*
+- [ ] *e.g. Validate a rule for the first technique*
 
 ## Log
-| Time | Source | What you looked at | What you found | Evidence |
+| Time | Host | Technique | Query or rule | Result |
 | --- | --- | --- | --- | --- |
 | *e.g. 09:15* |  |  |  |  |
 

@@ -37,5 +37,5 @@ tags: [cdep, module]
 -
 
 ## Links
-- Methodology: [[00 - Investigation Flow (MOC)]]
+- Methodology: [[00 - Detection Flow (MOC)]]
 - Index: [[00 - Module Index (MOC)]]

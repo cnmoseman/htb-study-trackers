@@ -3,9 +3,9 @@ tags: [cdep, exam]
 ---
 
 > [!info] Flags
-> HTB hasn't published the flag count or the pass mark. Add a row for each flag you submit.
+> HTB hasn't published the flag count or the pass mark. Each flag is the field value your validated rule returns, so log the rule next to it.
 
-| # | Host | Flag Value | Flag Location | Method Used |
+| # | Host | Technique | Detection Rule | Flag Value |
 | --- | --- | --- | --- | --- |
 | 1 | | | | |
 | 2 | | | | |

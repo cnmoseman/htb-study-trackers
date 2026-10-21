@@ -7,7 +7,7 @@ cssclasses: [cdep-hub]
 
 # Detection Flow
 
-CDEP is a 10-day master-level exam. You investigate a realistic enterprise attack chain in your own resettable lab, submit flags as you go, and write a commercial-grade report that maps each TTP to MITRE ATT&CK and lays out the detection logic you'd build, along with its limits. HTB hasn't published the pass mark.
+CDEP is a 10-day master-level exam. The breach is already contained. Your job is to build the detections that would have caught each stage, validate each one against the captured telemetry in your own resettable lab, and submit the value each validated rule returns as a flag. The commercial-grade report documents every analytic, mapped to MITRE ATT&CK, with proof that it fires. HTB hasn't published the pass mark.
 
 > [!note] Your methodology
 > Each phase is a blank you fill in. Rename `Fill in` to a step in your own workflow (renaming updates links), and add or delete phases as you need.

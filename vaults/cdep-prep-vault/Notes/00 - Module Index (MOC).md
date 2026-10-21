@@ -25,4 +25,4 @@ cssclasses: [cdep-hub]
 | 12 | [[M12 - Credential Access Tradecraft Analysis]] | 21 | Hard |
 | 13 | [[M13 - Windows Kernel Telemetry & Detection Techniques]] | 25 | Hard |
 
-[[Home]] | [[00 - Investigation Flow (MOC)]]
+[[Home]] | [[00 - Detection Flow (MOC)]]

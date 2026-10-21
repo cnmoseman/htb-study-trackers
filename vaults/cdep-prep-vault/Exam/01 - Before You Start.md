@@ -3,11 +3,13 @@ tags: [cdep, exam]
 ---
 
 ## Setup
-- [ ] VPN connects and you can open the SIEM
+- [ ] VPN connects and you can open Splunk
 - [ ] Screenshot tool ready (Flameshot or similar), saving into `Assets/`
-- [ ] Screenshot names picked, like `inv1-04-script-host.png` (item, step, what it shows), so you can find each one when you write the report
-- [ ] Somewhere to save every query and its results
-- [ ] Report template downloaded from the exam (there's no public sample yet)
+- [ ] Screenshot names picked, like `ws01-t1197-rule1-fires.png` (item, step, what it shows), so you can find each one when you write the report
+- [ ] Somewhere to save every query, its results and the proof it fired
+- [ ] Report started from the HTB CDEP template in SysReptor
+- [ ] ATT&CK Navigator open with a new layer to fill as you go. The report attaches it as a JSON file
+- [ ] WinDbg ready, for any trace files you analyze
 - [ ] Backup of this vault set up somewhere private
 
 ## Read

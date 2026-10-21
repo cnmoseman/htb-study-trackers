@@ -10,17 +10,17 @@ cssclasses: [cdep-hub]
 Certified Detection Engineering Principal. This vault holds your methodology, module notes and exam workspace. Open this folder as an Obsidian vault (**Open folder as vault**).
 
 > [!abstract] The exam
-> CDEP is a 10-day master-level exam. You investigate a realistic enterprise attack chain in your own resettable lab, submit flags as you go, and write a commercial-grade report that maps each TTP to MITRE ATT&CK and lays out the detection logic you'd build, along with its limits. HTB hasn't published the pass mark.
+> CDEP is a 10-day master-level exam. The breach is already contained. Your job is to build the detections that would have caught each stage, validate each one against the captured telemetry in your own resettable lab, and submit the value each validated rule returns as a flag. The commercial-grade report documents every analytic, mapped to MITRE ATT&CK, with proof that it fires. HTB hasn't published the pass mark.
 
 Four parts:
 
-- **[[00 - Investigation Flow (MOC)]]**: your methodology, as numbered blank phases that you name and fill in your own way.
+- **[[00 - Detection Flow (MOC)]]**: your methodology, as numbered blank phases that you name and fill in your own way.
 - **[[00 - Module Index (MOC)]]**: your notes, one per Academy module, in course order. Your methodology links back to these.
-- **[[00 - Exam (MOC)]]**: your exam workspace, with investigations, detections, IOCs, flags and a log for each day, laid out like the report.
+- **[[00 - Exam (MOC)]]**: your exam workspace, with hosts, data sources, techniques, detection rules, the storyline, flags and a log for each day, laid out like the report.
 - **[CDEP Study Tracker](https://cnmoseman.github.io/htb-study-trackers/cdep/tracker/)**: the day-by-day study plan for this cert. Check off tasks there as you go.
 
 > [!warning] Read this first
-> CDEP launched in October 2026 and nobody has published an exam write-up yet. For every technique in the path, write down the telemetry it leaves and how you'd detect it, and log every query during the exam so the report has its evidence ready.
+> Nobody has published a CDEP exam write-up yet, but HTB's report template is out. For each technique in the path, practice the write-up it asks for: how the behavior works, its ATT&CK mapping, where its detections sit on the Summiting the Pyramid tables, and an SPL rule with proof it fires.
 
 > [!tip] Do the reporting module
 > Do the [Documentation & Reporting](https://academy.hackthebox.com/course/preview/documentation--reporting) module from the Penetration Tester path before your exam, even though it isn't in the CDEP path. It shows you how to take notes during an engagement and turn them into the kind of report HTB grades. It's built around the CPTS report, so it won't match the CDEP report one for one. Take the general tips and good habits from it and apply them to the CDEP report template.
@@ -35,7 +35,7 @@ Four parts:
 
 ## Command sources
 Nobody has published CDEP cheat sheets yet. I'm watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+vault+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).
-- Reporting: HTB hasn't published a CDEP report template yet. Practice with the [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
+- Reporting: [HTB CDEP report template](https://docs.sysreptor.com/assets/reports/HTB-CDEP-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---
 <span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/) · [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&cert=CDEP&where=Prep+vault&title=%5BProblem%5D+%5BCDEP%5D+)
