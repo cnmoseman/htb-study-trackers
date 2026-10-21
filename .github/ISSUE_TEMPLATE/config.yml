@@ -2,4 +2,4 @@ blank_issues_enabled: true
 contact_links:
   - name: Open the site
     url: https://cnmoseman.github.io/htb-study-trackers/
-    about: A study tracker and an Obsidian prep vault for each of the nine certs.
+    about: A study tracker and prep notes (Obsidian, Notion or CherryTree) for each of the nine certs.

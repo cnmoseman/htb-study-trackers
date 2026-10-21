@@ -12,13 +12,13 @@
 <link rel="canonical" href="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:url" content="https://cnmoseman.github.io/htb-study-trackers/faq/">
 <meta property="og:title" content="Study Trackers FAQ">
-<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers, vaults, practice boxes and resources pages work, what the HTB terms mean, and how to set up your notes, methodology and report.">
+<meta property="og:description" content="Answers for people new to Hack The Box: how the trackers, prep notes, practice boxes and resources pages work, what the HTB terms mean, and how to set up your notes, methodology and report.">
 <meta property="og:image" content="https://cnmoseman.github.io/htb-study-trackers/assets/share/faq-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="New here? Start with this. A beginner FAQ for the HTB study trackers, shown with the cert badges.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers, vaults, practice boxes and resources pages work, HTB terms, Obsidian notes, building a methodology and reporting.">
+<meta name="description" content="Beginner FAQ for the HTB study trackers: how the trackers, prep notes, practice boxes and resources pages work, HTB terms, note-taking apps, building a methodology and reporting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Saira:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -83,7 +83,7 @@
   <header class="hero">
     <div class="bar"><a href="../">&larr; STUDY TRACKERS</a><span>FAQ</span></div>
     <h1>New here?<br>Start with this.</h1>
-    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers, prep vaults, practice boxes and resources pages work, what the HTB words mean, and how to set up your notes.</p>
+    <p>Plain answers for people starting out on Hack The Box, especially if this is your first cert. How the trackers, prep notes, practice boxes and resources pages work, what the HTB words mean, and how to set up your notes.</p>
   </header>
 
   <main class="wrap">
@@ -91,7 +91,7 @@
       <input id="q" type="search" placeholder="Search the FAQ" aria-label="Search the FAQ" autocomplete="off">
       <nav class="tabs" aria-label="Sections">
         <button data-s="all" class="on">All</button>
-        <button data-s="trackers">Trackers, vaults, boxes &amp; resources</button>
+        <button data-s="trackers">Trackers, notes, boxes &amp; resources</button>
         <button data-s="htb">HTB basics</button>
         <button data-s="setup">Your setup</button>
         <button data-s="notes">Notes &amp; reports</button>
@@ -100,29 +100,30 @@
     <p id="none" hidden>No questions match that. Try another word.</p>
 
     <section id="trackers">
-      <h2>TRACKERS, VAULTS, BOXES &amp; RESOURCES</h2>
+      <h2>TRACKERS, NOTES, BOXES &amp; RESOURCES</h2>
 
       <details>
         <summary>What is a study tracker?</summary>
         <div class="a">
           <p>It's a day-by-day plan for one HTB certification. Every module in the cert's job-role path is split into daily tasks, in the order you should study them, with practice, review days and exam prep mixed in. You check tasks off as you go, and the dashboard shows how far along you are and whether you're on pace.</p>
           <p>Each tracker also has a Resources tab (videos, exam reviews, notes, tools and tips from people who passed) and an About tab explaining how the cert and exam work.</p>
-          <p>Every cert has its own page on this site with four things on it: the tracker, a matching prep vault for your notes, a list of practice boxes (see the next two questions), and a Resources page with every study link in one place, plus my top picks and what the cert costs.</p>
+          <p>Every cert has its own page on this site with four things on it: the tracker, matching prep notes for Obsidian, Notion or CherryTree, a list of practice boxes (see the next two questions), and a Resources page with every study link in one place, plus my top picks and what the cert costs.</p>
         </div>
       </details>
 
-      <details>
-        <summary>What is a prep vault?</summary>
+      <details id="prep-notes">
+        <summary>What are the prep notes?</summary>
         <div class="a">
-          <p>It's a ready-made <strong>Obsidian</strong> vault for one cert, and it's the notes half of the kit. You'll find it on each cert's page next to the tracker. Inside:</p>
+          <p>They're the notes half of the kit: a ready-made notes setup for one cert, in the app you already use. Each cert's page links to its Notes page, where you pick <strong>Obsidian</strong>, <strong>Notion</strong> or <strong>CherryTree</strong>. All three have the same notes inside:</p>
           <ul>
-            <li>A <strong>Methodology</strong> folder with ten blank, numbered phases. You rename them to the steps of your own workflow and fill them in as you learn.</li>
+            <li>A <strong>Methodology</strong> section with ten blank, numbered phases. You rename them to the steps of your own workflow and fill them in as you learn.</li>
             <li>A note for every Academy module in the cert's path, in course order. Each is split into one part per section, ready for your commands and screenshots.</li>
-            <li>An <strong>Exam</strong> folder for exam days: targets, credentials, findings, flags and a log for each day, laid out to match the cert's report so the report half-writes itself.</li>
+            <li>An <strong>Exam</strong> section for exam days: targets, credentials, findings, flags and a log for each day, laid out to match the cert's report so the report half-writes itself.</li>
             <li>Links to community cheat sheets for that cert, plus reporting prep: the cert's SysReptor template and the reporting module.</li>
           </ul>
-          <p>To use one, download the zip from the cert's page, unzip it, and in Obsidian choose <strong>Open folder as vault</strong>. It only uses Obsidian's built-in features, so you don't need any plugins. If you'd like to look inside first, the <strong>View files on GitHub</strong> link shows every note.</p>
-          <p>Once you start writing in it, the vault is yours. Later updates on this site won't touch your copy, so back up the folder like any other (a cloud drive or Git works).</p>
+          <p>Getting them depends on the app. For Obsidian, download the zip, unzip it and choose <strong>Open folder as vault</strong>. It only uses Obsidian's built-in features, so you don't need any plugins. For Notion, open the template and click <strong>Duplicate</strong> to copy it into your workspace (you'll need a free Notion account). For CherryTree, download the .ctd file and open it with <strong>File &rarr; Open</strong>. CherryTree comes with Kali, so you may already have it.</p>
+          <p>All three work offline once you have your copy. In Notion that means the desktop or mobile app, after you mark the pages <strong>Available offline</strong>. If you'd like to look inside first, every Obsidian note is <a href="https://github.com/cnmoseman/htb-study-trackers/tree/main/vaults">on GitHub</a>.</p>
+          <p>Once you start writing, your copy is yours. Later updates on this site won't touch it. Back up the Obsidian folder or the .ctd file like any other file (a cloud drive or Git works). Notion keeps your copy in your workspace.</p>
         </div>
       </details>
 
@@ -225,7 +226,7 @@
       <details>
         <summary>A link is broken, or I know a great resource. Who do I tell?</summary>
         <div class="a">
-          <p>Use <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=FAQ&amp;title=%5BProblem%5D+">Report a problem</a> on GitHub. Both work for the trackers, the prep vaults and the practice boxes. You'll need a free GitHub account.</p>
+          <p>Use <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=Not+cert-specific&amp;where=Not+sure&amp;title=%5BResource%5D+">Suggest a resource</a> or <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=Not+cert-specific&amp;where=FAQ&amp;title=%5BProblem%5D+">Report a problem</a> on GitHub. Both work for the trackers, the prep notes and the practice boxes. You'll need a free GitHub account.</p>
         </div>
       </details>
     </section>
@@ -363,7 +364,7 @@
       <details>
         <summary>Which note-taking app should I choose?</summary>
         <div class="a">
-          <p>The popular ones for this kind of study are Obsidian, Joplin, CherryTree and Notion. They all work, and the best one is the one you'll actually keep using. TCM Security's <a href="https://www.youtube.com/watch?v=KpX7v5Ym3wg">The BEST Notetaking Apps Ranked</a> (9 minutes) compares them with pros and cons for each.</p>
+          <p>The popular ones for this kind of study are Obsidian, Joplin, CherryTree and Notion. They all work, and the best one is the one you'll actually keep using. The prep notes on this site come for three of them (Obsidian, Notion and CherryTree), so you can start with whichever you pick. TCM Security's <a href="https://www.youtube.com/watch?v=KpX7v5Ym3wg">The BEST Notetaking Apps Ranked</a> (9 minutes) compares them with pros and cons for each.</p>
           <p>Personally, I use Obsidian. It's free, the notes are plain text files you own, and it handles code blocks and screenshots well. That's why the next answer walks through setting it up.</p>
         </div>
       </details>
@@ -372,7 +373,7 @@
         <summary>How do I set up Obsidian?</summary>
         <div class="a">
           <p><strong>Obsidian</strong> is a free note-taking app. Your notes are plain Markdown text files in a normal folder on your computer, so they're never locked inside an app.</p>
-          <p>The quickest start is the prep vault for your cert. Install Obsidian, download the vault from the cert's page, unzip it and choose <strong>Open folder as vault</strong>. It's already set up with the folders, module notes and screenshot settings below. If you'd rather build your own from scratch, here's how:</p>
+          <p>The quickest start is your cert's prep notes. Install Obsidian, download the zip from the cert's Notes page, unzip it and choose <strong>Open folder as vault</strong>. It's already set up with the folders, module notes and screenshot settings below. If you'd rather build your own from scratch, here's how:</p>
           <ol>
             <li>Download it from <a href="https://obsidian.md">obsidian.md</a> and install it.</li>
             <li>Choose <strong>Create new vault</strong>. A vault is just the folder your notes live in. Name it after the cert, like <code>CJCA</code>.</li>
@@ -395,7 +396,7 @@
             <li>A table of the commands, with what each one does.</li>
             <li>What to look for in the output, plus the next step.</li>
           </ul>
-          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study: when you finish a module, copy the commands that worked from your notes into the right page. Most HTB Academy modules also have a <strong>Cheat Sheet</strong> button above the table of contents, a PDF of the module's commands, which helps when you write your notes. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module. The prep vaults leave their Methodology folder blank for this reason, so you can build it your own way.</p>
+          <p>For example, a page called <code>SMB</code> might list how to find shares, connect to them, and what to try if anonymous login works. Build it as you study: when you finish a module, copy the commands that worked from your notes into the right page. Most HTB Academy modules also have a <strong>Cheat Sheet</strong> button above the table of contents, a PDF of the module's commands, which helps when you write your notes. By exam day, any technique should be one lookup away. It works for any cert, and it's worth starting with your very first module. The prep notes leave their Methodology section blank for this reason, so you can build it your own way.</p>
           <p>If you use Obsidian, <a href="https://github.com/blue-pho3nix/pentesting_templates_obsidian">blue-pho3nix/pentesting_templates_obsidian</a> is a good template to start from. It's a set of Obsidian templates organized the same way, by phase and then one page per service or technique (it even has an SMB page). Its README walks you through setup: copy the templates into your vault, turn on the free Templater community plugin, and insert a template with <code>Alt+E</code>. It was built for CPTS and OSCP prep, so treat it as a structure to copy and fill with the commands you learn in your own path.</p>
         </div>
       </details>

@@ -1,8 +1,8 @@
 # Study Trackers
 
-![Pick a cert. Get the kit.](assets/share/home-v4.png)
+![Pick a cert. Get the kit.](assets/share/home-v5.png)
 
-Study trackers, Obsidian prep vaults, practice boxes and resources for Hack The Box certifications. Each cert gets four things: a day-by-day study plan you check off as you go, a ready-made Obsidian vault for your notes, a list of HTB Labs boxes to practice on, and a page with every study resource in one place.
+Study trackers, prep notes for Obsidian, Notion and CherryTree, practice boxes and resources for Hack The Box certifications. Each cert gets four things: a day-by-day study plan you check off as you go, ready-made notes for Obsidian, Notion or CherryTree, a list of HTB Labs boxes to practice on, and a page with every study resource in one place.
 
 **Open the site: https://cnmoseman.github.io/htb-study-trackers/**
 
@@ -21,19 +21,19 @@ The [cert picker](https://cnmoseman.github.io/htb-study-trackers/picker/) asks f
 
 ## The certs
 
-Each cert's page has its tracker, its prep vault, its practice boxes and its resources.
+Each cert's page has its tracker, its prep notes, its practice boxes and its resources.
 
-| Cert | Name | Path | Timelines | Practice | Resources |
-|---|---|---|---|---|---|
-| [CJCA](https://cnmoseman.github.io/htb-study-trackers/cjca/) | Certified Junior Cybersecurity Associate | 20 modules, 5-day exam | 25 to 130 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cjca/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cjca/resources/) |
-| [CPTS](https://cnmoseman.github.io/htb-study-trackers/cpts/) | Certified Penetration Testing Specialist | 28 modules, 10-day exam | 65 to 315 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cpts/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cpts/resources/) |
-| [CWES](https://cnmoseman.github.io/htb-study-trackers/cwes/) | Certified Web Exploitation Specialist | 20 modules, 7-day exam | 30 to 150 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cwes/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cwes/resources/) |
-| [CDSA](https://cnmoseman.github.io/htb-study-trackers/cdsa/) | Certified Defensive Security Analyst | 15 modules, 7-day exam | 30 to 155 days | [Sherlocks](https://cnmoseman.github.io/htb-study-trackers/cdsa/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cdsa/resources/) |
-| [CWEE](https://cnmoseman.github.io/htb-study-trackers/cwee/) | Certified Web Exploitation Expert | 15 modules, 10-day exam | 35 to 180 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cwee/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cwee/resources/) |
-| [CAPE](https://cnmoseman.github.io/htb-study-trackers/cape/) | Certified Active Directory Pentesting Expert | 15 modules, 10-day exam | 45 to 225 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cape/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cape/resources/) |
-| [CWPE](https://cnmoseman.github.io/htb-study-trackers/cwpe/) | Certified Wi-Fi Pentesting Expert | 10 modules, 7-day exam | 25 to 120 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cwpe/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cwpe/resources/) |
-| [COAE](https://cnmoseman.github.io/htb-study-trackers/coae/) | Certified Offensive AI Expert | 12 modules, 7-day exam | 30 to 140 days | [Boxes](https://cnmoseman.github.io/htb-study-trackers/coae/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/coae/resources/) |
-| [CDEP](https://cnmoseman.github.io/htb-study-trackers/cdep/) | Certified Detection Engineering Principal | 13 modules, 10-day exam | 90 to 270 days | [Sherlocks](https://cnmoseman.github.io/htb-study-trackers/cdep/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cdep/resources/) |
+| Cert | Name | Path | Timelines | Notes | Practice | Resources |
+|---|---|---|---|---|---|---|
+| [CJCA](https://cnmoseman.github.io/htb-study-trackers/cjca/) | Certified Junior Cybersecurity Associate | 20 modules, 5-day exam | 25 to 130 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cjca/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cjca/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cjca/resources/) |
+| [CPTS](https://cnmoseman.github.io/htb-study-trackers/cpts/) | Certified Penetration Testing Specialist | 28 modules, 10-day exam | 65 to 315 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cpts/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cpts/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cpts/resources/) |
+| [CWES](https://cnmoseman.github.io/htb-study-trackers/cwes/) | Certified Web Exploitation Specialist | 20 modules, 7-day exam | 30 to 150 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cwes/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cwes/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cwes/resources/) |
+| [CDSA](https://cnmoseman.github.io/htb-study-trackers/cdsa/) | Certified Defensive Security Analyst | 15 modules, 7-day exam | 30 to 155 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cdsa/notes/) | [Sherlocks](https://cnmoseman.github.io/htb-study-trackers/cdsa/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cdsa/resources/) |
+| [CWEE](https://cnmoseman.github.io/htb-study-trackers/cwee/) | Certified Web Exploitation Expert | 15 modules, 10-day exam | 35 to 180 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cwee/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cwee/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cwee/resources/) |
+| [CAPE](https://cnmoseman.github.io/htb-study-trackers/cape/) | Certified Active Directory Pentesting Expert | 15 modules, 10-day exam | 45 to 225 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cape/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cape/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cape/resources/) |
+| [CWPE](https://cnmoseman.github.io/htb-study-trackers/cwpe/) | Certified Wi-Fi Pentesting Expert | 10 modules, 7-day exam | 25 to 120 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cwpe/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/cwpe/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cwpe/resources/) |
+| [COAE](https://cnmoseman.github.io/htb-study-trackers/coae/) | Certified Offensive AI Expert | 12 modules, 7-day exam | 30 to 140 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/coae/notes/) | [Boxes](https://cnmoseman.github.io/htb-study-trackers/coae/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/coae/resources/) |
+| [CDEP](https://cnmoseman.github.io/htb-study-trackers/cdep/) | Certified Detection Engineering Principal | 13 modules, 10-day exam | 90 to 270 days | [Notes](https://cnmoseman.github.io/htb-study-trackers/cdep/notes/) | [Sherlocks](https://cnmoseman.github.io/htb-study-trackers/cdep/practice/) | [Links](https://cnmoseman.github.io/htb-study-trackers/cdep/resources/) |
 
 ## Study trackers
 
@@ -52,17 +52,18 @@ The trackers all work the same way, whichever cert you pick.
 - The site's home page shows a progress ring on each tracker you've started, so you can pick up where you left off.
 - Each tracker is a single HTML file with its fonts and images built in, so it works offline.
 
-## Obsidian prep vaults
+## Prep notes
 
-![The CPTS prep vault open in Obsidian](assets/shots/cpts-vault.webp)
+![The CPTS notes open in Obsidian, CherryTree and Notion](assets/shots/cpts-notes.webp)
 
-Every cert also has a prep vault: a ready-made Obsidian vault you download as a zip, unzip, and open with **Open folder as vault**.
+Every cert also has prep notes in three apps. Pick the one you use: an Obsidian vault you download as a zip, a Notion template you duplicate into your workspace, or a CherryTree file (.ctd). All three hold the same notes.
 
 - A note for each module in the cert's path, in course order, split into one part per Academy section.
 - An exam-day workspace (targets, credentials, findings, flags and a daily log) laid out to match the cert's report.
 - Blank methodology phases you rename and fill in as your own workflow.
 - Links to tested community cheat sheets for the cert, plus the cert's SysReptor report template.
-- It only uses Obsidian's built-in features, so you don't need any plugins. You can browse every vault in [vaults/](vaults/) before downloading.
+- The Obsidian vault only uses built-in features, so you don't need any plugins. You can browse every vault in [vaults/](vaults/) before downloading.
+- All three work offline once you have your copy. Notion works offline in its desktop or mobile app, after you mark the pages **Available offline**.
 
 ## Practice boxes
 
@@ -89,7 +90,7 @@ Every cert also has a Resources page with every study resource in one place: the
 
 ## How to use
 
-Open the [site](https://cnmoseman.github.io/htb-study-trackers/) and pick your cert. Not sure which one? Take the [cert picker](https://cnmoseman.github.io/htb-study-trackers/picker/) first. Each cert's page has the tracker, the prep vault, the practice boxes and the resources.
+Open the [site](https://cnmoseman.github.io/htb-study-trackers/) and pick your cert. Not sure which one? Take the [cert picker](https://cnmoseman.github.io/htb-study-trackers/picker/) first. Each cert's page has the tracker, the prep notes, the practice boxes and the resources.
 
 ### Study tracker
 
@@ -98,19 +99,20 @@ Open the [site](https://cnmoseman.github.io/htb-study-trackers/) and pick your c
 3. Check off tasks as you finish them. A day is done when all of its tasks are.
 4. Use **Export backup** now and then to save your progress. **Import** puts it back, on the same device or a new one.
 
-### Prep vault
+### Prep notes
 
-1. Install [Obsidian](https://obsidian.md) (free).
-2. On your cert's page, click **Download .zip** and unzip it. Some unzip tools add an extra folder around it. The one you want is `<CERT>-Prep-Vault`, with `Home.md` inside.
-3. In Obsidian, choose **Open folder as vault** and pick that folder. If you already have a vault open, you'll find this option in the vault switcher.
-4. Start on **Home**. Rename the methodology phases to fit how you work, and fill in each module's note as you finish it.
+1. On your cert's page, click **Choose your app** to open its Notes page.
+2. For Obsidian, install [Obsidian](https://obsidian.md) (free), click **Download .zip** and unzip it. Some unzip tools add an extra folder around it. The one you want is `<CERT>-Prep-Vault`, with `Home.md` inside. Then choose **Open folder as vault** and pick that folder. If you already have a vault open, you'll find this option in the vault switcher.
+3. For Notion, click **Duplicate to Notion**, then **Duplicate** at the top right, and pick your workspace. You'll need a free [Notion](https://www.notion.com) account.
+4. For CherryTree, install [CherryTree](https://www.giuspen.net/cherrytree/) (free, and already on Kali), click **Download .ctd**, then open it with **File › Open**.
+5. Start at the top page (**Home** in Obsidian). Rename the methodology phases to fit how you work, and fill in each module's note as you finish it.
 
 ### Practice boxes
 
 1. On your cert's page, click **Open practice boxes**, or use the **Practice Boxes** tab in the tracker.
 2. Start with the first group. Open a box to see the modules it practices and its walkthroughs.
 3. Tick each box off when you solve it. Try it before you read the walkthrough.
-4. Write a short mock report for the boxes you finish, in SysReptor or your vault.
+4. Write a short mock report for the boxes you finish, in SysReptor or your notes.
 
 ### Resources
 
@@ -136,7 +138,7 @@ The practice boxes, and some tracker resources, point you to HTB Labs. Retired m
 
 ## Suggest a resource
 
-Found a write-up, video, or practice box that helped you, or a box that belongs on a cert's list? [Suggest it here](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml). Spotted a wrong module, a dead link or an odd cert picker result? [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml). I read every submission before anything goes into a tracker, a prep vault or a practice list.
+Found a write-up, video, or practice box that helped you, or a box that belongs on a cert's list? [Suggest it here](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml). Spotted a wrong module, a dead link or an odd cert picker result? [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml). I read every submission before anything goes into a tracker, the prep notes or a practice list.
 
 ## Credits
 

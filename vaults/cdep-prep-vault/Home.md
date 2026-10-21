@@ -34,8 +34,8 @@ Four parts:
 6. On exam day, start at [[00 - Exam (MOC)]] and work from your methodology. The exam notes are bookmarked on the left. `Ctrl+click` any `[[link]]` to open the note behind it.
 
 ## Command sources
-Nobody has published CDEP cheat sheets yet. I'm watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+vault+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).
+Nobody has published CDEP cheat sheets yet. I'm watching for them and will add them here as they come out. Know of one? [Suggest it on GitHub](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&cert=CDEP&where=Prep+notes+%28command+sources%29&title=%5BResource%5D+%5BCDEP%5D+).
 - Reporting: [HTB CDEP report template](https://docs.sysreptor.com/assets/reports/HTB-CDEP-Report.pdf) + [Documentation & Reporting module](https://academy.hackthebox.com/course/preview/documentation--reporting)
 
 ---
-<span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/) · [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&cert=CDEP&where=Prep+vault&title=%5BProblem%5D+%5BCDEP%5D+)
+<span style="color: var(--text-faint)">Made by</span> [cnmoseman](https://github.com/cnmoseman) · [All HTB Study Trackers](https://cnmoseman.github.io/htb-study-trackers/) · [Report a problem](https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&cert=CDEP&where=Prep+notes&title=%5BProblem%5D+%5BCDEP%5D+)

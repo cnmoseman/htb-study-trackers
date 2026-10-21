@@ -1,5 +1,5 @@
 name: Report a problem
-description: A wrong module, a dead link, a typo, or something broken in a tracker, a prep vault, or the site.
+description: A wrong module, a dead link, a typo, or something broken in a tracker, the prep notes, or the site.
 title: "[Problem] "
 labels: ["problem"]
 body:
@@ -14,7 +14,7 @@ body:
     id: where
     attributes:
       label: Where
-      options: [Study tracker, Practice boxes, Resources page, Prep vault, Cert page, Cert picker, Landing page, FAQ, Other]
+      options: [Study tracker, Practice boxes, Resources page, Prep notes, Notes page, Cert page, Cert picker, Landing page, FAQ, Other]
     validations:
       required: true
   - type: textarea
@@ -32,5 +32,5 @@ body:
   - type: input
     id: obsidian
     attributes:
-      label: Obsidian version and OS (for prep vault problems)
-      placeholder: Obsidian 1.8 on Windows
+      label: App, version and OS (for prep notes problems)
+      placeholder: Obsidian 1.8 on Windows, Notion in Chrome, CherryTree 1.2 on Kali

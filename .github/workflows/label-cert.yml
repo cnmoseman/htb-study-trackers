@@ -1,4 +1,4 @@
-# When an issue form is opened, adds its cert label (e.g. "cwes"), plus "vault" for prep vault issues.
+# When an issue form is opened, adds its cert label (e.g. "cwes"), plus "vault" for prep notes issues (forms said "Prep vault" before 2026-10).
 name: Label issues
 on:
   issues:
@@ -19,7 +19,7 @@ jobs:
             const c = field("Cert").toLowerCase();
             const labels = certs.includes(c) ? [c] : [];
             // suggest form: "Where should it go"; problem form: "Where" (required, so the form's own field matches first)
-            if ((field("Where should it go") || field("Where")).startsWith("Prep vault")) labels.push("vault");
+            if ((field("Where should it go") || field("Where")).startsWith("Prep ")) labels.push("vault");
             if (labels.length) {
               await github.rest.issues.addLabels({...context.repo, issue_number: context.payload.issue.number, labels});
             }

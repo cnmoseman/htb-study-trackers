@@ -5,7 +5,7 @@ labels: ["resource"]
 body:
   - type: markdown
     attributes:
-      value: Thanks for sharing. I review every suggestion before it goes into a tracker or a prep vault.
+      value: Thanks for sharing. I review every suggestion before it goes into a tracker or the prep notes.
   - type: dropdown
     id: cert
     attributes:
@@ -17,8 +17,8 @@ body:
     id: where
     attributes:
       label: Where should it go
-      description: Prep vaults only list command and payload cheat sheets. HTB Labs boxes go in Practice boxes. Everything else goes in the tracker's Resources tab.
-      options: [Study tracker (resources), Practice boxes, Prep vault (command sources), Not sure]
+      description: Prep notes only list command and payload cheat sheets. HTB Labs boxes go in Practice boxes. Everything else goes in the tracker's Resources tab.
+      options: [Study tracker (resources), Practice boxes, Prep notes (command sources), Not sure]
     validations:
       required: true
   - type: dropdown
