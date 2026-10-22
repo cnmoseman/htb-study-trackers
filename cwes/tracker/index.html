@@ -434,6 +434,7 @@
   .share .plats .btn{text-align:center;text-decoration:none;font-weight:700}
   .share .shnote{font-size:12px;color:var(--faint)}
   .share .shnote.ok{color:var(--green)}
+  .share .mf #shPassed{margin-right:auto}
   @media(max-width:520px){.share .plats{grid-template-columns:1fr 1fr}}
   .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;display:flex;gap:14px;align-items:center;padding:10px 12px 10px 16px;background:var(--card2);border:1px solid var(--line);border-radius:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.5);transition:opacity .2s,transform .2s;z-index:50}
   .toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
@@ -603,7 +604,7 @@
       </div>
       <p class="shnote" id="shNote" role="status">LinkedIn and Discord can't take pre-filled text, so those copy it for you to paste.</p>
     </div>
-    <div class="mf"><button class="btn" value="cancel">Close</button></div>
+    <div class="mf"><button type="button" class="btn" id="shPassed">I passed the exam</button><button class="btn" value="cancel">Close</button></div>
   </form></dialog>
   <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo">Undo</button></div>
 
@@ -4300,6 +4301,18 @@ function backdropClose(dlg){
   // live site only (localhost for testing); downloaded copies don't get the button
   if (!["cnmoseman.github.io", "localhost"].includes(location.hostname)) { $("shareBtn").remove(); return; }
   $("shareBtn").onclick = open;
+  // "I passed" card lives in a shared script on the site
+  let passedLoading = false;
+  $("shPassed").onclick = () => {
+    const days = computeStats().doneDays, go = () => { $("shareDlg").close(); HTBPassed.open("cwes", {days}); };
+    if (window.HTBPassed) return go();
+    if (passedLoading) return;  // one script tag, even on a double click
+    passedLoading = true; note("Loading your card...");
+    const s = document.createElement("script"); s.src = "../../assets/js/passed.js?v=1";
+    s.onload = () => { passedLoading = false; if ($("shareDlg").open) go(); };  // not if they closed the dialog meanwhile
+    s.onerror = () => { passedLoading = false; s.remove(); note("Couldn't load the I passed card. Check your connection and try again."); };
+    document.head.appendChild(s);
+  };
 })();
 </script>
 </body>

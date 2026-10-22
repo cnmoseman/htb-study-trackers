@@ -32,7 +32,8 @@
   /* content-height header, matched to the practice-boxes page header; only the landing hero stays 360px */
   .top .hwrap{padding:20px 40px 30px;display:flex;flex-direction:column}
   .bar{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;align-items:center;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.09em}
-  .bar a,.bar .dot{color:var(--ink);opacity:.8}.bar a:hover{opacity:1;color:var(--ink)}
+  .bar a,.bar .dot,.bar button{color:var(--ink);opacity:.8}.bar a:hover,.bar button:hover{opacity:1;color:var(--ink)}
+  .bar button{background:none;border:0;padding:0;font:inherit;letter-spacing:inherit;cursor:pointer}
   .chead{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:0;padding-top:22px}
   .chead img{flex:0 0 auto;filter:drop-shadow(0 10px 28px rgba(0,0,0,.4))}
   .chead h1{font:700 clamp(44px,7.5vw,76px)/.98 "Chakra Petch",sans-serif;letter-spacing:-.045em;margin:0}
@@ -81,7 +82,7 @@
 </head>
 <body>
   <header class="top"><div class="hwrap">
-    <div class="bar"><a href="../">&larr; ALL CERTS</a><span><a href="../picker/">CERT PICKER</a> <span class="dot">&middot;</span> <a href="../faq/">FAQ</a></span></div>
+    <div class="bar"><a href="../">&larr; ALL CERTS</a><span><button type="button" id="passed">I PASSED</button> <span class="dot">&middot;</span> <a href="../picker/">CERT PICKER</a> <span class="dot">&middot;</span> <a href="../faq/">FAQ</a></span></div>
     <div class="chead">
       <div><h1>CDEP</h1><div class="name">Certified Detection Engineering Principal</div></div>
       <img src="../assets/badges/cdep.png" alt="CDEP badge" width="104" height="104">
@@ -134,7 +135,11 @@
     </section>
     <footer>Independent study aids, not affiliated with or endorsed by Hack The Box &middot; <a href="../">All certs</a> &middot; <a href="../picker/">Cert picker</a> &middot; <a href="../faq/">FAQ</a> &middot; <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=suggest-resource.yml&amp;cert=CDEP&amp;where=Not+sure&amp;title=%5BResource%5D+%5BCDEP%5D+">Suggest a resource</a> &middot; <a href="https://github.com/cnmoseman/htb-study-trackers/issues/new?template=report-problem.yml&amp;cert=CDEP&amp;where=Cert+page&amp;title=%5BProblem%5D+%5BCDEP%5D+">Report a problem</a></footer>
   </main>
+<script src="../assets/js/passed.js?v=1"></script>
 <script>
+  document.getElementById("passed").onclick = function () {
+    if (window.HTBPassed) HTBPassed.open("cdep"); else alert("Couldn't load the I passed card. Check your connection and reload the page.");
+  };
   /* returning users: show tracker progress on the button (same storage the tracker uses) */
   (function () {
     var st; try { st = JSON.parse(localStorage.getItem("cdep_tracker_v2")); } catch (e) { return; }
