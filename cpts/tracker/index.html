@@ -6248,7 +6248,7 @@ function backdropClose(dlg){
     if (window.HTBPassed) return go();
     if (passedLoading) return;  // one script tag, even on a double click
     passedLoading = true; note("Loading your card...");
-    const s = document.createElement("script"); s.src = "../../assets/js/passed.js?v=1";
+    const s = document.createElement("script"); s.src = "../../assets/js/passed.js?v=2";
     s.onload = () => { passedLoading = false; if ($("shareDlg").open) go(); };  // not if they closed the dialog meanwhile
     s.onerror = () => { passedLoading = false; s.remove(); note("Couldn't load the I passed card. Check your connection and try again."); };
     document.head.appendChild(s);

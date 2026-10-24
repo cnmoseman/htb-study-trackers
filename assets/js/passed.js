@@ -1,8 +1,8 @@
 /* "I passed" card: dialog + canvas renderer, shared by the cert hubs and trackers.
    Built by passed_cards.py into assets/js/passed.js (CERTS filled in there). */
 (function(){
-  const CERTS = {"cape":{"code":"CAPE","name":"Certified Active Directory Pentesting Expert","acc":"#e436b4","kick":"#e436b4","txt":"#eef1f8","muted":"#a8b4c6","on":"#fff"},"cdep":{"code":"CDEP","name":"Certified Detection Engineering Principal","acc":"#00eafc","kick":"#00eafc","txt":"#eef1f8","muted":"#a2aecc","on":"#0d1320"},"cdsa":{"code":"CDSA","name":"Certified Defensive Security Analyst","acc":"#00eafc","kick":"#00eafc","txt":"#eef1f8","muted":"#a8bad8","on":"#0d1320"},"cjca":{"code":"CJCA","name":"Certified Junior Cybersecurity Associate","acc":"#2f95ff","kick":"#ff3e3e","txt":"#f4f4f4","muted":"#b6bfcf","on":"#fff"},"coae":{"code":"COAE","name":"Certified Offensive AI Expert","acc":"#9d94ea","kick":"#9d94ea","txt":"#eef1f8","muted":"#a4b1cd","on":"#0d1320"},"cpts":{"code":"CPTS","name":"Certified Penetration Testing Specialist","acc":"#a34ff2","kick":"#a34ff2","txt":"#e8edf6","muted":"#acbbd7","on":"#fff"},"cwee":{"code":"CWEE","name":"Certified Web Exploitation Expert","acc":"#fcc000","kick":"#fcc000","txt":"#eef1f8","muted":"#a8b4c6","on":"#0d1320"},"cwes":{"code":"CWES","name":"Certified Web Exploitation Specialist","acc":"#ed635e","kick":"#ed635e","txt":"#eef1f8","muted":"#a4b1cd","on":"#fff"},"cwpe":{"code":"CWPE","name":"Certified Wi-Fi Pentesting Expert","acc":"#f05a1e","kick":"#f05a1e","txt":"#eef1f8","muted":"#a4b1cd","on":"#fff"}};
-  const SITE = "https://cnmoseman.github.io/htb-study-trackers/", VER = "";
+  const CERTS = {"cape":{"code":"CAPE","name":"Certified Active Directory Pentesting Expert","acc":"#e436b4","txt":"#eef1f8","muted":"#a8b4c6","on":"#fff"},"cdep":{"code":"CDEP","name":"Certified Detection Engineering Principal","acc":"#00eafc","txt":"#eef1f8","muted":"#a2aecc","on":"#0d1320"},"cdsa":{"code":"CDSA","name":"Certified Defensive Security Analyst","acc":"#00eafc","txt":"#eef1f8","muted":"#a8bad8","on":"#0d1320"},"cjca":{"code":"CJCA","name":"Certified Junior Cybersecurity Associate","acc":"#2f95ff","txt":"#f4f4f4","muted":"#b6bfcf","on":"#fff"},"coae":{"code":"COAE","name":"Certified Offensive AI Expert","acc":"#9d94ea","txt":"#eef1f8","muted":"#a4b1cd","on":"#0d1320"},"cpts":{"code":"CPTS","name":"Certified Penetration Testing Specialist","acc":"#a34ff2","txt":"#e8edf6","muted":"#acbbd7","on":"#fff"},"cwee":{"code":"CWEE","name":"Certified Web Exploitation Expert","acc":"#fcc000","txt":"#eef1f8","muted":"#a8b4c6","on":"#0d1320"},"cwes":{"code":"CWES","name":"Certified Web Exploitation Specialist","acc":"#ed635e","txt":"#eef1f8","muted":"#a4b1cd","on":"#fff"},"cwpe":{"code":"CWPE","name":"Certified Wi-Fi Pentesting Expert","acc":"#f05a1e","txt":"#eef1f8","muted":"#a4b1cd","on":"#fff"}};
+  const SITE = "https://cnmoseman.github.io/htb-study-trackers/", VER = "-v2";
   const ROOT = document.currentScript && document.currentScript.src ? new URL("../../", document.currentScript.src).href : SITE;
   const FONTS_CSS = "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Mono:wght@500;700&family=Saira:wght@500&display=swap";
   const W = 1200, H = 630, X = 64;
@@ -34,16 +34,15 @@
     ctx.drawImage(bg, 0, 0, W, H);
     const meta = [d.name && d.name.trim(), fmtDate(d.date), d.days > 0 && d.days + (d.days == 1 ? " day" : " days") + " of study"].filter(Boolean);
     // baselines relative to the block top; block is centred in the space above the URL
-    const h = meta.length ? 300 : 266, T = Math.round((534 - h) / 2);
+    const h = meta.length ? 268 : 234, T = Math.round((534 - h) / 2) - 32;
     ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
-    spaced(ctx, 3.6); ctx.font = "700 20px 'IBM Plex Mono'"; ctx.fillStyle = k.kick;
-    ctx.fillText("HTB " + k.code, X, T + 15);
     spaced(ctx, -1); ctx.font = "700 112px 'Chakra Petch'"; ctx.fillStyle = "#fff";
     ctx.fillText("I PASSED", X, T + 112);
     ctx.fillStyle = k.acc; ctx.shadowColor = k.acc + "88"; ctx.shadowBlur = 40;
     ctx.fillText(k.code, X, T + 215); ctx.shadowBlur = 0; ctx.fillText(k.code, X, T + 215);
-    spaced(ctx, 0); ctx.fillStyle = k.txt; fit(ctx, k.name, "500 @ Saira", 25, 18, 560);
-    ctx.fillText(k.name, X, T + 264);
+    const full = "HTB " + k.name;
+    spaced(ctx, 0); ctx.fillStyle = k.txt; fit(ctx, full, "500 @ Saira", 25, 18, 600);
+    ctx.fillText(full, X, T + 264);
     if (meta.length) {
       ctx.fillStyle = k.muted; let line = meta.join(" · ");
       fit(ctx, line, "500 @ 'IBM Plex Mono'", 19, 14, 560);
