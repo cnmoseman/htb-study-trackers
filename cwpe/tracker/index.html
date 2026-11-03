@@ -664,17 +664,17 @@
   <!-- Resources -->
   <div id="tab-resources" class="hidden">
   <div class="panel">
-    <div class="big">52 <small>Links &middot; 10 Sections &middot; 11 Tips</small></div>
+    <div class="big">53 <small>Links &middot; 10 Sections &middot; 21 Tips</small></div>
     <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cwpe/resources/" target="_blank" rel="noopener">CWPE Resources</a>. HTB Academy's path is all you need to pass the CWPE. These help you study it, compare notes with people who passed, and get the report right.</p>
   </div>
   <div class="ltabs" role="tablist">
     <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
-    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>52</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>53</b></button>
   </div>
   <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CWPE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
   <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
     <div class="tb">
-      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 52 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 53 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
       <div class="seg" id="kf" role="group" aria-label="Type"></div>
       <span class="sp"></span>
       <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
@@ -711,11 +711,11 @@
 
       <h3>Top tips to prepare</h3>
       <ul>
-        <li><strong>Finish the path first.</strong> The exam unlocks only after 100% of the Wi-Fi Penetration Tester path, so complete every module before you book. (JXoaT, HTB)</li>
-        <li><strong>Practice full attack chains.</strong> Rehearse a corporate Wi-Fi engagement end to end, from recon to domain compromise, like the last module. (JXoaT, HTB)</li>
-        <li><strong>Stay in scope and document.</strong> Read the letter of engagement, and write up each finding with remediation in the template as you go. (JXoaT, HTB)</li>
-        <li><strong>Get fluent with the tooling.</strong> Be quick with aircrack-ng capture, and with eaphammer and wifipumpkin3 for WPA-Enterprise and evil-twin attacks. (JXoaT, V0lk3n)</li>
-        <li><strong>Know the protocols cold.</strong> Study how WEP, WPA, WPA2, and WPA3 differ, since the path attacks all four. (armourinfosec)</li>
+        <li><strong>Go through the path twice.</strong> The exam unlocks after 100% of the path, but finishing isn't the same as understanding. Do it once to complete it and again to really learn it. (InfoSec Pat, JXoaT)</li>
+        <li><strong>Read the rules of engagement.</strong> Missing something there is why InfoSec Pat failed his first attempt. Stay in scope, and write up each finding with remediation in the template as you go. (InfoSec Pat, JXoaT)</li>
+        <li><strong>Slow down and pick tools last.</strong> Identify the technology in use and what you're trying to accomplish, then choose a technique. InfoSec Pat calls methodology his biggest lesson. (InfoSec Pat)</li>
+        <li><strong>Practice full attack chains.</strong> Rehearse a corporate Wi-Fi engagement end to end, from recon through the wireless network to domain compromise, like the last module. (JXoaT, InfoSec Pat)</li>
+        <li><strong>Know the protocols and the tooling.</strong> Study how WEP, WPA, WPA2, and WPA3 differ, and be quick with aircrack-ng capture and with eaphammer and wifipumpkin3 for WPA-Enterprise and evil-twin attacks. (InfoSec Pat, armourinfosec, JXoaT, V0lk3n)</li>
       </ul>
       <p>The full list of tips is at the bottom of the <strong>Resources</strong> tab.</p>
 
@@ -728,7 +728,7 @@
         <li>All progress is saved in your browser. Use <strong>Export backup</strong> regularly to keep a copy.</li>
       </ul>
 
-      <div class="callout">CWPE launched in 2026, so there are no exam-taker write-ups yet. Lean on the last module, Attacking Corporate Wi-Fi Networks, which runs a full engagement end to end, and practice the report in the provided template before you book.</div>
+      <div class="callout">CWPE launched in 2026, so exam-taker reviews are still rare. Lean on the last module, Attacking Corporate Wi-Fi Networks, which runs a full engagement end to end, and practice the report in the provided template before you book.</div>
 
       <p style="font-size:12px;color:var(--faint);margin-top:14px">This is an independent study aid and is not affiliated with or endorsed by Hack The Box. Always confirm current module counts, exam format, and pricing on the official HTB Academy site.</p>
       <p style="font-size:12px;color:var(--faint);margin-top:6px">Built on and inspired by mattrfield's <a href="https://github.com/mattrfield/coae-study-tracker">coae-study-tracker</a>.</p>
@@ -2106,7 +2106,7 @@ const RESOURCES = [
   },
   {
     "cat": "Video Series & Reviews",
-    "note": "Watch this before you start to set expectations. It reviews the Wi-Fi Pentesting path that preps for CWPE.",
+    "note": "Watch these before you start to set expectations for the Wi-Fi Pentesting path and the CWPE exam.",
     "items": [
       {
         "n": "WiFi Penetration Testing Training That's Actually Worth It (HaxrByte)",
@@ -2114,12 +2114,19 @@ const RESOURCES = [
         "note": "First-hand review of HTB's Wi-Fi Pentesting path and the CWPE exam",
         "k": "Video",
         "d": "youtube.com"
+      },
+      {
+        "n": "How To Pass The Hack The Box CWPE Exam (InfoSec Pat)",
+        "u": "https://www.youtube.com/watch?v=4-Xlki7Noqg",
+        "note": "22-minute pass review: why he failed his first attempt, his methodology, and how to prepare",
+        "k": "Video",
+        "d": "youtube.com"
       }
     ]
   },
   {
     "cat": "News & Overviews",
-    "note": "CWPE launched in 2026, so there are no exam-taker write-ups yet. These are HTB's own overviews.",
+    "note": "These are HTB's own overviews of the cert.",
     "items": [
       {
         "n": "Bring your attack surface to the air: HTB CWPE (HTB blog)",
@@ -2393,9 +2400,49 @@ const RESOURCES = [
   },
   {
     "cat": "Study & Prep Tips",
-    "note": "CWPE is new, so these come from HTB's official guidance and wireless-pentest references, not exam-takers.",
+    "note": "CWPE is new, so exam-taker tips are still rare. InfoSec Pat's come from passing the exam. The rest come from HTB's official guidance, a path review and wireless-pentest references.",
     "layout": "tips",
     "items": [
+      {
+        "n": "Go through the path twice: the first time to do it, the second to really understand it",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Don't book the exam just because you finished the path, since completing a module isn't the same as understanding it",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Read the rules of engagement closely, because missing something there cost him his first attempt",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Slow down and identify the technology in use before you pick a tool",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Follow one method: scope, enumerate networks, identify authentication, map attack paths, then validate a technique",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Document evidence and business impact as you go, then finish with a professional report",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Keep a notebook organized by topic, tool, command, attack path and remediation, since you'll need it for the report",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Know the four-way handshake, why password attacks work on WPA and WPA2, and how WPA3 changes that",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Understand 802.1X, EAP, RADIUS and certificate-based authentication for corporate Wi-Fi",
+        "note": "InfoSec Pat"
+      },
+      {
+        "n": "Practice the path from the wireless network into the internal network",
+        "note": "InfoSec Pat"
+      },
       {
         "n": "Finish the full Wi-Fi Penetration Tester path before booking",
         "note": "JXoaT"
@@ -2482,9 +2529,9 @@ const RES_FAV = [
   },
   {
     "slot": "Video",
-    "n": "WiFi Penetration Testing Training That's Actually Worth It (HaxrByte)",
-    "u": "https://www.youtube.com/watch?v=uaQFFFh6Y6A",
-    "note": "First-hand review of HTB's Wi-Fi Pentesting path and the CWPE exam",
+    "n": "How To Pass The Hack The Box CWPE Exam (InfoSec Pat)",
+    "u": "https://www.youtube.com/watch?v=4-Xlki7Noqg",
+    "note": "22-minute pass review: why he failed his first attempt, his methodology, and how to prepare",
     "k": "Video",
     "d": "youtube.com",
     "sec": "Video Series & Reviews"
