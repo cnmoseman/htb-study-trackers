@@ -90,6 +90,11 @@
   .ring-box .btn{margin-top:4px}
 
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .finish{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:4px 14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+  .finish .k{font:500 11px/1 "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .finish .d{font:800 24px/1.1 "Chakra Petch",sans-serif;letter-spacing:-.01em;color:var(--green)}
+  .finish .m{font-size:12.5px;color:var(--muted);margin-left:auto}
+  @media(max-width:760px){.finish .k{flex-basis:100%}.finish .m{margin-left:0;flex-basis:100%}}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
   .stat .num{font-size:22px;font-weight:800;line-height:1.1}
   .stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
@@ -620,6 +625,7 @@
     </div>
     <div>
       <div class="stats">
+        <div class="finish"><span class="k">Estimated Finish</span><span class="d" id="finDate"></span><span class="m" id="finMeta"></span></div>
         <div class="stat"><div class="num" id="sDays">0</div><div class="lbl">Days Done</div><div class="meta" id="sDaysMeta">of 25</div></div>
         <div class="stat"><div class="num" id="sStreak">0</div><div class="lbl">Best Streak</div><div class="meta">days in a row</div></div>
         <div class="stat"><div class="num" id="sToday">—</div><div class="lbl">Today Is</div><div class="meta" id="sTodayMeta">not started</div></div>
@@ -2988,7 +2994,28 @@ function overallPct(st){
 }
 
 /* ---------- Render: dashboard ---------- */
+/* Finish date from real progress: remaining days counted from today */
+function renderFinish(){
+  const dEl = document.getElementById("finDate"), mEl = document.getElementById("finMeta");
+  const N = DAYS.length, cd = currentPlanDay(), rem = DAYS.filter(d=>!dayDone(d)).length;
+  const full = dt => fmtDate(dt)+", "+dt.getFullYear();
+  if(!rem){ dEl.textContent = "Finished"; mEl.textContent = "All "+N+" days done"; return; }
+  if(!parseStart()){ dEl.textContent = "Not set"; mEl.textContent = "Set a start date"; return; }
+  const end = dateForDay(N);
+  if(cd<1){ dEl.textContent = full(end); mEl.textContent = "Starts "+fmtDate(dateForDay(1)); return; }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayDone = cd<=N && dayDone(DAYS[cd-1]);  // today's day finished, so the rest starts tomorrow
+  const left = (todayDone?1:0)+rem-1;
+  const dt = new Date(today.getTime()); dt.setDate(dt.getDate()+left);
+  end.setHours(0,0,0,0);
+  const diff = Math.round((dt-end)/86400000);
+  const days = n => n+(n===1?" day":" days");
+  dEl.textContent = full(dt);
+  mEl.textContent = (left?days(left)+" left":"Last day")+" · "+(diff>0?days(diff)+" after plan":diff<0?days(-diff)+" before plan":"on plan");
+}
+
 function renderDashboard(){
+  renderFinish();
   const st = computeStats();
   const N = DAYS.length;
   const pct = overallPct(st);
