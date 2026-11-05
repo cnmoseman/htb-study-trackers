@@ -664,17 +664,17 @@
   <!-- Resources -->
   <div id="tab-resources" class="hidden">
   <div class="panel">
-    <div class="big">123 <small>Links &middot; 9 Sections &middot; 38 Tips</small></div>
+    <div class="big">124 <small>Links &middot; 10 Sections &middot; 38 Tips</small></div>
     <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cpts/resources/" target="_blank" rel="noopener">CPTS Resources</a>. HTB Academy's path is all you need to pass the CPTS. These help you study it, compare notes with people who passed, and get the report right.</p>
   </div>
   <div class="ltabs" role="tablist">
     <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
-    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>123</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>124</b></button>
   </div>
   <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CPTS, one for each part of your prep. The ones from the tracker's list are starred in All Resources too.</p><div id="favs"></div></div>
   <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
     <div class="tb">
-      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 123 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 124 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
       <div class="seg" id="kf" role="group" aria-label="Type"></div>
       <span class="sp"></span>
       <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
@@ -4387,6 +4387,26 @@ const RESOURCES = [
     ]
   },
   {
+    "cat": "Extra Modules",
+    "note": "Not in the path, but worth adding for the AD part of the exam. Take them after Active Directory Enumeration & Attacks.",
+    "items": [
+      {
+        "n": "Using CrackMapExec",
+        "u": "https://academy.hackthebox.com/course/preview/using-crackmapexec",
+        "note": "27 sections · Medium · 500 cubes · The tool NetExec grew out of. BRM says to take it even though the path skips it",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
+      },
+      {
+        "n": "Active Directory PowerView",
+        "u": "https://academy.hackthebox.com/course/preview/active-directory-powerview",
+        "note": "9 sections · Medium · 500 cubes · Manual AD enumeration: users, groups, ACLs, GPOs and trusts, for when BloodHound isn't enough",
+        "k": "Official",
+        "d": "academy.hackthebox.com"
+      }
+    ]
+  },
+  {
     "cat": "Video Series & Reviews",
     "note": "Video series and exam debriefs to watch alongside the modules.",
     "items": [
@@ -5014,13 +5034,6 @@ const RESOURCES = [
         "note": "Methodology checklists (AD, privesc)",
         "k": "GitHub",
         "d": "github.com"
-      },
-      {
-        "n": "HTB Academy: Using CrackMapExec",
-        "u": "https://academy.hackthebox.com/module/details/84",
-        "note": "Optional paid module (500 cubes); a useful CrackMapExec deep-dive if you have spare cubes",
-        "k": "Official",
-        "d": "academy.hackthebox.com"
       },
       {
         "n": "imjustBuck/CPTS-Checklists",
