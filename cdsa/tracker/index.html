@@ -109,6 +109,8 @@
   .pace.ahead{color:var(--green);border-color:var(--green-dim);background:rgba(0,234,252,.09)}
   .pace.behind{color:var(--amber);border-color:var(--amber);background:rgba(255,180,84,.09)}
   .pace.on{color:var(--teal);border-color:var(--teal);background:rgba(46,230,200,.09)}
+  .pace.mv{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;padding:6px 8px 6px 12px}
+  .pace.mv .btn{padding:5px 10px;font-size:12.5px;white-space:nowrap}
 
   .chart-block{grid-column:1/-1;margin-top:4px}
   .chart-title{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
@@ -611,7 +613,7 @@
     </div>
     <div class="mf"><button type="button" class="btn" id="shPassed">I passed the exam</button><button class="btn" value="cancel">Close</button></div>
   </form></dialog>
-  <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo">Undo</button></div>
+  <div class="toast" id="toast" role="status"><span id="toastTxt"></span><button class="btn" id="toastUndo" disabled>Undo</button></div>
 
   <!-- Dashboard -->
   <div class="dash">
@@ -3456,8 +3458,7 @@ function load(){
     if(raw){ state = cleanState(JSON.parse(raw)); }
   }catch(e){ /* ignore */ }
   if(!state.startDate){
-    const t = new Date();
-    state.startDate = t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
+    state.startDate = ymd(new Date());
   }
   state.mode = MODES[state.mode] ? +state.mode : 30;
   /* ?days=N (from the cert picker): open on that timeline, unless there's already progress to keep */
@@ -3521,6 +3522,7 @@ function weekTheme(w){
 }
 function dayDone(d){ return d.tasks.length>0 && d.tasks.every(t=>state.done[t.id]); }
 
+function ymd(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
 function parseStart(){
   const p = (state.startDate||"").split("-");
   if(p.length!==3) return null;
@@ -3563,6 +3565,44 @@ function overallPct(st){
 }
 
 /* ---------- Render: dashboard ---------- */
+/* Where you really are: furthest tick before the first untouched module day (or untouched day after the modules).
+   Skipped practice days and forgotten boxes don't hold it back; stray ticks further on don't count */
+function nextDayIdx(){
+  const isMod = d => d.tasks.some(t=>MODS_DONE.taskMod[t.id]);
+  const touched = d => d.tasks.some(t=>state.done[t.id]);
+  const lastMod = DAYS.reduce((n,d)=>isMod(d) ? d.idx : n, 0);
+  const gap = DAYS.find(d=>!touched(d) && (isMod(d) || d.idx>lastMod));
+  const stop = gap ? gap.idx : DAYS.length+1;
+  let last = 0;
+  DAYS.forEach(d=>{ if(d.idx<stop && touched(d)) last = d.idx; });
+  if(!last) return 1;
+  return dayDone(DAYS[last-1]) ? last+1 : last;
+}
+/* One toast for every action with an Undo */
+function hideToast(){
+  clearTimeout(hideToast.t);
+  document.getElementById("toast").classList.remove("on");
+  const u = document.getElementById("toastUndo"); u.onclick = null; u.disabled = true;
+}
+function showToast(text, onUndo){
+  const u = document.getElementById("toastUndo");
+  document.getElementById("toastTxt").textContent = text;
+  u.disabled = false;
+  u.onclick = ()=>{ onUndo(); hideToast(); };
+  document.getElementById("toast").classList.add("on");
+  clearTimeout(hideToast.t); hideToast.t = setTimeout(hideToast,8000);
+}
+/* Move the start date so the next day lands on today */
+function startNextToday(){
+  const prev = state.startDate, t = new Date();
+  t.setHours(0,0,0,0); t.setDate(t.getDate()-(nextDayIdx()-1));
+  const moved = state.startDate = ymd(t);
+  save(); renderAll();
+  showToast("Day "+nextDayIdx()+" now starts today.", ()=>{
+    if(state.startDate!==moved) return;  // date changed since: don't overwrite it
+    state.startDate = prev; save(); renderAll();
+  });
+}
 /* Finish date from real progress: remaining days counted from today */
 function renderFinish(){
   const dEl = document.getElementById("finDate"), mEl = document.getElementById("finMeta");
@@ -3573,8 +3613,11 @@ function renderFinish(){
   const end = dateForDay(N);
   if(cd<1){ dEl.textContent = full(end); mEl.textContent = "Starts "+fmtDate(dateForDay(1)); return; }
   const today = new Date(); today.setHours(0,0,0,0);
-  const todayDone = cd<=N && dayDone(DAYS[cd-1]);  // today's day finished, so the rest starts tomorrow
-  const left = (todayDone?1:0)+rem-1;
+  const next = nextDayIdx();
+  if(next>N){ dEl.textContent = "Finished"; mEl.textContent = rem+(rem===1?" earlier day":" earlier days")+" still open"; return; }
+  const togo = DAYS.filter(d=>d.idx>=next && !dayDone(d)).length;
+  const todayDone = next===cd+1;  // today's day finished, so the rest starts tomorrow
+  const left = (todayDone?1:0)+togo-1;
   const dt = new Date(today.getTime()); dt.setDate(dt.getDate()+left);
   end.setHours(0,0,0,0);
   const diff = Math.round((dt-end)/86400000);
@@ -3623,13 +3666,19 @@ function renderDashboard(){
     pace.textContent = "Your plan begins on "+fmtDate(dateForDay(1))+". Get your lab environment ready.";
   }else{
     const expected = Math.min(cd,N);
-    const delta = st.doneDays - expected;
+    const next = nextDayIdx();
+    const delta = next-1 - expected;
     if(delta>=2){ pace.classList.add("ahead");
-      pace.textContent = "Ahead of pace: "+st.doneDays+" days done vs. day "+expected+" expected. Nice work.";
+      pace.textContent = "Ahead of pace: day "+Math.min(next,N)+" vs. day "+expected+" expected. Nice work.";
     }else if(delta<=-3){ pace.classList.add("behind");
-      pace.textContent = "Behind pace: "+st.doneDays+" days done vs. day "+expected+" expected. Consider a catch-up day or extending your timeline.";
+      pace.textContent = "Behind pace: day "+next+" vs. day "+expected+" expected. Consider a catch-up day or extending your timeline.";
     }else{ pace.classList.add("on");
-      pace.textContent = "On pace: "+st.doneDays+" days done, around day "+expected+" of "+N+".";
+      pace.textContent = "On pace: day "+Math.min(next,N)+" of "+N+".";
+    }
+    if(next<=N && (delta>=2 || delta<=-3)){
+      const s = document.createElement("span"), mv = document.createElement("button");
+      s.textContent = pace.textContent; mv.className = "btn"; mv.textContent = "Start Next Day Today"; mv.onclick = startNextToday;
+      pace.textContent = ""; pace.classList.add("mv"); pace.append(s, mv);
     }
   }
 
@@ -3843,7 +3892,7 @@ document.querySelectorAll(".tab").forEach(tb=>{
 document.getElementById("startDate").addEventListener("change",e=>{
   if(!e.target.value){ e.target.value = state.startDate; return; }  // cleared: keep old date
   state.startDate = e.target.value;
-  save(); renderAll();
+  hideToast(); save(); renderAll();
 });
 document.querySelectorAll(".modebtn").forEach(btn=>{
   btn.addEventListener("click",()=>{
@@ -3901,6 +3950,7 @@ document.getElementById("importFile").addEventListener("change",e=>{
     if(obj.cert && obj.cert!=="cdsa" &&
        !confirm("This backup is from the "+String(obj.cert).toUpperCase()+" tracker, not CDSA. Import it anyway?")) return;
     state = cleanState(obj);
+    hideToast();
     if(typeof PB!=="undefined" && isObj(obj.practice)) PB.set(obj.practice);
     save(); init();
     alert("Backup imported successfully.");
@@ -3910,6 +3960,7 @@ document.getElementById("importFile").addEventListener("change",e=>{
 document.getElementById("resetBtn").addEventListener("click",()=>{
   if(confirm("Reset all progress"+(typeof PB!=="undefined" ? " (practice boxes too)" : "")+", notes, and start date? This cannot be undone. Consider exporting a backup first.")){
     state = {startDate:"",done:{},notes:{},mode:30,plan:""};
+    hideToast();
     try{ localStorage.removeItem(STORE_KEY); }catch(e){}
     if(typeof PB!=="undefined") PB.reset();
     init();
@@ -3924,7 +3975,7 @@ document.getElementById("planOk").addEventListener("click",()=>{
 /* another tab saved or reset: reload so this tab doesn't overwrite it */
 window.addEventListener("storage",e=>{
   if(e.key!==STORE_KEY && e.key!==null) return;
-  load(); renderAll();
+  hideToast(); load(); renderAll();
 });
 
 /* ---------- Init ---------- */
@@ -4019,19 +4070,15 @@ function backdropClose(dlg){
   const modFull = s => byMod[s].every(id => state.done[id]);
   const boxes = () => [...$("modsList").querySelectorAll("input:not(:disabled)")];
 
-  let undo = [];
   function mark(slugs){
-    undo = slugs.flatMap(s => byMod[s]).filter(id => !state.done[id]);
-    undo.forEach(id => state.done[id] = true);
+    const ids = slugs.flatMap(s => byMod[s]).filter(id => !state.done[id]);
+    ids.forEach(id => state.done[id] = true);
     save(); renderAll();
-    $("toastTxt").textContent = `Marked ${slugs.length} module${slugs.length === 1 ? "" : "s"} done (${undo.length} tasks).`;
-    $("toast").classList.add("on");
-    clearTimeout(mark.t); mark.t = setTimeout(() => $("toast").classList.remove("on"), 8000);
+    showToast(`Marked ${slugs.length} module${slugs.length === 1 ? "" : "s"} done (${ids.length} tasks).`, () => {
+      ids.forEach(id => delete state.done[id]);
+      save(); renderAll();
+    });
   }
-  $("toastUndo").onclick = () => {
-    undo.forEach(id => delete state.done[id]); undo = [];
-    save(); renderAll(); $("toast").classList.remove("on");
-  };
 
   function count(){
     const n = boxes().filter(b => b.checked).length;
