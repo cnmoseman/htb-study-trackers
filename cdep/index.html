@@ -61,7 +61,8 @@
   .primary:hover{filter:brightness(1.08);color:var(--ink)}
   .ghost{padding:12px 17px;border-radius:10px;border:1px solid var(--line);color:var(--muted);font:600 13px "IBM Plex Mono",monospace}
   .ghost:hover{border-color:var(--acc);color:var(--acc)}
-  .shot.art img{object-position:center}  /* practice thumbnail: centre-cropped */
+  .shot.art{display:flex;align-items:center}  /* art thumbs: fixed 4:3, never cropped, so icons match */
+  .shot.art img{position:static;width:100%;height:auto;aspect-ratio:4/3}
   .apps{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
   .apps span{display:inline-flex;gap:7px;align-items:center;font:600 12px "IBM Plex Mono",monospace;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:5px 10px}
   .apps svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
