@@ -672,17 +672,17 @@
   <!-- Resources -->
   <div id="tab-resources" class="hidden">
   <div class="panel">
-    <div class="big">68 <small>Links &middot; 10 Sections &middot; 22 Tips</small></div>
+    <div class="big">73 <small>Links &middot; 10 Sections &middot; 27 Tips</small></div>
     <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cwee/resources/" target="_blank" rel="noopener">CWEE Resources</a>. HTB Academy's path is all you need to pass the CWEE. These help you study it, compare notes with people who passed, and get the report right.</p>
   </div>
   <div class="ltabs" role="tablist">
     <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
-    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>68</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>73</b></button>
   </div>
   <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CWEE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
   <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
     <div class="tb">
-      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 68 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 73 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
       <div class="seg" id="kf" role="group" aria-label="Type"></div>
       <span class="sp"></span>
       <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
@@ -2877,6 +2877,13 @@ const RESOURCES = [
         "note": "Exam review; calls the exam a realistic simulation of a real engagement",
         "k": "Web",
         "d": "medium.com"
+      },
+      {
+        "n": "CWEE Review (xenon-2)",
+        "u": "https://xenon-2.gitbook.io/projects/certifications/cwee",
+        "note": "Failed the first attempt on the report, passed the retake; prep, exam and report advice",
+        "k": "Web",
+        "d": "xenon-2.gitbook.io"
       }
     ]
   },
@@ -3082,6 +3089,34 @@ const RESOURCES = [
         "note": "Code review cheat sheet: methodologies, dangerous functions, DB logging, debugging",
         "k": "GitHub",
         "d": "github.com"
+      },
+      {
+        "n": "bmdyy/chat.js",
+        "u": "https://github.com/bmdyy/chat.js",
+        "note": "Vulnerable Node.js app to practice NoSQL injection and deserialization, with exploits",
+        "k": "GitHub",
+        "d": "github.com"
+      },
+      {
+        "n": "bmdyy/testr",
+        "u": "https://github.com/bmdyy/testr",
+        "note": "Vulnerable Python app to practice XSS and code injection with filter bypasses",
+        "k": "GitHub",
+        "d": "github.com"
+      },
+      {
+        "n": "bmdyy/order",
+        "u": "https://github.com/bmdyy/order",
+        "note": "Small Flask and PostgreSQL app to practice blind SQL injection in ORDER BY",
+        "k": "GitHub",
+        "d": "github.com"
+      },
+      {
+        "n": "yeswehack/vulnerable-code-snippets",
+        "u": "https://github.com/yeswehack/vulnerable-code-snippets",
+        "note": "Dockerized vulnerable code snippets in many languages for code review practice",
+        "k": "GitHub",
+        "d": "github.com"
       }
     ]
   },
@@ -3177,6 +3212,26 @@ const RESOURCES = [
       {
         "n": "Don't rely on AI tools for exploitation, since they slow you down",
         "note": "Robert Lackey"
+      },
+      {
+        "n": "Write findings, not a walkthrough; don't reuse your CPTS or CAPE report structure",
+        "note": "xenon-2"
+      },
+      {
+        "n": "Use standard Markdown image syntax and check the report renders on both Linux and Windows",
+        "note": "xenon-2"
+      },
+      {
+        "n": "On source-code targets, work out how you would fix each bug as you go",
+        "note": "xenon-2"
+      },
+      {
+        "n": "When stuck, list what you already have and what the next step needs",
+        "note": "xenon-2"
+      },
+      {
+        "n": "Don't overcomplicate the exploit; the bug is usually simpler than it looks",
+        "note": "xenon-2"
       }
     ]
   }

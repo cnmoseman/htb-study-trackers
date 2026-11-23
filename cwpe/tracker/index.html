@@ -672,17 +672,17 @@
   <!-- Resources -->
   <div id="tab-resources" class="hidden">
   <div class="panel">
-    <div class="big">53 <small>Links &middot; 10 Sections &middot; 21 Tips</small></div>
+    <div class="big">59 <small>Links &middot; 10 Sections &middot; 21 Tips</small></div>
     <p class="note">Also on its own page: <a href="https://cnmoseman.github.io/htb-study-trackers/cwpe/resources/" target="_blank" rel="noopener">CWPE Resources</a>. HTB Academy's path is all you need to pass the CWPE. These help you study it, compare notes with people who passed, and get the report right.</p>
   </div>
   <div class="ltabs" role="tablist">
     <button role="tab" id="tab_fav" aria-controls="pane_fav">Favorites<b>5</b></button>
-    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>53</b></button>
+    <button role="tab" id="tab_all" aria-controls="pane_all">All Resources<b>59</b></button>
   </div>
   <div id="pane_fav" role="tabpanel" aria-labelledby="tab_fav" hidden><p class="favnote">My top picks for the CWPE, one for each part of your prep. They're starred in All Resources too.</p><div id="favs"></div></div>
   <div id="pane_all" role="tabpanel" aria-labelledby="tab_all" hidden>
     <div class="tb">
-      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 53 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
+      <div class="sw" id="sw"><input type="search" id="q" autocomplete="off" placeholder="Search 59 links" aria-label="Search links"><kbd>/</kbd><button id="clr" aria-label="Clear search">&times;</button></div>
       <div class="seg" id="kf" role="group" aria-label="Type"></div>
       <span class="sp"></span>
       <button class="btn" id="ex">Expand all</button><button class="btn" id="co">Collapse all</button>
@@ -2190,6 +2190,20 @@ const RESOURCES = [
         "note": "Structured Wi-Fi assessment methodology, from recon to retesting",
         "k": "Web",
         "d": "hacktricks.wiki"
+      },
+      {
+        "n": "WifiChallenge Lab CTF (Dennis Drebitca)",
+        "u": "https://chiefdennis.github.io/projects/wifi_challenge_lab",
+        "note": "Command-level write-up of 20 WiFiChallenge Lab challenges, from recon to WPA-Enterprise",
+        "k": "Web",
+        "d": "chiefdennis.github.io"
+      },
+      {
+        "n": "Attacking WPA Enterprise (Shuciran)",
+        "u": "https://shuciran.github.io/posts/Attacking-WPA-Enterprise",
+        "note": "Lab notes on rogue AP attacks against PEAP and EAP-TTLS with FreeRADIUS and hostapd-mana",
+        "k": "Web",
+        "d": "shuciran.github.io"
       }
     ]
   },
@@ -2217,6 +2231,13 @@ const RESOURCES = [
         "note": "Self-hosted or cloud report writing",
         "k": "GitHub",
         "d": "github.com"
+      },
+      {
+        "n": "SysReptor: HTB Reporting Guide",
+        "u": "https://docs.sysreptor.com/htb-reporting-with-sysreptor",
+        "note": "Setup guide for the free SysReptor cloud or self-hosted install with the HTB CWPE design",
+        "k": "Web",
+        "d": "docs.sysreptor.com"
       }
     ]
   },
@@ -2403,6 +2424,27 @@ const RESOURCES = [
         "note": "Write-up of a retired Medium HTB box that ends in a WPS and router pivot",
         "k": "Web",
         "d": "0xdf.gitlab.io"
+      },
+      {
+        "n": "HackTheBox - Wifinetic (IppSec)",
+        "u": "https://www.youtube.com/watch?v=jj4r5lwnCp8",
+        "note": "38-minute video walkthrough of the retired Easy box, ending in a Reaver WPS attack",
+        "k": "Video",
+        "d": "youtube.com"
+      },
+      {
+        "n": "HackTheBox - WifineticTwo (IppSec)",
+        "u": "https://www.youtube.com/watch?v=EDwHvZ6ujho",
+        "note": "34-minute video walkthrough: OneShot WPS attack, joining the Wi-Fi, then the router pivot",
+        "k": "Video",
+        "d": "youtube.com"
+      },
+      {
+        "n": "WiFiChallenge Lab",
+        "u": "https://lab.wifichallenge.com/",
+        "note": "Free account: 30+ challenges and a scoreboard for the virtual lab, 17 networks in scope",
+        "k": "Web",
+        "d": "lab.wifichallenge.com"
       }
     ]
   },
